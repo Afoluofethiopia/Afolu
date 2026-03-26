@@ -1,945 +1,1879 @@
 <!DOCTYPE html>
-<html lang="om">
+<html lang="en">
 <head>
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 <title>AFOLU Ethiopia</title>
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=Lora:ital,wght@0,400;0,600;1,400&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400;1,600&family=Outfit:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet"/>
 <style>
-/* ═══════════════════════════════════════════════
-   GLOBAL VARIABLES & RESET
-═══════════════════════════════════════════════ */
+/* ═══════════════════════════════════════
+   DESIGN SYSTEM
+═══════════════════════════════════════ */
 :root {
-  --forest-deep:  #0d2818;
-  --forest-dark:  #1b4332;
-  --forest-mid:   #2d6a4f;
-  --forest-light: #40916c;
-  --forest-pale:  #52b788;
-  --leaf-bright:  #74c69d;
-  --moss:         #95d5b2;
-  --mist:         #d8f3dc;
-  --parchment:    #f8f4e9;
-  --gold:         #c9a84c;
-  --smoke:        #5a5a4a;
-  /* OBA brand colors */
-  --oba-green:    #1a6b2a;
-  --oba-dark:     #0f4018;
-  --oba-mid:      #2e7d32;
-  --oba-light:    #4caf50;
-  --oba-yellow:   #f9a825;
-  --oba-red:      #c62828;
-  --oba-white:    #ffffff;
-  --oba-bg:       #f4f7f4;
-  --oba-text:     #1a2e1a;
-  --oba-subtext:  #4a5e4a;
+  --ink:        #0a1a0e;
+  --deep:       #0f2d18;
+  --dark:       #163820;
+  --forest:     #1e5630;
+  --mid:        #2a7042;
+  --bright:     #3a9057;
+  --pale:       #5db87a;
+  --mist:       #a8d9b8;
+  --fog:        #d4edde;
+  --snow:       #f2f9f5;
+  --white:      #ffffff;
+  --gold:       #c8963e;
+  --gold-light: #e8b86d;
+  --text-main:  #e8f5ec;
+  --text-soft:  rgba(232,245,236,0.65);
+  --text-dim:   rgba(232,245,236,0.38);
+  --accent:     #f0c35a;
+  --nav-h:      72px;
+  --radius-sm:  6px;
+  --radius-md:  14px;
+  --radius-lg:  24px;
+  --radius-xl:  40px;
 }
+
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-html { scroll-behavior: smooth; }
+html { scroll-behavior: smooth; font-size: 16px; }
+
 body {
-  font-family: 'Lora', Georgia, serif;
-  background: var(--forest-deep);
-  color: var(--parchment);
+  font-family: 'Outfit', sans-serif;
+  background: var(--ink);
+  color: var(--text-main);
   overflow-x: hidden;
+  line-height: 1.6;
 }
 
-/* ═══════════════════════════════════════════════
-   NOISE TEXTURE
-═══════════════════════════════════════════════ */
-body::before {
-  content: ''; position: fixed; inset: 0;
-  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
-  pointer-events: none; z-index: 9999; opacity: 0.35;
+/* Scrollbar */
+::-webkit-scrollbar { width: 4px; }
+::-webkit-scrollbar-track { background: var(--ink); }
+::-webkit-scrollbar-thumb { background: var(--mid); border-radius: 4px; }
+
+/* ═══════════════════════════════════════
+   ANIMATED BACKGROUND CANVAS
+═══════════════════════════════════════ */
+#bgCanvas {
+  position: fixed; inset: 0; z-index: 0;
+  pointer-events: none; opacity: 0.55;
 }
 
-/* ═══════════════════════════════════════════════
-   FLOATING LEAVES
-═══════════════════════════════════════════════ */
-.leaves-bg { position: fixed; inset: 0; pointer-events: none; overflow: hidden; z-index: 0; }
-.leaf {
-  position: absolute; width: 6px; height: 12px;
-  background: var(--forest-pale); border-radius: 50% 0 50% 0;
-  opacity: 0; animation: leaffall linear infinite;
-}
-@keyframes leaffall {
-  0%   { transform: translateY(-20px) rotate(0deg); opacity: 0; }
-  10%  { opacity: 0.15; }
-  90%  { opacity: 0.08; }
-  100% { transform: translateY(100vh) rotate(720deg); opacity: 0; }
-}
-
-/* ═══════════════════════════════════════════════
-   TOP-BAR  (contacts / socials strip)
-═══════════════════════════════════════════════ */
-.top-bar {
-  position: fixed; top: 0; left: 0; right: 0; z-index: 1100;
-  background: var(--oba-dark);
-  border-bottom: 2px solid var(--oba-yellow);
-  padding: 0.32rem 2.5rem;
-  display: flex; align-items: center; justify-content: space-between;
-  font-family: 'DM Mono', monospace; font-size: 0.63rem;
-  letter-spacing: 0.07em; color: rgba(255,255,255,0.75);
-}
-.top-bar-left { display: flex; align-items: center; gap: 1.4rem; }
-.top-bar-left span { display: flex; align-items: center; gap: 0.35rem; }
-.top-bar-left a { color: rgba(255,255,255,0.75); text-decoration: none; transition: color 0.2s; }
-.top-bar-left a:hover { color: var(--oba-yellow); }
-.top-bar-right { display: flex; align-items: center; gap: 0.9rem; }
-.top-bar-right a {
-  color: rgba(255,255,255,0.65); text-decoration: none; font-size: 0.72rem;
-  width: 22px; height: 22px; border-radius: 50%;
-  border: 1px solid rgba(255,255,255,0.2);
-  display: flex; align-items: center; justify-content: center;
-  transition: background 0.2s, color 0.2s, border-color 0.2s;
-}
-.top-bar-right a:hover { background: var(--oba-yellow); color: var(--oba-dark); border-color: var(--oba-yellow); }
-
-/* ═══════════════════════════════════════════════
-   MAIN NAV  (logo + primary links)
-═══════════════════════════════════════════════ */
-.main-nav {
-  position: fixed; top: 30px; left: 0; right: 0; z-index: 1050;
-  background: linear-gradient(135deg, var(--oba-dark) 0%, var(--oba-green) 100%);
-  box-shadow: 0 3px 20px rgba(0,0,0,0.45);
+/* ═══════════════════════════════════════
+   NAV
+═══════════════════════════════════════ */
+.nav-wrapper {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
   padding: 0 2.5rem;
+  height: var(--nav-h);
   display: flex; align-items: center; justify-content: space-between;
-  transition: top 0.3s ease;
+  transition: background 0.4s, backdrop-filter 0.4s, box-shadow 0.4s;
 }
-.main-nav.scrolled { top: 0; }
+.nav-wrapper.scrolled {
+  background: rgba(10,26,14,0.92);
+  backdrop-filter: blur(18px);
+  box-shadow: 0 1px 0 rgba(58,144,87,0.2), 0 8px 32px rgba(0,0,0,0.4);
+}
 
-/* Brand */
 .brand {
-  display: flex; align-items: center; gap: 0.7rem;
-  text-decoration: none; padding: 0.5rem 0;
-  flex-shrink: 0;
+  display: flex; align-items: center; gap: 0.85rem;
+  text-decoration: none; flex-shrink: 0;
 }
-.brand-logo {
-  width: 50px; height: 50px; border-radius: 50%;
-  object-fit: cover;
-  border: 2.5px solid var(--oba-yellow);
-  box-shadow: 0 0 12px rgba(249,168,37,0.45);
-  transition: transform 0.35s, box-shadow 0.35s;
+.brand-emblem {
+  width: 48px; height: 48px; border-radius: 50%;
+  border: 2px solid var(--gold);
+  overflow: hidden; flex-shrink: 0;
+  box-shadow: 0 0 0 4px rgba(200,150,62,0.15), 0 0 20px rgba(200,150,62,0.2);
+  transition: box-shadow 0.3s;
 }
-.brand:hover .brand-logo {
-  transform: scale(1.08) rotate(4deg);
-  box-shadow: 0 0 22px rgba(249,168,37,0.7);
-}
-.brand-info { display: flex; flex-direction: column; }
+.brand-emblem img { width: 100%; height: 100%; object-fit: cover; }
+.brand:hover .brand-emblem { box-shadow: 0 0 0 6px rgba(200,150,62,0.25), 0 0 32px rgba(200,150,62,0.35); }
+.brand-text { line-height: 1; }
 .brand-name {
-  font-family: 'Playfair Display', serif;
-  font-size: 1rem; font-weight: 700; color: var(--oba-white);
-  letter-spacing: 0.04em; line-height: 1.1;
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.15rem; font-weight: 700; color: var(--white);
+  letter-spacing: 0.05em;
 }
-.brand-tagline {
-  font-family: 'DM Mono', monospace;
-  font-size: 0.58rem; color: var(--oba-yellow);
-  letter-spacing: 0.1em; text-transform: uppercase; opacity: 0.9;
+.brand-sub {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.55rem; color: var(--gold); letter-spacing: 0.15em;
+  text-transform: uppercase; margin-top: 2px; opacity: 0.85;
 }
 
-/* Primary nav links */
-.primary-links {
-  display: flex; align-items: stretch;
-  list-style: none; height: 100%;
+.nav-links {
+  display: flex; align-items: center; gap: 0.25rem;
+  list-style: none;
 }
-.primary-links > li {
-  position: relative;
-}
-.primary-links > li > a {
-  font-family: 'DM Mono', monospace;
-  font-size: 0.68rem; letter-spacing: 0.08em; text-transform: uppercase;
-  color: rgba(255,255,255,0.88); text-decoration: none;
-  padding: 0 0.9rem;
-  display: flex; align-items: center;
-  height: 52px;
-  border-bottom: 3px solid transparent;
-  transition: color 0.2s, border-color 0.2s, background 0.2s;
+.nav-links > li { position: relative; }
+.nav-links > li > a {
+  font-family: 'Outfit', sans-serif;
+  font-size: 0.82rem; font-weight: 500;
+  letter-spacing: 0.03em;
+  color: var(--text-soft); text-decoration: none;
+  padding: 0.5rem 0.85rem;
+  border-radius: var(--radius-sm);
+  display: flex; align-items: center; gap: 0.3rem;
+  transition: color 0.2s, background 0.2s;
   white-space: nowrap;
 }
-.primary-links > li > a:hover,
-.primary-links > li > a.active {
-  color: var(--oba-yellow);
-  border-bottom-color: var(--oba-yellow);
-  background: rgba(255,255,255,0.06);
+.nav-links > li > a:hover, .nav-links > li > a.active {
+  color: var(--white); background: rgba(255,255,255,0.07);
 }
-/* dropdown arrow */
-.has-dropdown > a::after { content: ' ▾'; font-size: 0.55rem; opacity: 0.7; margin-left: 2px; }
+.nav-links > li > a.active { color: var(--gold); }
+.has-drop > a::after { content: ''; display: inline-block; width: 0; height: 0; border-left: 4px solid transparent; border-right: 4px solid transparent; border-top: 4px solid currentColor; opacity: 0.5; margin-left: 2px; transition: transform 0.2s; }
+.has-drop:hover > a::after { transform: rotate(180deg); }
 
-/* Dropdown panels */
-.dropdown-panel {
-  display: none;
-  position: absolute; top: 100%; left: 0;
-  min-width: 200px;
-  background: var(--oba-dark);
-  border-top: 3px solid var(--oba-yellow);
-  border-radius: 0 0 10px 10px;
-  box-shadow: 0 8px 32px rgba(0,0,0,0.55);
-  z-index: 300; overflow: hidden;
+/* Dropdown */
+.dropdown {
+  display: none; position: absolute; top: calc(100% + 8px); left: 50%;
+  transform: translateX(-50%);
+  min-width: 220px;
+  background: rgba(15,45,24,0.97);
+  backdrop-filter: blur(24px);
+  border: 1px solid rgba(58,144,87,0.25);
+  border-radius: var(--radius-md);
+  box-shadow: 0 16px 48px rgba(0,0,0,0.5);
+  overflow: hidden; padding: 0.4rem;
 }
-.has-dropdown:hover .dropdown-panel { display: block; }
-.dropdown-panel a {
-  display: block;
-  font-family: 'DM Mono', monospace; font-size: 0.64rem;
-  letter-spacing: 0.06em; text-transform: uppercase;
-  color: rgba(255,255,255,0.8); text-decoration: none;
-  padding: 0.62rem 1.1rem;
-  border-bottom: 1px solid rgba(255,255,255,0.07);
-  transition: background 0.15s, color 0.15s, padding-left 0.15s;
+.has-drop:hover .dropdown { display: block; animation: dropIn 0.18s ease; }
+@keyframes dropIn { from { opacity:0; transform:translateX(-50%) translateY(-6px); } to { opacity:1; transform:translateX(-50%) translateY(0); } }
+.dropdown a {
+  display: flex; align-items: center; gap: 0.6rem;
+  font-family: 'Outfit', sans-serif; font-size: 0.82rem;
+  color: var(--text-soft); text-decoration: none;
+  padding: 0.55rem 0.8rem; border-radius: var(--radius-sm);
+  transition: background 0.15s, color 0.15s;
 }
-.dropdown-panel a:last-child { border-bottom: none; }
-.dropdown-panel a:hover { background: var(--oba-mid); color: var(--oba-yellow); padding-left: 1.5rem; }
+.dropdown a:hover { background: rgba(58,144,87,0.18); color: var(--white); }
+.dropdown a .di { font-size: 0.95rem; width: 20px; text-align: center; }
 
-/* Hamburger */
-.hamburger {
-  display: none; flex-direction: column; gap: 5px;
-  background: none; border: none; cursor: pointer; padding: 4px;
+.nav-cta {
+  font-family: 'Outfit', sans-serif;
+  font-size: 0.82rem; font-weight: 600;
+  padding: 0.5rem 1.2rem;
+  background: linear-gradient(135deg, var(--mid), var(--forest));
+  border: 1px solid rgba(90,184,121,0.3);
+  border-radius: 100px;
+  color: var(--white); text-decoration: none;
+  transition: all 0.2s;
+  white-space: nowrap;
 }
-.hamburger span {
-  display: block; width: 22px; height: 2px;
-  background: var(--oba-white); border-radius: 2px;
-  transition: all 0.3s;
-}
+.nav-cta:hover { background: linear-gradient(135deg, var(--bright), var(--mid)); box-shadow: 0 0 20px rgba(58,144,87,0.35); }
+
+.hamburger { display: none; background: none; border: none; cursor: pointer; padding: 4px; flex-direction: column; gap: 5px; }
+.hamburger span { display: block; width: 22px; height: 2px; background: var(--mist); border-radius: 2px; transition: all 0.3s; }
 .hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
 .hamburger.open span:nth-child(2) { opacity: 0; }
 .hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
 
-/* ═══════════════════════════════════════════════
-   SUB-NAV  (page section links — OBA style)
-═══════════════════════════════════════════════ */
-.sub-nav {
-  position: fixed; top: 82px; left: 0; right: 0; z-index: 1000;
-  background: var(--oba-bg);
-  border-bottom: 1px solid rgba(26,107,42,0.18);
-  box-shadow: 0 2px 10px rgba(0,0,0,0.12);
-  padding: 0 2.5rem;
-  display: flex; align-items: center;
-  overflow-x: auto;
-  transition: top 0.3s ease;
-}
-.sub-nav.scrolled { top: 52px; }
-.sub-nav::-webkit-scrollbar { height: 0; }
-.sub-nav ul {
-  display: flex; list-style: none; gap: 0;
-  white-space: nowrap;
-}
-.sub-nav ul li a {
-  font-family: 'DM Mono', monospace;
-  font-size: 0.65rem; letter-spacing: 0.09em; text-transform: uppercase;
-  color: var(--oba-subtext); text-decoration: none;
-  padding: 0.72rem 1rem;
-  display: block;
-  border-bottom: 3px solid transparent;
-  transition: color 0.2s, border-color 0.2s;
-}
-.sub-nav ul li a:hover { color: var(--oba-green); border-bottom-color: var(--oba-green); }
-.sub-nav ul li a.active { color: var(--oba-green); border-bottom-color: var(--oba-yellow); font-weight: 600; }
-.sub-nav-divider { width: 1px; height: 20px; background: rgba(26,107,42,0.18); margin: auto 0.3rem; flex-shrink: 0; }
-
-/* Mobile nav */
-@media (max-width: 900px) {
+@media(max-width:1000px) {
   .hamburger { display: flex; }
-  .primary-links {
+  .nav-links {
     display: none; flex-direction: column; align-items: flex-start;
-    position: absolute; top: 100%; left: 0; right: 0;
-    background: var(--oba-dark);
-    padding: 0.8rem 1.5rem 1.2rem;
-    box-shadow: 0 8px 24px rgba(0,0,0,0.5);
-    height: auto;
+    position: fixed; top: var(--nav-h); left: 0; right: 0; bottom: 0;
+    background: rgba(10,26,14,0.98); backdrop-filter: blur(20px);
+    padding: 1.5rem 2rem; overflow-y: auto; gap: 0.1rem;
   }
-  .primary-links.open { display: flex; }
-  .primary-links > li { width: 100%; }
-  .primary-links > li > a { height: auto; padding: 0.55rem 0; border-bottom: 1px solid rgba(255,255,255,0.08); border-left: none; }
-  .dropdown-panel { position: static; box-shadow: none; border: none; background: rgba(255,255,255,0.05); border-radius: 6px; margin: 0.3rem 0 0.5rem 0.8rem; }
-  .has-dropdown:hover .dropdown-panel { display: none; }
-  .has-dropdown.open .dropdown-panel { display: block; }
-  .main-nav { padding: 0 1.2rem; }
-  .top-bar { padding: 0.32rem 1rem; }
-  .top-bar-left span:not(:first-child) { display: none; }
-  .sub-nav { padding: 0 1rem; top: 86px; }
-  .sub-nav.scrolled { top: 56px; }
-}
-@media (max-width: 480px) {
-  .brand-tagline { display: none; }
-  .brand-logo { width: 40px; height: 40px; }
+  .nav-links.open { display: flex; }
+  .nav-links > li { width: 100%; }
+  .nav-links > li > a { width: 100%; padding: 0.75rem 0.5rem; font-size: 1rem; border-bottom: 1px solid rgba(255,255,255,0.06); border-radius: 0; }
+  .dropdown { position: static; transform: none; background: rgba(255,255,255,0.04); border: none; box-shadow: none; display: none !important; }
+  .has-drop.open .dropdown { display: block !important; }
+  .nav-wrapper { padding: 0 1.25rem; }
 }
 
-/* ═══════════════════════════════════════════════
+/* ═══════════════════════════════════════
    HERO
-═══════════════════════════════════════════════ */
+═══════════════════════════════════════ */
 .hero {
   position: relative; min-height: 100vh;
   display: flex; flex-direction: column;
   align-items: center; justify-content: center;
-  text-align: center;
-  padding: 9rem 2rem 5rem;
-  overflow: hidden;
+  text-align: center; padding: 9rem 2rem 6rem;
+  overflow: hidden; z-index: 1;
 }
-.hero::before {
-  content: ''; position: absolute; inset: 0;
-  background:
-    radial-gradient(ellipse 80% 60% at 50% 40%, rgba(45,106,79,0.35) 0%, transparent 70%),
-    radial-gradient(ellipse 50% 80% at 20% 80%, rgba(27,67,50,0.5) 0%, transparent 60%),
-    radial-gradient(ellipse 40% 60% at 80% 20%, rgba(82,183,136,0.12) 0%, transparent 60%);
+
+.hero-tag {
+  display: inline-flex; align-items: center; gap: 0.5rem;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.7rem; letter-spacing: 0.2em; text-transform: uppercase;
+  color: var(--gold); background: rgba(200,150,62,0.1);
+  border: 1px solid rgba(200,150,62,0.3);
+  padding: 0.4rem 1.1rem; border-radius: 100px;
+  margin-bottom: 2rem;
+  opacity: 0; animation: riseIn 0.7s ease 0.3s forwards;
 }
-.hero-eyebrow {
-  font-family: 'DM Mono', monospace;
-  font-size: 0.72rem; letter-spacing: 0.25em; text-transform: uppercase;
-  color: var(--oba-yellow); margin-bottom: 1.4rem;
-  opacity: 0; animation: fadeUp 0.8s ease 0.2s forwards;
-  position: relative; z-index: 1;
-}
+.hero-tag::before { content: ''; width: 6px; height: 6px; border-radius: 50%; background: var(--gold); animation: pulse 2s ease infinite; }
+@keyframes pulse { 0%,100%{opacity:1;transform:scale(1)} 50%{opacity:0.4;transform:scale(0.7)} }
+
 .hero-title {
-  font-family: 'Playfair Display', serif;
-  font-size: clamp(2.8rem, 8vw, 7rem); font-weight: 900; line-height: 1;
-  color: var(--mist);
-  text-shadow: 0 4px 40px rgba(82,183,136,0.3);
-  opacity: 0; animation: fadeUp 0.9s ease 0.4s forwards;
-  position: relative; z-index: 1;
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(3.2rem, 9vw, 8rem);
+  font-weight: 700; line-height: 0.95;
+  color: var(--white); letter-spacing: -0.02em;
+  opacity: 0; animation: riseIn 0.9s ease 0.5s forwards;
+  position: relative;
 }
-.hero-title span { color: var(--leaf-bright); font-style: italic; }
-.hero-subtitle {
-  margin-top: 1.2rem;
-  font-family: 'Lora', serif; font-size: clamp(1rem, 2.5vw, 1.35rem);
-  font-style: italic; color: var(--moss); max-width: 640px;
-  opacity: 0; animation: fadeUp 0.9s ease 0.6s forwards;
-  position: relative; z-index: 1;
+.hero-title em {
+  font-style: italic; color: var(--pale);
+  text-shadow: 0 0 60px rgba(93,184,122,0.4);
 }
-.hero-author {
-  margin-top: 0.7rem;
-  font-family: 'DM Mono', monospace; font-size: 0.68rem;
-  letter-spacing: 0.1em; color: rgba(149,213,178,0.6);
-  opacity: 0; animation: fadeUp 0.9s ease 0.75s forwards;
-  position: relative; z-index: 1;
-}
-.hero-author a { color: var(--gold); text-decoration: none; }
-.hero-author a:hover { text-decoration: underline; }
-.hero-badge {
-  margin-top: 2rem;
-  display: inline-flex; align-items: center; gap: 0.6rem;
-  padding: 0.55rem 1.3rem;
-  border: 1px solid rgba(149,213,178,0.3); border-radius: 100px;
-  font-family: 'DM Mono', monospace; font-size: 0.68rem;
-  color: var(--moss); letter-spacing: 0.1em;
-  opacity: 0; animation: fadeUp 0.9s ease 0.9s forwards;
-  position: relative; z-index: 1;
-}
-.hero-badge::before { content: '🌿'; font-size: 1rem; }
-.hero-scroll {
-  position: absolute; bottom: 2.5rem; left: 50%;
-  transform: translateX(-50%);
-  display: flex; flex-direction: column; align-items: center; gap: 0.4rem;
-  font-family: 'DM Mono', monospace; font-size: 0.62rem;
-  color: var(--forest-pale); letter-spacing: 0.15em; text-transform: uppercase;
-  opacity: 0.6; animation: bounce 2s ease infinite; z-index: 1;
-}
-@keyframes bounce { 0%,100%{transform:translateX(-50%) translateY(0)} 50%{transform:translateX(-50%) translateY(8px)} }
-@keyframes fadeUp { from{opacity:0;transform:translateY(24px)} to{opacity:1;transform:translateY(0)} }
+.hero-title .line2 { display: block; }
 
-/* ═══════════════════════════════════════════════
-   MAIN CONTENT
-═══════════════════════════════════════════════ */
-main { position: relative; z-index: 1; }
+.hero-divider {
+  width: 60px; height: 2px;
+  background: linear-gradient(to right, transparent, var(--gold), transparent);
+  margin: 2rem auto;
+  opacity: 0; animation: riseIn 0.7s ease 0.75s forwards;
+}
 
-.section {
-  max-width: 1000px; margin: 0 auto; padding: 5rem 2rem;
-  opacity: 0; transform: translateY(32px);
-  transition: opacity 0.7s ease, transform 0.7s ease;
+.hero-sub {
+  font-family: 'Outfit', sans-serif;
+  font-size: clamp(1rem, 2.5vw, 1.2rem);
+  font-weight: 300; color: var(--text-soft);
+  max-width: 560px; line-height: 1.75;
+  opacity: 0; animation: riseIn 0.9s ease 0.9s forwards;
 }
-.section.visible { opacity: 1; transform: translateY(0); }
-.section-divider {
-  width: 100%; height: 1px;
-  background: linear-gradient(to right, transparent, var(--forest-mid), transparent);
-}
-.section-number {
-  font-family: 'DM Mono', monospace; font-size: 0.7rem;
-  color: var(--gold); letter-spacing: 0.2em; text-transform: uppercase; margin-bottom: 0.6rem;
-}
-h2.section-title {
-  font-family: 'Playfair Display', serif;
-  font-size: clamp(1.8rem, 4vw, 2.8rem); font-weight: 700; color: var(--mist);
-  line-height: 1.15; margin-bottom: 1.8rem;
-  border-left: 4px solid var(--forest-pale); padding-left: 1rem;
-}
-h3.sub-title {
-  font-family: 'Playfair Display', serif;
-  font-size: 1.2rem; font-weight: 600;
-  color: var(--leaf-bright); margin: 2rem 0 0.8rem;
-}
-p {
-  font-family: 'Lora', serif; font-size: 1.05rem; line-height: 1.85;
-  color: rgba(248,244,233,0.85); margin-bottom: 1.1rem; text-align: justify;
-}
-.highlight {
-  background: linear-gradient(135deg, rgba(45,106,79,0.25), rgba(27,67,50,0.15));
-  border-left: 4px solid var(--forest-pale);
-  border-radius: 0 12px 12px 0;
-  padding: 1.2rem 1.5rem; margin: 1.8rem 0;
-  font-style: italic; color: var(--mist);
-  font-family: 'Lora', serif; font-size: 1.02rem; line-height: 1.7;
-}
-.quote {
-  margin: 2rem 0; padding: 1.5rem 2rem;
-  border: 1px solid rgba(149,213,178,0.2); border-left: 4px solid var(--gold);
-  border-radius: 0 12px 12px 0; background: rgba(13,40,24,0.5); position: relative;
-}
-.quote::before {
-  content: '\201C'; font-family: 'Playfair Display', serif;
-  font-size: 5rem; color: var(--forest-mid);
-  position: absolute; top: -1rem; left: 1rem; line-height: 1;
-}
-.quote p { color: var(--moss); font-style: italic; padding-left: 1rem; margin-bottom: 0.4rem; text-align: left; }
-.quote cite {
-  font-family: 'DM Mono', monospace; font-size: 0.72rem; color: var(--smoke);
-  letter-spacing: 0.1em; padding-left: 1rem; display: block; margin-top: 0.5rem;
-}
-ul.forest-list, ol.forest-list { list-style: none; padding: 0; margin: 1rem 0 1.4rem; }
-ul.forest-list li, ol.forest-list li {
-  font-family: 'Lora', serif; font-size: 1rem; line-height: 1.7;
-  color: rgba(248,244,233,0.82); padding: 0.45rem 0 0.45rem 1.8rem;
-  position: relative; border-bottom: 1px solid rgba(82,183,136,0.08);
-}
-ul.forest-list li::before { content: '◆'; position: absolute; left: 0; color: var(--forest-pale); font-size: 0.55rem; top: 0.65rem; }
-ol.forest-list { counter-reset: item; }
-ol.forest-list li { counter-increment: item; }
-ol.forest-list li::before { content: counter(item) '.'; position: absolute; left: 0; color: var(--gold); font-family: 'DM Mono', monospace; font-size: 0.78rem; top: 0.55rem; }
-.table-wrap { overflow-x: auto; margin: 1.5rem 0; border-radius: 12px; }
-table { width: 100%; border-collapse: collapse; font-family: 'Lora', serif; font-size: 0.9rem; }
-thead tr { background: linear-gradient(135deg, var(--forest-dark), var(--forest-mid)); }
-thead th { color: var(--mist); font-weight: 600; padding: 0.85rem 0.9rem; text-align: left; border-bottom: 2px solid var(--forest-pale); font-family: 'DM Mono', monospace; font-size: 0.68rem; letter-spacing: 0.06em; text-transform: uppercase; }
-tbody tr:nth-child(odd)  { background: rgba(27,67,50,0.25); }
-tbody tr:nth-child(even) { background: rgba(13,40,24,0.35); }
-tbody tr:hover { background: rgba(82,183,136,0.12); }
-tbody td { padding: 0.7rem 0.9rem; color: rgba(248,244,233,0.82); border-bottom: 1px solid rgba(82,183,136,0.1); vertical-align: top; }
-tbody th { background: rgba(45,106,79,0.35); color: var(--mist); padding: 0.7rem 0.9rem; }
-td strong { color: var(--leaf-bright); }
-.quiz-block {
-  background: rgba(13,40,24,0.6); border: 1px solid rgba(82,183,136,0.18);
-  border-radius: 16px; padding: 1.5rem 1.8rem; margin: 1.2rem 0; transition: border-color 0.3s;
-}
-.quiz-block:hover { border-color: rgba(82,183,136,0.4); }
-.quiz-q { font-family: 'Lora', serif; font-weight: 600; font-size: 1rem; color: var(--mist); margin-bottom: 0.9rem; }
-.quiz-options { list-style: none; margin-bottom: 0.8rem; }
-.quiz-options li { font-family: 'Lora', serif; font-size: 0.95rem; color: rgba(248,244,233,0.75); padding: 0.3rem 0 0.3rem 1.4rem; position: relative; cursor: pointer; transition: color 0.2s; }
-.quiz-options li::before { content: '○'; position: absolute; left: 0; color: var(--forest-pale); }
-.quiz-options li:hover { color: var(--leaf-bright); }
-.quiz-answer { display: none; font-family: 'DM Mono', monospace; font-size: 0.8rem; color: var(--leaf-bright); background: rgba(45,106,79,0.25); border-left: 3px solid var(--forest-pale); padding: 0.5rem 0.9rem; border-radius: 0 8px 8px 0; margin-top: 0.5rem; }
-.quiz-answer.show { display: block; }
-.quiz-btn { font-family: 'DM Mono', monospace; font-size: 0.72rem; letter-spacing: 0.1em; text-transform: uppercase; background: none; border: 1px solid rgba(82,183,136,0.35); color: var(--moss); padding: 0.4rem 1rem; border-radius: 100px; cursor: pointer; transition: all 0.2s; }
-.quiz-btn:hover { background: rgba(82,183,136,0.1); color: var(--leaf-bright); border-color: var(--forest-pale); }
-.story-section { background: linear-gradient(135deg, rgba(27,67,50,0.3), rgba(13,40,24,0.5)); border: 1px solid rgba(149,213,178,0.15); border-radius: 20px; padding: 2.5rem; margin: 1.5rem 0; position: relative; overflow: hidden; }
-.story-section::before { content: '🌳'; position: absolute; right: 1.5rem; top: 1rem; font-size: 4rem; opacity: 0.08; }
-.story-section p { font-style: italic; color: rgba(248,244,233,0.88); text-align: left; }
-.story-section .dialogue { border-left: 3px solid var(--gold); padding-left: 1.2rem; margin: 1rem 0; font-style: italic; color: var(--moss); }
-.glossary-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 0.9rem; margin: 1.5rem 0; }
-.glossary-card { background: rgba(27,67,50,0.22); border: 1px solid rgba(82,183,136,0.15); border-radius: 12px; padding: 1rem 1.2rem; transition: border-color 0.25s, background 0.25s; }
-.glossary-card:hover { background: rgba(45,106,79,0.25); border-color: rgba(82,183,136,0.4); }
-.glossary-card .oromo { font-family: 'Playfair Display', serif; font-weight: 700; font-size: 1rem; color: var(--leaf-bright); }
-.glossary-card .english { font-family: 'DM Mono', monospace; font-size: 0.7rem; color: var(--gold); letter-spacing: 0.05em; margin: 0.2rem 0; }
-.glossary-card .meaning { font-size: 0.86rem; color: rgba(248,244,233,0.7); line-height: 1.5; }
-.stats-row { display: grid; grid-template-columns: repeat(auto-fill, minmax(148px, 1fr)); gap: 0.9rem; margin: 1.5rem 0; }
-.stat-card { background: linear-gradient(135deg, rgba(45,106,79,0.2), rgba(27,67,50,0.3)); border: 1px solid rgba(82,183,136,0.2); border-radius: 14px; padding: 1.2rem; text-align: center; transition: transform 0.2s, border-color 0.2s; }
-.stat-card:hover { transform: translateY(-3px); border-color: rgba(82,183,136,0.45); }
-.stat-num { font-family: 'Playfair Display', serif; font-size: 1.85rem; font-weight: 900; color: var(--leaf-bright); line-height: 1; }
-.stat-label { font-family: 'DM Mono', monospace; font-size: 0.61rem; color: var(--moss); letter-spacing: 0.07em; text-transform: uppercase; margin-top: 0.45rem; }
 
-/* ═══════════════════════════════════════════════
+.hero-actions {
+  display: flex; align-items: center; gap: 1rem; flex-wrap: wrap;
+  justify-content: center; margin-top: 2.5rem;
+  opacity: 0; animation: riseIn 0.9s ease 1.1s forwards;
+}
+.btn-primary {
+  font-family: 'Outfit', sans-serif;
+  font-size: 0.9rem; font-weight: 600;
+  padding: 0.85rem 2rem; border-radius: 100px;
+  background: linear-gradient(135deg, var(--bright) 0%, var(--mid) 100%);
+  color: var(--white); text-decoration: none; border: none; cursor: pointer;
+  box-shadow: 0 4px 24px rgba(58,144,87,0.4);
+  transition: all 0.25s; display: inline-flex; align-items: center; gap: 0.5rem;
+}
+.btn-primary:hover { transform: translateY(-2px); box-shadow: 0 8px 36px rgba(58,144,87,0.55); }
+.btn-secondary {
+  font-family: 'Outfit', sans-serif;
+  font-size: 0.9rem; font-weight: 500;
+  padding: 0.85rem 2rem; border-radius: 100px;
+  background: transparent;
+  color: var(--mist); text-decoration: none;
+  border: 1px solid rgba(168,217,184,0.3);
+  transition: all 0.25s; display: inline-flex; align-items: center; gap: 0.5rem;
+}
+.btn-secondary:hover { background: rgba(168,217,184,0.08); border-color: rgba(168,217,184,0.55); color: var(--white); }
+
+.hero-stats {
+  display: flex; align-items: center; gap: 2.5rem; flex-wrap: wrap;
+  justify-content: center; margin-top: 4rem;
+  padding: 1.5rem 2.5rem;
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(58,144,87,0.2);
+  border-radius: var(--radius-lg);
+  backdrop-filter: blur(8px);
+  opacity: 0; animation: riseIn 0.9s ease 1.3s forwards;
+}
+.hero-stat { text-align: center; }
+.hero-stat-num {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 2.1rem; font-weight: 700; color: var(--pale);
+  line-height: 1;
+}
+.hero-stat-label {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.6rem; letter-spacing: 0.12em; text-transform: uppercase;
+  color: var(--text-dim); margin-top: 0.3rem;
+}
+.hero-stat-sep { width: 1px; height: 40px; background: rgba(255,255,255,0.1); }
+
+.scroll-hint {
+  position: absolute; bottom: 2.5rem; left: 50%; transform: translateX(-50%);
+  display: flex; flex-direction: column; align-items: center; gap: 0.6rem;
+  opacity: 0; animation: riseIn 0.8s ease 1.6s forwards;
+}
+.scroll-line { width: 1px; height: 40px; background: linear-gradient(to bottom, rgba(93,184,122,0.6), transparent); animation: scrollAnim 2s ease infinite; }
+@keyframes scrollAnim { 0%{transform:scaleY(0);transform-origin:top} 50%{transform:scaleY(1);transform-origin:top} 51%{transform-origin:bottom} 100%{transform:scaleY(0);transform-origin:bottom} }
+.scroll-text { font-family: 'JetBrains Mono', monospace; font-size: 0.58rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--text-dim); }
+
+@keyframes riseIn { from{opacity:0;transform:translateY(28px)} to{opacity:1;transform:translateY(0)} }
+
+/* ═══════════════════════════════════════
+   SECTION SHARED
+═══════════════════════════════════════ */
+section { position: relative; z-index: 1; }
+.container { max-width: 1140px; margin: 0 auto; padding: 0 2rem; }
+.section-pad { padding: 7rem 0; }
+.section-pad-sm { padding: 5rem 0; }
+
+.eyebrow {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.68rem; letter-spacing: 0.22em; text-transform: uppercase;
+  color: var(--gold); margin-bottom: 0.8rem;
+  display: flex; align-items: center; gap: 0.7rem;
+}
+.eyebrow::before { content: ''; display: block; width: 28px; height: 1px; background: var(--gold); }
+
+.section-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(2rem, 5vw, 3.2rem);
+  font-weight: 700; line-height: 1.1;
+  color: var(--white); letter-spacing: -0.01em;
+}
+.section-title em { font-style: italic; color: var(--pale); }
+
+.body-text {
+  font-family: 'Outfit', sans-serif;
+  font-size: 1rem; font-weight: 300; line-height: 1.8;
+  color: var(--text-soft);
+}
+
+/* ═══════════════════════════════════════
+   ABOUT STRIP
+═══════════════════════════════════════ */
+.about-section { background: linear-gradient(180deg, var(--ink) 0%, var(--deep) 100%); }
+.about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: center; }
+.about-visual {
+  position: relative; border-radius: var(--radius-lg);
+  overflow: hidden; aspect-ratio: 4/3;
+  background: linear-gradient(135deg, var(--deep) 0%, var(--forest) 100%);
+  border: 1px solid rgba(58,144,87,0.25);
+}
+.about-visual-inner {
+  position: absolute; inset: 0;
+  display: flex; align-items: center; justify-content: center;
+  flex-direction: column; gap: 1rem;
+}
+.about-visual-icon { font-size: 5rem; opacity: 0.6; }
+.about-visual-label {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.7rem; letter-spacing: 0.18em; text-transform: uppercase;
+  color: var(--mist); opacity: 0.7;
+}
+.about-floating-card {
+  position: absolute; bottom: 1.5rem; left: 1.5rem; right: 1.5rem;
+  background: rgba(10,26,14,0.88);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(58,144,87,0.25);
+  border-radius: var(--radius-md);
+  padding: 1rem 1.25rem;
+  display: flex; align-items: center; gap: 0.8rem;
+}
+.about-fc-icon { font-size: 1.5rem; }
+.about-fc-text { font-family: 'Outfit', sans-serif; font-size: 0.82rem; color: var(--text-soft); line-height: 1.5; }
+.about-fc-text strong { color: var(--white); font-weight: 600; display: block; font-size: 0.9rem; }
+.about-content { display: flex; flex-direction: column; gap: 1.5rem; }
+.about-content p { font-family: 'Outfit', sans-serif; font-size: 1rem; font-weight: 300; color: var(--text-soft); line-height: 1.85; }
+.about-pillars { display: grid; grid-template-columns: 1fr 1fr; gap: 0.75rem; margin-top: 0.5rem; }
+.pillar {
+  padding: 0.85rem 1rem;
+  background: rgba(58,144,87,0.08);
+  border: 1px solid rgba(58,144,87,0.18);
+  border-radius: var(--radius-sm);
+  font-family: 'Outfit', sans-serif;
+  font-size: 0.85rem; font-weight: 500; color: var(--mist);
+  display: flex; align-items: center; gap: 0.5rem;
+  transition: background 0.2s, border-color 0.2s;
+}
+.pillar:hover { background: rgba(58,144,87,0.15); border-color: rgba(58,144,87,0.35); }
+.pillar-dot { width: 7px; height: 7px; border-radius: 50%; background: var(--pale); flex-shrink: 0; }
+
+@media(max-width:820px) { .about-grid { grid-template-columns: 1fr; gap: 2.5rem; } }
+
+/* ═══════════════════════════════════════
+   SECTORS
+═══════════════════════════════════════ */
+.sectors-section { background: var(--deep); }
+.sectors-header { text-align: center; max-width: 580px; margin: 0 auto 4rem; }
+.sectors-header .eyebrow { justify-content: center; }
+.sectors-header .eyebrow::before { display: none; }
+.sectors-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1rem; }
+
+.sector-card {
+  position: relative; overflow: hidden;
+  background: rgba(255,255,255,0.03);
+  border: 1px solid rgba(58,144,87,0.15);
+  border-radius: var(--radius-md);
+  padding: 2rem 1.5rem;
+  cursor: pointer; transition: all 0.3s;
+  text-decoration: none; display: block;
+}
+.sector-card:hover {
+  background: rgba(58,144,87,0.1);
+  border-color: rgba(58,144,87,0.4);
+  transform: translateY(-4px);
+  box-shadow: 0 12px 36px rgba(0,0,0,0.3);
+}
+.sector-card::after {
+  content: ''; position: absolute; bottom: 0; left: 0; right: 0;
+  height: 3px;
+  background: linear-gradient(to right, var(--mid), var(--pale));
+  transform: scaleX(0); transform-origin: left;
+  transition: transform 0.3s;
+}
+.sector-card:hover::after { transform: scaleX(1); }
+.sector-icon { font-size: 2.2rem; margin-bottom: 1rem; display: block; }
+.sector-name {
+  font-family: 'Outfit', sans-serif;
+  font-size: 0.95rem; font-weight: 600; color: var(--white);
+  margin-bottom: 0.5rem; line-height: 1.3;
+}
+.sector-desc {
+  font-family: 'Outfit', sans-serif;
+  font-size: 0.8rem; font-weight: 300; color: var(--text-dim);
+  line-height: 1.65;
+}
+.sector-arrow {
+  display: inline-flex; align-items: center; gap: 0.4rem;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.65rem; letter-spacing: 0.1em; text-transform: uppercase;
+  color: var(--pale); margin-top: 1rem;
+  transition: gap 0.2s;
+}
+.sector-card:hover .sector-arrow { gap: 0.7rem; }
+
+@media(max-width:900px) { .sectors-grid { grid-template-columns: repeat(2, 1fr); } }
+@media(max-width:520px) { .sectors-grid { grid-template-columns: 1fr; } }
+
+/* ═══════════════════════════════════════
+   PROGRAMS
+═══════════════════════════════════════ */
+.programs-section { background: var(--ink); }
+.programs-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; }
+
+.program-card {
+  border-radius: var(--radius-lg);
+  padding: 2.5rem;
+  position: relative; overflow: hidden;
+  text-decoration: none; display: block;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+.program-card:hover { transform: translateY(-5px); }
+.program-card.featured {
+  grid-column: span 2;
+  display: grid; grid-template-columns: 1fr 1fr; gap: 2.5rem; align-items: center;
+}
+.pc-green { background: linear-gradient(135deg, rgba(22,56,32,0.9) 0%, rgba(30,86,48,0.8) 100%); border: 1px solid rgba(58,144,87,0.3); }
+.pc-gold { background: linear-gradient(135deg, rgba(30,22,8,0.9) 0%, rgba(56,40,10,0.8) 100%); border: 1px solid rgba(200,150,62,0.3); }
+.pc-dark { background: linear-gradient(135deg, rgba(12,20,14,0.9) 0%, rgba(22,40,26,0.8) 100%); border: 1px solid rgba(58,144,87,0.15); }
+.program-card:hover { box-shadow: 0 20px 60px rgba(0,0,0,0.4); }
+
+.pc-tag {
+  display: inline-flex; align-items: center; gap: 0.4rem;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.62rem; letter-spacing: 0.14em; text-transform: uppercase;
+  color: var(--gold); background: rgba(200,150,62,0.12);
+  border: 1px solid rgba(200,150,62,0.25);
+  padding: 0.3rem 0.75rem; border-radius: 100px;
+  margin-bottom: 1.25rem;
+}
+.pc-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.6rem; font-weight: 700; color: var(--white);
+  line-height: 1.2; margin-bottom: 0.85rem;
+}
+.pc-body {
+  font-family: 'Outfit', sans-serif;
+  font-size: 0.88rem; font-weight: 300; color: var(--text-soft); line-height: 1.75;
+}
+.pc-list { list-style: none; margin-top: 1rem; display: flex; flex-direction: column; gap: 0.5rem; }
+.pc-list li {
+  font-family: 'Outfit', sans-serif; font-size: 0.85rem; color: var(--mist);
+  display: flex; align-items: flex-start; gap: 0.6rem;
+}
+.pc-list li::before { content: '→'; color: var(--pale); font-size: 0.8rem; margin-top: 0.1rem; flex-shrink: 0; }
+.pc-big-stat {
+  text-align: center; padding: 1.5rem;
+  background: rgba(58,144,87,0.1); border: 1px solid rgba(58,144,87,0.2);
+  border-radius: var(--radius-md);
+}
+.pc-big-num {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 4rem; font-weight: 700; color: var(--pale); line-height: 1;
+}
+.pc-big-label {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.62rem; letter-spacing: 0.14em; text-transform: uppercase;
+  color: var(--text-dim); margin-top: 0.5rem;
+}
+
+@media(max-width:820px) {
+  .programs-grid { grid-template-columns: 1fr; }
+  .program-card.featured { grid-column: span 1; grid-template-columns: 1fr; }
+}
+
+/* ═══════════════════════════════════════
+   IMPACT
+═══════════════════════════════════════ */
+.impact-section {
+  background: linear-gradient(180deg, var(--ink) 0%, var(--deep) 60%, var(--ink) 100%);
+}
+.impact-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.5rem; }
+.impact-card {
+  padding: 2rem 1.5rem;
+  background: rgba(255,255,255,0.03);
+  border: 1px solid rgba(58,144,87,0.12);
+  border-radius: var(--radius-md); text-align: center;
+  transition: all 0.3s;
+}
+.impact-card:hover {
+  background: rgba(58,144,87,0.08);
+  border-color: rgba(58,144,87,0.3);
+  transform: translateY(-3px);
+}
+.impact-num {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 2.8rem; font-weight: 700; color: var(--pale); line-height: 1;
+}
+.impact-unit {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.6rem; font-weight: 400; color: var(--pale); opacity: 0.7;
+}
+.impact-label {
+  font-family: 'Outfit', sans-serif;
+  font-size: 0.82rem; font-weight: 400; color: var(--text-soft);
+  margin-top: 0.6rem; line-height: 1.5;
+}
+.impact-sub {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.6rem; letter-spacing: 0.1em; text-transform: uppercase;
+  color: var(--text-dim); margin-top: 0.4rem;
+}
+
+@media(max-width:800px) { .impact-grid { grid-template-columns: repeat(2, 1fr); } }
+@media(max-width:480px) { .impact-grid { grid-template-columns: 1fr 1fr; } }
+
+/* ═══════════════════════════════════════
+   QUOTE SECTION
+═══════════════════════════════════════ */
+.quote-section { background: var(--deep); padding: 5rem 0; }
+.quote-inner {
+  max-width: 760px; margin: 0 auto; text-align: center;
+  padding: 0 2rem;
+}
+.quote-mark {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 7rem; color: var(--pale); opacity: 0.2;
+  line-height: 0.5; margin-bottom: 1.5rem; display: block;
+}
+.quote-text {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(1.35rem, 3.5vw, 2rem);
+  font-style: italic; font-weight: 400;
+  color: var(--mist); line-height: 1.65;
+  margin-bottom: 1.5rem;
+}
+.quote-author {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.72rem; letter-spacing: 0.18em; text-transform: uppercase;
+  color: var(--gold); opacity: 0.8;
+}
+
+/* ═══════════════════════════════════════
+   CONTENT VIEWS (SPA)
+═══════════════════════════════════════ */
+.content-view {
+  display: none; min-height: 100vh;
+  padding: calc(var(--nav-h) + 4rem) 0 5rem;
+  position: relative; z-index: 1;
+}
+.content-view.active { display: block; animation: riseIn 0.4s ease; }
+.view-inner { max-width: 900px; margin: 0 auto; padding: 0 2rem; }
+.view-breadcrumb {
+  display: flex; align-items: center; gap: 0.5rem;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.62rem; letter-spacing: 0.12em; text-transform: uppercase;
+  color: var(--text-dim); margin-bottom: 1.5rem;
+  flex-wrap: wrap;
+}
+.view-breadcrumb a { color: var(--text-dim); text-decoration: none; transition: color 0.2s; cursor: pointer; }
+.view-breadcrumb a:hover { color: var(--gold); }
+.view-breadcrumb .sep { color: var(--gold); }
+.view-breadcrumb .current { color: var(--gold); }
+
+.view-badge {
+  display: inline-flex; align-items: center; gap: 0.5rem;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.64rem; letter-spacing: 0.14em; text-transform: uppercase;
+  color: var(--pale); background: rgba(93,184,122,0.1);
+  border: 1px solid rgba(93,184,122,0.25);
+  padding: 0.4rem 1rem; border-radius: 100px;
+  margin-bottom: 1.5rem;
+}
+.view-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(2.2rem, 5vw, 3.6rem);
+  font-weight: 700; color: var(--white); line-height: 1.1;
+  margin-bottom: 2rem; letter-spacing: -0.01em;
+}
+.view-title em { color: var(--pale); font-style: italic; }
+.view-body p {
+  font-family: 'Outfit', sans-serif;
+  font-size: 1rem; font-weight: 300; color: var(--text-soft);
+  line-height: 1.85; margin-bottom: 1.25rem;
+}
+.view-h3 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.55rem; font-weight: 700; color: var(--pale);
+  margin: 2.5rem 0 1rem;
+}
+.view-list { list-style: none; margin-bottom: 1.5rem; display: flex; flex-direction: column; gap: 0.5rem; }
+.view-list li {
+  font-family: 'Outfit', sans-serif; font-size: 0.95rem; color: var(--text-soft);
+  display: flex; align-items: flex-start; gap: 0.75rem;
+  padding: 0.6rem 0; border-bottom: 1px solid rgba(58,144,87,0.08);
+}
+.view-list li::before { content: '◆'; color: var(--pale); font-size: 0.5rem; margin-top: 0.35rem; flex-shrink: 0; }
+
+.view-table-wrap { overflow-x: auto; margin: 1.5rem 0; border-radius: var(--radius-md); border: 1px solid rgba(58,144,87,0.15); }
+.view-table { width: 100%; border-collapse: collapse; font-family: 'Outfit', sans-serif; font-size: 0.88rem; }
+.view-table thead tr { background: linear-gradient(135deg, var(--dark), var(--forest)); }
+.view-table thead th {
+  color: var(--mist); font-weight: 600; padding: 0.9rem 1rem; text-align: left;
+  font-family: 'JetBrains Mono', monospace; font-size: 0.65rem; letter-spacing: 0.08em; text-transform: uppercase;
+  border-bottom: 2px solid rgba(58,144,87,0.3);
+}
+.view-table tbody tr:nth-child(odd) { background: rgba(22,56,32,0.18); }
+.view-table tbody tr:nth-child(even) { background: rgba(10,26,14,0.3); }
+.view-table tbody tr:hover { background: rgba(58,144,87,0.1); }
+.view-table tbody td { padding: 0.75rem 1rem; color: var(--text-soft); border-bottom: 1px solid rgba(58,144,87,0.08); }
+
+.view-stats { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1rem; margin: 2rem 0; }
+.view-stat {
+  background: rgba(58,144,87,0.08); border: 1px solid rgba(58,144,87,0.18);
+  border-radius: var(--radius-md); padding: 1.25rem; text-align: center;
+  transition: all 0.2s;
+}
+.view-stat:hover { background: rgba(58,144,87,0.14); border-color: rgba(58,144,87,0.35); }
+.vs-num { font-family: 'Cormorant Garamond', serif; font-size: 1.7rem; font-weight: 700; color: var(--pale); line-height: 1; }
+.vs-label { font-family: 'JetBrains Mono', monospace; font-size: 0.58rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-dim); margin-top: 0.4rem; }
+
+@media(max-width:600px) { .view-stats { grid-template-columns: 1fr 1fr; } }
+
+.view-highlight {
+  background: linear-gradient(135deg, rgba(30,86,48,0.3), rgba(22,56,32,0.2));
+  border: 1px solid rgba(58,144,87,0.25);
+  border-left: 4px solid var(--pale);
+  border-radius: 0 var(--radius-md) var(--radius-md) 0;
+  padding: 1.25rem 1.5rem; margin: 2rem 0;
+  font-family: 'Outfit', sans-serif;
+  font-style: italic; font-size: 0.98rem;
+  color: var(--mist); line-height: 1.75;
+}
+
+.view-nav-btns { display: flex; gap: 0.75rem; flex-wrap: wrap; margin-top: 3rem; padding-top: 2rem; border-top: 1px solid rgba(58,144,87,0.12); }
+.view-btn {
+  font-family: 'Outfit', sans-serif; font-size: 0.82rem; font-weight: 500;
+  padding: 0.55rem 1.2rem; border-radius: 100px;
+  color: var(--mist); text-decoration: none; cursor: pointer;
+  border: 1px solid rgba(168,217,184,0.25);
+  background: transparent; transition: all 0.2s;
+  display: inline-flex; align-items: center; gap: 0.4rem;
+}
+.view-btn:hover { background: rgba(168,217,184,0.08); border-color: rgba(168,217,184,0.45); color: var(--white); }
+
+/* ═══════════════════════════════════════
+   CONTACT SECTION
+═══════════════════════════════════════ */
+.contact-section { background: var(--deep); }
+.contact-grid { display: grid; grid-template-columns: 1fr 1.4fr; gap: 4rem; align-items: start; }
+.contact-info { display: flex; flex-direction: column; gap: 1.25rem; }
+.contact-item {
+  display: flex; align-items: flex-start; gap: 1rem;
+  padding: 1rem; border-radius: var(--radius-md);
+  background: rgba(255,255,255,0.03);
+  border: 1px solid rgba(58,144,87,0.12);
+  transition: border-color 0.2s, background 0.2s;
+}
+.contact-item:hover { background: rgba(58,144,87,0.07); border-color: rgba(58,144,87,0.25); }
+.ci-icon { font-size: 1.2rem; margin-top: 0.1rem; flex-shrink: 0; }
+.ci-label { font-family: 'JetBrains Mono', monospace; font-size: 0.6rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--text-dim); margin-bottom: 0.2rem; }
+.ci-value { font-family: 'Outfit', sans-serif; font-size: 0.9rem; color: var(--mist); }
+.ci-value a { color: var(--mist); text-decoration: none; transition: color 0.2s; }
+.ci-value a:hover { color: var(--pale); }
+
+.contact-form { display: flex; flex-direction: column; gap: 1rem; }
+.form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+.form-group { display: flex; flex-direction: column; gap: 0.4rem; }
+.form-label { font-family: 'JetBrains Mono', monospace; font-size: 0.62rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-dim); }
+.form-input, .form-textarea, .form-select {
+  font-family: 'Outfit', sans-serif; font-size: 0.9rem;
+  color: var(--text-main); background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(58,144,87,0.2);
+  border-radius: var(--radius-sm); padding: 0.75rem 1rem;
+  transition: border-color 0.2s, background 0.2s;
+  outline: none; width: 100%;
+}
+.form-input:focus, .form-textarea:focus, .form-select:focus {
+  border-color: rgba(93,184,122,0.5);
+  background: rgba(93,184,122,0.06);
+}
+.form-textarea { resize: vertical; min-height: 120px; }
+.form-select { appearance: none; background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath fill='%235db87a' d='M6 8L0 0h12z'/%3E%3C/svg%3E"); background-repeat: no-repeat; background-position: right 1rem center; padding-right: 2.5rem; }
+.form-input::placeholder, .form-textarea::placeholder { color: var(--text-dim); }
+
+@media(max-width:820px) { .contact-grid { grid-template-columns: 1fr; gap: 2.5rem; } .form-row { grid-template-columns: 1fr; } }
+
+/* ═══════════════════════════════════════
    FOOTER
-═══════════════════════════════════════════════ */
-footer {
-  position: relative; z-index: 1;
-  background: var(--oba-dark);
-  border-top: 3px solid var(--oba-yellow);
-}
-.footer-top {
-  display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  gap: 2rem; padding: 3rem 2.5rem 2rem; max-width: 1200px; margin: 0 auto;
-}
-.footer-col h4 {
-  font-family: 'DM Mono', monospace; font-size: 0.7rem; letter-spacing: 0.15em;
-  text-transform: uppercase; color: var(--oba-yellow); margin-bottom: 1rem;
-  padding-bottom: 0.4rem; border-bottom: 1px solid rgba(249,168,37,0.25);
-}
-.footer-col p, .footer-col a {
-  font-family: 'Lora', serif; font-size: 0.88rem; line-height: 1.8;
-  color: rgba(255,255,255,0.65); text-decoration: none; text-align: left;
-  display: block;
-}
-.footer-col a:hover { color: var(--oba-yellow); }
-.footer-col .footer-logo-wrap { display: flex; align-items: center; gap: 0.6rem; margin-bottom: 0.8rem; }
-.footer-col .footer-logo-wrap img { width: 52px; height: 52px; border-radius: 50%; border: 2px solid var(--oba-yellow); box-shadow: 0 0 14px rgba(249,168,37,0.35); }
-.footer-col .footer-brand { font-family: 'Playfair Display', serif; font-weight: 700; font-size: 0.95rem; color: var(--oba-white); }
-.footer-bottom {
-  background: rgba(0,0,0,0.3); padding: 0.9rem 2.5rem;
-  display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 0.5rem;
-}
-.footer-bottom p { font-family: 'DM Mono', monospace; font-size: 0.62rem; color: rgba(255,255,255,0.4); letter-spacing: 0.08em; text-align: left; margin: 0; }
+═══════════════════════════════════════ */
+footer { background: var(--ink); border-top: 1px solid rgba(58,144,87,0.15); }
+.footer-top { display: grid; grid-template-columns: 1.5fr 1fr 1fr 1fr; gap: 3rem; padding: 4rem 2rem 3rem; max-width: 1140px; margin: 0 auto; }
+.footer-brand-col { display: flex; flex-direction: column; gap: 1rem; }
+.footer-logo-wrap { display: flex; align-items: center; gap: 0.7rem; }
+.footer-logo { width: 44px; height: 44px; border-radius: 50%; border: 2px solid var(--gold); overflow: hidden; }
+.footer-logo img { width: 100%; height: 100%; object-fit: cover; }
+.footer-brand-name { font-family: 'Cormorant Garamond', serif; font-size: 1.05rem; font-weight: 700; color: var(--white); }
+.footer-brand-sub { font-family: 'JetBrains Mono', monospace; font-size: 0.55rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--gold); opacity: 0.75; margin-top: 1px; }
+.footer-brand-desc { font-family: 'Outfit', sans-serif; font-size: 0.85rem; font-weight: 300; color: var(--text-dim); line-height: 1.7; }
 .footer-socials { display: flex; gap: 0.6rem; }
-.footer-socials a { color: rgba(255,255,255,0.45); text-decoration: none; font-size: 0.75rem; width: 26px; height: 26px; border-radius: 50%; border: 1px solid rgba(255,255,255,0.2); display: flex; align-items: center; justify-content: center; transition: all 0.2s; }
-.footer-socials a:hover { background: var(--oba-yellow); color: var(--oba-dark); border-color: var(--oba-yellow); }
-
-::-webkit-scrollbar { width: 5px; }
-::-webkit-scrollbar-track { background: var(--forest-deep); }
-::-webkit-scrollbar-thumb { background: var(--oba-mid); border-radius: 3px; }
-
-@media (max-width: 640px) {
-  .section { padding: 3rem 1.2rem; }
-  .stats-row { grid-template-columns: 1fr 1fr; }
-  .glossary-grid { grid-template-columns: 1fr; }
-  .footer-top { grid-template-columns: 1fr; padding: 2rem 1.2rem; }
-  .footer-bottom { flex-direction: column; align-items: flex-start; padding: 0.8rem 1.2rem; }
+.footer-social {
+  width: 34px; height: 34px; border-radius: 50%;
+  border: 1px solid rgba(58,144,87,0.25);
+  display: flex; align-items: center; justify-content: center;
+  color: var(--text-dim); text-decoration: none; font-size: 0.75rem;
+  transition: all 0.2s;
 }
+.footer-social:hover { background: rgba(58,144,87,0.2); border-color: rgba(93,184,122,0.5); color: var(--pale); }
+
+.footer-col h5 {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.65rem; letter-spacing: 0.15em; text-transform: uppercase;
+  color: var(--gold); margin-bottom: 1rem; padding-bottom: 0.5rem;
+  border-bottom: 1px solid rgba(200,150,62,0.2);
+}
+.footer-col ul { list-style: none; display: flex; flex-direction: column; gap: 0.4rem; }
+.footer-col ul a {
+  font-family: 'Outfit', sans-serif; font-size: 0.85rem;
+  color: var(--text-dim); text-decoration: none; transition: color 0.2s;
+  display: flex; align-items: center; gap: 0.4rem; cursor: pointer;
+}
+.footer-col ul a:hover { color: var(--pale); }
+
+.footer-bottom {
+  display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 1rem;
+  padding: 1.2rem 2rem; max-width: 1140px; margin: 0 auto;
+  border-top: 1px solid rgba(58,144,87,0.1);
+}
+.footer-copy {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.62rem; letter-spacing: 0.08em; color: var(--text-dim);
+}
+.footer-links { display: flex; gap: 1.5rem; }
+.footer-links a { font-family: 'JetBrains Mono', monospace; font-size: 0.62rem; letter-spacing: 0.08em; color: var(--text-dim); text-decoration: none; transition: color 0.2s; }
+.footer-links a:hover { color: var(--pale); }
+
+@media(max-width:900px) { .footer-top { grid-template-columns: 1fr 1fr; } }
+@media(max-width:520px) { .footer-top { grid-template-columns: 1fr; } .footer-bottom { flex-direction: column; align-items: flex-start; } }
+
+/* ═══════════════════════════════════════
+   UTILITY
+═══════════════════════════════════════ */
+.text-center { text-align: center; }
+.mt-sm { margin-top: 0.75rem; }
+.mt-md { margin-top: 1.5rem; }
+.mt-lg { margin-top: 2.5rem; }
+
+/* Reveal on scroll */
+.reveal { opacity: 0; transform: translateY(32px); transition: opacity 0.7s ease, transform 0.7s ease; }
+.reveal.visible { opacity: 1; transform: none; }
+.reveal-delay-1 { transition-delay: 0.1s; }
+.reveal-delay-2 { transition-delay: 0.2s; }
+.reveal-delay-3 { transition-delay: 0.3s; }
+.reveal-delay-4 { transition-delay: 0.4s; }
 </style>
 </head>
 <body>
 
-<div class="leaves-bg" id="leavesBg"></div>
+<!-- ════════ BACKGROUND CANVAS ════════ -->
+<canvas id="bgCanvas"></canvas>
 
-<!-- ══════════════════════════════════════════════
-  TOP BAR
-══════════════════════════════════════════════ -->
-<div class="top-bar" id="topBar">
-  <div class="top-bar-left">
-    <span>📞 <a href="tel:+251911946101">+251911946101</a></span>
-    <span>✉ <a href="mailto:fgelila86@gmail.com">afoluethiopia@gmail.com</a></span>
-    <span>📍 Finfinnee (Addis Ababa), Ethiopia</span>
-  </div>
-  <div class="top-bar-right">
-    <a href="https://www.facebook.com/afoluethiopia" title="Facebook" target="_blank">f</a>
-    <a href="https://twitter.com" title="Twitter" target="_blank">𝕏</a>
-    <a href="https://youtube.com" title="YouTube" target="_blank">▶</a>
-    <a href="https://instagram.com" title="Instagram" target="_blank">◎</a>
-  </div>
-</div>
-
-<!-- ══════════════════════════════════════════════
-  MAIN NAV
-══════════════════════════════════════════════ -->
-<nav class="main-nav" id="mainNav">
-  <a href="#" class="brand">
-    <img src="https://i.imgur.com/stFhOHw.png" alt="AFOLU Ethiopia Logo" class="brand-logo">
-    <div class="brand-info">
-      <span class="brand-name">AFOLU of ETHIOPIA</span>
-      <span class="brand-tagline">Agriculture · Forestry · Other Land Uses</span>
+<!-- ════════ NAV ════════ -->
+<nav class="nav-wrapper" id="mainNav">
+  <a href="#" class="brand" data-view="home">
+    <div class="brand-emblem">
+      <img src="https://i.imgur.com/stFhOHw.png" alt="AFOLU Logo">
+    </div>
+    <div class="brand-text">
+      <div class="brand-name">AFOLU of Ethiopia</div>
+      <div class="brand-sub">Agriculture · Forestry · Land Use</div>
     </div>
   </a>
 
-  <button class="hamburger" id="hamburger" aria-label="Toggle menu">
-    <span></span><span></span><span></span>
-  </button>
+  <ul class="nav-links" id="navLinks">
+    <li><a href="#" class="active" data-view="home">Home</a></li>
 
-  <ul class="primary-links" id="primaryLinks">
-    <li><a href="#" class="active">Home</a></li>
-    <li class="has-dropdown">
-      <a href="#">About</a>
-      <div class="dropdown-panel">
-        <a href="#">About AFOLU</a>
-        <a href="#">Mission &amp; Vision</a>
-        <a href="#">Leadership</a>
-        <a href="#">Organizational Structure</a>
+    <li class="has-drop">
+      <a href="#">About ▾</a>
+      <div class="dropdown">
+        <a href="#" data-view="About"><span class="di">🌱</span> About AFOLU</a>
+        <a href="#" data-view="Mission"><span class="di">🎯</span> Mission & Vision</a>
+        <a href="#" data-view="Leadership"><span class="di">👥</span> Leadership</a>
+        <a href="#" data-view="Organizational"><span class="di">🏛</span> Org. Structure</a>
       </div>
     </li>
-    <li class="has-dropdown" id="sectorsItem">
-      <a href="#">Sectors</a>
-      <div class="dropdown-panel">
-        <a href="#">Plant Science</a>
-        <a href="#">Natural Resource Management</a>
-        <a href="#">Agroforestry</a>
-        <a href="#">Animal Science &amp; Rangeland Management</a>
-        <a href="#">Agricultural Economics &amp; Value Chain</a>
-        <a href="#">Wildlife &amp; Ecotourism</a>
-        <a href="#">Forestry</a>
-        <a href="#">Rural Development &amp; Agricultural Extension</a>
+
+    <li class="has-drop">
+      <a href="#">Sectors ▾</a>
+      <div class="dropdown">
+        <a href="#" data-view="plant-science"><span class="di">🌾</span> Plant Science</a>
+        <a href="#" data-view="Natural-Resource-Mgmt"><span class="di">🌍</span> Natural Resource Mgmt</a>
+        <a href="#" data-view="agroforestry"><span class="di">🌿</span> Agroforestry</a>
+        <a href="#" data-view="animal-science"><span class="di">🐄</span> Animal Science</a>
+        <a href="#" data-view="Extension"><span class="di">🏘</span> Rural Development</a>
+        <a href="#" data-view="Agro-Economics"><span class="di">📊</span> Agro-Economics</a>
+        <a href="#" data-view="forestry"><span class="di">🌳</span> Forestry</a>
+        <a href="#" data-view="Wildlife"><span class="di">🦁</span> Wildlife & Ecotourism</a>
       </div>
     </li>
-    <li class="has-dropdown">
-      <a href="#">Programs</a>
-      <div class="dropdown-panel">
-        <a href="#">Green Legacy Initiative</a>
-        <a href="#">Food Security</a>
-        <a href="#">Climate Resilience</a>
-        <a href="#">REDD+</a>
-      </div>
-    <li class="has-dropdown">
-      <a href="#">Resources</a>
-      <div class="dropdown-panel">
-        <a href="#">Reports &amp; Publications</a>
-        <a href="#">Geospatial Data &amp; Maps</a>
-        <a href="#">Technical Manuals &amp; Protocols</a>
-      </div>
-    <li class="has-dropdown">
-      <a href="#">Projects</a>
-      <div class="dropdown-panel">
-        <a href="#">Current Projects</a>
-        <a href="#">Completed Projects</a>
-        <a href="#">Regional Focus</a>
-      </div>
-    <li class="has-dropdown">
-      <a href="#">News</a>
-      <div class="dropdown-panel">
-        <a href="#">Latest News</a>
-        <a href="#">Events</a>
-        <a href="#">Photo Gallery</a>
-        <a href="#">Testimonials</a>
+
+    <li class="has-drop">
+      <a href="#">Programs ▾</a>
+      <div class="dropdown">
+        <a href="#" data-view="Legacy"><span class="di">🌱</span> Green Legacy</a>
+        <a href="#" data-view="Food"><span class="di">🌾</span> Food Security</a>
+        <a href="#" data-view="Climate"><span class="di">🌡</span> Climate Resilience</a>
+        <a href="#" data-view="REDD"><span class="di">🌳</span> REDD+</a>
       </div>
     </li>
-    <li><a href="mailto:fgelila86@gmail.com">Contact</a></li>
+
+    <li class="has-drop">
+      <a href="#">Resources ▾</a>
+      <div class="dropdown">
+        <a href="#" data-view="Reports"><span class="di">📄</span> Reports & Publications</a>
+        <a href="#" data-view="Geospatial"><span class="di">🛰</span> Geospatial & GIS</a>
+        <a href="#" data-view="publications"><span class="di">📘</span> Technical Manuals</a>
+      </div>
+    </li>
+
+    <li class="has-drop">
+      <a href="#">Projects ▾</a>
+      <div class="dropdown">
+        <a href="#" data-view="Projects"><span class="di">🔬</span> Current Projects</a>
+        <a href="#" data-view="Completed"><span class="di">✅</span> Completed Projects</a>
+        <a href="#" data-view="Regional"><span class="di">🗺</span> Regional Projects</a>
+      </div>
+    </li>
+
+    <li class="has-drop">
+      <a href="#">News ▾</a>
+      <div class="dropdown">
+        <a href="#" data-view="News"><span class="di">📰</span> Latest News</a>
+        <a href="#" data-view="events"><span class="di">📅</span> Events</a>
+        <a href="#" data-view="Gallery"><span class="di">🖼</span> Photo Gallery</a>
+        <a href="#" data-view="Testimonials"><span class="di">💬</span> Testimonials</a>
+      </div>
+    </li>
   </ul>
+
+  <a href="mailto:afoluethiopia@gmail.com" class="nav-cta">Contact Us</a>
+  <button class="hamburger" id="hamburger" aria-label="Menu"><span></span><span></span><span></span></button>
 </nav>
 
-<!-- ══════════════════════════════════════════════
-  SUB-NAV (page section quick links)
-══════════════════════════════════════════════ -->
-<section class="hero">
-  <h1 class="hero-eyebrow"></h1>
-  <h1 class="hero-title">AFOLU <span>of</span><br>ETHIOPIA</h1>
-  <p class="hero-subtitle">"Lafni haadha hundaati; kunnuunsi ishee madda jireenyaati."
-(The land is the mother of all; its care is the source of life.)</p>
-  <div class="hero-badge">Education · History · Nature · Exprience Sharing</div>
-  <div class="hero-scroll">Gadi bahi ↓</div>
-</section>
+<!-- ════════════════════════════════════
+     HOME VIEW
+════════════════════════════════════ -->
+<div id="view-home">
 
-<main>
-<div class="section-divider"></div>
-<section class="section" id="FORESTRY">
-  <div class="section-number">01 — Seensa</div>
-  <h2 class="section-title">Bosona Uummamaa Jechuun Maali?</h2>
-  <p>Bosonni uummamaa (natural forest) bakka mukkeen gosa garaagaraa, beelladootni, shimbirrootni, fi uummamni adda addaa kan namni osoo hin uumiin uummamanii fi of danda'anii keessatti argamanii fi guddataniidha. Bosonni kunneen dachee fi jireenya isheef bu'aa guddaa qabu. Itoophiyaan bosona uummamaa qaroominni garaagaraa keessa kuufame qabdi.</p>
-  <p>Itoophiyaan biyya Afrikaa bahaatti argamtu fi Galaana Diimaatti dhiyaattu, akkasumas Sulula Guddaa Qiinxamaa Afrikaa (Great Rift Valley) keessa kutuudha. Bosoni uumamaa Itoophiyaa addunyaa irra bosona moggaatti beekamu keessaa tokko.</p>
-  <p>Akka ibsa FREL/FRL bosona Itoophiyaatti (UN-REDD, 2017) irratti, bosonni akkana jechuun hiikama: <em>"Lafa yoo xiqqaate hektara 0.5 bal'ina qabu kan muka uwwifame, bal'inni isaa yoo xiqqaate meetira 20 ta'u, dheerinni mukaa yoo xiqqaate meetira 2 gahuu, fi haguuggiin mataa mukaa (canopy cover) yoo xiqqaate %20 ta'u."</em> (MEFCC, UN-REDD, 2017).</p>
-  <h3 class="sub-title">Seenaa Bosonaa Barachuun Maaliif Barbaachisee?</h3>
-  <ul class="forest-list">
-    <li>Seenaa biyyaa fi uumama beekuuf</li>
-    <li>Bosona kunuunsuufi eeguuf sababa hubachuuf</li>
-    <li>Dhaloota dhufu dhaalchisuuf</li>
-    <li>Tarkaanfii egeree murteessuuf</li>
-  </ul>
-</section>
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-tag">Finfinnee · Addis Ababa · Ethiopia</div>
 
-<!-- ══ 02 Uwwisa ══ -->
-<div class="section-divider"></div>
-<section class="section" id="sejaara">
-  <div class="section-number">02 — Uwwisa</div>
-  <h2 class="section-title">Reeshoo Uwwisa Bosonaa</h2>
-  <div class="highlight">
-    ⚠️ Itoophiyaan yeroo tokko <strong>%40</strong> ol lafa ishee bosona uummamaan kan haguugame turte. Boodarra garuu gara <strong>%3</strong> tti gadi buhee turus, Har'a gara <strong>%23.6</strong> tti olguddateera.
-  </div>
-  <h3 class="sub-title">Sababa Hir'ina Bosonaa Keessaa Gurguddoon</h3>
-  <ol class="forest-list">
-    <li>Dabala uummataa (Population growth)</li>
-    <li>Babal'ina qonnaa (Agricultural Expansion)</li>
-    <li>Balaa Abidda Namtolchee fi Uummamaa (Forest Fire)</li>
-    <li>Muka boba'aa fi cilee (charcoal) oomishu</li>
-    <li>Ijaarsaa fi misooma bu'uuraalee (Infrastructure and urban development)</li>
-    <li>Dheedinsa beeyladaa garmalee (Overgrazing by livestock)</li>
-    <li>Bulchiinsa Laafaa (Land Tenure system)</li>
-  </ol>
-  <h3 class="sub-title">Uwwisa Bosonaa Baroota Garaa Garaa Keessatti</h3>
-  <div class="stats-row">
-    <div class="stat-card"><div class="stat-num">~40%</div><div class="stat-label">Bara 1900</div></div>
-    <div class="stat-card"><div class="stat-num">~20%</div><div class="stat-label">Bara 1950</div></div>
-    <div class="stat-card"><div class="stat-num">~12%</div><div class="stat-label">Bara 1975</div></div>
-    <div class="stat-card"><div class="stat-num">~7%</div><div class="stat-label">Bara 1990</div></div>
-    <div class="stat-card"><div class="stat-num">~3%</div><div class="stat-label">Bara 2000</div></div>
-    <div class="stat-card"><div class="stat-num">~15.5%</div><div class="stat-label">Bara 2013</div></div>
-    <div class="stat-card"><div class="stat-num">~17.2%</div><div class="stat-label">Bara 2020</div></div>
-    <div class="stat-card"><div class="stat-num">~23.6%</div><div class="stat-label">Har'a 2026</div></div>
-  </div>
-  <h3 class="sub-title">Uwwisa Bosonaa Naannolee Itoophiyaa</h3>
-  <p>Akka qorannoo Wasie (2020) fi WBISPP (2004) tti, uwwisni bosona uummamaa, Woodland fi Miciree (shrubland) Itoophiyaa keessatti naannoo dha gara naannotti garaagarummaa qaba. Naannoon Oromiyaa bosona guddaa keessaa <strong>%62.5</strong> qabachuun sadarkaa duraa irratti argama. Itti aansuun Naannoo Ummattoota Kibbaa (SNNP) <strong>%19</strong> fi Gambellaa <strong>%13.2</strong> qabu.</p>
-  <div class="table-wrap">
-    <table>
-      <thead>
-        <tr>
-          <th rowspan="2">Naannoo (Region)</th>
-          <th colspan="2">Bosona Uummamaa (High Forest)</th>
-          <th colspan="2">Woodland</th>
-          <th colspan="2">Miciree (Shrublands)</th>
-        </tr>
-        <tr>
-          <th>Total (ha)</th><th>%</th>
-          <th>Total (ha)</th><th>%</th>
-          <th>Total (ha)</th><th>%</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr><td><strong>Oromiya</strong></td><td>2,547,632</td><td>62.5</td><td>9,823,163</td><td>34</td><td>7,750,422</td><td>29</td></tr>
-        <tr><td><strong>SNNP (Former Region)</strong></td><td>775,393</td><td>19.0</td><td>1,387,759</td><td>5</td><td>2,434,779</td><td>9</td></tr>
-        <tr><td><strong>Gambella</strong></td><td>535,948</td><td>13.2</td><td>861,126</td><td>3</td><td>146,103</td><td>1</td></tr>
-        <tr><td><strong>Amhara</strong></td><td>92,744</td><td>2.3</td><td>1,040,064</td><td>4</td><td>4,352,672</td><td>17</td></tr>
-        <tr><td><strong>Beneshangul-Gumuz</strong></td><td>68,495</td><td>1.7</td><td>2,473,064</td><td>8</td><td>1,422,191</td><td>5</td></tr>
-        <tr><td><strong>Tigray</strong></td><td>9,332</td><td>0.2</td><td>294,455</td><td>1</td><td>1,841,182</td><td>7</td></tr>
-        <tr><td><strong>Afar</strong></td><td>39,197</td><td>1.0</td><td>163,657</td><td>1</td><td>3,021,697</td><td>12</td></tr>
-        <tr><td><strong>Somali</strong></td><td>4,257</td><td>0.1</td><td>13,199,662</td><td>45</td><td>5,384,022</td><td>20</td></tr>
-        <tr><td><strong>Harari &amp; Dire Dawa</strong></td><td>216</td><td>0.0</td><td>0</td><td>0</td><td>4,413</td><td>0</td></tr>
-        <tr><th>Waliigala</th><th>4,073,214</th><th>100</th><th>29,242,950</th><th>100</th><th>26,400,200</th><th>100</th></tr>
-      </tbody>
-    </table>
-  </div>
-  <p style="text-align:center;font-style:italic;font-size:0.82rem;color:var(--smoke);margin-top:0.4rem;">Source: Wasie, 2020; WBISPP, 2004</p>
-  <h3 class="sub-title">Miidhaa Mancaatii Bosonaa fi Hir'ina Bosonaa</h3>
-  <ul class="forest-list">
-    <li>Daballii jijjiirrama qilleensaa fi sirna qilleensaa naannoo (Climate change and variability)</li>
-    <li>Baduu bineensotaa (Biodiversity Loss)</li>
-    <li>Dhiqama biyyee (Soil erosion) fi hir'ina oomishtummaa lafaa</li>
-    <li>Hanqina oomisha mukaafi muka-malee (Wood and non-wood forest products)</li>
-    <li>Hongee fi beela irra deddeebiin mudachuu (Recurrent drought and famine)</li>
-    <li>Dabala lolaa (Flooding)</li>
-    <li>Baduu ykn manca'uu lafa jiidhaa (Wetlands)</li>
-    <li>Bal'ina gammoojjii (Desertification)</li>
-  </ul>
-</section>
+    <h1 class="hero-title">
+      AFOLU <em>of</em>
+      <span class="line2">ETHIOPIA</span>
+    </h1>
 
-<!-- ══ 03 Faayidaa ══ -->
-<div class="section-divider"></div>
-<section class="section" id="faayidaa">
-  <div class="section-number">03 — Faayidaa</div>
-  <h2 class="section-title">Faayidaa Bosona Uumamaa</h2>
-  <p>Bosoni faayidaa inni qilleensa naannoo, diinagdee biyyaa fi jireenya hawaasaaf kennu irratti hundaahudhaan gosa adda addaatti qoodamee ibsamu danda'a.</p>
-  <h3 class="sub-title">Faayidaa Naannoo (Ecological Value)</h3>
-  <p>Bosoni qilleensa keessaa CO₂ fudhata, Oxygen gadi lakkisa. Kun lubbuu uumamaa hunda eega. Dabalataan, bosoni arfasaa rooba mijeessa, bishaan lafa jala kuusaa, fi biyoo lollaan haqamuu dhorka.</p>
-  <ul class="forest-list">
-    <li>CO₂ fudhachuun ho'a addunyaa hir'isa</li>
-    <li>Bishaana lafa jala (groundwater) guddisa</li>
-    <li>Laga fi loltee guutuu taasisa</li>
-    <li>Qilleensa qulqulleessa</li>
-  </ul>
-  <h3 class="sub-title">Faayidaa Diinagdee (Economic)</h3>
-  <div class="table-wrap">
-    <table>
-      <thead><tr><th>Bu'aa Diinagdee</th><th>Ibsa</th></tr></thead>
-      <tbody>
-        <tr><td><strong>Buna Uumamaa</strong></td><td>Itoophiyaan buna gama addunyaa gurgurti — bosoni madda isaa</td></tr>
-        <tr><td><strong>Muka Daldalaa</strong></td><td>Hiriira ijaarsaafi, meeshaa manaa, fi daldalaa</td></tr>
-        <tr><td><strong>Turizimii</strong></td><td>Paarkotaa fi bosoni namoota addunyaa hedduu hawwatu</td></tr>
-        <tr><td><strong>Qoricha Uumamaa</strong></td><td>Qotichoota hedduun bosona keessa argamu</td></tr>
-        <tr><td><strong>Midhaan Daadhii</strong></td><td>Fuduraa, dhangala'a, fi midhaan bosona keessa argamu</td></tr>
-      </tbody>
-    </table>
-  </div>
-  <h3 class="sub-title">Paarkii Biyyaalessaa Ijoo</h3>
-  <div class="table-wrap">
-    <table>
-      <thead><tr><th>Paarkii</th><th>Naannoo</th><th>Bal'inaa (km²)</th><th>Addumaa</th></tr></thead>
-      <tbody>
-        <tr><td><strong>Baalee Mountain NP</strong></td><td>Oromiyaa</td><td>2,200</td><td>Bosona Juniper, Nyaala Gaaraa</td></tr>
-        <tr><td><strong>Simien Mountains NP</strong></td><td>Amaaraa</td><td>412</td><td>Waalee fi Gelada Baboon</td></tr>
-        <tr><td><strong>Kafaa Biosphere Reserve</strong></td><td>SNNPR</td><td>760</td><td>Madda buna uumamaa addunyaa</td></tr>
-        <tr><td><strong>Gambella NP</strong></td><td>Gambellaa</td><td>5,061</td><td>Beelladoota bal'aa</td></tr>
-        <tr><td><strong>Awash NP</strong></td><td>Afar / Oromiyaa</td><td>756</td><td>Bosona gammoojjii bahaatii</td></tr>
-      </tbody>
-    </table>
-  </div>
-  <div class="highlight">📊 Akka qorannoon agarsisutti, Itoophiyaan wagga wagga heektaara kuma 150 ol bosona dhabuun sodaatama. Kun dhibba guddaa dha.</div>
-  <h3 class="sub-title">Muka Ijoo Bosona Itoophiyaa</h3>
-  <div class="table-wrap">
-    <table>
-      <thead><tr><th>Maqaa Oromoo</th><th>Maqaa Saayinsii</th><th>Faayidaa</th></tr></thead>
-      <tbody>
-        <tr><td><strong>Birbirsaa</strong></td><td>Olea europaea subsp. cuspidata</td><td>Muka qulqulluu, aadaaf kabajama</td></tr>
-        <tr><td><strong>Sibirbirtuu</strong></td><td>Hagenia abyssinica</td><td>Qoricha taenia, muka ijoo</td></tr>
-        <tr><td><strong>Caattoo</strong></td><td>Juniperus procera</td><td>Ijaarsa, incense (uurii)</td></tr>
-        <tr><td><strong>Agaroo</strong></td><td>Podocarpus falcatus</td><td>Muka bal'aa, ijaarsa</td></tr>
-        <tr><td><strong>Waddeessaa</strong></td><td>Cordia africana</td><td>Ijaarsa, qoricha</td></tr>
-        <tr><td><strong>Dhumugaa</strong></td><td>Prunus africana</td><td>Qoricha manhii, gurgurtaa</td></tr>
-      </tbody>
-    </table>
-  </div>
-</section>
+    <div class="hero-divider"></div>
 
-<!-- ══ 04 Seenaa ══ -->
-<div class="section-divider"></div>
-<section class="section" id="seenaa">
-  <div class="section-number">04 — Seenaa</div>
-  <h2 class="section-title">Abbaan Garee fi Bosona Isaa</h2>
-  <div class="story-section">
-    <p>Jaarraa tokko dura, gaarren Baalee keessa ture jaarsi tokko maqaansaa <strong>Dammaa</strong> jedhamu. Inni bosona keessa dhalate, bosona keessa guddateera. Ijoollee isaa sagaliin guddisuu bosona keessaan ture.</p>
-    <p>Dammaan akka abukaatoo bosona ture. Jireenya guutuu isaa keessa muka tokko illee manca'u hin dhiisu ture. Yeroo namni tokko muka muruuf dhufuu, Dammaan ni dhaabbata, ni hima:</p>
-    <div class="dialogue">"Mukni kun abbaasaa dha. Harki kee hin murin. Mucaankee guddoo xinnaa ta'u, bosoni kun isa eeguu qaba."</div>
-    <p>Waggaawwan darbaa darbaa, jaarsi Dammaa boqoteera. Garuu ijoolleen isaa sagalii fi dhalooti isaan booda dhufan beekumsa isaa fudhatan. Bosona Baalee — amma Paarkii Biyyaalessaa ta'e — seenaa Dammaa badhaadhaa yaadata.</p>
-    <p>Har'a, yeroo quqquqaa ho'a addunyaa fi hir'ina bosona, seenaan Dammaa haqiqa guddaa nu barsiisa: <em>Bosona eeguun dirqama waloo ti — dhalootni tokko qofa miti, hawaasni guutuu itti gaafatama.</em></p>
-  </div>
-  <div class="quote">
-    <p>Lafa itti dhalanne, bishaan itti dhugan, bosona itti guddanne — kanniin eeguun dirqama jireenyaati.</p>
-    <cite>— Umrii fi Beekumsa Jaarsoliif Oromoo</cite>
-  </div>
-</section>
+    <p class="hero-sub">Agriculture, Forestry &amp; Other Land Use — advancing sustainable landscapes, climate resilience, and rural livelihoods across Ethiopia.</p>
 
-<!-- ══ 05 Qormaata ══ -->
-<div class="section-divider"></div>
-<section class="section" id="qormaata">
-  <div class="section-number">05 — Qormaata</div>
-  <h2 class="section-title">Beekumsa Keessan Mirkaneessaa</h2>
-  <p>Gaaffiilee armaan gadii deebisuuf yaalaa. Deebii argachuuf qaaqaa "Deebii Agarsiisi" tuqi.</p>
-  <div class="quiz-block">
-    <div class="quiz-q">1. Bara 1900 lafa Itoophiyaa meeqa (%) bosona ture?</div>
-    <ul class="quiz-options"><li>A) 15%</li><li>B) 25%</li><li>C) ~40%</li><li>D) 60%</li></ul>
-    <button class="quiz-btn" onclick="toggleAnswer(this)">Deebii Agarsiisi</button>
-    <div class="quiz-answer">✅ C) ~40% — bara sanatti bosona guddaan ture</div>
-  </div>
-  <div class="quiz-block">
-    <div class="quiz-q">2. Buni (coffee) dhaloonni isaa eessa argame?</div>
-    <ul class="quiz-options"><li>A) Biraazil</li><li>B) Kafaa fi Shekaa, Itoophiyaa</li><li>C) Keenyaa</li><li>D) Hindii</li></ul>
-    <button class="quiz-btn" onclick="toggleAnswer(this)">Deebii Agarsiisi</button>
-    <div class="quiz-answer">✅ B) Kafaa fi Shekaa, Itoophiyaa — madda buna uumamaa addunyaa</div>
-  </div>
-  <div class="quiz-block">
-    <div class="quiz-q">3. Green Legacy Initiative jalatti bara 2019 muka meeqa dhaabame?</div>
-    <ul class="quiz-options"><li>A) Miliyoona 1</li><li>B) Biiliyoona 2</li><li>C) Biiliyoona 7.7 ol</li><li>D) Kuma 500</li></ul>
-    <button class="quiz-btn" onclick="toggleAnswer(this)">Deebii Agarsiisi</button>
-    <div class="quiz-answer">✅ C) Biiliyoona 7.7 ol — galma'a addunyaa ture</div>
-  </div>
-  <div class="quiz-block">
-    <div class="quiz-q">4. Beelladaa Itoophiyaatti qofa argamu maqaansaa maal?</div>
-    <ul class="quiz-options"><li>A) Liyon</li><li>B) Nyaala Gaaraa (Mountain Nyala)</li><li>C) Faraardaa</li><li>D) Gafarsa</li></ul>
-    <button class="quiz-btn" onclick="toggleAnswer(this)">Deebii Agarsiisi</button>
-    <div class="quiz-answer">✅ B) Nyaala Gaaraa — Itoophiyaatti qofa argamu</div>
-  </div>
-  <div class="quiz-block">
-    <div class="quiz-q">5. Sababa ijoo hir'ina bosona kami?</div>
-    <ul class="quiz-options"><li>A) Rooba baay'ina</li><li>B) Qonnaa fi lafa bal'isuuf bosona mancaasuun</li><li>C) Ho'i hir'achuu</li><li>D) Bishaan baay'achuu</li></ul>
-    <button class="quiz-btn" onclick="toggleAnswer(this)">Deebii Agarsiisi</button>
-    <div class="quiz-answer">✅ B) Qonnaa fi lafa bal'isuuf bosona mancaasuun — sababa guddaa</div>
-  </div>
-  <div class="quiz-block">
-    <div class="quiz-q">6. Paarkiin Baalee (Bale Mountain NP) meeqa km² qabata?</div>
-    <ul class="quiz-options"><li>A) 412 km²</li><li>B) 756 km²</li><li>C) 2,200 km²</li><li>D) 5,061 km²</li></ul>
-    <button class="quiz-btn" onclick="toggleAnswer(this)">Deebii Agarsiisi</button>
-    <div class="quiz-answer">✅ C) 2,200 km² — paarkii bosona Oromiyaa keessa jiru</div>
-  </div>
-  <div class="quiz-block">
-    <div class="quiz-q">7. Muka Birbirsaa maqaan saayinsii isaa maal?</div>
-    <ul class="quiz-options"><li>A) Juniperus procera</li><li>B) Hagenia abyssinica</li><li>C) Olea europaea subsp. cuspidata</li><li>D) Podocarpus falcatus</li></ul>
-    <button class="quiz-btn" onclick="toggleAnswer(this)">Deebii Agarsiisi</button>
-    <div class="quiz-answer">✅ C) Olea europaea subsp. cuspidata — Birbirsaa, muka qulqulluu</div>
-  </div>
-</section>
+    <div class="hero-actions">
+      <a href="#" class="btn-primary" data-view="About">Explore Our Work →</a>
+      <a href="#" class="btn-secondary" data-view="Legacy">Green Legacy Initiative</a>
+    </div>
 
-<!-- ══ 06 Galmee ══ -->
-<div class="section-divider"></div>
-<section class="section" id="galmee">
-  <div class="section-number">06 — Galmee Jechootaa</div>
-  <h2 class="section-title">Key Vocabulary — Jechootaa Ijoo</h2>
-  <div class="glossary-grid">
-    <div class="glossary-card"><div class="oromo">Bosona Uumamaa</div><div class="english">Natural Forest</div><div class="meaning">Bosona namni osoo hin uumiin uumaan guddatu</div></div>
-    <div class="glossary-card"><div class="oromo">Hir'ina Bosona</div><div class="english">Deforestation</div><div class="meaning">Bosona mancaasuu fi hiraaruu</div></div>
-    <div class="glossary-card"><div class="oromo">Eegumsa Bosona</div><div class="english">Forest Conservation</div><div class="meaning">Bosona eeguu fi kunuunsuun</div></div>
-    <div class="glossary-card"><div class="oromo">Paarkii Biyyaalessaa</div><div class="english">National Park</div><div class="meaning">Bakka mootummaan eegumsa kennu</div></div>
-    <div class="glossary-card"><div class="oromo">Seenaa Bosona</div><div class="english">Forest History</div><div class="meaning">Sejaara bosona yeroo hedduu</div></div>
-    <div class="glossary-card"><div class="oromo">Uumama Beelladaa</div><div class="english">Wildlife / Biodiversity</div><div class="meaning">Beelladoota fi biqiltoota adda addaa</div></div>
-    <div class="glossary-card"><div class="oromo">Ho'a Addunyaa</div><div class="english">Climate Change</div><div class="meaning">Jijjiirama qilleensaa addunyaa</div></div>
-    <div class="glossary-card"><div class="oromo">Muka Dhaabuu</div><div class="english">Reforestation</div><div class="meaning">Bosona haaromsuu fi muka dhaabuu</div></div>
-    <div class="glossary-card"><div class="oromo">Biosphere Reserve</div><div class="english">Biosphere Reserve</div><div class="meaning">Bakka UNESCO galmeeffame</div></div>
-    <div class="glossary-card"><div class="oromo">Dhaloota Itti Aanu</div><div class="english">Future Generation</div><div class="meaning">Mucaan fi dhalooti kan ni dhufu</div></div>
+    <div class="hero-stats">
+      <div class="hero-stat">
+        <div class="hero-stat-num">30B<span style="font-size:1.2rem;opacity:0.7">+</span></div>
+        <div class="hero-stat-label">Seedlings Planted</div>
+      </div>
+      <div class="hero-stat-sep"></div>
+      <div class="hero-stat">
+        <div class="hero-stat-num">30M<span style="font-size:1.2rem;opacity:0.7">+</span></div>
+        <div class="hero-stat-label">Hectares Restored</div>
+      </div>
+      <div class="hero-stat-sep"></div>
+      <div class="hero-stat">
+        <div class="hero-stat-num">8</div>
+        <div class="hero-stat-label">Sectors Covered</div>
+      </div>
+      <div class="hero-stat-sep"></div>
+      <div class="hero-stat">
+        <div class="hero-stat-num">2019</div>
+        <div class="hero-stat-label">Founded</div>
+      </div>
+    </div>
+
+    <div class="scroll-hint">
+      <div class="scroll-line"></div>
+      <div class="scroll-text">Scroll</div>
+    </div>
+  </section>
+
+  <!-- ABOUT STRIP -->
+  <section class="about-section section-pad">
+    <div class="container">
+      <div class="about-grid">
+        <div class="about-visual reveal">
+          <div class="about-visual-inner">
+            <div class="about-visual-icon">🌿</div>
+            <div class="about-visual-label">AFOLU Ethiopia</div>
+          </div>
+          <div class="about-floating-card">
+            <div class="about-fc-icon">🌍</div>
+            <div class="about-fc-text">
+              <strong>Climate Resilient Green Economy</strong>
+              Aligned with Ethiopia's national CRGE strategy
+            </div>
+          </div>
+        </div>
+
+        <div class="about-content reveal reveal-delay-2">
+          <div>
+            <div class="eyebrow">About AFOLU</div>
+            <h2 class="section-title">Shaping <em>Sustainable</em> Land Use Systems</h2>
+          </div>
+          <p>AFOLU Ethiopia operates at the intersection of agriculture, forestry, and land stewardship — driving evidence-based policy, community participation, and ecosystem restoration across Ethiopia's diverse landscapes.</p>
+          <p>From the highlands of Ras Dashen to the Dallol Depression, our integrated approach strengthens and advocating food security, biodiversity conservation, and climate resilience through science-led, community-driven programs.</p>
+          <div class="about-pillars">
+            <div class="pillar"><div class="pillar-dot"></div>Sustainable Agriculture</div>
+            <div class="pillar"><div class="pillar-dot"></div>Forest Conservation</div>
+            <div class="pillar"><div class="pillar-dot"></div>Watershed Restoration</div>
+            <div class="pillar"><div class="pillar-dot"></div>Climate Adaptation</div>
+            <div class="pillar"><div class="pillar-dot"></div>Biodiversity Protection</div>
+            <div class="pillar"><div class="pillar-dot"></div>Rural Livelihoods</div>
+          </div>
+          <a href="#" class="btn-primary mt-md" data-view="About" style="align-self:flex-start">Learn More →</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- IMPACT -->
+  <section class="impact-section section-pad-sm">
+    <div class="container">
+      <div class="text-center reveal" style="margin-bottom:3rem">
+        <div class="eyebrow" style="justify-content:center"><span></span>Our Impact</div>
+        <h2 class="section-title">Measurable Change <em>at Scale</em></h2>
+      </div>
+      <div class="impact-grid">
+        <div class="impact-card reveal"><div class="impact-num">30<span class="impact-unit">B+</span></div><div class="impact-label">Seedlings planted through Green Legacy Initiative</div><div class="impact-sub">Since 2019</div></div>
+        <div class="impact-card reveal reveal-delay-1"><div class="impact-num">30<span class="impact-unit">M+</span></div><div class="impact-label">Hectares of degraded land restored nationwide</div><div class="impact-sub">Ongoing</div></div>
+        <div class="impact-card reveal reveal-delay-2"><div class="impact-num">8</div><div class="impact-label">Specialized technical sectors in AFOLU operations</div><div class="impact-sub">Integrated approach</div></div>
+        <div class="impact-card reveal reveal-delay-3"><div class="impact-num">Millions</div><div class="impact-label">Community members engaged in watershed management</div><div class="impact-sub">Nationwide participation</div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTORS -->
+  <section class="sectors-section section-pad">
+    <div class="container">
+      <div class="sectors-header reveal">
+        <div class="eyebrow">Our Sectors</div>
+        <h2 class="section-title">Eight <em>Pillars</em> of Expertise</h2>
+        <p class="body-text mt-sm">Integrated technical sectors delivering comprehensive land use solutions across Ethiopia.</p>
+      </div>
+      <div class="sectors-grid">
+        <a href="#" class="sector-card reveal" data-view="plant-science">
+          <span class="sector-icon">🌾</span>
+          <div class="sector-name">Plant Science</div>
+          <div class="sector-desc">Crop improvement, seed systems, and agronomic research for food security.</div>
+          <div class="sector-arrow">Explore →</div>
+        </a>
+        <a href="#" class="sector-card reveal reveal-delay-1" data-view="Natural-Resource-Mgmt">
+          <span class="sector-icon">🌍</span>
+          <div class="sector-name">Natural Resource Mgmt</div>
+          <div class="sector-desc">Watershed restoration, soil conservation, and sustainable ecosystem management.</div>
+          <div class="sector-arrow">Explore →</div>
+        </a>
+        <a href="#" class="sector-card reveal reveal-delay-2" data-view="agroforestry">
+          <span class="sector-icon">🌿</span>
+          <div class="sector-name">Agroforestry</div>
+          <div class="sector-desc">Integrated tree-crop-livestock systems for sustainable smallholder farming.</div>
+          <div class="sector-arrow">Explore →</div>
+        </a>
+        <a href="#" class="sector-card reveal reveal-delay-3" data-view="animal-science">
+          <span class="sector-icon">🐄</span>
+          <div class="sector-name">Animal Science</div>
+          <div class="sector-desc">Livestock productivity, veterinary services, and rangeland management.</div>
+          <div class="sector-arrow">Explore →</div>
+        </a>
+        <a href="#" class="sector-card reveal" data-view="Extension">
+          <span class="sector-icon">🏘</span>
+          <div class="sector-name">Rural Development</div>
+          <div class="sector-desc">Agricultural extension services and rural community empowerment programs.</div>
+          <div class="sector-arrow">Explore →</div>
+        </a>
+        <a href="#" class="sector-card reveal reveal-delay-1" data-view="Agro-Economics">
+          <span class="sector-icon">📊</span>
+          <div class="sector-name">Agro-Economics</div>
+          <div class="sector-desc">Value chain development, market systems, and agricultural finance solutions.</div>
+          <div class="sector-arrow">Explore →</div>
+        </a>
+        <a href="#" class="sector-card reveal reveal-delay-2" data-view="forestry">
+          <span class="sector-icon">🌳</span>
+          <div class="sector-name">Forestry</div>
+          <div class="sector-desc">Forest management, REDD+ implementation, and timber value chain development.</div>
+          <div class="sector-arrow">Explore →</div>
+        </a>
+        <a href="#" class="sector-card reveal reveal-delay-3" data-view="Wildlife">
+          <span class="sector-icon">🦁</span>
+          <div class="sector-name">Wildlife & Ecotourism</div>
+          <div class="sector-desc">Biodiversity conservation, protected area management, and ecotourism development.</div>
+          <div class="sector-arrow">Explore →</div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROGRAMS -->
+  <section class="programs-section section-pad">
+    <div class="container">
+      <div class="reveal" style="margin-bottom:3rem">
+        <div class="eyebrow">Key Programs</div>
+        <h2 class="section-title">Flagship <em>Initiatives</em></h2>
+      </div>
+      <div class="programs-grid">
+        <a href="#" class="program-card pc-green featured reveal" data-view="Legacy">
+          <div>
+            <div class="pc-tag">🌱 Flagship Program</div>
+            <div class="pc-title">Green Legacy Initiative</div>
+            <div class="pc-body">Ethiopia's largest community-driven environmental restoration campaign, mobilizing millions of citizens to plant trees and restore degraded landscapes across the nation.</div>
+            <ul class="pc-list">
+              <li>30 billion+ seedlings planted since 2019</li>
+              <li>Community mobilization at national scale</li>
+              <li>Aligned with CRGE climate strategy</li>
+              <li>Restoring watershed and highland ecosystems</li>
+            </ul>
+          </div>
+          <div>
+            <div class="pc-big-stat">
+              <div class="pc-big-num">30B+</div>
+              <div class="pc-big-label">Seedlings Planted</div>
+            </div>
+          </div>
+        </a>
+
+        <a href="#" class="program-card pc-gold reveal" data-view="REDD">
+          <div class="pc-tag">🌿 Climate Finance</div>
+          <div class="pc-title">REDD+ Program</div>
+          <div class="pc-body">Reducing emissions from deforestation and forest degradation while strengthening community-based forest management across priority landscapes.</div>
+        </a>
+        <a href="#" class="program-card pc-dark reveal reveal-delay-1" data-view="Climate">
+          <div class="pc-tag">🌡 Climate Action</div>
+          <div class="pc-title">Climate Resilience</div>
+          <div class="pc-body">Building adaptive capacity through CRGE strategy implementation, climate-smart agriculture, and landscape restoration across vulnerable regions.</div>
+        </a>
+        <a href="#" class="program-card pc-dark reveal reveal-delay-2" data-view="Food">
+          <div class="pc-tag">🌾 Food Systems</div>
+          <div class="pc-title">Food Security</div>
+          <div class="pc-body">Integrated AFOLU interventions supporting food availability, access, and stability for smallholder farming communities across Ethiopia.</div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- QUOTE -->
+  <section class="quote-section reveal">
+    <div class="quote-inner">
+      <span class="quote-mark">"</span>
+      <p class="quote-text">Lafa itti dhalanne, bishaan itti dhugan, bosona itti guddanne — kanniin eeguun dirqama dhaloota har'aa fi boruuti.</p>
+      <div class="quote-author">— Aadaa Oromoo · Oromo Tradition</div>
+      <p class="body-text mt-md" style="font-style:italic;opacity:0.6;font-size:0.9rem">"The land where we were born, the water we drank, the forest where we grew — protecting these is the duty of today's and tomorrow's generations."</p>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section class="contact-section section-pad" id="contact">
+    <div class="container">
+      <div class="reveal" style="margin-bottom:3rem">
+        <div class="eyebrow">Get In Touch</div>
+        <h2 class="section-title">Connect with <em>AFOLU Ethiopia</em></h2>
+      </div>
+      <div class="contact-grid">
+        <div class="contact-info reveal">
+          <div class="contact-item">
+            <div class="ci-icon">📍</div>
+            <div>
+              <div class="ci-label">Location</div>
+              <div class="ci-value">Finfinnee / Addis Ababa, Ethiopia</div>
+            </div>
+          </div>
+          <div class="contact-item">
+            <div class="ci-icon">📞</div>
+            <div>
+              <div class="ci-label">Phone</div>
+              <div class="ci-value"><a href="tel:+251911946191">+251 911 946 191</a></div>
+            </div>
+          </div>
+          <div class="contact-item">
+            <div class="ci-icon">✉</div>
+            <div>
+              <div class="ci-label">Email</div>
+              <div class="ci-value"><a href="mailto:afoluethiopia@gmail.com">afoluethiopia@gmail.com</a></div>
+            </div>
+          </div>
+          <div class="contact-item">
+            <div class="ci-icon">🌐</div>
+            <div>
+              <div class="ci-label">Follow Us</div>
+              <div class="ci-value"><a href="https://www.facebook.com/afoluethiopia" target="_blank">facebook.com/afoluethiopia</a></div>
+            </div>
+          </div>
+        </div>
+        <form class="contact-form reveal reveal-delay-2" onsubmit="return false;">
+          <div class="form-row">
+            <div class="form-group">
+              <label class="form-label">First Name</label>
+              <input class="form-input" type="text" placeholder="Your first name">
+            </div>
+            <div class="form-group">
+              <label class="form-label">Last Name</label>
+              <input class="form-input" type="text" placeholder="Your last name">
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="form-label">Email Address</label>
+            <input class="form-input" type="email" placeholder="you@example.com">
+          </div>
+          <div class="form-group">
+            <label class="form-label">Subject</label>
+            <select class="form-select">
+              <option value="">Select a topic</option>
+              <option>Partnership Inquiry</option>
+              <option>Research Collaboration</option>
+              <option>Program Information</option>
+              <option>Media & Press</option>
+              <option>Other</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label class="form-label">Message</label>
+            <textarea class="form-textarea" placeholder="How can we help you?"></textarea>
+          </div>
+          <button type="submit" class="btn-primary" style="align-self:flex-start">Send Message →</button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+</div><!-- end home view -->
+
+
+<!-- ════════════════════════════════════
+     GENERIC CONTENT VIEWS
+════════════════════════════════════ -->
+
+<!-- NATURAL RESOURCE MGMT -->
+<div id="view-Natural-Resource-Mgmt" class="content-view">
+<div class="view-inner">
+  <div class="view-breadcrumb"><a data-view="home">Home</a><span class="sep">›</span><span>Sectors</span><span class="sep">›</span><span class="current">Natural Resource Management</span></div>
+  <div class="view-badge">🌍 Sector 02</div>
+  <h1 class="view-title">Natural Resource <em>Management</em></h1>
+  <div class="view-body">
+    <p>Natural Resource Management (NRM) is a cornerstone of sustainable development in Ethiopia's AFOLU sector. It focuses on the conservation, sustainable utilization, restoration, and protection of land, water, forest, biodiversity, and climate-sensitive ecosystems to ensure long-term environmental stability and improved rural livelihoods.</p>
+    <p>In Ethiopia, integrated watershed management, soil and water conservation programs, climate adaptation initiatives, and community-based conservation systems play major roles in restoring degraded landscapes while strengthening food security and ecosystem resilience.</p>
+    <div class="view-h3">Major Natural Resources Managed</div>
+    <ul class="view-list">
+      <li>Forest ecosystems and woodland biodiversity</li>
+      <li>Soil resources and agricultural landscapes</li>
+      <li>Surface and groundwater systems</li>
+      <li>Rangeland and grazing ecosystems</li>
+      <li>Wildlife biodiversity habitats</li>
+      <li>Watershed landscapes and riverine systems</li>
+      <li>Wetlands and coastal buffer zones</li>
+    </ul>
+    <div class="view-h3">Key Challenges & Responses</div>
+    <div class="view-table-wrap">
+      <table class="view-table">
+        <thead><tr><th>Challenge</th><th>Impact</th><th>Management Response</th></tr></thead>
+        <tbody>
+          <tr><td>Soil erosion</td><td>Loss of fertile topsoil</td><td>Terracing and watershed restoration</td></tr>
+          <tr><td>Deforestation</td><td>Biodiversity decline</td><td>Community forest management</td></tr>
+          <tr><td>Land degradation</td><td>Reduced productivity</td><td>Area closures and rehabilitation</td></tr>
+          <tr><td>Water scarcity</td><td>Crop failure risk</td><td>Rainwater harvesting systems</td></tr>
+          <tr><td>Climate variability</td><td>Livelihood instability</td><td>Climate-resilient agriculture</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="view-stats">
+      <div class="view-stat"><div class="vs-num">30M+</div><div class="vs-label">Hectares Restored</div></div>
+      <div class="view-stat"><div class="vs-num">Millions</div><div class="vs-label">Community Members</div></div>
+      <div class="view-stat"><div class="vs-num">1000s</div><div class="vs-label">Watersheds Rehabilitated</div></div>
+      <div class="view-stat"><div class="vs-num">CRGE</div><div class="vs-label">Strategy Aligned</div></div>
+    </div>
+    <div class="view-highlight">Effective natural resource management strengthens ecosystem services, improves agricultural productivity, enhances climate resilience, and supports sustainable livelihoods for rural communities across Ethiopia.</div>
   </div>
-</section>
+  <div class="view-nav-btns">
+    <a class="view-btn" data-view="home">↑ Home</a>
+    <a class="view-btn" data-view="agroforestry">Agroforestry →</a>
+  </div>
+</div>
+</div>
 
-</main>
+<!-- AGROFORESTRY -->
+<div id="view-agroforestry" class="content-view">
+<div class="view-inner">
+  <div class="view-breadcrumb"><a data-view="home">Home</a><span class="sep">›</span><span>Sectors</span><span class="sep">›</span><span class="current">Agroforestry</span></div>
+  <div class="view-badge">🌿 Sector 03</div>
+  <h1 class="view-title">Agroforestry <em>Systems</em></h1>
+  <div class="view-body">
+    <p>Agroforestry is a sustainable land-use management system that integrates trees, crops, and livestock within the same landscape to improve productivity, biodiversity conservation, climate resilience, and rural livelihoods. In Ethiopia, agroforestry plays a vital role in restoring degraded lands, enhancing soil fertility, and diversifying household income.</p>
+    <p>Traditional agroforestry practices have existed in Ethiopia for centuries. Indigenous systems such as homegarden agroforestry, parkland tree management, and coffee-based forest systems continue to support sustainable agricultural production while maintaining ecological balance.</p>
+    <div class="view-h3">Major Agroforestry Systems</div>
+    <ul class="view-list">
+      <li>Homegarden Agroforestry Systems</li>
+      <li>Parkland Agroforestry Systems</li>
+      <li>Coffee-based Agroforestry Systems</li>
+      <li>Enset-based Agroforestry Systems</li>
+      <li>Silvopastoral Systems</li>
+      <li>Woodlot-based Agroforestry Systems</li>
+      <li>Windbreak and Shelterbelt Systems</li>
+    </ul>
+    <div class="view-h3">Key Tree Species in Ethiopia</div>
+    <div class="view-table-wrap">
+      <table class="view-table">
+        <thead><tr><th>Species</th><th>Main Function</th><th>Production Benefit</th></tr></thead>
+        <tbody>
+          <tr><td>Faidherbia albida</td><td>Soil fertility improvement</td><td>Crop yield enhancement</td></tr>
+          <tr><td>Cordia africana</td><td>Timber production</td><td>Income generation</td></tr>
+          <tr><td>Croton macrostachyus</td><td>Soil restoration</td><td>Shade and mulch supply</td></tr>
+          <tr><td>Sesbania sesban</td><td>Nitrogen fixation</td><td>Fodder production</td></tr>
+          <tr><td>Acacia species</td><td>Fuelwood supply</td><td>Dryland adaptation</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="view-stats">
+      <div class="view-stat"><div class="vs-num">Millions</div><div class="vs-label">Smallholders Practicing</div></div>
+      <div class="view-stat"><div class="vs-num">Multiple</div><div class="vs-label">Integrated Systems</div></div>
+      <div class="view-stat"><div class="vs-num">CRGE</div><div class="vs-label">Climate Contribution</div></div>
+      <div class="view-stat"><div class="vs-num">Restoration</div><div class="vs-label">Landscape Priority</div></div>
+    </div>
+    <div class="view-highlight">Agroforestry systems provide one of the most effective landscape restoration approaches in Ethiopia by integrating ecological sustainability with agricultural productivity and livelihood resilience.</div>
+  </div>
+  <div class="view-nav-btns">
+    <a class="view-btn" data-view="Natural-Resource-Mgmt">← Natural Resource Mgmt</a>
+    <a class="view-btn" data-view="home">↑ Home</a>
+  </div>
+</div>
+</div>
 
-<!-- ══════════════════════════════════════════════
-  FOOTER
-══════════════════════════════════════════════ -->
+<!-- CLIMATE -->
+<div id="view-Climate" class="content-view">
+<div class="view-inner">
+  <div class="view-breadcrumb"><a data-view="home">Home</a><span class="sep">›</span><span>Programs</span><span class="sep">›</span><span class="current">Climate Resilience</span></div>
+  <div class="view-badge">🌡 Program</div>
+  <h1 class="view-title">Climate Change & <em>AFOLU</em></h1>
+  <div class="view-body">
+    <p>Climate change is one of the most significant environmental challenges affecting Ethiopia's agricultural productivity, forest ecosystems, water availability, and rural livelihoods. The AFOLU sector plays a central role in both climate change mitigation and adaptation through sustainable land management, forest conservation, agroforestry expansion, and ecosystem restoration programs.</p>
+    <p>Because Ethiopia's economy depends heavily on rain-fed agriculture and natural resources, climate variability directly affects food security, biodiversity conservation, watershed stability, and rural income systems.</p>
+    <div class="view-h3">Major Climate Change Impacts</div>
+    <div class="view-table-wrap">
+      <table class="view-table">
+        <thead><tr><th>Climate Impact</th><th>Affected Sector</th><th>Observed Consequence</th></tr></thead>
+        <tbody>
+          <tr><td>Increasing temperature</td><td>Agriculture</td><td>Reduced crop productivity</td></tr>
+          <tr><td>Rainfall variability</td><td>Water resources</td><td>Drought and flood risks</td></tr>
+          <tr><td>Land degradation</td><td>Soil systems</td><td>Declining soil fertility</td></tr>
+          <tr><td>Deforestation pressure</td><td>Forest ecosystems</td><td>Biodiversity loss</td></tr>
+          <tr><td>Pasture shortage</td><td>Livestock systems</td><td>Reduced livestock productivity</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="view-h3">AFOLU Mitigation Contributions</div>
+    <ul class="view-list">
+      <li>Carbon sequestration through forest restoration</li>
+      <li>Agroforestry-based landscape rehabilitation</li>
+      <li>Sustainable land management practices</li>
+      <li>Participatory forest management systems</li>
+      <li>Watershed restoration interventions</li>
+      <li>Climate-smart agriculture practices</li>
+    </ul>
+    <div class="view-stats">
+      <div class="view-stat"><div class="vs-num">CRGE</div><div class="vs-label">National Climate Framework</div></div>
+      <div class="view-stat"><div class="vs-num">AFOLU</div><div class="vs-label">Major Emission Reduction Sector</div></div>
+      <div class="view-stat"><div class="vs-num">2030</div><div class="vs-label">Climate Target Horizon</div></div>
+      <div class="view-stat"><div class="vs-num">Restoration</div><div class="vs-label">Landscape Priority Action</div></div>
+    </div>
+    <div class="view-highlight">Strengthening climate-resilient landscapes through forestry, agroforestry, watershed restoration, and sustainable land management is essential for Ethiopia's long-term environmental sustainability and food security.</div>
+  </div>
+  <div class="view-nav-btns">
+    <a class="view-btn" data-view="home">↑ Home</a>
+    <a class="view-btn" data-view="REDD">REDD+ →</a>
+  </div>
+</div>
+</div>
+
+<!-- REDD -->
+<div id="view-REDD" class="content-view">
+<div class="view-inner">
+  <div class="view-breadcrumb"><a data-view="home">Home</a><span class="sep">›</span><span>Programs</span><span class="sep">›</span><span class="current">REDD+</span></div>
+  <div class="view-badge">🌿 Climate Finance</div>
+  <h1 class="view-title">REDD+ Forest Carbon <em>Management</em></h1>
+  <div class="view-body">
+    <p>REDD+ (Reducing Emissions from Deforestation and Forest Degradation) is an international climate change mitigation mechanism that supports developing countries in reducing greenhouse gas emissions through sustainable forest management, conservation, enhancement of forest carbon stocks, and protection of biodiversity-rich landscapes.</p>
+    <p>Ethiopia's REDD+ strategy supports national restoration priorities by reducing deforestation pressures, strengthening participatory forest management systems, and improving monitoring of forest carbon resources across regional forest landscapes such as Bale, Oromia, and southwestern forest ecosystems.</p>
+    <div class="view-h3">Drivers of Deforestation Addressed</div>
+    <div class="view-table-wrap">
+      <table class="view-table">
+        <thead><tr><th>Driver</th><th>Impact on Forest</th><th>REDD+ Intervention</th></tr></thead>
+        <tbody>
+          <tr><td>Agricultural expansion</td><td>Forest clearing</td><td>Landscape restoration programs</td></tr>
+          <tr><td>Fuelwood extraction</td><td>Biomass depletion</td><td>Efficient energy alternatives</td></tr>
+          <tr><td>Illegal logging</td><td>Timber loss</td><td>Forest monitoring systems</td></tr>
+          <tr><td>Overgrazing pressure</td><td>Regeneration decline</td><td>Controlled grazing systems</td></tr>
+          <tr><td>Settlement expansion</td><td>Habitat fragmentation</td><td>Participatory land-use planning</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="view-h3">Regional REDD+ Landscapes</div>
+    <ul class="view-list">
+      <li>Bale Eco-region forest landscape</li>
+      <li>Southwest Ethiopia forest ecosystems</li>
+      <li>Oromia regional forest priority zones</li>
+      <li>Participatory watershed restoration corridors</li>
+    </ul>
+    <div class="view-stats">
+      <div class="view-stat"><div class="vs-num">Forest</div><div class="vs-label">Carbon Sink Protection</div></div>
+      <div class="view-stat"><div class="vs-num">PFM</div><div class="vs-label">Community-Based Management</div></div>
+      <div class="view-stat"><div class="vs-num">MRV</div><div class="vs-label">Monitoring Strengthened</div></div>
+      <div class="view-stat"><div class="vs-num">CRGE</div><div class="vs-label">Climate Strategy Aligned</div></div>
+    </div>
+    <div class="view-highlight">REDD+ strengthens Ethiopia's forest-based climate mitigation strategy by linking carbon conservation, biodiversity protection, sustainable land management, and community livelihood improvement across priority forest landscapes.</div>
+  </div>
+  <div class="view-nav-btns">
+    <a class="view-btn" data-view="Climate">← Climate Resilience</a>
+    <a class="view-btn" data-view="Legacy">Green Legacy →</a>
+  </div>
+</div>
+</div>
+
+<!-- GREEN LEGACY -->
+<div id="view-Legacy" class="content-view">
+<div class="view-inner">
+  <div class="view-breadcrumb"><a data-view="home">Home</a><span class="sep">›</span><span>Programs</span><span class="sep">›</span><span class="current">Green Legacy Initiative</span></div>
+  <div class="view-badge">🌱 Flagship Program</div>
+  <h1 class="view-title">The Green Legacy <em>Initiative</em></h1>
+  <div class="view-body">
+    <p>The Green Legacy Initiative is Ethiopia's flagship national environmental restoration campaign aimed at reversing deforestation, restoring degraded landscapes, improving biodiversity conservation, and strengthening climate resilience through large-scale tree planting activities. Since its launch in 2019, the initiative has mobilized millions of citizens across the country.</p>
+    <p>The program supports Ethiopia's Climate Resilient Green Economy (CRGE) Strategy and contributes significantly to global climate change mitigation goals by enhancing forest carbon stocks and promoting sustainable ecosystem management practices.</p>
+    <div class="view-h3">Annual Tree Planting Achievements</div>
+    <div class="view-table-wrap">
+      <table class="view-table">
+        <thead><tr><th>Year</th><th>Seedlings Planted</th><th>National Focus</th></tr></thead>
+        <tbody>
+          <tr><td>2019</td><td>4 Billion</td><td>Launch of national restoration campaign</td></tr>
+          <tr><td>2020</td><td>5 Billion</td><td>Expansion to watershed landscapes</td></tr>
+          <tr><td>2021</td><td>6 Billion</td><td>Community mobilization strengthened</td></tr>
+          <tr><td>2022</td><td>6.5 Billion</td><td>Climate mitigation contribution increased</td></tr>
+          <tr><td>2023</td><td>7 Billion+</td><td>Landscape restoration scaling nationwide</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="view-stats">
+      <div class="view-stat"><div class="vs-num">30B+</div><div class="vs-label">Seedlings Planted Since 2019</div></div>
+      <div class="view-stat"><div class="vs-num">Nationwide</div><div class="vs-label">Landscape Coverage</div></div>
+      <div class="view-stat"><div class="vs-num">CRGE</div><div class="vs-label">Climate Strategy Support</div></div>
+      <div class="view-stat"><div class="vs-num">Millions</div><div class="vs-label">Citizens Participating</div></div>
+    </div>
+    <div class="view-highlight">The Green Legacy Initiative represents one of Africa's largest community-driven environmental restoration campaigns and plays a transformative role in strengthening Ethiopia's climate resilience, biodiversity conservation, and sustainable land management systems.</div>
+  </div>
+  <div class="view-nav-btns">
+    <a class="view-btn" data-view="REDD">← REDD+</a>
+    <a class="view-btn" data-view="Food">Food Security →</a>
+  </div>
+</div>
+</div>
+
+<!-- FOOD SECURITY -->
+<div id="view-Food" class="content-view">
+<div class="view-inner">
+  <div class="view-breadcrumb"><a data-view="home">Home</a><span class="sep">›</span><span>Programs</span><span class="sep">›</span><span class="current">Food Security</span></div>
+  <div class="view-badge">🌾 Program</div>
+  <h1 class="view-title">Food Security & <em>AFOLU Systems</em></h1>
+  <div class="view-body">
+    <p>Food security in Ethiopia is closely linked to the performance of the AFOLU sector. Sustainable agricultural production, forest ecosystem services, agroforestry integration, watershed restoration programs, and climate-resilient land management practices collectively support household food availability, access, utilization, and stability across rural landscapes.</p>
+    <div class="view-h3">Four Pillars of Food Security</div>
+    <div class="view-table-wrap">
+      <table class="view-table">
+        <thead><tr><th>Pillar</th><th>Description</th><th>AFOLU Contribution</th></tr></thead>
+        <tbody>
+          <tr><td>Availability</td><td>Production of sufficient food</td><td>Climate-smart agriculture and agroforestry</td></tr>
+          <tr><td>Access</td><td>Economic and physical access</td><td>Forest-based income diversification</td></tr>
+          <tr><td>Utilization</td><td>Nutritional value and quality</td><td>Homegarden agroforestry systems</td></tr>
+          <tr><td>Stability</td><td>Long-term resilience to shocks</td><td>Watershed restoration and climate adaptation</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="view-highlight">Strengthening food security in Ethiopia requires integrated AFOLU landscape management approaches that combine sustainable agriculture, forest conservation, agroforestry expansion, watershed protection, and climate-resilient development strategies.</div>
+  </div>
+  <div class="view-nav-btns">
+    <a class="view-btn" data-view="Legacy">← Green Legacy</a>
+    <a class="view-btn" data-view="home">↑ Home</a>
+  </div>
+</div>
+</div>
+
+<!-- GEOSPATIAL -->
+<div id="view-Geospatial" class="content-view">
+<div class="view-inner">
+  <div class="view-breadcrumb"><a data-view="home">Home</a><span class="sep">›</span><span>Resources</span><span class="sep">›</span><span class="current">Geospatial & GIS</span></div>
+  <div class="view-badge">🛰 Resources</div>
+  <h1 class="view-title">Geospatial Monitoring <em>& GIS</em></h1>
+  <div class="view-body">
+    <p>Geospatial technologies such as Geographic Information Systems (GIS), Remote Sensing, Global Positioning Systems (GPS), and spatial modeling tools play a critical role in monitoring forests, agricultural landscapes, watershed systems, and climate-sensitive ecosystems in Ethiopia's AFOLU sector. These technologies support evidence-based decision making for sustainable land management and climate-resilient development planning.</p>
+    <div class="view-h3">GIS Applications in AFOLU Monitoring</div>
+    <div class="view-table-wrap">
+      <table class="view-table">
+        <thead><tr><th>Application Area</th><th>Monitoring Purpose</th><th>AFOLU Contribution</th></tr></thead>
+        <tbody>
+          <tr><td>Forest cover mapping</td><td>Detect deforestation trends</td><td>Supports REDD+ implementation</td></tr>
+          <tr><td>Watershed analysis</td><td>Identify erosion hotspots</td><td>Supports restoration planning</td></tr>
+          <tr><td>Land-use classification</td><td>Track landscape change</td><td>Improves planning decisions</td></tr>
+          <tr><td>Carbon stock estimation</td><td>Monitor biomass change</td><td>Supports climate reporting</td></tr>
+          <tr><td>Farming system mapping</td><td>Identify production zones</td><td>Supports food security planning</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="view-h3">Platforms Used</div>
+    <ul class="view-list">
+      <li>Landsat and Sentinel satellite imagery</li>
+      <li>MODIS vegetation monitoring systems</li>
+      <li>High-resolution drone imagery</li>
+      <li>Digital Elevation Models (DEM)</li>
+      <li>Spatial Decision Support Systems (SDSS)</li>
+    </ul>
+    <div class="view-highlight">Geospatial monitoring technologies strengthen Ethiopia's capacity to manage forests, restore degraded landscapes, support climate mitigation reporting systems, and improve planning of sustainable smallholder farming systems across the AFOLU sector.</div>
+  </div>
+  <div class="view-nav-btns">
+    <a class="view-btn" data-view="home">↑ Home</a>
+    <a class="view-btn" data-view="Wildlife">Wildlife & Biodiversity →</a>
+  </div>
+</div>
+</div>
+
+<!-- WILDLIFE -->
+<div id="view-Wildlife" class="content-view">
+<div class="view-inner">
+  <div class="view-breadcrumb"><a data-view="home">Home</a><span class="sep">›</span><span>Sectors</span><span class="sep">›</span><span class="current">Wildlife & Ecotourism</span></div>
+  <div class="view-badge">🦁 Sector</div>
+  <h1 class="view-title">Wildlife & Biodiversity <em>Conservation</em></h1>
+  <div class="view-body">
+    <p>Wildlife and biodiversity conservation are essential components of Ethiopia's AFOLU sector. Forest ecosystems, rangelands, wetlands, and agricultural landscapes provide habitats for diverse plant and animal species that support ecosystem stability, climate resilience, watershed protection, and rural livelihoods.</p>
+    <p>Integrating biodiversity conservation within forestry management, agroforestry systems, watershed restoration programs, and climate adaptation strategies helps maintain ecological balance while supporting sustainable development across Ethiopia's diverse landscapes.</p>
+    <div class="view-h3">Importance of Biodiversity in AFOLU Systems</div>
+    <div class="view-table-wrap">
+      <table class="view-table">
+        <thead><tr><th>Biodiversity Role</th><th>Landscape Function</th><th>Benefit to Communities</th></tr></thead>
+        <tbody>
+          <tr><td>Pollination services</td><td>Crop productivity support</td><td>Improved food security</td></tr>
+          <tr><td>Watershed protection</td><td>Water regulation</td><td>Reliable irrigation supply</td></tr>
+          <tr><td>Soil organism diversity</td><td>Soil fertility improvement</td><td>Higher agricultural yield</td></tr>
+          <tr><td>Forest habitat protection</td><td>Carbon storage stability</td><td>Climate mitigation benefits</td></tr>
+          <tr><td>Genetic diversity conservation</td><td>Resilient ecosystems</td><td>Adaptation to climate variability</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="view-h3">Major Ecosystem Types</div>
+    <ul class="view-list">
+      <li>Afromontane forest ecosystems</li>
+      <li>Woodland and savanna ecosystems</li>
+      <li>Riverine and wetland ecosystems</li>
+      <li>Afroalpine highland ecosystems</li>
+      <li>Rangeland and pastoral landscapes</li>
+      <li>Agroforestry-based farming landscapes</li>
+    </ul>
+    <div class="view-stats">
+      <div class="view-stat"><div class="vs-num">Biodiversity</div><div class="vs-label">Ecosystem Stability</div></div>
+      <div class="view-stat"><div class="vs-num">Forests</div><div class="vs-label">Primary Wildlife Habitat</div></div>
+      <div class="view-stat"><div class="vs-num">Corridors</div><div class="vs-label">Landscape Connectivity</div></div>
+      <div class="view-stat"><div class="vs-num">Communities</div><div class="vs-label">Key Conservation Partners</div></div>
+    </div>
+    <div class="view-highlight">Protecting biodiversity within AFOLU landscapes strengthens ecosystem services, supports wildlife habitats, enhances climate resilience, and improves long-term sustainability of agricultural and forest-based livelihood systems across Ethiopia.</div>
+  </div>
+  <div class="view-nav-btns">
+    <a class="view-btn" data-view="Geospatial">← Geospatial & GIS</a>
+    <a class="view-btn" data-view="home">↑ Home</a>
+  </div>
+</div>
+</div>
+
+<!-- GENERIC FALLBACK for unbuilt views -->
+<div id="view-generic" class="content-view">
+<div class="view-inner">
+  <div class="view-breadcrumb"><a data-view="home">Home</a><span class="sep">›</span><span class="current" id="generic-label">Page</span></div>
+  <div class="view-badge">🌿 AFOLU Ethiopia</div>
+  <h1 class="view-title" id="generic-title">Content <em>Coming Soon</em></h1>
+  <div class="view-body">
+    <p>This section is currently being developed. Please check back soon for detailed information about this topic, or contact us directly for more information.</p>
+    <p>In the meantime, explore our other sectors, programs, and resources using the navigation above.</p>
+  </div>
+  <div class="view-nav-btns">
+    <a class="view-btn" data-view="home">↑ Back to Home</a>
+  </div>
+</div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- ════════ FOOTER ════════ -->
 <footer>
   <div class="footer-top">
-    <div class="footer-col">
+    <div class="footer-brand-col">
       <div class="footer-logo-wrap">
-        <img src="https://i.imgur.com/stFhOHw.png" alt="AFOLU Logo">
-        <span class="footer-brand">AFOLU of ETHIOPIA</span>
+        <div class="footer-logo"><img src="https://i.imgur.com/stFhOHw.png" alt="AFOLU Logo"></div>
+        <div>
+          <div class="footer-brand-name">AFOLU Ethiopia</div>
+          <div class="footer-brand-sub">Agriculture · Forestry · Land Use</div>
+        </div>
       </div>
-      <p>Agriculture, Forestry and Other Land Uses — Oromia Bureau of Agriculture</p>
-      <p style="margin-top:0.6rem;">Kan barreesse: <strong style="color:var(--oba-yellow)">Mulugeetaa Betamaariyam</strong></p>
-      <a href="mailto:fgelila86@gmail.com" style="color:var(--oba-yellow);margin-top:0.2rem;">fgelila86@gmail.com</a>
+      <p class="footer-brand-desc">Advancing sustainable land management, forest conservation, and climate resilience across Ethiopia's diverse landscapes since 2019.</p>
+      <div class="footer-socials">
+        <a href="https://www.facebook.com/afoluethiopia" target="_blank" class="footer-social" title="Facebook">f</a>
+        <a href="#" class="footer-social" title="Twitter">𝕏</a>
+        <a href="#" class="footer-social" title="YouTube">▶</a>
+        <a href="#" class="footer-social" title="Instagram">◎</a>
+      </div>
     </div>
     <div class="footer-col">
-      <h4>Quick Links</h4>
-      <a href="#seensa">Seensa — Introduction</a>
-      <a href="#sejaara">Uwwisa Bosonaa</a>
-      <a href="#faayidaa">Faayidaa — Importance</a>
-      <a href="#seenaa">Seenaa — Story</a>
-      <a href="#qormaata">Qormaata — Quiz</a>
-      <a href="#galmee">Galmee Jechootaa</a>
+      <h5>Sectors</h5>
+      <ul>
+        <li><a data-view="plant-science">Plant Science</a></li>
+        <li><a data-view="Natural-Resource-Mgmt">Natural Resource Mgmt</a></li>
+        <li><a data-view="agroforestry">Agroforestry</a></li>
+        <li><a data-view="animal-science">Animal Science</a></li>
+        <li><a data-view="forestry">Forestry</a></li>
+        <li><a data-view="Wildlife">Wildlife & Ecotourism</a></li>
+      </ul>
     </div>
     <div class="footer-col">
-      <h4>Sectors</h4>
-      <a href="#">Agriculture Development</a>
-      <a href="#">Natural Resource Management</a>
-      <a href="#">Coffee &amp; Fruits</a>
-      <a href="#">Livestock Development</a>
-      <a href="#">Crop Protection</a>
-      <a href="#">Forestry &amp; AFOLU</a>
+      <h5>Programs</h5>
+      <ul>
+        <li><a data-view="Legacy">Green Legacy Initiative</a></li>
+        <li><a data-view="REDD">REDD+ Program</a></li>
+        <li><a data-view="Climate">Climate Resilience</a></li>
+        <li><a data-view="Food">Food Security</a></li>
+      </ul>
     </div>
     <div class="footer-col">
-      <h4>Contact</h4>
-      <p>📍 Finfinnee (Addis Ababa), Oromia, Ethiopia</p>
-      <a href="tel:+251011834060">📞 +251 011 834 0600</a>
-      <a href="tel:+251011834062">📞 +251 011 834 0602</a>
-      <a href="mailto:agricultureoromia@gmail.com">✉ agricultureoromia@gmail.com</a>
-      <a href="https://www.obagriculture.org" target="_blank">🌐 www.obagriculture.org</a>
+      <h5>Contact</h5>
+      <ul>
+        <li><a href="tel:+251911946191">+251 911 946 191</a></li>
+        <li><a href="mailto:afoluethiopia@gmail.com">afoluethiopia@gmail.com</a></li>
+        <li><a>Finfinnee / Addis Ababa, Ethiopia</a></li>
+      </ul>
     </div>
   </div>
   <div class="footer-bottom">
-    <p>© 2026 AFOLU Ethiopia · Oromia Bureau of Agriculture · Seenaa Bosonaa Uumamaa Itoophiyaa · Afan Oromoo</p>
-    <div class="footer-socials">
-      <a href="#" title="Facebook">f</a>
-      <a href="#" title="Twitter">𝕏</a>
-      <a href="#" title="YouTube">▶</a>
-      <a href="#" title="Instagram">◎</a>
+    <p class="footer-copy">© 2026 AFOLU Ethiopia. All rights reserved.</p>
+    <div class="footer-links">
+      <a href="#">Privacy Policy</a>
+      <a href="#">Terms of Use</a>
+      <a href="#">Sitemap</a>
     </div>
   </div>
 </footer>
 
 <script>
-// Floating leaves
-const bg = document.getElementById('leavesBg');
-for (let i = 0; i < 22; i++) {
-  const l = document.createElement('div'); l.className = 'leaf';
-  l.style.cssText = `left:${Math.random()*100}%;width:${4+Math.random()*6}px;height:${8+Math.random()*10}px;animation-duration:${12+Math.random()*18}s;animation-delay:${Math.random()*20}s;opacity:0;border-radius:${Math.random()>.5?'50% 0 50% 0':'0 50% 0 50%'};background:hsl(${140+Math.random()*40},${50+Math.random()*30}%,${40+Math.random()*25}%);`;
-  bg.appendChild(l);
-}
+/* ════════════════════════════════════
+   ANIMATED BACKGROUND CANVAS
+════════════════════════════════════ */
+(function(){
+  const canvas = document.getElementById('bgCanvas');
+  const ctx = canvas.getContext('2d');
+  let W, H, particles = [];
 
-// Scroll reveal
-const observer = new IntersectionObserver(entries => {
-  entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
-}, { threshold: 0.08 });
-document.querySelectorAll('.section').forEach(s => observer.observe(s));
+  function resize() {
+    W = canvas.width = window.innerWidth;
+    H = canvas.height = window.innerHeight;
+  }
 
-// Quiz
-function toggleAnswer(btn) {
-  const ans = btn.nextElementSibling;
-  ans.classList.toggle('show');
-  btn.textContent = ans.classList.contains('show') ? 'Deebii Dhoksi' : 'Deebii Agarsiisi';
-}
+  function Particle() {
+    this.reset = function() {
+      this.x = Math.random() * W;
+      this.y = Math.random() * H;
+      this.r = Math.random() * 1.5 + 0.3;
+      this.vx = (Math.random() - 0.5) * 0.3;
+      this.vy = (Math.random() - 0.5) * 0.3;
+      this.alpha = Math.random() * 0.4 + 0.05;
+      this.color = Math.random() > 0.6 ? '#3a9057' : Math.random() > 0.5 ? '#c8963e' : '#5db87a';
+    };
+    this.reset();
+  }
 
-// Hamburger
+  for(let i = 0; i < 90; i++) particles.push(new Particle());
+
+  function draw() {
+    ctx.clearRect(0, 0, W, H);
+    // Gradient overlay
+    const grad = ctx.createRadialGradient(W*0.5, H*0.4, 0, W*0.5, H*0.4, Math.max(W,H)*0.7);
+    grad.addColorStop(0, 'rgba(30,86,48,0.12)');
+    grad.addColorStop(1, 'rgba(10,26,14,0)');
+    ctx.fillStyle = grad;
+    ctx.fillRect(0,0,W,H);
+
+    particles.forEach(p => {
+      ctx.beginPath();
+      ctx.arc(p.x, p.y, p.r, 0, Math.PI*2);
+      ctx.fillStyle = p.color;
+      ctx.globalAlpha = p.alpha;
+      ctx.fill();
+      p.x += p.vx; p.y += p.vy;
+      if(p.x<0||p.x>W||p.y<0||p.y>H) p.reset();
+    });
+    ctx.globalAlpha = 1;
+
+    // Subtle grid lines
+    ctx.strokeStyle = 'rgba(58,144,87,0.04)';
+    ctx.lineWidth = 1;
+    for(let x = 0; x < W; x += 80) {
+      ctx.beginPath(); ctx.moveTo(x, 0); ctx.lineTo(x, H); ctx.stroke();
+    }
+    for(let y = 0; y < H; y += 80) {
+      ctx.beginPath(); ctx.moveTo(0, y); ctx.lineTo(W, y); ctx.stroke();
+    }
+
+    requestAnimationFrame(draw);
+  }
+
+  resize(); draw();
+  window.addEventListener('resize', resize);
+})();
+
+/* ════════════════════════════════════
+   NAV SCROLL & HAMBURGER
+════════════════════════════════════ */
+const nav = document.getElementById('mainNav');
 const hamburger = document.getElementById('hamburger');
-const primaryLinks = document.getElementById('primaryLinks');
-hamburger.addEventListener('click', () => {
-  hamburger.classList.toggle('open');
-  primaryLinks.classList.toggle('open');
-});
-
-// Mobile sectors dropdown toggle
-document.getElementById('sectorsItem').querySelector('a').addEventListener('click', function(e) {
-  if (window.innerWidth <= 900) { e.preventDefault(); document.getElementById('sectorsItem').classList.toggle('open'); }
-});
-
-// Scroll effects — shrink nav & active sub-nav
-const mainNav = document.getElementById('mainNav');
-const subNav  = document.getElementById('subNav');
-const sections = document.querySelectorAll('section[id]');
-const subAnchors = document.querySelectorAll('.sub-nav a');
-const primAnchors = document.querySelectorAll('.primary-links > li > a');
+const navLinks = document.getElementById('navLinks');
 
 window.addEventListener('scroll', () => {
-  const scrolled = window.scrollY > 50;
-  mainNav.classList.toggle('scrolled', scrolled);
-  subNav.classList.toggle('scrolled', scrolled);
+  nav.classList.toggle('scrolled', window.scrollY > 40);
+});
 
-  // Active sub-nav
-  let cur = '';
-  sections.forEach(s => { if (window.scrollY >= s.offsetTop - 140) cur = s.id; });
-  subAnchors.forEach(a => {
-    a.classList.remove('active');
-    if (a.getAttribute('href') === '#' + cur) a.classList.add('active');
+hamburger.addEventListener('click', () => {
+  hamburger.classList.toggle('open');
+  navLinks.classList.toggle('open');
+});
+
+// Mobile dropdowns
+document.querySelectorAll('.has-drop > a').forEach(a => {
+  a.addEventListener('click', e => {
+    if(window.innerWidth <= 1000) {
+      e.preventDefault();
+      a.parentElement.classList.toggle('open');
+    }
   });
 });
+
+/* ════════════════════════════════════
+   SPA NAVIGATION
+════════════════════════════════════ */
+const HOME_VIEW = 'home';
+
+const knownViews = [
+  'home','About','Mission','Leadership','Organizational',
+  'plant-science','Natural-Resource-Mgmt','agroforestry','animal-science',
+  'Extension','Agro-Economics','forestry','Wildlife',
+  'Legacy','Food','Climate','REDD',
+  'Reports','Geospatial','publications',
+  'Projects','Completed','Regional',
+  'News','events','Gallery','Testimonials'
+];
+
+const builtViews = [
+  'home','Natural-Resource-Mgmt','agroforestry','Wildlife','Climate','REDD','Legacy','Food','Geospatial'
+];
+
+// Friendly names for generic fallback
+const viewNames = {
+  'About': 'About AFOLU', 'Mission': 'Mission & Vision', 'Leadership': 'Leadership',
+  'Organizational': 'Organizational Structure', 'plant-science': 'Plant Science',
+  'animal-science': 'Animal Science', 'Extension': 'Rural Development',
+  'Agro-Economics': 'Agro-Economics & Value Chain', 'forestry': 'Forestry',
+  'Reports': 'Reports & Publications', 'publications': 'Technical Manuals',
+  'Projects': 'Current Projects', 'Completed': 'Completed Projects',
+  'Regional': 'Regional Projects', 'News': 'Latest News', 'events': 'Events',
+  'Gallery': 'Photo Gallery', 'Testimonials': 'Testimonials'
+};
+
+function showView(viewId) {
+  const homeDiv = document.getElementById('view-home');
+  const footer = document.querySelector('footer');
+
+  // Hide all content views
+  document.querySelectorAll('.content-view').forEach(v => v.classList.remove('active'));
+
+  if(!viewId || viewId === HOME_VIEW) {
+    homeDiv.style.display = 'block';
+    footer.style.display = '';
+    // Update active nav link
+    document.querySelectorAll('[data-view]').forEach(a => a.classList.remove('active'));
+    document.querySelectorAll('[data-view="home"]').forEach(a => a.classList.add('active'));
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+    return;
+  }
+
+  homeDiv.style.display = 'none';
+
+  if(builtViews.includes(viewId)) {
+    const el = document.getElementById('view-' + viewId);
+    if(el) { el.classList.add('active'); }
+  } else {
+    // Generic fallback
+    const generic = document.getElementById('view-generic');
+    const label = viewNames[viewId] || viewId;
+    document.getElementById('generic-label').textContent = label;
+    document.getElementById('generic-title').innerHTML = label + ' <em>— Coming Soon</em>';
+    generic.classList.add('active');
+  }
+
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+
+  // Close mobile menu
+  hamburger.classList.remove('open');
+  navLinks.classList.remove('open');
+}
+
+// Wire all data-view links
+document.addEventListener('click', e => {
+  const el = e.target.closest('[data-view]');
+  if(!el) return;
+  e.preventDefault();
+  const view = el.getAttribute('data-view');
+  showView(view);
+});
+
+// Init
+showView(HOME_VIEW);
+
+/* ════════════════════════════════════
+   SCROLL REVEAL
+════════════════════════════════════ */
+const revealObs = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if(entry.isIntersecting) {
+      entry.target.classList.add('visible');
+      revealObs.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+
+document.querySelectorAll('.reveal').forEach(el => revealObs.observe(el));
 </script>
 </body>
 </html>
