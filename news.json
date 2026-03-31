@@ -1,1841 +1,212 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8"/>
-<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>AFOLU of Ethiopia</title>
-<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ccircle cx='32' cy='32' r='32' fill='%230f2d18'/%3E%3Ccircle cx='32' cy='32' r='30' fill='none' stroke='%23c8963e' stroke-width='2'/%3E%3Crect x='29' y='42' width='6' height='10' rx='2' fill='%23c8963e'/%3E%3Cpolygon points='32,12 44,32 20,32' fill='%233a9057'/%3E%3Cpolygon points='32,20 46,38 18,38' fill='%232a7042'/%3E%3Cpolygon points='32,28 47,44 17,44' fill='%231e5630'/%3E%3Cellipse cx='38' cy='22' rx='4' ry='5' fill='%235db87a' opacity='0.35' transform='rotate(-20 38 22)'/%3E%3C/svg%3E">
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400;1,600&family=Outfit:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet"/>
-<style>
-:root {
-  --ink:        #0a1a0e;
-  --deep:       #0f2d18;
-  --dark:       #163820;
-  --forest:     #1e5630;
-  --mid:        #2a7042;
-  --bright:     #3a9057;
-  --pale:       #5db87a;
-  --mist:       #a8d9b8;
-  --fog:        #d4edde;
-  --snow:       #f2f9f5;
-  --white:      #ffffff;
-  --gold:       #c8963e;
-  --gold-light: #e8b86d;
-  --text-main:  #e8f5ec;
-  --text-soft:  rgba(232,245,236,0.65);
-  --text-dim:   rgba(232,245,236,0.38);
-  --accent:     #f0c35a;
-  --nav-h:      72px;
-  --radius-sm:  6px;
-  --radius-md:  14px;
-  --radius-lg:  24px;
-  --radius-xl:  40px;
+{
+  "posts": [
+    {
+      "date": "2026-03-31",
+      "section": "Current Projects",
+      "type": "Announcement",
+      "title": "New Watershed Restoration Project Launched in Oromia Region",
+      "body": "AFOLU Ethiopia has officially launched a major watershed restoration initiative targeting over 15,000 hectares of degraded highland landscape in the Oromia region. The project will engage more than 200 farming communities through participatory soil and water conservation, agroforestry expansion, and community forest management systems.",
+      "author": "AFOLU Project Management Office"
+    },
+    {
+      "date": "2026-03-30",
+      "section": "Green Legacy Initiative",
+      "type": "News",
+      "title": "2026 Spring Green Legacy Planting Season Opens Across Six Regions",
+      "body": "The 2026 Green Legacy Initiative spring planting season has officially begun across six Ethiopian regions, with community mobilization events drawing thousands of participants in the opening week. AFOLU Ethiopia is supporting regional coordination, providing technical guidance on species selection, site preparation, and post-planting care to maximise seedling survival rates.",
+      "author": "Green Legacy Program Office"
+    },
+    {
+      "date": "2026-03-29",
+      "section": "REDD+",
+      "type": "Report",
+      "title": "2025 Annual REDD+ Carbon Monitoring Report Published",
+      "body": "AFOLU Ethiopia has published its 2025 REDD+ Carbon Monitoring Report, presenting updated forest cover and carbon stock estimates for priority landscapes. Net carbon sequestration increased by an estimated 4.2 million tonnes CO2 equivalent compared to the 2020 baseline. Participatory forest management communities accounted for over 70% of the conservation outcomes documented.",
+      "author": "AFOLU Research & Knowledge Management"
+    },
+    {
+      "date": "2026-03-28",
+      "section": "Forestry",
+      "type": "Achievement",
+      "title": "Eight Community Forest Cooperatives Certified in Kaffa Zone",
+      "body": "Eight community forest management cooperatives in Kaffa Zone, SNNPR, have received official certification from the Ethiopian Forest Development Agency following a rigorous governance and management assessment. The certified cooperatives now have legal authority to manage, protect, and benefit from over 45,000 hectares of Afromontane forest.",
+      "author": "AFOLU Forestry Sector"
+    },
+    {
+      "date": "2026-03-27",
+      "section": "Agroforestry",
+      "type": "Update",
+      "title": "Homegarden Agroforestry Expansion Reaches 12,000 Households in SNNP Region",
+      "body": "AFOLU Ethiopia's agroforestry sector has reached a major milestone with 12,000 smallholder households in the SNNP region now implementing improved homegarden agroforestry systems. The systems integrate indigenous tree species with enset, coffee, and food crops, improving nutrition, household income, and microclimate resilience for participating families.",
+      "author": "AFOLU Agroforestry Sector"
+    },
+    {
+      "date": "2026-03-26",
+      "section": "Climate Resilience",
+      "type": "Announcement",
+      "title": "Partnership Signed with FAO for Climate-Smart Agriculture Scaling",
+      "body": "AFOLU Ethiopia has signed a three-year partnership agreement with FAO to scale climate-smart agriculture practices across smallholder communities in Ethiopia's highland and lowland regions. The agreement covers development of context-specific climate adaptation toolkits and the training of over 500 agricultural development agents.",
+      "author": "AFOLU Executive Office"
+    },
+    {
+      "date": "2026-03-25",
+      "section": "Plant Science",
+      "type": "Update",
+      "title": "Improved Tef Variety Trials Completed in Amhara and Oromia Highlands",
+      "body": "Multi-location variety trials for five new drought-tolerant tef varieties have been completed in 18 highland woredas across Amhara and Oromia. Preliminary results show yield gains of 25-40% over local check varieties under reduced rainfall conditions, with two top-performing varieties now recommended for formal release through the national seed system.",
+      "author": "AFOLU Plant Science Sector"
+    },
+    {
+      "date": "2026-03-24",
+      "section": "Natural Resource Management",
+      "type": "Achievement",
+      "title": "500 km of Hillside Terracing Completed Across Tigray Watersheds",
+      "body": "AFOLU Ethiopia's natural resource management team, working alongside regional watershed bureaus and community groups, has completed over 500 kilometres of stone-faced hillside terracing across priority degraded watersheds in Tigray. The work is projected to reduce surface runoff and soil loss by up to 60% in treated areas.",
+      "author": "AFOLU Natural Resource Management Sector"
+    },
+    {
+      "date": "2026-03-23",
+      "section": "Animal Science",
+      "type": "Event",
+      "title": "Community Animal Health Worker Training Programme Graduates 320 Paravets",
+      "body": "A graduation ceremony held in Bahir Dar marked the completion of AFOLU Ethiopia's latest Community Animal Health Worker training cohort. A total of 320 paraveterinary workers from four regions received certification after completing a 12-week curriculum covering livestock disease recognition, vaccination delivery, and first-response treatment protocols.",
+      "author": "AFOLU Animal Science Sector"
+    },
+    {
+      "date": "2026-03-22",
+      "section": "Rural Development",
+      "type": "Update",
+      "title": "Farmer Training of Trainers Programme Launches in 25 Woredas",
+      "body": "AFOLU Ethiopia has launched a Farmer Training of Trainers programme across 25 priority woredas, equipping lead farmers with skills in integrated soil fertility management, climate-smart agronomic practices, and community facilitation. Each trained farmer is expected to provide peer-to-peer extension support to a minimum of 20 neighbouring households.",
+      "author": "AFOLU Rural Development Sector"
+    },
+    {
+      "date": "2026-03-21",
+      "section": "Agro-Economics",
+      "type": "Report",
+      "title": "Ethiopia Coffee Agroforestry Value Chain Assessment Released",
+      "body": "A new value chain assessment published by AFOLU Ethiopia's agro-economics sector documents the economic performance of shade-grown coffee systems in southwestern Ethiopia. The report finds that farmers in certified agroforestry coffee systems earn on average 38% more income per kilogram compared to conventional coffee growers, driven by premiums from specialty and organic market channels.",
+      "author": "AFOLU Agro-Economics Sector"
+    },
+    {
+      "date": "2026-03-20",
+      "section": "Wildlife & Ecotourism",
+      "type": "Announcement",
+      "title": "Community Ecotourism Enterprise Established Near Bale Mountains National Park",
+      "body": "A new community-based ecotourism enterprise has been formally registered in the buffer zone of Bale Mountains National Park, supported by AFOLU Ethiopia's wildlife and ecotourism programme. The enterprise, managed by a local cooperative of 84 households, will offer guided wildlife walks, traditional homestay accommodation, and cultural exchange experiences to visiting tourists.",
+      "author": "AFOLU Wildlife & Ecotourism Sector"
+    },
+    {
+      "date": "2026-03-19",
+      "section": "Food Security",
+      "type": "Update",
+      "title": "Integrated Food Security Assessment Completed in 10 Food-Insecure Woredas",
+      "body": "AFOLU Ethiopia has completed a comprehensive food security assessment in 10 chronically food-insecure woredas across the Southern and Oromia regions. The assessment evaluated all four pillars of food security and will inform the design of targeted AFOLU interventions for the next programme cycle.",
+      "author": "AFOLU Food Security Programme"
+    },
+    {
+      "date": "2026-03-18",
+      "section": "Reports & Publications",
+      "type": "Report",
+      "title": "Annual Impact Report 2025 Now Available for Download",
+      "body": "AFOLU Ethiopia's Annual Impact Report 2025 is now publicly available. The report documents achievements across all eight technical sectors and four flagship programmes, presenting verified data on seedlings planted, hectares restored, households reached, and carbon outcomes. The report also reflects on challenges encountered and lessons incorporated into programme design.",
+      "author": "AFOLU Communications Team"
+    },
+    {
+      "date": "2026-03-17",
+      "section": "Geospatial & GIS",
+      "type": "Update",
+      "title": "High-Resolution Forest Cover Map for Southwest Ethiopia Completed",
+      "body": "AFOLU Ethiopia's geospatial monitoring team has finalised a new high-resolution (10-metre) forest cover map for the southwest Ethiopian highlands using Sentinel-2 satellite imagery and machine learning classification. The map will serve as the updated baseline for REDD+ reference emission level calculations and community forest management monitoring in the region.",
+      "author": "AFOLU Geospatial & GIS Unit"
+    },
+    {
+      "date": "2026-03-16",
+      "section": "Technical Manuals",
+      "type": "Announcement",
+      "title": "New Watershed Restoration Field Manual Published in Four Languages",
+      "body": "AFOLU Ethiopia has released a new Watershed Restoration and Soil Conservation Field Manual, now available in Amharic, Afaan Oromo, Tigrinya, and English. The manual provides step-by-step guidance for community facilitators on site assessment, bund construction, gully rehabilitation, and post-restoration monitoring. Print copies have been distributed to all regional partner bureaus.",
+      "author": "AFOLU Training & Publications Unit"
+    },
+    {
+      "date": "2026-03-15",
+      "section": "Completed Projects",
+      "type": "Report",
+      "title": "End-of-Project Evaluation Released for Oromia Landscape Restoration Initiative",
+      "body": "The final evaluation report for AFOLU Ethiopia's five-year Oromia Landscape Restoration Initiative has been published. The evaluation documents 28,000 households adopting improved land management practices, 9,200 hectares of degraded land restored, and measurable improvements in stream flow during dry seasons in treated watersheds.",
+      "author": "AFOLU Monitoring & Evaluation Unit"
+    },
+    {
+      "date": "2026-03-14",
+      "section": "Regional Projects",
+      "type": "Update",
+      "title": "Afar Rangeland Management Programme Enters Second Phase",
+      "body": "Following a successful first phase, AFOLU Ethiopia's Afar Rangeland Management Programme has entered its second phase with expanded geographic coverage and a strengthened focus on pastoral community governance systems. Phase 2 will work in 18 kebeles across two zones, incorporating participatory rangeland monitoring tools and seasonal mobility planning support.",
+      "author": "AFOLU Regional Projects Team"
+    },
+    {
+      "date": "2026-03-13",
+      "section": "Events",
+      "type": "Event",
+      "title": "National Stakeholder Consultation on Ethiopia's Land Restoration Strategy Held",
+      "body": "AFOLU Ethiopia co-organised a major national stakeholder consultation on Ethiopia's updated Land Restoration Strategy in Addis Ababa, bringing together over 200 participants from federal and regional government agencies, research institutions, NGOs, and international development partners. The consultation produced priority recommendations that will be integrated into the revised strategy document.",
+      "author": "AFOLU Policy & Advocacy Team"
+    },
+    {
+      "date": "2026-03-12",
+      "section": "Photo Gallery",
+      "type": "Update",
+      "title": "New Photo Series Documents 2026 Green Legacy Planting Events",
+      "body": "A new photo series capturing the 2026 Green Legacy planting events across Ethiopia has been added to AFOLU Ethiopia's photo gallery. The collection features 45 images from seven regional planting ceremonies, documenting community participation, nursery operations, and restored landscape sites. Images are available for media use with appropriate attribution.",
+      "author": "AFOLU Communications Team"
+    },
+    {
+      "date": "2026-03-11",
+      "section": "Testimonials",
+      "type": "Update",
+      "title": "Farmer Voices Series: Communities Share Land Restoration Experiences",
+      "body": "AFOLU Ethiopia has launched a new 'Farmer Voices' testimonial series featuring first-hand accounts from smallholder farmers, pastoralists, and forest community members across six regions. The series documents the practical impacts of AFOLU programmes on household food security, income, and landscape health, told in participants' own words and languages.",
+      "author": "AFOLU Communications Team"
+    },
+    {
+      "date": "2026-03-10",
+      "section": "About AFOLU",
+      "type": "Update",
+      "title": "AFOLU Ethiopia Publishes Updated Organisational Profile for 2026",
+      "body": "AFOLU Ethiopia has published its updated 2026 organisational profile, documenting the organisation's growth, programme portfolio, geographic reach, and institutional partnerships since its founding in 2019. The profile is available in English and Amharic and is intended for use by partner organisations, government counterparts, and development finance institutions.",
+      "author": "AFOLU Executive Office"
+    },
+    {
+      "date": "2026-03-09",
+      "section": "Mission & Vision",
+      "type": "Announcement",
+      "title": "AFOLU Ethiopia Launches 2026-2030 Strategic Plan",
+      "body": "AFOLU Ethiopia has formally launched its 2026-2030 Strategic Plan, setting out the organisation's priorities, strategic objectives, and resource mobilisation targets for the next five years. The plan was developed through a participatory process involving staff, partners, community representatives, and government counterparts across all regions where AFOLU operates.",
+      "author": "AFOLU Executive Office"
+    },
+    {
+      "date": "2026-03-08",
+      "section": "Leadership",
+      "type": "Announcement",
+      "title": "Dr. Tigist Bekele Appointed as AFOLU Ethiopia Deputy Director for Programs",
+      "body": "AFOLU Ethiopia is pleased to announce the appointment of Dr. Tigist Bekele as Deputy Director for Programs. Dr. Bekele brings 18 years of experience in integrated watershed management, climate-smart agriculture, and community-based natural resource governance. She previously led multi-year restoration programmes in Oromia and Amhara and holds a PhD in Environmental Science from Addis Ababa University.",
+      "author": "AFOLU Executive Office"
+    },
+    {
+      "date": "2026-03-07",
+      "section": "Organizational Structure",
+      "type": "Update",
+      "title": "AFOLU Ethiopia Establishes New Monitoring, Evaluation and Learning Unit",
+      "body": "As part of its 2026-2030 Strategic Plan implementation, AFOLU Ethiopia has established a dedicated Monitoring, Evaluation and Learning (MEL) Unit to strengthen evidence generation, adaptive management, and knowledge sharing across all technical sectors and programmes. The unit will implement a new integrated MEL framework and manage AFOLU's organisational learning systems.",
+      "author": "AFOLU Executive Office"
+    },
+    {
+      "date": "2026-03-06",
+      "section": "Latest News",
+      "type": "News",
+      "title": "AFOLU Ethiopia Recognised at African Land Restoration Summit",
+      "body": "AFOLU Ethiopia received formal recognition at the 2026 African Land Restoration Summit held in Nairobi, Kenya, for its contribution to Ethiopia's landscape restoration achievements. The organisation was highlighted as a model of integrated AFOLU programming that successfully links technical expertise, community engagement, and national policy alignment at scale.",
+      "author": "AFOLU Communications Team"
+    }
+  ]
 }
-*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-html { scroll-behavior: smooth; font-size: 16px; }
-body { font-family: 'Outfit', sans-serif; background: var(--ink); color: var(--text-main); overflow-x: hidden; line-height: 1.6; }
-::-webkit-scrollbar { width: 4px; }
-::-webkit-scrollbar-track { background: var(--ink); }
-::-webkit-scrollbar-thumb { background: var(--mid); border-radius: 4px; }
-
-#bgCanvas { position: fixed; inset: 0; z-index: 0; pointer-events: none; opacity: 0.55; }
-
-/* ===== NAV ===== */
-.nav-wrapper { position: fixed; top: 0; left: 0; right: 0; z-index: 1000; padding: 0 2.5rem; height: var(--nav-h); display: flex; align-items: center; justify-content: space-between; transition: background 0.4s, backdrop-filter 0.4s, box-shadow 0.4s; }
-.nav-wrapper.scrolled { background: rgba(10,26,14,0.92); backdrop-filter: blur(18px); box-shadow: 0 1px 0 rgba(58,144,87,0.2), 0 8px 32px rgba(0,0,0,0.4); }
-.brand { display: flex; align-items: center; gap: 0.85rem; text-decoration: none; flex-shrink: 0; }
-.brand-emblem { width: 48px; height: 48px; border-radius: 50%; border: 2px solid var(--gold); overflow: hidden; flex-shrink: 0; box-shadow: 0 0 0 4px rgba(200,150,62,0.15), 0 0 20px rgba(200,150,62,0.2); transition: box-shadow 0.3s; }
-.brand-emblem img { width: 100%; height: 100%; object-fit: cover; }
-.brand:hover .brand-emblem { box-shadow: 0 0 0 6px rgba(200,150,62,0.25), 0 0 32px rgba(200,150,62,0.35); }
-.brand-text { line-height: 1; }
-.brand-name { font-family: 'Cormorant Garamond', serif; font-size: 1.15rem; font-weight: 700; color: var(--white); letter-spacing: 0.05em; }
-.brand-sub { font-family: 'JetBrains Mono', monospace; font-size: 0.55rem; color: var(--gold); letter-spacing: 0.15em; text-transform: uppercase; margin-top: 2px; opacity: 0.85; }
-
-/* Desktop nav */
-.nav-links { display: flex; align-items: center; gap: 0.25rem; list-style: none; }
-.nav-links > li { position: relative; }
-.nav-links > li > a {
-  font-family: 'Outfit', sans-serif; font-size: 0.82rem; font-weight: 500; letter-spacing: 0.03em;
-  color: var(--text-soft); text-decoration: none; padding: 0.5rem 0.85rem;
-  border-radius: var(--radius-sm); display: flex; align-items: center; gap: 0.3rem;
-  transition: color 0.2s, background 0.2s; white-space: nowrap; cursor: pointer; border: none; background: none;
-}
-.nav-links > li > a:hover, .nav-links > li > a.active { color: var(--white); background: rgba(255,255,255,0.07); }
-.nav-links > li > a.active { color: var(--gold); }
-
-/* Dropdown arrow via JS-added class */
-.has-drop > a .arrow-icon { display: inline-block; width: 0; height: 0; border-left: 4px solid transparent; border-right: 4px solid transparent; border-top: 4px solid currentColor; opacity: 0.5; margin-left: 2px; transition: transform 0.2s; }
-.has-drop.open > a .arrow-icon { transform: rotate(180deg); }
-
-/* Desktop dropdown */
-.dropdown {
-  display: none; position: absolute; top: calc(100% + 8px); left: 50%; transform: translateX(-50%);
-  min-width: 220px; background: rgba(15,45,24,0.97); backdrop-filter: blur(24px);
-  border: 1px solid rgba(58,144,87,0.25); border-radius: var(--radius-md);
-  box-shadow: 0 16px 48px rgba(0,0,0,0.5); overflow: hidden; padding: 0.4rem; z-index: 999;
-}
-/* Desktop: show on hover */
-@media(min-width:1001px) {
-  .has-drop:hover .dropdown { display: block; animation: dropIn 0.18s ease; }
-}
-/* JS-driven open class for both desktop click and mobile */
-.has-drop.open .dropdown { display: block; }
-
-@keyframes dropIn { from { opacity:0; transform:translateX(-50%) translateY(-6px); } to { opacity:1; transform:translateX(-50%) translateY(0); } }
-.dropdown a { display: flex; align-items: center; gap: 0.6rem; font-family: 'Outfit', sans-serif; font-size: 0.82rem; color: var(--text-soft); text-decoration: none; padding: 0.55rem 0.8rem; border-radius: var(--radius-sm); transition: background 0.15s, color 0.15s; cursor: pointer; border: none; background: none; width: 100%; text-align: left; }
-.dropdown a:hover { background: rgba(58,144,87,0.18); color: var(--white); }
-.dropdown a .di { font-size: 0.95rem; width: 20px; text-align: center; }
-
-.nav-cta { font-family: 'Outfit', sans-serif; font-size: 0.82rem; font-weight: 600; padding: 0.5rem 1.2rem; background: linear-gradient(135deg, var(--mid), var(--forest)); border: 1px solid rgba(90,184,121,0.3); border-radius: 100px; color: var(--white); text-decoration: none; transition: all 0.2s; white-space: nowrap; }
-.nav-cta:hover { background: linear-gradient(135deg, var(--bright), var(--mid)); box-shadow: 0 0 20px rgba(58,144,87,0.35); }
-
-/* Hamburger */
-.hamburger { display: none; background: none; border: none; cursor: pointer; padding: 4px; flex-direction: column; gap: 5px; }
-.hamburger span { display: block; width: 22px; height: 2px; background: var(--mist); border-radius: 2px; transition: all 0.3s; }
-.hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
-.hamburger.open span:nth-child(2) { opacity: 0; }
-.hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
-
-/* Mobile nav */
-@media(max-width:1000px) {
-  .hamburger { display: flex; }
-  .nav-links {
-    display: none; flex-direction: column; align-items: flex-start;
-    position: fixed; top: var(--nav-h); left: 0; right: 0; bottom: 0;
-    background: rgba(10,26,14,0.98); backdrop-filter: blur(20px);
-    padding: 1.5rem 2rem; overflow-y: auto; gap: 0.1rem;
-  }
-  .nav-links.open { display: flex; }
-  .nav-links > li { width: 100%; }
-  .nav-links > li > a {
-    width: 100%; padding: 0.75rem 0.5rem; font-size: 1rem;
-    border-bottom: 1px solid rgba(255,255,255,0.06); border-radius: 0;
-    justify-content: space-between;
-  }
-  /* Mobile dropdown: static, animated height */
-  .dropdown {
-    position: static; transform: none; background: rgba(255,255,255,0.04);
-    border: none; box-shadow: none; border-radius: 0; padding: 0;
-    max-height: 0; overflow: hidden; transition: max-height 0.3s ease;
-  }
-  .has-drop.open .dropdown { max-height: 400px; display: block; }
-  .dropdown a { padding: 0.65rem 1.2rem; border-bottom: 1px solid rgba(255,255,255,0.04); border-radius: 0; }
-  .nav-wrapper { padding: 0 1.25rem; }
-}
-
-/* ===== HERO ===== */
-.hero { position: relative; min-height: 100vh; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; padding: 9rem 2rem 6rem; overflow: hidden; z-index: 1; }
-.hero-tag { display: inline-flex; align-items: center; gap: 0.5rem; font-family: 'JetBrains Mono', monospace; font-size: 0.7rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--gold); background: rgba(200,150,62,0.1); border: 1px solid rgba(200,150,62,0.3); padding: 0.4rem 1.1rem; border-radius: 100px; margin-bottom: 2rem; opacity: 0; animation: riseIn 0.7s ease 0.3s forwards; }
-.hero-tag::before { content: ''; width: 6px; height: 6px; border-radius: 50%; background: var(--gold); animation: pulse 2s ease infinite; }
-@keyframes pulse { 0%,100%{opacity:1;transform:scale(1)} 50%{opacity:0.4;transform:scale(0.7)} }
-.hero-title { font-family: 'Cormorant Garamond', serif; font-size: clamp(3.2rem, 9vw, 8rem); font-weight: 700; line-height: 0.95; color: var(--white); letter-spacing: -0.02em; opacity: 0; animation: riseIn 0.9s ease 0.5s forwards; position: relative; }
-.hero-title em { font-style: italic; color: var(--pale); text-shadow: 0 0 60px rgba(93,184,122,0.4); }
-.hero-title .line2 { display: block; }
-.hero-divider { width: 60px; height: 2px; background: linear-gradient(to right, transparent, var(--gold), transparent); margin: 2rem auto; opacity: 0; animation: riseIn 0.7s ease 0.75s forwards; }
-.hero-sub { font-family: 'Outfit', sans-serif; font-size: clamp(1rem, 2.5vw, 1.2rem); font-weight: 300; color: var(--text-soft); max-width: 560px; line-height: 1.75; opacity: 0; animation: riseIn 0.9s ease 0.9s forwards; }
-.hero-actions { display: flex; align-items: center; gap: 1rem; flex-wrap: wrap; justify-content: center; margin-top: 2.5rem; opacity: 0; animation: riseIn 0.9s ease 1.1s forwards; }
-.btn-primary { font-family: 'Outfit', sans-serif; font-size: 0.9rem; font-weight: 600; padding: 0.85rem 2rem; border-radius: 100px; background: linear-gradient(135deg, var(--bright) 0%, var(--mid) 100%); color: var(--white); text-decoration: none; border: none; cursor: pointer; box-shadow: 0 4px 24px rgba(58,144,87,0.4); transition: all 0.25s; display: inline-flex; align-items: center; gap: 0.5rem; }
-.btn-primary:hover { transform: translateY(-2px); box-shadow: 0 8px 36px rgba(58,144,87,0.55); }
-.btn-secondary { font-family: 'Outfit', sans-serif; font-size: 0.9rem; font-weight: 500; padding: 0.85rem 2rem; border-radius: 100px; background: transparent; color: var(--mist); text-decoration: none; border: 1px solid rgba(168,217,184,0.3); transition: all 0.25s; display: inline-flex; align-items: center; gap: 0.5rem; cursor: pointer; }
-.btn-secondary:hover { background: rgba(168,217,184,0.08); border-color: rgba(168,217,184,0.55); color: var(--white); }
-.hero-stats { display: flex; align-items: center; gap: 2.5rem; flex-wrap: wrap; justify-content: center; margin-top: 4rem; padding: 1.5rem 2.5rem; background: rgba(255,255,255,0.04); border: 1px solid rgba(58,144,87,0.2); border-radius: var(--radius-lg); backdrop-filter: blur(8px); opacity: 0; animation: riseIn 0.9s ease 1.3s forwards; }
-.hero-stat { text-align: center; }
-.hero-stat-num { font-family: 'Cormorant Garamond', serif; font-size: 2.1rem; font-weight: 700; color: var(--pale); line-height: 1; }
-.hero-stat-label { font-family: 'JetBrains Mono', monospace; font-size: 0.6rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--text-dim); margin-top: 0.3rem; }
-.hero-stat-sep { width: 1px; height: 40px; background: rgba(255,255,255,0.1); }
-.scroll-hint { position: absolute; bottom: 2.5rem; left: 50%; transform: translateX(-50%); display: flex; flex-direction: column; align-items: center; gap: 0.6rem; opacity: 0; animation: riseIn 0.8s ease 1.6s forwards; }
-.scroll-line { width: 1px; height: 40px; background: linear-gradient(to bottom, rgba(93,184,122,0.6), transparent); animation: scrollAnim 2s ease infinite; }
-@keyframes scrollAnim { 0%{transform:scaleY(0);transform-origin:top} 50%{transform:scaleY(1);transform-origin:top} 51%{transform-origin:bottom} 100%{transform:scaleY(0);transform-origin:bottom} }
-.scroll-text { font-family: 'JetBrains Mono', monospace; font-size: 0.58rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--text-dim); }
-@keyframes riseIn { from{opacity:0;transform:translateY(28px)} to{opacity:1;transform:translateY(0)} }
-
-/* ===== SECTIONS ===== */
-section { position: relative; z-index: 1; }
-.container { max-width: 1140px; margin: 0 auto; padding: 0 2rem; }
-.section-pad { padding: 7rem 0; }
-.section-pad-sm { padding: 5rem 0; }
-.eyebrow { font-family: 'JetBrains Mono', monospace; font-size: 0.68rem; letter-spacing: 0.22em; text-transform: uppercase; color: var(--gold); margin-bottom: 0.8rem; display: flex; align-items: center; gap: 0.7rem; }
-.eyebrow::before { content: ''; display: block; width: 28px; height: 1px; background: var(--gold); }
-.section-title { font-family: 'Cormorant Garamond', serif; font-size: clamp(2rem, 5vw, 3.2rem); font-weight: 700; line-height: 1.1; color: var(--white); letter-spacing: -0.01em; }
-.section-title em { font-style: italic; color: var(--pale); }
-.body-text { font-family: 'Outfit', sans-serif; font-size: 1rem; font-weight: 300; line-height: 1.8; color: var(--text-soft); }
-
-/* ===== ABOUT ===== */
-.about-section { background: linear-gradient(180deg, var(--ink) 0%, var(--deep) 100%); }
-.about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: center; }
-.about-visual { position: relative; border-radius: var(--radius-lg); overflow: hidden; aspect-ratio: 4/3; background: linear-gradient(135deg, var(--deep) 0%, var(--forest) 100%); border: 1px solid rgba(58,144,87,0.25); }
-.about-visual-inner { position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; flex-direction: column; gap: 1rem; }
-.about-visual-icon { font-size: 5rem; opacity: 0.6; }
-.about-visual-label { font-family: 'JetBrains Mono', monospace; font-size: 0.7rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--mist); opacity: 0.7; }
-.about-floating-card { position: absolute; bottom: 1.5rem; left: 1.5rem; right: 1.5rem; background: rgba(10,26,14,0.88); backdrop-filter: blur(12px); border: 1px solid rgba(58,144,87,0.25); border-radius: var(--radius-md); padding: 1rem 1.25rem; display: flex; align-items: center; gap: 0.8rem; }
-.about-fc-icon { font-size: 1.5rem; }
-.about-fc-text { font-family: 'Outfit', sans-serif; font-size: 0.82rem; color: var(--text-soft); line-height: 1.5; }
-.about-fc-text strong { color: var(--white); font-weight: 600; display: block; font-size: 0.9rem; }
-.about-content { display: flex; flex-direction: column; gap: 1.5rem; }
-.about-content p { font-family: 'Outfit', sans-serif; font-size: 1rem; font-weight: 300; color: var(--text-soft); line-height: 1.85; }
-.about-pillars { display: grid; grid-template-columns: 1fr 1fr; gap: 0.75rem; margin-top: 0.5rem; }
-.pillar { padding: 0.85rem 1rem; background: rgba(58,144,87,0.08); border: 1px solid rgba(58,144,87,0.18); border-radius: var(--radius-sm); font-family: 'Outfit', sans-serif; font-size: 0.85rem; font-weight: 500; color: var(--mist); display: flex; align-items: center; gap: 0.5rem; transition: background 0.2s, border-color 0.2s; }
-.pillar:hover { background: rgba(58,144,87,0.15); border-color: rgba(58,144,87,0.35); }
-.pillar-dot { width: 7px; height: 7px; border-radius: 50%; background: var(--pale); flex-shrink: 0; }
-@media(max-width:820px) { .about-grid { grid-template-columns: 1fr; gap: 2.5rem; } }
-
-/* ===== SECTORS ===== */
-.sectors-section { background: var(--deep); }
-.sectors-header { text-align: center; max-width: 580px; margin: 0 auto 4rem; }
-.sectors-header .eyebrow { justify-content: center; }
-.sectors-header .eyebrow::before { display: none; }
-.sectors-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1rem; }
-.sector-card { position: relative; overflow: hidden; background: rgba(255,255,255,0.03); border: 1px solid rgba(58,144,87,0.15); border-radius: var(--radius-md); padding: 2rem 1.5rem; cursor: pointer; transition: all 0.3s; text-decoration: none; display: block; }
-.sector-card:hover { background: rgba(58,144,87,0.1); border-color: rgba(58,144,87,0.4); transform: translateY(-4px); box-shadow: 0 12px 36px rgba(0,0,0,0.3); }
-.sector-card::after { content: ''; position: absolute; bottom: 0; left: 0; right: 0; height: 3px; background: linear-gradient(to right, var(--mid), var(--pale)); transform: scaleX(0); transform-origin: left; transition: transform 0.3s; }
-.sector-card:hover::after { transform: scaleX(1); }
-.sector-icon { font-size: 2.2rem; margin-bottom: 1rem; display: block; }
-.sector-name { font-family: 'Outfit', sans-serif; font-size: 0.95rem; font-weight: 600; color: var(--white); margin-bottom: 0.5rem; line-height: 1.3; }
-.sector-desc { font-family: 'Outfit', sans-serif; font-size: 0.8rem; font-weight: 300; color: var(--text-dim); line-height: 1.65; }
-.sector-arrow { display: inline-flex; align-items: center; gap: 0.4rem; font-family: 'JetBrains Mono', monospace; font-size: 0.65rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--pale); margin-top: 1rem; transition: gap 0.2s; }
-.sector-card:hover .sector-arrow { gap: 0.7rem; }
-@media(max-width:900px) { .sectors-grid { grid-template-columns: repeat(2, 1fr); } }
-@media(max-width:520px) { .sectors-grid { grid-template-columns: 1fr; } }
-
-/* ===== PROGRAMS ===== */
-.programs-section { background: var(--ink); }
-.programs-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; }
-.program-card { border-radius: var(--radius-lg); padding: 2.5rem; position: relative; overflow: hidden; text-decoration: none; display: block; transition: transform 0.3s, box-shadow 0.3s; cursor: pointer; }
-.program-card:hover { transform: translateY(-5px); }
-.program-card.featured { grid-column: span 2; display: grid; grid-template-columns: 1fr 1fr; gap: 2.5rem; align-items: center; }
-.pc-green { background: linear-gradient(135deg, rgba(22,56,32,0.9) 0%, rgba(30,86,48,0.8) 100%); border: 1px solid rgba(58,144,87,0.3); }
-.pc-gold { background: linear-gradient(135deg, rgba(30,22,8,0.9) 0%, rgba(56,40,10,0.8) 100%); border: 1px solid rgba(200,150,62,0.3); }
-.pc-dark { background: linear-gradient(135deg, rgba(12,20,14,0.9) 0%, rgba(22,40,26,0.8) 100%); border: 1px solid rgba(58,144,87,0.15); }
-.program-card:hover { box-shadow: 0 20px 60px rgba(0,0,0,0.4); }
-.pc-tag { display: inline-flex; align-items: center; gap: 0.4rem; font-family: 'JetBrains Mono', monospace; font-size: 0.62rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--gold); background: rgba(200,150,62,0.12); border: 1px solid rgba(200,150,62,0.25); padding: 0.3rem 0.75rem; border-radius: 100px; margin-bottom: 1.25rem; }
-.pc-title { font-family: 'Cormorant Garamond', serif; font-size: 1.6rem; font-weight: 700; color: var(--white); line-height: 1.2; margin-bottom: 0.85rem; }
-.pc-body { font-family: 'Outfit', sans-serif; font-size: 0.88rem; font-weight: 300; color: var(--text-soft); line-height: 1.75; }
-.pc-list { list-style: none; margin-top: 1rem; display: flex; flex-direction: column; gap: 0.5rem; }
-.pc-list li { font-family: 'Outfit', sans-serif; font-size: 0.85rem; color: var(--mist); display: flex; align-items: flex-start; gap: 0.6rem; }
-.pc-list li::before { content: '→'; color: var(--pale); font-size: 0.8rem; margin-top: 0.1rem; flex-shrink: 0; }
-.pc-big-stat { text-align: center; padding: 1.5rem; background: rgba(58,144,87,0.1); border: 1px solid rgba(58,144,87,0.2); border-radius: var(--radius-md); }
-.pc-big-num { font-family: 'Cormorant Garamond', serif; font-size: 4rem; font-weight: 700; color: var(--pale); line-height: 1; }
-.pc-big-label { font-family: 'JetBrains Mono', monospace; font-size: 0.62rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--text-dim); margin-top: 0.5rem; }
-@media(max-width:820px) { .programs-grid { grid-template-columns: 1fr; } .program-card.featured { grid-column: span 1; grid-template-columns: 1fr; } }
-
-/* ===== IMPACT ===== */
-.impact-section { background: linear-gradient(180deg, var(--ink) 0%, var(--deep) 60%, var(--ink) 100%); }
-.impact-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.5rem; }
-.impact-card { padding: 2rem 1.5rem; background: rgba(255,255,255,0.03); border: 1px solid rgba(58,144,87,0.12); border-radius: var(--radius-md); text-align: center; transition: all 0.3s; }
-.impact-card:hover { background: rgba(58,144,87,0.08); border-color: rgba(58,144,87,0.3); transform: translateY(-3px); }
-.impact-num { font-family: 'Cormorant Garamond', serif; font-size: 2.8rem; font-weight: 700; color: var(--pale); line-height: 1; }
-.impact-unit { font-family: 'Cormorant Garamond', serif; font-size: 1.6rem; font-weight: 400; color: var(--pale); opacity: 0.7; }
-.impact-label { font-family: 'Outfit', sans-serif; font-size: 0.82rem; font-weight: 400; color: var(--text-soft); margin-top: 0.6rem; line-height: 1.5; }
-.impact-sub { font-family: 'JetBrains Mono', monospace; font-size: 0.6rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-dim); margin-top: 0.4rem; }
-@media(max-width:800px) { .impact-grid { grid-template-columns: repeat(2, 1fr); } }
-@media(max-width:480px) { .impact-grid { grid-template-columns: 1fr 1fr; } }
-
-/* ===== QUOTE ===== */
-.quote-section { background: var(--deep); padding: 5rem 0; }
-.quote-inner { max-width: 760px; margin: 0 auto; text-align: center; padding: 0 2rem; }
-.quote-mark { font-family: 'Cormorant Garamond', serif; font-size: 7rem; color: var(--pale); opacity: 0.2; line-height: 0.5; margin-bottom: 1.5rem; display: block; }
-.quote-text { font-family: 'Cormorant Garamond', serif; font-size: clamp(1.35rem, 3.5vw, 2rem); font-style: italic; font-weight: 400; color: var(--mist); line-height: 1.65; margin-bottom: 1.5rem; }
-.quote-author { font-family: 'JetBrains Mono', monospace; font-size: 0.72rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--gold); opacity: 0.8; }
-
-/* ===== CONTENT VIEWS ===== */
-.content-view { display: none; min-height: 100vh; padding: calc(var(--nav-h) + 4rem) 0 5rem; position: relative; z-index: 1; }
-.content-view.active { display: block; animation: riseIn 0.4s ease; }
-.view-inner { max-width: 900px; margin: 0 auto; padding: 0 2rem; }
-.view-breadcrumb { display: flex; align-items: center; gap: 0.5rem; font-family: 'JetBrains Mono', monospace; font-size: 0.62rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--text-dim); margin-bottom: 1.5rem; flex-wrap: wrap; }
-.view-breadcrumb a { color: var(--text-dim); text-decoration: none; transition: color 0.2s; cursor: pointer; }
-.view-breadcrumb a:hover { color: var(--gold); }
-.view-breadcrumb .sep { color: var(--gold); }
-.view-breadcrumb .current { color: var(--gold); }
-.view-badge { display: inline-flex; align-items: center; gap: 0.5rem; font-family: 'JetBrains Mono', monospace; font-size: 0.64rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--pale); background: rgba(93,184,122,0.1); border: 1px solid rgba(93,184,122,0.25); padding: 0.4rem 1rem; border-radius: 100px; margin-bottom: 1.5rem; }
-.view-title { font-family: 'Cormorant Garamond', serif; font-size: clamp(2.2rem, 5vw, 3.6rem); font-weight: 700; color: var(--white); line-height: 1.1; margin-bottom: 2rem; letter-spacing: -0.01em; }
-.view-title em { color: var(--pale); font-style: italic; }
-.view-body p { font-family: 'Outfit', sans-serif; font-size: 1rem; font-weight: 300; color: var(--text-soft); line-height: 1.85; margin-bottom: 1.25rem; }
-.view-h3 { font-family: 'Cormorant Garamond', serif; font-size: 1.55rem; font-weight: 700; color: var(--pale); margin: 2.5rem 0 1rem; }
-.view-list { list-style: none; margin-bottom: 1.5rem; display: flex; flex-direction: column; gap: 0.5rem; }
-.view-list li { font-family: 'Outfit', sans-serif; font-size: 0.95rem; color: var(--text-soft); display: flex; align-items: flex-start; gap: 0.75rem; padding: 0.6rem 0; border-bottom: 1px solid rgba(58,144,87,0.08); }
-.view-list li::before { content: '◆'; color: var(--pale); font-size: 0.5rem; margin-top: 0.35rem; flex-shrink: 0; }
-.view-table-wrap { overflow-x: auto; margin: 1.5rem 0; border-radius: var(--radius-md); border: 1px solid rgba(58,144,87,0.15); }
-.view-table { width: 100%; border-collapse: collapse; font-family: 'Outfit', sans-serif; font-size: 0.88rem; }
-.view-table thead tr { background: linear-gradient(135deg, var(--dark), var(--forest)); }
-.view-table thead th { color: var(--mist); font-weight: 600; padding: 0.9rem 1rem; text-align: left; font-family: 'JetBrains Mono', monospace; font-size: 0.65rem; letter-spacing: 0.08em; text-transform: uppercase; border-bottom: 2px solid rgba(58,144,87,0.3); }
-.view-table tbody tr:nth-child(odd) { background: rgba(22,56,32,0.18); }
-.view-table tbody tr:nth-child(even) { background: rgba(10,26,14,0.3); }
-.view-table tbody tr:hover { background: rgba(58,144,87,0.1); }
-.view-table tbody td { padding: 0.75rem 1rem; color: var(--text-soft); border-bottom: 1px solid rgba(58,144,87,0.08); }
-.view-stats { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1rem; margin: 2rem 0; }
-.view-stat { background: rgba(58,144,87,0.08); border: 1px solid rgba(58,144,87,0.18); border-radius: var(--radius-md); padding: 1.25rem; text-align: center; transition: all 0.2s; }
-.view-stat:hover { background: rgba(58,144,87,0.14); border-color: rgba(58,144,87,0.35); }
-.vs-num { font-family: 'Cormorant Garamond', serif; font-size: 1.7rem; font-weight: 700; color: var(--pale); line-height: 1; }
-.vs-label { font-family: 'JetBrains Mono', monospace; font-size: 0.58rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-dim); margin-top: 0.4rem; }
-@media(max-width:600px) { .view-stats { grid-template-columns: 1fr 1fr; } }
-.view-highlight { background: linear-gradient(135deg, rgba(30,86,48,0.3), rgba(22,56,32,0.2)); border: 1px solid rgba(58,144,87,0.25); border-left: 4px solid var(--pale); border-radius: 0 var(--radius-md) var(--radius-md) 0; padding: 1.25rem 1.5rem; margin: 2rem 0; font-family: 'Outfit', sans-serif; font-style: italic; font-size: 0.98rem; color: var(--mist); line-height: 1.75; }
-.view-nav-btns { display: flex; gap: 0.75rem; flex-wrap: wrap; margin-top: 3rem; padding-top: 2rem; border-top: 1px solid rgba(58,144,87,0.12); }
-.view-btn { font-family: 'Outfit', sans-serif; font-size: 0.82rem; font-weight: 500; padding: 0.55rem 1.2rem; border-radius: 100px; color: var(--mist); text-decoration: none; cursor: pointer; border: 1px solid rgba(168,217,184,0.25); background: transparent; transition: all 0.2s; display: inline-flex; align-items: center; gap: 0.4rem; }
-.view-btn:hover { background: rgba(168,217,184,0.08); border-color: rgba(168,217,184,0.45); color: var(--white); }
-
-/* ===== CONTACT ===== */
-.contact-section { background: var(--deep); }
-.contact-grid { display: grid; grid-template-columns: 1fr 1.4fr; gap: 4rem; align-items: start; }
-.contact-info { display: flex; flex-direction: column; gap: 1.25rem; }
-.contact-item { display: flex; align-items: flex-start; gap: 1rem; padding: 1rem; border-radius: var(--radius-md); background: rgba(255,255,255,0.03); border: 1px solid rgba(58,144,87,0.12); transition: border-color 0.2s, background 0.2s; }
-.contact-item:hover { background: rgba(58,144,87,0.07); border-color: rgba(58,144,87,0.25); }
-.ci-icon { font-size: 1.2rem; margin-top: 0.1rem; flex-shrink: 0; }
-.ci-label { font-family: 'JetBrains Mono', monospace; font-size: 0.6rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--text-dim); margin-bottom: 0.2rem; }
-.ci-value { font-family: 'Outfit', sans-serif; font-size: 0.9rem; color: var(--mist); }
-.ci-value a { color: var(--mist); text-decoration: none; transition: color 0.2s; }
-.ci-value a:hover { color: var(--pale); }
-.contact-form { display: flex; flex-direction: column; gap: 1rem; }
-.form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
-.form-group { display: flex; flex-direction: column; gap: 0.4rem; }
-.form-label { font-family: 'JetBrains Mono', monospace; font-size: 0.62rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-dim); }
-.form-input, .form-textarea, .form-select { font-family: 'Outfit', sans-serif; font-size: 0.9rem; color: var(--text-main); background: rgba(255,255,255,0.04); border: 1px solid rgba(58,144,87,0.2); border-radius: var(--radius-sm); padding: 0.75rem 1rem; transition: border-color 0.2s, background 0.2s; outline: none; width: 100%; }
-.form-input:focus, .form-textarea:focus, .form-select:focus { border-color: rgba(93,184,122,0.5); background: rgba(93,184,122,0.06); }
-.form-textarea { resize: vertical; min-height: 120px; }
-.form-select { appearance: none; background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath fill='%235db87a' d='M6 8L0 0h12z'/%3E%3C/svg%3E"); background-repeat: no-repeat; background-position: right 1rem center; padding-right: 2.5rem; }
-.form-input::placeholder, .form-textarea::placeholder { color: var(--text-dim); }
-@media(max-width:820px) { .contact-grid { grid-template-columns: 1fr; gap: 2.5rem; } .form-row { grid-template-columns: 1fr; } }
-
-/* ===== FOOTER ===== */
-footer { background: var(--ink); border-top: 1px solid rgba(58,144,87,0.15); }
-.footer-top { display: grid; grid-template-columns: 1.5fr 1fr 1fr 1fr; gap: 3rem; padding: 4rem 2rem 3rem; max-width: 1140px; margin: 0 auto; }
-.footer-brand-col { display: flex; flex-direction: column; gap: 1rem; }
-.footer-logo-wrap { display: flex; align-items: center; gap: 0.7rem; }
-.footer-logo { width: 44px; height: 44px; border-radius: 50%; border: 2px solid var(--gold); overflow: hidden; }
-.footer-logo img { width: 100%; height: 100%; object-fit: cover; }
-.footer-brand-name { font-family: 'Cormorant Garamond', serif; font-size: 1.05rem; font-weight: 700; color: var(--white); }
-.footer-brand-sub { font-family: 'JetBrains Mono', monospace; font-size: 0.55rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--gold); opacity: 0.75; margin-top: 1px; }
-.footer-brand-desc { font-family: 'Outfit', sans-serif; font-size: 0.85rem; font-weight: 300; color: var(--text-dim); line-height: 1.7; }
-.footer-socials { display: flex; gap: 0.6rem; }
-.footer-social { width: 34px; height: 34px; border-radius: 50%; border: 1px solid rgba(58,144,87,0.25); display: flex; align-items: center; justify-content: center; color: var(--text-dim); text-decoration: none; font-size: 0.75rem; transition: all 0.2s; }
-.footer-social:hover { background: rgba(58,144,87,0.2); border-color: rgba(93,184,122,0.5); color: var(--pale); }
-.footer-col h5 { font-family: 'JetBrains Mono', monospace; font-size: 0.65rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--gold); margin-bottom: 1rem; padding-bottom: 0.5rem; border-bottom: 1px solid rgba(200,150,62,0.2); }
-.footer-col ul { list-style: none; display: flex; flex-direction: column; gap: 0.4rem; }
-.footer-col ul a { font-family: 'Outfit', sans-serif; font-size: 0.85rem; color: var(--text-dim); text-decoration: none; transition: color 0.2s; display: flex; align-items: center; gap: 0.4rem; cursor: pointer; }
-.footer-col ul a:hover { color: var(--pale); }
-.footer-bottom { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 1rem; padding: 1.2rem 2rem; max-width: 1140px; margin: 0 auto; border-top: 1px solid rgba(58,144,87,0.1); }
-.footer-copy { font-family: 'JetBrains Mono', monospace; font-size: 0.62rem; letter-spacing: 0.08em; color: var(--text-dim); }
-.footer-links { display: flex; gap: 1.5rem; }
-.footer-links a { font-family: 'JetBrains Mono', monospace; font-size: 0.62rem; letter-spacing: 0.08em; color: var(--text-dim); text-decoration: none; transition: color 0.2s; }
-.footer-links a:hover { color: var(--pale); }
-@media(max-width:900px) { .footer-top { grid-template-columns: 1fr 1fr; } }
-@media(max-width:520px) { .footer-top { grid-template-columns: 1fr; } .footer-bottom { flex-direction: column; align-items: flex-start; } }
-
-/* ===== UTILS ===== */
-.text-center { text-align: center; }
-.mt-sm { margin-top: 0.75rem; }
-.mt-md { margin-top: 1.5rem; }
-.mt-lg { margin-top: 2.5rem; }
-.reveal { opacity: 0; transform: translateY(32px); transition: opacity 0.7s ease, transform 0.7s ease; }
-.reveal.visible { opacity: 1; transform: none; }
-.reveal-delay-1 { transition-delay: 0.1s; }
-.reveal-delay-2 { transition-delay: 0.2s; }
-.reveal-delay-3 { transition-delay: 0.3s; }
-.reveal-delay-4 { transition-delay: 0.4s; }
-</style>
-</head>
-<body>
-
-<canvas id="bgCanvas"></canvas>
-
-<!-- NAV -->
-<nav class="nav-wrapper" id="mainNav">
-  <a href="#" class="brand" data-view="home">
-    <div class="brand-emblem">
-      <img src="https://i.imgur.com/stFhOHw.png" alt="AFOLU Logo">
-    </div>
-    <div class="brand-text">
-      <div class="brand-name">AFOLU of Ethiopia</div>
-      <div class="brand-sub">Agriculture · Forestry · Land Use</div>
-    </div>
-  </a>
-
-  <ul class="nav-links" id="navLinks">
-    <li><a data-view="home" class="active">Home</a></li>
-
-    <li class="has-drop">
-      <a>About <span class="arrow-icon"></span></a>
-      <div class="dropdown">
-        <a data-view="About"><span class="di">🌱</span> About AFOLU</a>
-        <a data-view="Mission"><span class="di">🎯</span> Mission &amp; Vision</a>
-        <a data-view="Leadership"><span class="di">👥</span> Leadership</a>
-        <a data-view="Organizational"><span class="di">🏛</span> Org. Structure</a>
-      </div>
-    </li>
-
-    <li class="has-drop">
-      <a>Sectors <span class="arrow-icon"></span></a>
-      <div class="dropdown">
-        <a data-view="plant-science"><span class="di">🌾</span> Plant Science</a>
-        <a data-view="Natural-Resource-Mgmt"><span class="di">🌍</span> Natural Resource Mgmt</a>
-        <a data-view="agroforestry"><span class="di">🌿</span> Agroforestry</a>
-        <a data-view="animal-science"><span class="di">🐄</span> Animal Science</a>
-        <a data-view="Extension"><span class="di">🏘</span> Rural Development</a>
-        <a data-view="Agro-Economics"><span class="di">📊</span> Agro-Economics</a>
-        <a data-view="forestry"><span class="di">🌳</span> Forestry</a>
-        <a data-view="Wildlife"><span class="di">🦁</span> Wildlife &amp; Ecotourism</a>
-      </div>
-    </li>
-
-    <li class="has-drop">
-      <a>Programs <span class="arrow-icon"></span></a>
-      <div class="dropdown">
-        <a data-view="Legacy"><span class="di">🌱</span> Green Legacy</a>
-        <a data-view="Food"><span class="di">🌾</span> Food Security</a>
-        <a data-view="Climate"><span class="di">🌡</span> Climate Resilience</a>
-        <a data-view="REDD"><span class="di">🌳</span> REDD+</a>
-      </div>
-    </li>
-
-    <li class="has-drop">
-      <a>Resources <span class="arrow-icon"></span></a>
-      <div class="dropdown">
-        <a data-view="Reports"><span class="di">📄</span> Reports &amp; Publications</a>
-        <a data-view="Geospatial"><span class="di">🛰</span> Geospatial &amp; GIS</a>
-        <a data-view="publications"><span class="di">📘</span> Technical Manuals</a>
-      </div>
-    </li>
-
-    <li class="has-drop">
-      <a>Projects <span class="arrow-icon"></span></a>
-      <div class="dropdown">
-        <a data-view="Projects"><span class="di">🔬</span> Current Projects</a>
-        <a data-view="Completed"><span class="di">✅</span> Completed Projects</a>
-        <a data-view="Regional"><span class="di">🗺</span> Regional Projects</a>
-      </div>
-    </li>
-
-    <li class="has-drop">
-      <a>News <span class="arrow-icon"></span></a>
-      <div class="dropdown">
-        <a data-view="News"><span class="di">📰</span> Latest News</a>
-        <a data-view="events"><span class="di">📅</span> Events</a>
-        <a data-view="Gallery"><span class="di">🖼</span> Photo Gallery</a>
-        <a data-view="Testimonials"><span class="di">💬</span> Testimonials</a>
-      </div>
-    </li>
-  </ul>
-
-  <a href="/cdn-cgi/l/email-protection#1b7a7d74776e747d7e6f7372746b727a5b7c767a727735787476" class="nav-cta">Contact Us</a>
-  <button class="hamburger" id="hamburger" aria-label="Menu"><span></span><span></span><span></span></button>
-</nav>
-
-<!-- HOME VIEW -->
-<div id="view-home">
-  <section class="hero">
-    <div class="hero-tag">Finfinnee · Addis Ababa · Ethiopia</div>
-    <h1 class="hero-title">AFOLU <em>of</em><span class="line2">ETHIOPIA</span></h1>
-    <div class="hero-divider"></div>
-    <p class="hero-sub">Agriculture, Forestry &amp; Other Land Use — advancing sustainable landscapes, climate resilience, and rural livelihoods across Ethiopia.</p>
-    <div class="hero-actions">
-      <button class="btn-primary" data-view="About">Explore Our Work →</button>
-      <button class="btn-secondary" data-view="Legacy">Green Legacy Initiative</button>
-    </div>
-    <div class="hero-stats">
-      <div class="hero-stat"><div class="hero-stat-num">28B<span style="font-size:1.2rem;opacity:0.7">+</span></div><div class="hero-stat-label">Seedlings Planted</div></div>
-      <div class="hero-stat-sep"></div>
-      <div class="hero-stat"><div class="hero-stat-num">15M<span style="font-size:1.2rem;opacity:0.7">+</span></div><div class="hero-stat-label">Hectares Restored</div></div>
-      <div class="hero-stat-sep"></div>
-      <div class="hero-stat"><div class="hero-stat-num">Many</div><div class="hero-stat-label">Sectors Participated</div></div>
-      <div class="hero-stat-sep"></div>
-      <div class="hero-stat"><div class="hero-stat-num">2019</div><div class="hero-stat-label">Founded</div></div>
-    </div>
-    <div class="scroll-hint"><div class="scroll-line"></div><div class="scroll-text">Scroll</div></div>
-  </section>
-
-  <section class="about-section section-pad">
-    <div class="container">
-      <div class="about-grid">
-        <div class="about-visual reveal">
-          <div class="about-visual-inner">
-            <div class="about-visual-icon">🌿</div>
-            <div class="about-visual-label">AFOLU Ethiopia</div>
-          </div>
-          <div class="about-floating-card">
-            <div class="about-fc-icon">🌍</div>
-            <div class="about-fc-text"><strong>Climate Resilient Green Economy</strong>Aligned with Ethiopia's national CRGE strategy</div>
-          </div>
-        </div>
-        <div class="about-content reveal reveal-delay-2">
-          <div>
-            <div class="eyebrow">About AFOLU</div>
-            <h2 class="section-title">Shaping <em>Sustainable</em> Land Use Systems</h2>
-          </div>
-          <p>AFOLU Ethiopia operates at the intersection of agriculture, forestry, and land stewardship — driving evidence-based policy, community participation, and ecosystem restoration across Ethiopia's diverse landscapes. Established in 2019, the organization brings together technical expertise and a deep commitment to sustainable development from the highlands of Ras Dashen to the Dallol Depression.</p>
-          <p>As a nationally rooted organization aligned with Ethiopia's Climate Resilient Green Economy (CRGE) strategy, AFOLU works in close partnership with government agencies, research institutions, international development partners, and local communities. Its work contributes directly to national goals around food security, biodiversity conservation, carbon sequestration, and climate adaptation — ensuring that today's land use decisions protect the ecological inheritance of future generations.</p>
-          <div class="about-pillars">
-            <div class="pillar"><div class="pillar-dot"></div>Sustainable Agriculture</div>
-            <div class="pillar"><div class="pillar-dot"></div>Forest Conservation</div>
-            <div class="pillar"><div class="pillar-dot"></div>Watershed Restoration</div>
-            <div class="pillar"><div class="pillar-dot"></div>Climate Adaptation</div>
-            <div class="pillar"><div class="pillar-dot"></div>Biodiversity Protection</div>
-            <div class="pillar"><div class="pillar-dot"></div>Rural Livelihoods</div>
-          </div>
-          <button class="btn-primary mt-md" data-view="About" style="align-self:flex-start">Learn More →</button>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section class="impact-section section-pad-sm">
-    <div class="container">
-      <div class="text-center reveal" style="margin-bottom:3rem">
-        <div class="eyebrow" style="justify-content:center"><span></span>Our Impact</div>
-        <h2 class="section-title">Measurable Change through Green Legacy <em>at National Level</em></h2>
-      </div>
-      <div class="impact-grid">
-        <div class="impact-card reveal"><div class="impact-num">28<span class="impact-unit">B+</span></div><div class="impact-label">Seedlings planted through Green Legacy Initiative</div><div class="impact-sub">Since 2019</div></div>
-        <div class="impact-card reveal reveal-delay-1"><div class="impact-num">15<span class="impact-unit">M+</span></div><div class="impact-label">Hectares of degraded land restored nationwide</div><div class="impact-sub">Ongoing</div></div>
-        <div class="impact-card reveal reveal-delay-2"><div class="impact-num">Many</div><div class="impact-label">Specialized technical sectors Participated</div><div class="impact-sub">Integrated approach</div></div>
-        <div class="impact-card reveal reveal-delay-3"><div class="impact-num">Millions</div><div class="impact-label">Community members engaged in watershed management</div><div class="impact-sub">Nationwide participation</div></div>
-      </div>
-    </div>
-  </section>
-
-  <section class="sectors-section section-pad">
-    <div class="container">
-      <div class="sectors-header reveal">
-        <div class="eyebrow">AFOLU Co-ordination</div>
-        <h2 class="section-title">Eight <em>Pillars</em> of Expertise</h2>
-        <p class="body-text mt-sm">Integrated technical sectors delivering comprehensive land use solutions across Ethiopia.</p>
-      </div>
-      <div class="sectors-grid">
-        <div class="sector-card reveal" data-view="plant-science"><span class="sector-icon">🌾</span><div class="sector-name">Plant Science</div><div class="sector-desc">Crop improvement, seed systems, and agronomic research for food security.</div><div class="sector-arrow">Explore →</div></div>
-        <div class="sector-card reveal reveal-delay-1" data-view="Natural-Resource-Mgmt"><span class="sector-icon">🌍</span><div class="sector-name">Natural Resource Mgmt</div><div class="sector-desc">Watershed restoration, soil conservation, and sustainable ecosystem management.</div><div class="sector-arrow">Explore →</div></div>
-        <div class="sector-card reveal reveal-delay-2" data-view="agroforestry"><span class="sector-icon">🌿</span><div class="sector-name">Agroforestry</div><div class="sector-desc">Integrated tree-crop-livestock systems for sustainable smallholder farming.</div><div class="sector-arrow">Explore →</div></div>
-        <div class="sector-card reveal reveal-delay-3" data-view="animal-science"><span class="sector-icon">🐄</span><div class="sector-name">Animal Science</div><div class="sector-desc">Livestock productivity, veterinary services, and rangeland management.</div><div class="sector-arrow">Explore →</div></div>
-        <div class="sector-card reveal" data-view="Extension"><span class="sector-icon">🏘</span><div class="sector-name">Rural Development</div><div class="sector-desc">Agricultural extension services and rural community empowerment programs.</div><div class="sector-arrow">Explore →</div></div>
-        <div class="sector-card reveal reveal-delay-1" data-view="Agro-Economics"><span class="sector-icon">📊</span><div class="sector-name">Agro-Economics</div><div class="sector-desc">Value chain development, market systems, and agricultural finance solutions.</div><div class="sector-arrow">Explore →</div></div>
-        <div class="sector-card reveal reveal-delay-2" data-view="forestry"><span class="sector-icon">🌳</span><div class="sector-name">Forestry</div><div class="sector-desc">Forest management, REDD+ implementation, and timber value chain development.</div><div class="sector-arrow">Explore →</div></div>
-        <div class="sector-card reveal reveal-delay-3" data-view="Wildlife"><span class="sector-icon">🦁</span><div class="sector-name">Wildlife &amp; Ecotourism</div><div class="sector-desc">Biodiversity conservation, protected area management, and ecotourism development.</div><div class="sector-arrow">Explore →</div></div>
-      </div>
-    </div>
-  </section>
-
-  <section class="programs-section section-pad">
-    <div class="container">
-      <div class="reveal" style="margin-bottom:3rem">
-        <div class="eyebrow">Key Programs</div>
-        <h2 class="section-title">Flagship <em>Initiatives</em></h2>
-      </div>
-      <div class="programs-grid">
-        <div class="program-card pc-green featured reveal" data-view="Legacy">
-          <div>
-            <div class="pc-tag">🌱 Flagship Program</div>
-            <div class="pc-title">Green Legacy Initiative</div>
-            <div class="pc-body">Ethiopia's largest community-driven environmental restoration campaign, mobilizing millions of citizens to plant trees and restore degraded landscapes. Since its launch in 2019, the initiative has planted over 28 billion seedlings, making it one of the largest tree planting campaigns ever recorded globally.</div>
-            <ul class="pc-list">
-              <li>28 billion+ seedlings planted since 2019</li>
-              <li>Community mobilization at national scale</li>
-              <li>Aligned with CRGE climate strategy</li>
-              <li>Restoring watershed and highland ecosystems</li>
-            </ul>
-          </div>
-          <div><div class="pc-big-stat"><div class="pc-big-num">28B+</div><div class="pc-big-label">Seedlings Planted</div></div></div>
-        </div>
-        <div class="program-card pc-gold reveal" data-view="REDD">
-          <div class="pc-tag">🌿 Climate Finance</div>
-          <div class="pc-title">REDD+ Program</div>
-          <div class="pc-body">Reducing emissions from deforestation and forest degradation while strengthening community-based forest management across priority landscapes. AFOLU supports Ethiopia's REDD+ strategy by linking carbon conservation, biodiversity protection, and community livelihood improvement across priority forest landscapes.</div>
-        </div>
-        <div class="program-card pc-dark reveal reveal-delay-1" data-view="Climate">
-          <div class="pc-tag">🌡 Climate Action</div>
-          <div class="pc-title">Climate Resilience</div>
-          <div class="pc-body">Building adaptive capacity through CRGE strategy implementation, climate-smart agriculture, and landscape restoration across vulnerable regions. AFOLU's climate resilience program invests in ecosystem-based adaptation and community-level capacity building simultaneously.</div>
-        </div>
-        <div class="program-card pc-dark reveal reveal-delay-2" data-view="Food">
-          <div class="pc-tag">🌾 Food Systems</div>
-          <div class="pc-title">Food Security</div>
-          <div class="pc-body">Integrated AFOLU interventions supporting food availability, access, utilization, and stability for smallholder farming communities. By combining improved agricultural production with natural resource management and agroforestry expansion, AFOLU builds resilient food systems across Ethiopia.</div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section class="quote-section reveal">
-    <div class="quote-inner">
-      <span class="quote-mark">"</span>
-      <p class="quote-text">Lafa itti dhalanne, bishaan itti dhugnee guddanne, bosona somba tahee nu jiraachise kanniin eeguun dirqama dhaloota har'aa fi boruuti.</p>
-      <div class="quote-author">— Aadaa Oromoo · Oromo Tradition</div>
-      <p class="body-text mt-md" style="font-style:italic;opacity:0.6;font-size:0.9rem">"Protection of the land where we were born, the water we drank, and the forest where we grew is the duty of today's and tomorrow's generations."</p>
-    </div>
-  </section>
-
-  <section class="contact-section section-pad" id="contact">
-    <div class="container">
-      <div class="reveal" style="margin-bottom:3rem">
-        <div class="eyebrow">Get In Touch</div>
-        <h2 class="section-title">Connect with <em>AFOLU Ethiopia</em></h2>
-      </div>
-      <div class="contact-grid">
-        <div class="contact-info reveal">
-          <div class="contact-item"><div class="ci-icon">📍</div><div><div class="ci-label">Location</div><div class="ci-value">Finfinnee / Addis Ababa, Ethiopia</div></div></div>
-          <div class="contact-item"><div class="ci-icon">📞</div><div><div class="ci-label">Phone</div><div class="ci-value"><a href="tel:+251911946191">+251 911 946 101</a></div></div></div>
-          <div class="contact-item"><div class="ci-icon">✉</div><div><div class="ci-label">Email</div><div class="ci-value"><a href="/cdn-cgi/l/email-protection#b7d6d1d8dbc2d8d1d2c3dfded8c7ded6f7d0dad6dedb99d4d8da"><span class="__cf_email__" data-cfemail="c5a4a3aaa9b0aaa3a0b1adacaab5aca485a2a8a4aca9eba6aaa8">[email&#160;protected]</span></a></div></div></div>
-          <div class="contact-item"><div class="ci-icon">🌐</div><div><div class="ci-label">Follow Us</div><div class="ci-value"><a href="https://www.facebook.com/afoluethiopia" target="_blank">facebook.com/afoluethiopia</a></div></div></div>
-        </div>
-        <form class="contact-form reveal reveal-delay-2"
-          action="https://formsubmit.co/afoluofethiopia@gmail.com"
-          method="POST">
-          <input type="hidden" name="_autoresponse" value="Thank you for contacting AFOLU Ethiopia. Your message has been received successfully. Our team will respond soon. If urgent, please get in touch with us at afoluofethiopia@gmail.com.">
-          <input type="hidden" name="_subject" value="New Message from AFOLU Ethiopia Website">
-          <input type="text" name="_honey" style="display:none">
-          <div class="form-row">
-            <div class="form-group">
-              <label class="form-label">First Name</label>
-              <input class="form-input" type="text" name="First Name" placeholder="Your first name" required>
-            </div>
-            <div class="form-group">
-              <label class="form-label">Last Name</label>
-              <input class="form-input" type="text" name="Last Name" placeholder="Your last name" required>
-            </div>
-          </div>
-          <div class="form-group">
-            <label class="form-label">Email Address</label>
-            <input class="form-input" type="email" name="Email" placeholder="you@example.com" required>
-          </div>
-          <div class="form-group">
-            <label class="form-label">Subject</label>
-            <select class="form-select" name="Subject" required>
-              <option value="">Select a topic</option>
-              <option>Partnership Inquiry</option>
-              <option>Research Collaboration</option>
-              <option>Program Information</option>
-              <option>Student Training Request</option>
-              <option>Media &amp; Press</option>
-              <option>Other</option>
-            </select>
-          </div>
-          <div class="form-group">
-            <label class="form-label">Message</label>
-            <textarea class="form-textarea" name="Message" placeholder="How can we help you?" required></textarea>
-          </div>
-          <button type="submit" class="btn-primary" style="align-self:flex-start">Send Message →</button>
-        </form>
-      </div>
-    </div>
-  </section>
-</div>
-
-<!-- ===== CONTENT VIEWS ===== -->
-
-<!-- ABOUT VIEW -->
-<div id="view-About" class="content-view">
-<div class="view-inner">
-  <div class="view-breadcrumb"><a data-view="home">Home</a><span class="sep">›</span><span class="current">About AFOLU</span></div>
-  <div class="view-badge">🌱 About</div>
-  <h1 class="view-title">About <em>AFOLU Ethiopia</em></h1>
-  <div class="view-body">
-    <p>AFOLU Ethiopia was established to address the complex and interconnected challenges facing Ethiopia's agricultural, forestry, and land use sectors. The organization recognizes that sustainable development cannot be achieved through isolated interventions — it requires coordinated, science-led, and community-driven approaches that address the root causes of land degradation, food insecurity, and environmental vulnerability. From its founding, AFOLU has pursued an integrated model that links technical expertise with practical field implementation across the country's varied landscapes.</p>
-    <p>The name AFOLU itself — Agriculture, Forestry, and Other Land Use — reflects the breadth of the organization's mandate. It encompasses everything from crop science and agroforestry to watershed restoration, wildlife conservation, and climate finance mechanisms like REDD+. This wide scope allows AFOLU to identify and respond to the interdependencies between different land use systems, ensuring that solutions in one sector complement and reinforce progress in others.</p>
-    <p>At its core, AFOLU Ethiopia is driven by a belief that sustainable land management is both an environmental imperative and a social justice issue. The communities most dependent on Ethiopia's natural resources — smallholder farmers, pastoral communities, forest-dependent households — are also the most vulnerable to the consequences of land degradation and climate change. AFOLU's programs are therefore designed not just to restore landscapes, but to strengthen the livelihoods, resilience, and agency of the millions of Ethiopians whose futures are bound to the health of their land.</p>
-    <div class="view-h3">Our Core Pillars</div>
-    <ul class="view-list">
-      <li>Sustainable agriculture and food system strengthening</li>
-      <li>Forest conservation and landscape restoration</li>
-      <li>Watershed rehabilitation and water resource management</li>
-      <li>Climate change mitigation and adaptation</li>
-      <li>Biodiversity protection and wildlife conservation</li>
-      <li>Rural livelihood development and community empowerment</li>
-      <li>Evidence-based policy advocacy and knowledge sharing</li>
-    </ul>
-    <div class="view-highlight">AFOLU Ethiopia represents a commitment to ensuring that today's land use decisions protect the ecological inheritance of future generations — bridging science, policy, and community action across Ethiopia's diverse landscapes.</div>
-  </div>
-  <div class="view-nav-btns">
-    <button class="view-btn" data-view="home">↑ Home</button>
-    <button class="view-btn" data-view="Mission">Mission &amp; Vision →</button>
-  </div>
-</div>
-</div>
-
-<!-- MISSION VIEW -->
-<div id="view-Mission" class="content-view">
-<div class="view-inner">
-  <div class="view-breadcrumb"><a data-view="home">Home</a><span class="sep">›</span><a data-view="About">About</a><span class="sep">›</span><span class="current">Mission &amp; Vision</span></div>
-  <div class="view-badge">🎯 About</div>
-  <h1 class="view-title">Mission <em>&amp; Vision</em></h1>
-  <div class="view-body">
-    <p>AFOLU Ethiopia's mission is to advance sustainable agriculture, forest conservation, and integrated land use management across Ethiopia through evidence-based advocacy, community participation, and climate-resilient development programs. The organization is committed to building systems that support food security, biodiversity conservation, and ecosystem restoration at scale.</p>
-    <p>The vision of AFOLU Ethiopia is a future in which Ethiopia's landscapes are ecologically healthy, productively managed, and resilient to the pressures of climate change and population growth. AFOLU envisions a country where communities are empowered stewards of their natural heritage, supported by strong institutions, sound policies, and adequate resources.</p>
-    <p>Achieving this vision requires long-term commitment, cross-sectoral collaboration, and a willingness to work at multiple scales simultaneously — from the individual farm plot to the national policy arena. AFOLU Ethiopia's mission and vision are therefore not static declarations but living frameworks that evolve in response to new scientific knowledge, emerging climate realities, and the changing needs of the communities it serves.</p>
-    <div class="view-h3">Strategic Objectives</div>
-    <ul class="view-list">
-      <li>Advance evidence-based sustainable land management policy across Ethiopia</li>
-      <li>Restore degraded landscapes through community-driven ecosystem rehabilitation</li>
-      <li>Build climate resilience in vulnerable agricultural and forest-dependent communities</li>
-      <li>Strengthen biodiversity conservation across priority ecosystem types</li>
-      <li>Improve rural livelihoods through integrated AFOLU value chain development</li>
-      <li>Contribute to Ethiopia's national climate commitments through AFOLU sector action</li>
-    </ul>
-    <div class="view-highlight">AFOLU Ethiopia's mission and vision serve as both a compass and a call to action — a living framework anchored in the conviction that sustainable land use is essential to Ethiopia's future.</div>
-  </div>
-  <div class="view-nav-btns">
-    <button class="view-btn" data-view="About">← About AFOLU</button>
-    <button class="view-btn" data-view="Leadership">Leadership →</button>
-  </div>
-</div>
-</div>
-
-<!-- LEADERSHIP VIEW -->
-<div id="view-Leadership" class="content-view">
-<div class="view-inner">
-  <div class="view-breadcrumb"><a data-view="home">Home</a><span class="sep">›</span><a data-view="About">About</a><span class="sep">›</span><span class="current">Leadership</span></div>
-  <div class="view-badge">👥 About</div>
-  <h1 class="view-title">Our <em>Leadership</em></h1>
-  <div class="view-body">
-    <p>AFOLU Ethiopia's leadership is composed of seasoned professionals drawn from the fields of agronomy, forestry, natural resource management, environmental science, rural development, and policy. The leadership team brings decades of combined experience working within Ethiopia's diverse ecological and institutional landscapes, giving the organization both technical depth and contextual understanding.</p>
-    <p>The organization's leaders are guided by a shared commitment to transparency, accountability, and collaborative decision-making. They work closely with sector heads, field teams, government counterparts, and international partners to ensure that AFOLU's strategies are aligned with national priorities and reflect the voices of the communities it serves.</p>
-    <p>Beyond their technical roles, AFOLU's leaders serve as advocates for sustainable land use in national and international policy forums. They represent Ethiopia's AFOLU sector at climate negotiations, regional conferences, and development dialogues, ensuring that the organization's field-based evidence informs broader conversations about land use, food systems, and climate action.</p>
-    <div class="view-highlight">Leadership at AFOLU is distributed, collaborative, and outward-looking — combining technical depth with policy advocacy to ensure that Ethiopia's sustainable land use agenda is championed at every level.</div>
-  </div>
-  <div class="view-nav-btns">
-    <button class="view-btn" data-view="Mission">← Mission &amp; Vision</button>
-    <button class="view-btn" data-view="Organizational">Org. Structure →</button>
-  </div>
-</div>
-</div>
-
-<!-- ORGANIZATIONAL VIEW -->
-<div id="view-Organizational" class="content-view">
-<div class="view-inner">
-  <div class="view-breadcrumb"><a data-view="home">Home</a><span class="sep">›</span><a data-view="About">About</a><span class="sep">›</span><span class="current">Organizational Structure</span></div>
-  <div class="view-badge">🏛 About</div>
-  <h1 class="view-title">Organizational <em>Structure</em></h1>
-  <div class="view-body">
-    <p>AFOLU Ethiopia is organized around eight specialized technical sectors, each focused on a distinct dimension of sustainable land use — from plant science and animal husbandry to forestry management and wildlife conservation. This sector-based structure allows the organization to develop deep expertise within each discipline while maintaining the flexibility to coordinate across sectors when addressing complex, landscape-scale challenges.</p>
-    <p>Above the sector level, AFOLU's organizational structure includes program coordination units responsible for flagship initiatives such as the Green Legacy Initiative, REDD+ implementation, climate resilience programming, and food security interventions. These units bring together expertise from multiple sectors to design and deliver integrated programs.</p>
-    <p>Supporting the technical and program units is an administrative and communications infrastructure that ensures operational efficiency, financial accountability, and effective knowledge sharing. Together, these structural elements allow AFOLU Ethiopia to operate as a coherent, high-functioning organization capable of delivering impact at the scale that Ethiopia's land use challenges demand.</p>
-    <div class="view-h3">Structural Overview</div>
-    <div class="view-table-wrap">
-      <table class="view-table">
-        <thead><tr><th>Level</th><th>Function</th><th>Key Responsibility</th></tr></thead>
-        <tbody>
-          <tr><td>Technical Sectors (8)</td><td>Specialized expertise</td><td>Discipline-specific program design and delivery</td></tr>
-          <tr><td>Program Coordination Units</td><td>Cross-sector integration</td><td>Flagship initiative management and partnerships</td></tr>
-          <tr><td>Administrative Support</td><td>Operational backbone</td><td>Finance, HR, communications, and M&amp;E</td></tr>
-          <tr><td>Senior Leadership</td><td>Strategic direction</td><td>Policy advocacy and institutional representation</td></tr>
-        </tbody>
-      </table>
-    </div>
-    <div class="view-highlight">AFOLU's organizational structure is designed to be adaptive — balancing specialized technical depth with cross-sector integration, ensuring the organization can respond effectively to the complex and evolving challenges of Ethiopia's land sector.</div>
-  </div>
-  <div class="view-nav-btns">
-    <button class="view-btn" data-view="Leadership">← Leadership</button>
-    <button class="view-btn" data-view="home">↑ Home</button>
-  </div>
-</div>
-</div>
-
-<!-- PLANT SCIENCE VIEW -->
-<div id="view-plant-science" class="content-view">
-<div class="view-inner">
-  <div class="view-breadcrumb"><a data-view="home">Home</a><span class="sep">›</span><span>Sectors</span><span class="sep">›</span><span class="current">Plant Science</span></div>
-  <div class="view-badge">🌾 Sector 01</div>
-  <h1 class="view-title">Plant <em>Science</em></h1>
-  <div class="view-body">
-    <p>Plant science is one of the foundational pillars of AFOLU Ethiopia's technical work, encompassing research, development, and extension activities related to crop improvement, seed systems, agronomic practices, and plant health management. Ethiopia's agricultural productivity depends fundamentally on the availability of improved varieties, healthy planting materials, and evidence-based agronomic guidance for smallholder farmers.</p>
-    <p>A central focus of AFOLU's plant science activities is the development and promotion of climate-resilient crop varieties capable of maintaining productivity under conditions of variable rainfall, rising temperatures, and shifting growing seasons. This work involves collaboration with national research institutes, international agricultural research centers, and university partners.</p>
-    <p>Beyond variety development, AFOLU's plant science sector provides technical support for integrated soil fertility management, pest and disease control, precision agronomic practices, and post-harvest handling. By strengthening the plant science knowledge base available to farmers and extension agents, AFOLU contributes to a more productive, resilient, and sustainable agricultural system.</p>
-    <div class="view-h3">Key Focus Areas</div>
-    <ul class="view-list">
-      <li>Climate-resilient crop variety development and dissemination</li>
-      <li>Community-based seed system strengthening and seed bank development</li>
-      <li>Integrated soil fertility management and agronomic extension</li>
-      <li>Pest and disease surveillance, monitoring, and management</li>
-      <li>Post-harvest handling and storage technology promotion</li>
-      <li>Collaboration with national and international agricultural research centers</li>
-    </ul>
-    <div class="view-stats">
-      <div class="view-stat"><div class="vs-num">Improved</div><div class="vs-label">Crop Varieties</div></div>
-      <div class="view-stat"><div class="vs-num">Seed Banks</div><div class="vs-label">Community-Based Systems</div></div>
-      <div class="view-stat"><div class="vs-num">Extension</div><div class="vs-label">Farm-Level Support</div></div>
-      <div class="view-stat"><div class="vs-num">Food Security</div><div class="vs-label">Core Contribution</div></div>
-    </div>
-    <div class="view-highlight">By strengthening the plant science knowledge base available to farmers and extension agents, AFOLU contributes to a more productive, resilient, and sustainable agricultural system that underpins Ethiopia's broader food security and rural development goals.</div>
-  </div>
-  <div class="view-nav-btns">
-    <button class="view-btn" data-view="home">↑ Home</button>
-    <button class="view-btn" data-view="Natural-Resource-Mgmt">Natural Resource Mgmt →</button>
-  </div>
-</div>
-</div>
-
-<!-- NATURAL RESOURCE MGMT VIEW -->
-<div id="view-Natural-Resource-Mgmt" class="content-view">
-<div class="view-inner">
-  <div class="view-breadcrumb"><a data-view="home">Home</a><span class="sep">›</span><span>Sectors</span><span class="sep">›</span><span class="current">Natural Resource Management</span></div>
-  <div class="view-badge">🌍 Sector 02</div>
-  <h1 class="view-title">Natural Resource <em>Management</em></h1>
-  <div class="view-body">
-    <p>Natural Resource Management is a cornerstone of AFOLU Ethiopia's operational mandate, addressing the conservation, sustainable use, and restoration of the land, water, forest, and biodiversity resources that underpin Ethiopia's ecological and economic systems. AFOLU's NRM work spans from micro-watershed rehabilitation to national-scale landscape restoration programming.</p>
-    <p>Integrated watershed management is one of the most critical components of AFOLU's NRM activities. AFOLU addresses watershed pressures through a combination of physical soil and water conservation structures, biological rehabilitation measures such as area closures and reforestation, and community-based watershed governance systems.</p>
-    <p>The NRM sector also plays a central role in AFOLU's climate change response, recognizing that healthy ecosystems are among the most powerful tools available for both mitigating greenhouse gas emissions and adapting to a changing climate. By investing in natural resource management as a climate strategy, AFOLU contributes simultaneously to national climate commitments and the long-term food security of rural communities.</p>
-    <div class="view-h3">Key Challenges &amp; Responses</div>
-    <div class="view-table-wrap">
-      <table class="view-table">
-        <thead><tr><th>Challenge</th><th>Impact</th><th>Management Response</th></tr></thead>
-        <tbody>
-          <tr><td>Soil erosion</td><td>Loss of fertile topsoil</td><td>Terracing and watershed restoration</td></tr>
-          <tr><td>Deforestation</td><td>Biodiversity decline</td><td>Community forest management</td></tr>
-          <tr><td>Land degradation</td><td>Reduced productivity</td><td>Area closures and rehabilitation</td></tr>
-          <tr><td>Water scarcity</td><td>Crop failure risk</td><td>Rainwater harvesting systems</td></tr>
-          <tr><td>Climate variability</td><td>Livelihood instability</td><td>Climate-resilient agriculture</td></tr>
-        </tbody>
-      </table>
-    </div>
-    <div class="view-stats">
-      <div class="view-stat"><div class="vs-num">15M+</div><div class="vs-label">Hectares Restored</div></div>
-      <div class="view-stat"><div class="vs-num">Millions</div><div class="vs-label">Community Members</div></div>
-      <div class="view-stat"><div class="vs-num">1000s</div><div class="vs-label">Watersheds Rehabilitated</div></div>
-      <div class="view-stat"><div class="vs-num">CRGE</div><div class="vs-label">Strategy Aligned</div></div>
-    </div>
-    <div class="view-highlight">Effective natural resource management strengthens ecosystem services, improves agricultural productivity, enhances climate resilience, and supports sustainable livelihoods for rural communities across Ethiopia.</div>
-  </div>
-  <div class="view-nav-btns">
-    <button class="view-btn" data-view="plant-science">← Plant Science</button>
-    <button class="view-btn" data-view="agroforestry">Agroforestry →</button>
-  </div>
-</div>
-</div>
-
-<!-- AGROFORESTRY VIEW -->
-<div id="view-agroforestry" class="content-view">
-<div class="view-inner">
-  <div class="view-breadcrumb"><a data-view="home">Home</a><span class="sep">›</span><span>Sectors</span><span class="sep">›</span><span class="current">Agroforestry</span></div>
-  <div class="view-badge">🌿 Sector 03</div>
-  <h1 class="view-title">Agroforestry <em>Systems</em></h1>
-  <div class="view-body">
-    <p>Agroforestry represents one of the most ancient and ecologically sophisticated approaches to land management in Ethiopia, integrating trees, crops, and livestock within the same farming landscape to produce multiple benefits simultaneously. AFOLU Ethiopia's agroforestry sector builds on this deep indigenous knowledge tradition while incorporating modern scientific understanding.</p>
-    <p>The sector focuses on both promoting established agroforestry systems and developing new integrated approaches suited to emerging challenges such as climate variability, land scarcity, and market development. Key system types include homegarden agroforestry, parkland agroforestry, silvopastoral systems, and coffee-based forest systems.</p>
-    <p>AFOLU's agroforestry work is also closely linked to the organization's climate and land restoration goals. Agroforestry systems are among the most effective approaches for sequestering carbon, reducing soil erosion, restoring degraded landscapes, and building farmer resilience to climate shocks.</p>
-    <div class="view-h3">Major Agroforestry Systems</div>
-    <ul class="view-list">
-      <li>Homegarden Agroforestry Systems</li>
-      <li>Parkland Agroforestry Systems</li>
-      <li>Coffee-based Agroforestry Systems</li>
-      <li>Enset-based Agroforestry Systems</li>
-      <li>Silvopastoral Systems</li>
-      <li>Woodlot-based Agroforestry Systems</li>
-      <li>Windbreak and Shelterbelt Systems</li>
-    </ul>
-    <div class="view-h3">Key Tree Species in Ethiopia</div>
-    <div class="view-table-wrap">
-      <table class="view-table">
-        <thead><tr><th>Species</th><th>Main Function</th><th>Production Benefit</th></tr></thead>
-        <tbody>
-          <tr><td>Faidherbia albida</td><td>Soil fertility improvement</td><td>Crop yield enhancement</td></tr>
-          <tr><td>Cordia africana</td><td>Timber production</td><td>Income generation</td></tr>
-          <tr><td>Croton macrostachyus</td><td>Soil restoration</td><td>Shade and mulch supply</td></tr>
-          <tr><td>Sesbania sesban</td><td>Nitrogen fixation</td><td>Fodder production</td></tr>
-          <tr><td>Acacia species</td><td>Fuelwood supply</td><td>Dryland adaptation</td></tr>
-        </tbody>
-      </table>
-    </div>
-    <div class="view-highlight">Agroforestry systems provide one of the most effective landscape restoration approaches in Ethiopia by integrating ecological sustainability with agricultural productivity and livelihood resilience.</div>
-  </div>
-  <div class="view-nav-btns">
-    <button class="view-btn" data-view="Natural-Resource-Mgmt">← Natural Resource Mgmt</button>
-    <button class="view-btn" data-view="animal-science">Animal Science →</button>
-  </div>
-</div>
-</div>
-
-<!-- ANIMAL SCIENCE VIEW -->
-<div id="view-animal-science" class="content-view">
-<div class="view-inner">
-  <div class="view-breadcrumb"><a data-view="home">Home</a><span class="sep">›</span><span>Sectors</span><span class="sep">›</span><span class="current">Animal Science</span></div>
-  <div class="view-badge">🐄 Sector 04</div>
-  <h1 class="view-title">Animal <em>Science</em></h1>
-  <div class="view-body">
-    <p>Animal science is a vital component of AFOLU Ethiopia's technical portfolio, addressing the health, productivity, and sustainable management of Ethiopia's livestock systems, which represent a cornerstone of rural livelihoods, food security, and national economic output. Ethiopia holds one of Africa's largest livestock populations, and the sector plays a critical role in providing food, income, draft power, and cultural value to millions of farming and pastoral households.</p>
-    <p>A major focus of the animal science sector is the development and dissemination of improved animal husbandry practices that enhance the health and productive performance of cattle, sheep, goats, poultry, and other livestock species. AFOLU also supports the strengthening of community-based animal health systems and the training of paraveterinary workers who can extend the reach of formal veterinary services to remote and underserved rural areas.</p>
-    <p>The animal science sector is also deeply engaged with the sustainable management of Ethiopia's rangelands and pastoral landscapes, which are under growing pressure from population growth, climate variability, and land use change. AFOLU works with pastoral communities, regional governments, and research institutions to develop and promote rangeland management practices that balance livestock production needs with ecosystem health.</p>
-    <div class="view-h3">Key Areas of Work</div>
-    <ul class="view-list">
-      <li>Livestock breed improvement and reproductive management</li>
-      <li>Animal nutrition, health, and disease prevention programs</li>
-      <li>Community-based animal health worker training</li>
-      <li>Rangeland and pasture management for pastoral communities</li>
-      <li>Livestock product value chain development</li>
-      <li>Integration of livestock systems with crop and agroforestry practices</li>
-    </ul>
-    <div class="view-stats">
-      <div class="view-stat"><div class="vs-num">Livestock</div><div class="vs-label">Africa's Largest Herds</div></div>
-      <div class="view-stat"><div class="vs-num">Pastoral</div><div class="vs-label">Communities Served</div></div>
-      <div class="view-stat"><div class="vs-num">Rangeland</div><div class="vs-label">Ecosystem Management</div></div>
-      <div class="view-stat"><div class="vs-num">Value Chain</div><div class="vs-label">Market Development</div></div>
-    </div>
-    <div class="view-highlight">Sustainable livestock management strengthens rural food security, improves household incomes, and protects rangeland ecosystems that are critical for Ethiopia's pastoral communities and biodiversity.</div>
-  </div>
-  <div class="view-nav-btns">
-    <button class="view-btn" data-view="agroforestry">← Agroforestry</button>
-    <button class="view-btn" data-view="Extension">Rural Development →</button>
-  </div>
-</div>
-</div>
-
-<!-- RURAL DEVELOPMENT VIEW -->
-<div id="view-Extension" class="content-view">
-<div class="view-inner">
-  <div class="view-breadcrumb"><a data-view="home">Home</a><span class="sep">›</span><span>Sectors</span><span class="sep">›</span><span class="current">Rural Development</span></div>
-  <div class="view-badge">🏘 Sector 05</div>
-  <h1 class="view-title">Rural <em>Development</em></h1>
-  <div class="view-body">
-    <p>Rural development is the connective tissue of AFOLU Ethiopia's sector work, ensuring that technical knowledge and program resources reach the farming and pastoral communities who need them most. AFOLU's rural development sector works to strengthen enabling conditions across diverse rural landscapes through quality agricultural extension services, community organization, and rural infrastructure.</p>
-    <p>Agricultural extension is a central component of AFOLU's rural development activities. AFOLU supports the training and deployment of extension agents across multiple sectors — from crop production and agroforestry to livestock management and natural resource conservation — ensuring that communities receive integrated technical support that reflects the complexity of their farming systems.</p>
-    <p>Beyond extension, AFOLU's rural development work addresses broader issues of community empowerment, gender equity, and institutional capacity building. AFOLU invests in the organizational capacity of community groups — farmers' cooperatives, water user associations, forest management groups, and watershed committees — helping them to manage shared resources, resolve conflicts, access markets, and engage constructively with government and development partners.</p>
-    <div class="view-h3">Extension Methodologies</div>
-    <ul class="view-list">
-      <li>Farmer field schools and participatory learning approaches</li>
-      <li>Demonstration plots and technology showcase farms</li>
-      <li>Community-based facilitator training programs</li>
-      <li>Farmers' cooperative strengthening and market linkages</li>
-      <li>Gender-responsive rural development programming</li>
-      <li>Local institution capacity building and governance support</li>
-    </ul>
-    <div class="view-highlight">Rural development connects technical knowledge with community practice — strengthening the local institutions, social capital, and economic resources that enable farming and pastoral communities to manage their landscapes sustainably for generations.</div>
-  </div>
-  <div class="view-nav-btns">
-    <button class="view-btn" data-view="animal-science">← Animal Science</button>
-    <button class="view-btn" data-view="Agro-Economics">Agro-Economics →</button>
-  </div>
-</div>
-</div>
-
-<!-- AGRO-ECONOMICS VIEW -->
-<div id="view-Agro-Economics" class="content-view">
-<div class="view-inner">
-  <div class="view-breadcrumb"><a data-view="home">Home</a><span class="sep">›</span><span>Sectors</span><span class="sep">›</span><span class="current">Agro-Economics</span></div>
-  <div class="view-badge">📊 Sector 06</div>
-  <h1 class="view-title">Agro-Economics <em>&amp; Value Chains</em></h1>
-  <div class="view-body">
-    <p>Agro-economics is the analytical and strategic backbone of AFOLU Ethiopia's development work, providing the market intelligence, value chain analysis, and economic frameworks necessary to translate ecological and agricultural improvements into sustainable livelihoods and income growth.</p>
-    <p>Value chain development is a core focus of AFOLU's agro-economic work. This involves mapping the full journey of agricultural and forest products from production through processing, trade, and final consumption, identifying the bottlenecks and inefficiencies that reduce the returns available to primary producers. Special attention is given to high-value products associated with sustainable land management — such as organic coffee, sustainable timber, and non-timber forest products.</p>
-    <p>Agricultural finance and investment mobilization are also important dimensions of AFOLU's agro-economic work. AFOLU works with financial institutions, microfinance organizations, and government programs to design and promote financial products appropriate to the needs and risk profiles of rural households.</p>
-    <div class="view-h3">Value Chain Focus Areas</div>
-    <div class="view-table-wrap">
-      <table class="view-table">
-        <thead><tr><th>Product</th><th>Market Opportunity</th><th>AFOLU Intervention</th></tr></thead>
-        <tbody>
-          <tr><td>Coffee</td><td>Specialty market premium</td><td>Certification and quality systems</td></tr>
-          <tr><td>Honey &amp; Beeswax</td><td>Organic and fair trade</td><td>Producer group strengthening</td></tr>
-          <tr><td>Timber &amp; Wood Products</td><td>Sustainable sourcing</td><td>Forest enterprise development</td></tr>
-          <tr><td>Livestock Products</td><td>Export market access</td><td>Value chain upgrading</td></tr>
-          <tr><td>Non-Timber Forest Products</td><td>Niche markets</td><td>Processing and market linkages</td></tr>
-        </tbody>
-      </table>
-    </div>
-    <div class="view-highlight">By linking sustainable land management with market access, financial services, and value chain development, AFOLU transforms ecological improvements into economic opportunity for Ethiopia's smallholder farming and forest-dependent communities.</div>
-  </div>
-  <div class="view-nav-btns">
-    <button class="view-btn" data-view="Extension">← Rural Development</button>
-    <button class="view-btn" data-view="forestry">Forestry →</button>
-  </div>
-</div>
-</div>
-
-<!-- FORESTRY VIEW -->
-<div id="view-forestry" class="content-view">
-<div class="view-inner">
-  <div class="view-breadcrumb"><a data-view="home">Home</a><span class="sep">›</span><span>Sectors</span><span class="sep">›</span><span class="current">Forestry</span></div>
-  <div class="view-badge">🌳 Sector 07</div>
-  <h1 class="view-title">Forestry <em>Management</em></h1>
-  <div class="view-body">
-    <p>Forestry is one of the most strategically important sectors within AFOLU Ethiopia's portfolio, given the central role that forests play in Ethiopia's climate system, biodiversity heritage, watershed stability, and rural livelihoods. AFOLU's forestry sector works to reverse deforestation trends through sustainable forest management, community-based conservation, landscape restoration, and carbon finance mechanisms.</p>
-    <p>Sustainable forest management is at the heart of AFOLU's forestry work, encompassing the planning, protection, and productive management of both natural forests and planted woodlots. This includes the development and implementation of forest management plans, the establishment of community forest management systems that give local communities legal authority over their forest resources, and the promotion of reduced-impact harvesting practices.</p>
-    <p>The forestry sector is also the organizational home of AFOLU's work on forest carbon, including the implementation of REDD+ programs, the development of forest reference emission levels, and the strengthening of national forest monitoring systems. AFOLU's forestry team works at the interface of technical forest management, community engagement, and international climate policy.</p>
-    <div class="view-h3">Key Forestry Interventions</div>
-    <ul class="view-list">
-      <li>Community Forest Management (CFM) system establishment</li>
-      <li>Participatory forest management planning and governance</li>
-      <li>Timber and non-timber forest product value chain development</li>
-      <li>Forest carbon monitoring and REDD+ implementation support</li>
-      <li>Reforestation and assisted natural regeneration programs</li>
-      <li>Forest law enforcement and anti-illegal logging systems</li>
-    </ul>
-    <div class="view-stats">
-      <div class="view-stat"><div class="vs-num">Afromontane</div><div class="vs-label">Forest Ecosystems</div></div>
-      <div class="view-stat"><div class="vs-num">Carbon</div><div class="vs-label">Sequestration Focus</div></div>
-      <div class="view-stat"><div class="vs-num">Community</div><div class="vs-label">Forest Management</div></div>
-      <div class="view-stat"><div class="vs-num">REDD+</div><div class="vs-label">Climate Finance</div></div>
-    </div>
-    <div class="view-highlight">Forests are Ethiopia's most powerful climate asset — sequestering carbon, protecting watersheds, harboring biodiversity, and supporting livelihoods. AFOLU's forestry sector works to ensure they are managed sustainably for generations to come.</div>
-  </div>
-  <div class="view-nav-btns">
-    <button class="view-btn" data-view="Agro-Economics">← Agro-Economics</button>
-    <button class="view-btn" data-view="Wildlife">Wildlife &amp; Ecotourism →</button>
-  </div>
-</div>
-</div>
-
-<!-- WILDLIFE VIEW -->
-<div id="view-Wildlife" class="content-view">
-<div class="view-inner">
-  <div class="view-breadcrumb"><a data-view="home">Home</a><span class="sep">›</span><span>Sectors</span><span class="sep">›</span><span class="current">Wildlife &amp; Ecotourism</span></div>
-  <div class="view-badge">🦁 Sector 08</div>
-  <h1 class="view-title">Wildlife &amp; Biodiversity <em>Conservation</em></h1>
-  <div class="view-body">
-    <p>Wildlife and ecotourism conservation represents one of AFOLU Ethiopia's most ecologically significant areas of work. Ethiopia is one of Africa's most biodiverse nations, home to a remarkable array of endemic species — including the Ethiopian wolf, the Gelada baboon, the Walia ibex, and hundreds of endemic bird species. AFOLU works to integrate biodiversity conservation within broader land use management frameworks.</p>
-    <p>Protected area management and landscape connectivity are key dimensions of AFOLU's wildlife conservation work. AFOLU works with the Ethiopian Wildlife Conservation Authority and regional conservation agencies to strengthen management systems, develop community conservation agreements, and design landscape-level connectivity plans that protect wildlife habitat while accommodating sustainable land use.</p>
-    <p>Ecotourism development is a central component of AFOLU's approach to making wildlife conservation economically viable and socially equitable for rural communities. AFOLU supports the development of community-based ecotourism enterprises, the training of local guides and hospitality workers, and the improvement of tourism infrastructure in and around protected areas.</p>
-    <div class="view-h3">Major Ecosystem Types</div>
-    <ul class="view-list">
-      <li>Afromontane forest ecosystems</li>
-      <li>Woodland and savanna ecosystems</li>
-      <li>Riverine and wetland ecosystems</li>
-      <li>Afroalpine highland ecosystems</li>
-      <li>Rangeland and pastoral landscapes</li>
-      <li>Agroforestry-based farming landscapes</li>
-    </ul>
-    <div class="view-stats">
-      <div class="view-stat"><div class="vs-num">Endemic</div><div class="vs-label">Species Protection</div></div>
-      <div class="view-stat"><div class="vs-num">Corridors</div><div class="vs-label">Landscape Connectivity</div></div>
-      <div class="view-stat"><div class="vs-num">Ecotourism</div><div class="vs-label">Community Benefits</div></div>
-      <div class="view-stat"><div class="vs-num">Conservation</div><div class="vs-label">Community Partnership</div></div>
-    </div>
-    <div class="view-highlight">By linking conservation outcomes to community economic benefits through ecotourism and sustainable resource use, AFOLU builds a constituency for wildlife protection rooted in local ownership and long-term commitment.</div>
-  </div>
-  <div class="view-nav-btns">
-    <button class="view-btn" data-view="forestry">← Forestry</button>
-    <button class="view-btn" data-view="home">↑ Home</button>
-  </div>
-</div>
-</div>
-
-<!-- GREEN LEGACY VIEW -->
-<div id="view-Legacy" class="content-view">
-<div class="view-inner">
-  <div class="view-breadcrumb"><a data-view="home">Home</a><span class="sep">›</span><span>Programs</span><span class="sep">›</span><span class="current">Green Legacy Initiative</span></div>
-  <div class="view-badge">🌱 Flagship Program</div>
-  <h1 class="view-title">The Green Legacy <em>Initiative</em></h1>
-  <div class="view-body">
-    <p>The Green Legacy Initiative stands as one of the most ambitious and symbolically powerful environmental restoration campaigns in Africa's recent history, mobilizing millions of Ethiopian citizens in a collective act of ecological renewal through mass tree planting and landscape restoration. Launched in 2019, the initiative has planted over 28 billion seedlings across Ethiopia's diverse regions, making it one of the largest tree planting campaigns ever recorded globally.</p>
-    <p>The Green Legacy Initiative goes far beyond symbolic gestures — it is a strategically designed landscape restoration program targeting the most degraded and climate-vulnerable areas of the country. Priority planting sites are selected based on watershed function, soil erosion risk, biodiversity value, and community livelihood importance. The species planted are carefully chosen to match local agroecological conditions.</p>
-    <p>Beyond its ecological dimensions, the Green Legacy Initiative has become a powerful vehicle for national environmental education, civic engagement, and cultural reconnection with Ethiopia's forest heritage. AFOLU Ethiopia sees the Green Legacy Initiative not as a one-time campaign but as the beginning of a long-term transformation in how Ethiopians relate to their land.</p>
-    <div class="view-h3">Annual Planting Achievements</div>
-    <div class="view-table-wrap">
-      <table class="view-table">
-        <thead><tr><th>Year</th><th>Seedlings Planted</th><th>National Focus</th></tr></thead>
-        <tbody>
-          <tr><td>2019</td><td>4 Billion</td><td>Launch of national restoration campaign</td></tr>
-          <tr><td>2020</td><td>5 Billion</td><td>Expansion to watershed landscapes</td></tr>
-          <tr><td>2021</td><td>6 Billion</td><td>Community mobilization strengthened</td></tr>
-          <tr><td>2022</td><td>6.5 Billion</td><td>Climate mitigation contribution increased</td></tr>
-          <tr><td>2023</td><td>7 Billion+</td><td>Landscape restoration scaling nationwide</td></tr>
-        </tbody>
-      </table>
-    </div>
-    <div class="view-stats">
-      <div class="view-stat"><div class="vs-num">28B+</div><div class="vs-label">Seedlings Planted Since 2019</div></div>
-      <div class="view-stat"><div class="vs-num">Nationwide</div><div class="vs-label">Landscape Coverage</div></div>
-      <div class="view-stat"><div class="vs-num">CRGE</div><div class="vs-label">Climate Strategy Support</div></div>
-      <div class="view-stat"><div class="vs-num">Millions</div><div class="vs-label">Citizens Participating</div></div>
-    </div>
-    <div class="view-highlight">The Green Legacy Initiative represents one of Africa's largest community-driven environmental restoration campaigns and plays a transformative role in strengthening Ethiopia's climate resilience, biodiversity conservation, and sustainable land management systems.</div>
-  </div>
-  <div class="view-nav-btns">
-    <button class="view-btn" data-view="REDD">← REDD+</button>
-    <button class="view-btn" data-view="Food">Food Security →</button>
-  </div>
-</div>
-</div>
-
-<!-- FOOD SECURITY VIEW -->
-<div id="view-Food" class="content-view">
-<div class="view-inner">
-  <div class="view-breadcrumb"><a data-view="home">Home</a><span class="sep">›</span><span>Programs</span><span class="sep">›</span><span class="current">Food Security</span></div>
-  <div class="view-badge">🌾 Program</div>
-  <h1 class="view-title">Food Security &amp; <em>AFOLU Systems</em></h1>
-  <div class="view-body">
-    <p>Food security is both a fundamental human right and a complex development challenge that lies at the heart of AFOLU Ethiopia's mission. AFOLU's food security program addresses vulnerabilities through an integrated approach that combines improved agricultural production, natural resource management, agroforestry expansion, and value chain development to strengthen all four pillars of food security simultaneously.</p>
-    <p>Improving agricultural productivity at the farm level is a critical entry point for AFOLU's food security work. This involves the promotion of improved seed varieties, integrated soil fertility management, water harvesting and irrigation technologies, and climate-smart agronomic practices that help smallholder farmers produce more food per unit of land and labor.</p>
-    <p>Ensuring that food security gains are sustained over time requires addressing the deeper structural vulnerabilities that make rural households susceptible to food crises. AFOLU's food security program integrates landscape restoration and watershed management as foundational food security investments, recognizing that the health of ecological systems is ultimately the most important determinant of long-term food security.</p>
-    <div class="view-h3">Four Pillars of Food Security</div>
-    <div class="view-table-wrap">
-      <table class="view-table">
-        <thead><tr><th>Pillar</th><th>Description</th><th>AFOLU Contribution</th></tr></thead>
-        <tbody>
-          <tr><td>Availability</td><td>Production of sufficient food</td><td>Climate-smart agriculture and agroforestry</td></tr>
-          <tr><td>Access</td><td>Economic and physical access</td><td>Forest-based income diversification</td></tr>
-          <tr><td>Utilization</td><td>Nutritional value and quality</td><td>Homegarden agroforestry systems</td></tr>
-          <tr><td>Stability</td><td>Long-term resilience to shocks</td><td>Watershed restoration and climate adaptation</td></tr>
-        </tbody>
-      </table>
-    </div>
-    <div class="view-highlight">Strengthening food security in Ethiopia requires integrated AFOLU landscape management approaches that combine sustainable agriculture, forest conservation, agroforestry expansion, watershed protection, and climate-resilient development strategies.</div>
-  </div>
-  <div class="view-nav-btns">
-    <button class="view-btn" data-view="Legacy">← Green Legacy</button>
-    <button class="view-btn" data-view="Climate">Climate Resilience →</button>
-  </div>
-</div>
-</div>
-
-<!-- CLIMATE VIEW -->
-<div id="view-Climate" class="content-view">
-<div class="view-inner">
-  <div class="view-breadcrumb"><a data-view="home">Home</a><span class="sep">›</span><span>Programs</span><span class="sep">›</span><span class="current">Climate Resilience</span></div>
-  <div class="view-badge">🌡 Program</div>
-  <h1 class="view-title">Climate Change &amp; <em>AFOLU</em></h1>
-  <div class="view-body">
-    <p>Climate resilience is a cross-cutting priority that runs through every dimension of AFOLU Ethiopia's work, reflecting the organization's recognition that climate change represents the most significant long-term threat to Ethiopia's agricultural systems, forest ecosystems, water resources, and rural livelihoods.</p>
-    <p>AFOLU's climate resilience program is structured around two complementary pillars: landscape-scale ecosystem restoration and community-level adaptive capacity building. On the landscape side, the program invests in the rehabilitation of degraded watersheds, the expansion of forest cover through reforestation and agroforestry, and the improvement of soil and water conservation infrastructure.</p>
-    <p>At the community level, AFOLU's climate resilience program works to strengthen the knowledge, institutions, and economic resources that enable rural households to anticipate, respond to, and recover from climate shocks. This includes the promotion of climate-smart agricultural practices, the development of early warning systems, and the diversification of rural income sources.</p>
-    <div class="view-h3">Major Climate Change Impacts</div>
-    <div class="view-table-wrap">
-      <table class="view-table">
-        <thead><tr><th>Climate Impact</th><th>Affected Sector</th><th>Observed Consequence</th></tr></thead>
-        <tbody>
-          <tr><td>Increasing temperature</td><td>Agriculture</td><td>Reduced crop productivity</td></tr>
-          <tr><td>Rainfall variability</td><td>Water resources</td><td>Drought and flood risks</td></tr>
-          <tr><td>Land degradation</td><td>Soil systems</td><td>Declining soil fertility</td></tr>
-          <tr><td>Deforestation pressure</td><td>Forest ecosystems</td><td>Biodiversity loss</td></tr>
-          <tr><td>Pasture shortage</td><td>Livestock systems</td><td>Reduced livestock productivity</td></tr>
-        </tbody>
-      </table>
-    </div>
-    <div class="view-stats">
-      <div class="view-stat"><div class="vs-num">CRGE</div><div class="vs-label">National Climate Framework</div></div>
-      <div class="view-stat"><div class="vs-num">AFOLU</div><div class="vs-label">Major Emission Reduction Sector</div></div>
-      <div class="view-stat"><div class="vs-num">2030</div><div class="vs-label">Climate Target Horizon</div></div>
-      <div class="view-stat"><div class="vs-num">Restoration</div><div class="vs-label">Landscape Priority Action</div></div>
-    </div>
-    <div class="view-highlight">Strengthening climate-resilient landscapes through forestry, agroforestry, watershed restoration, and sustainable land management is essential for Ethiopia's long-term environmental sustainability and food security.</div>
-  </div>
-  <div class="view-nav-btns">
-    <button class="view-btn" data-view="Food">← Food Security</button>
-    <button class="view-btn" data-view="REDD">REDD+ →</button>
-  </div>
-</div>
-</div>
-
-<!-- REDD VIEW -->
-<div id="view-REDD" class="content-view">
-<div class="view-inner">
-  <div class="view-breadcrumb"><a data-view="home">Home</a><span class="sep">›</span><span>Programs</span><span class="sep">›</span><span class="current">REDD+</span></div>
-  <div class="view-badge">🌿 Climate Finance</div>
-  <h1 class="view-title">REDD+ Forest Carbon <em>Management</em></h1>
-  <div class="view-body">
-    <p>REDD+ — Reducing Emissions from Deforestation and Forest Degradation — represents Ethiopia's most significant engagement with international climate finance mechanisms and one of AFOLU's most technically sophisticated program areas. AFOLU plays a central role in Ethiopia's REDD+ implementation, providing technical support for forest monitoring systems, participatory forest management programs, and policy and institutional frameworks.</p>
-    <p>The technical foundation of Ethiopia's REDD+ program is a robust national forest monitoring system that uses satellite remote sensing, ground-based forest inventory data, and advanced carbon accounting methodologies to measure and report changes in forest cover and carbon stocks over time. AFOLU supports the development and maintenance of this monitoring system.</p>
-    <p>Beyond the technical dimensions of carbon monitoring, AFOLU's REDD+ work is deeply engaged with the human dimensions of forest conservation — the communities who live in and depend on Ethiopia's forests. Participatory forest management systems that give communities legal rights over their forest resources and share the benefits of conservation with local households are at the center of AFOLU's REDD+ implementation strategy.</p>
-    <div class="view-h3">Drivers of Deforestation Addressed</div>
-    <div class="view-table-wrap">
-      <table class="view-table">
-        <thead><tr><th>Driver</th><th>Impact on Forest</th><th>REDD+ Intervention</th></tr></thead>
-        <tbody>
-          <tr><td>Agricultural expansion</td><td>Forest clearing</td><td>Landscape restoration programs</td></tr>
-          <tr><td>Fuelwood extraction</td><td>Biomass depletion</td><td>Efficient energy alternatives</td></tr>
-          <tr><td>Illegal logging</td><td>Timber loss</td><td>Forest monitoring systems</td></tr>
-          <tr><td>Overgrazing pressure</td><td>Regeneration decline</td><td>Controlled grazing systems</td></tr>
-          <tr><td>Settlement expansion</td><td>Habitat fragmentation</td><td>Participatory land-use planning</td></tr>
-        </tbody>
-      </table>
-    </div>
-    <div class="view-stats">
-      <div class="view-stat"><div class="vs-num">Forest</div><div class="vs-label">Carbon Sink Protection</div></div>
-      <div class="view-stat"><div class="vs-num">PFM</div><div class="vs-label">Community-Based Management</div></div>
-      <div class="view-stat"><div class="vs-num">MRV</div><div class="vs-label">Monitoring Strengthened</div></div>
-      <div class="view-stat"><div class="vs-num">CRGE</div><div class="vs-label">Climate Strategy Aligned</div></div>
-    </div>
-    <div class="view-highlight">REDD+ strengthens Ethiopia's forest-based climate mitigation strategy by linking carbon conservation, biodiversity protection, sustainable land management, and community livelihood improvement across priority forest landscapes.</div>
-  </div>
-  <div class="view-nav-btns">
-    <button class="view-btn" data-view="Climate">← Climate Resilience</button>
-    <button class="view-btn" data-view="Legacy">Green Legacy →</button>
-  </div>
-</div>
-</div>
-
-<!-- REPORTS VIEW -->
-<div id="view-Reports" class="content-view">
-<div class="view-inner">
-  <div class="view-breadcrumb"><a data-view="home">Home</a><span class="sep">›</span><span>Resources</span><span class="sep">›</span><span class="current">Reports &amp; Publications</span></div>
-  <div class="view-badge">📄 Resources</div>
-  <h1 class="view-title">Reports <em>&amp; Publications</em></h1>
-  <div class="view-body">
-    <p>AFOLU Ethiopia's reports and publications represent the organization's primary channel for sharing research findings, program evaluations, policy analyses, and strategic learning with the wider development and conservation community. These documents range from annual program reports and project completion assessments to thematic research papers and policy briefs on specific aspects of sustainable land management.</p>
-    <p>The organization's research and publication program is designed to address knowledge gaps that constrain more effective land management in Ethiopia — including gaps in understanding of how different agroforestry systems affect soil fertility and carbon sequestration, and how climate change is altering the productivity and resilience of different crop and livestock systems.</p>
-    <p>AFOLU's publications are disseminated through multiple channels to ensure they reach the audiences most able to apply them. Special attention is given to translating technical findings into policy-relevant recommendations and practitioner-friendly guidance. Through its publications, AFOLU seeks to be not just a program implementation organization but a learning institution.</p>
-    <div class="view-h3">Publication Categories</div>
-    <ul class="view-list">
-      <li>Annual program and impact reports</li>
-      <li>Thematic research papers and technical notes</li>
-      <li>Policy briefs for government and development stakeholders</li>
-      <li>Project completion and evaluation reports</li>
-      <li>Case studies and lessons-learned documentation</li>
-      <li>Collaborative publications with research and university partners</li>
-    </ul>
-    <div class="view-highlight">Through its publications, AFOLU seeks to be not just a program implementation organization but a learning institution that continuously builds and shares knowledge in service of Ethiopia's sustainable development goals.</div>
-  </div>
-  <div class="view-nav-btns">
-    <button class="view-btn" data-view="home">↑ Home</button>
-    <button class="view-btn" data-view="Geospatial">Geospatial &amp; GIS →</button>
-  </div>
-</div>
-</div>
-
-<!-- GEOSPATIAL VIEW -->
-<div id="view-Geospatial" class="content-view">
-<div class="view-inner">
-  <div class="view-breadcrumb"><a data-view="home">Home</a><span class="sep">›</span><span>Resources</span><span class="sep">›</span><span class="current">Geospatial &amp; GIS</span></div>
-  <div class="view-badge">🛰 Resources</div>
-  <h1 class="view-title">Geospatial Monitoring <em>&amp; GIS</em></h1>
-  <div class="view-body">
-    <p>Geospatial technologies are among the most powerful tools available for monitoring, planning, and managing complex land use systems at landscape scale. AFOLU Ethiopia has invested significantly in developing its capacity to apply these technologies in support of its program and policy work using GIS, satellite remote sensing, drone-based aerial imagery, and spatial modeling tools.</p>
-    <p>AFOLU's geospatial work supports a wide range of specific applications across its technical sectors. In the forestry and REDD+ area, satellite-derived forest cover maps and carbon stock estimates provide the quantitative foundation for Ethiopia's national forest monitoring system. In watershed management, digital elevation models and hydrological analysis tools are used to identify erosion hotspots and prioritize restoration investments.</p>
-    <p>The development of AFOLU's geospatial capacity involves both the acquisition and maintenance of appropriate hardware and software systems and the training and professional development of skilled geospatial analysts. AFOLU works closely with national institutions and international technical partners to build a nationally rooted geospatial capacity.</p>
-    <div class="view-h3">GIS Applications in AFOLU Monitoring</div>
-    <div class="view-table-wrap">
-      <table class="view-table">
-        <thead><tr><th>Application Area</th><th>Monitoring Purpose</th><th>AFOLU Contribution</th></tr></thead>
-        <tbody>
-          <tr><td>Forest cover mapping</td><td>Detect deforestation trends</td><td>Supports REDD+ implementation</td></tr>
-          <tr><td>Watershed analysis</td><td>Identify erosion hotspots</td><td>Supports restoration planning</td></tr>
-          <tr><td>Land-use classification</td><td>Track landscape change</td><td>Improves planning decisions</td></tr>
-          <tr><td>Carbon stock estimation</td><td>Monitor biomass change</td><td>Supports climate reporting</td></tr>
-          <tr><td>Farming system mapping</td><td>Identify production zones</td><td>Supports food security planning</td></tr>
-        </tbody>
-      </table>
-    </div>
-    <div class="view-h3">Platforms and Tools Used</div>
-    <ul class="view-list">
-      <li>Landsat and Sentinel satellite imagery</li>
-      <li>MODIS vegetation monitoring systems</li>
-      <li>High-resolution drone imagery</li>
-      <li>Digital Elevation Models (DEM)</li>
-      <li>Spatial Decision Support Systems (SDSS)</li>
-    </ul>
-    <div class="view-highlight">Geospatial monitoring technologies strengthen Ethiopia's capacity to manage forests, restore degraded landscapes, support climate mitigation reporting systems, and improve planning of sustainable smallholder farming systems across the AFOLU sector.</div>
-  </div>
-  <div class="view-nav-btns">
-    <button class="view-btn" data-view="Reports">← Reports &amp; Publications</button>
-    <button class="view-btn" data-view="publications">Technical Manuals →</button>
-  </div>
-</div>
-</div>
-
-<!-- TECHNICAL MANUALS VIEW -->
-<div id="view-publications" class="content-view">
-<div class="view-inner">
-  <div class="view-breadcrumb"><a data-view="home">Home</a><span class="sep">›</span><span>Resources</span><span class="sep">›</span><span class="current">Technical Manuals</span></div>
-  <div class="view-badge">📘 Resources</div>
-  <h1 class="view-title">Technical <em>Manuals</em></h1>
-  <div class="view-body">
-    <p>Technical manuals are among AFOLU Ethiopia's most practically valuable knowledge products — detailed, field-tested guidance documents that translate scientific knowledge and program experience into actionable instructions for practitioners working in agriculture, forestry, agroforestry, watershed management, and related fields.</p>
-    <p>Each technical manual produced by AFOLU reflects a careful process of knowledge synthesis, field validation, and iterative refinement based on feedback from practitioners and communities. Content is drawn from a combination of scientific research literature, program implementation experience, and indigenous knowledge systems.</p>
-    <p>The dissemination of AFOLU's technical manuals is carefully designed to maximize reach and usability. Manuals are produced in multiple languages — including Amharic, Afaan Oromo, Tigrinya, and English — to ensure accessibility for practitioners working in different regional contexts. Digital and print distribution channels are both utilized.</p>
-    <div class="view-h3">Manual Series</div>
-    <ul class="view-list">
-      <li>Integrated soil fertility and crop management guides</li>
-      <li>Agroforestry system establishment and management manuals</li>
-      <li>Participatory forest management planning guides</li>
-      <li>Watershed restoration and soil conservation field manuals</li>
-      <li>Climate-smart agriculture practitioner toolkits</li>
-      <li>Community-based wildlife conservation facilitation guides</li>
-    </ul>
-    <div class="view-highlight">AFOLU's technical manuals are living documents — continuously refined through field experience and community feedback to ensure they remain practically relevant and technically current for practitioners across Ethiopia's diverse landscapes.</div>
-  </div>
-  <div class="view-nav-btns">
-    <button class="view-btn" data-view="Geospatial">← Geospatial &amp; GIS</button>
-    <button class="view-btn" data-view="home">↑ Home</button>
-  </div>
-</div>
-</div>
-
-<!-- CURRENT PROJECTS VIEW -->
-<div id="view-Projects" class="content-view">
-<div class="view-inner">
-  <div class="view-breadcrumb"><a data-view="home">Home</a><span class="sep">›</span><span>Projects</span><span class="sep">›</span><span class="current">Current Projects</span></div>
-  <div class="view-badge">🔬 Projects</div>
-  <h1 class="view-title">Current <em>Projects</em></h1>
-  <div class="view-body">
-    <p>AFOLU Ethiopia's current projects represent the active frontier of the organization's field implementation work — the initiatives currently underway across Ethiopian landscapes that are generating practical results, community engagement, and institutional partnerships that drive the organization's mission forward. These projects span a range of technical areas and diverse regions and agroecological zones.</p>
-    <p>Current projects are characterized by strong community participation and locally led implementation approaches, recognizing that sustainable land management outcomes require genuine ownership and commitment from the communities whose livelihoods depend on the landscapes being managed. AFOLU works intensively with community groups, local government institutions, and traditional leadership structures to ensure that project activities are culturally appropriate and technically sound.</p>
-    <p>The current project portfolio is continuously monitored and adaptively managed, with regular progress reviews, field visits, and stakeholder consultations that allow project teams to identify challenges, adjust approaches, and capture emerging opportunities. AFOLU's investment in real-time monitoring and learning systems ensures that current projects generate rich practical experience that informs the design of future interventions.</p>
-    <div class="view-h3">Active Project Areas</div>
-    <ul class="view-list">
-      <li>Integrated watershed restoration and community forest management</li>
-      <li>Agroforestry expansion and smallholder productivity improvement</li>
-      <li>Climate-smart agriculture and food security programming</li>
-      <li>REDD+ implementation and forest carbon monitoring</li>
-      <li>Biodiversity conservation and ecotourism development</li>
-      <li>Agricultural value chain and rural enterprise development</li>
-    </ul>
-    <div class="view-highlight">Every current project is both an instrument of immediate impact and a learning laboratory — generating the practical evidence and community relationships that shape AFOLU's future programmatic directions.</div>
-  </div>
-  <div class="view-nav-btns">
-    <button class="view-btn" data-view="home">↑ Home</button>
-    <button class="view-btn" data-view="Completed">Completed Projects →</button>
-  </div>
-</div>
-</div>
-
-<!-- COMPLETED PROJECTS VIEW -->
-<div id="view-Completed" class="content-view">
-<div class="view-inner">
-  <div class="view-breadcrumb"><a data-view="home">Home</a><span class="sep">›</span><span>Projects</span><span class="sep">›</span><span class="current">Completed Projects</span></div>
-  <div class="view-badge">✅ Projects</div>
-  <h1 class="view-title">Completed <em>Projects</em></h1>
-  <div class="view-body">
-    <p>AFOLU Ethiopia's completed projects represent a rich legacy of field experience, community partnership, and institutional learning that continues to inform and shape the organization's current and future work. Each completed project has generated valuable lessons about what works, what doesn't, and why in the complex and context-specific environments where AFOLU operates.</p>
-    <p>Completed projects are evaluated against their stated objectives using monitoring and evaluation data collected throughout implementation, but also through retrospective assessments that examine longer-term outcomes and sustainability — whether the practices introduced are still being used by communities and whether the ecological improvements achieved have been maintained.</p>
-    <p>The documentation of completed projects also serves an important knowledge dissemination function, making AFOLU's accumulated field experience available to other organizations, government agencies, researchers, and communities working on similar challenges in Ethiopia and beyond. Case studies and lessons-learned publications are shared through AFOLU's resources section.</p>
-    <div class="view-h3">Learning from Past Projects</div>
-    <ul class="view-list">
-      <li>Retrospective sustainability assessments of completed interventions</li>
-      <li>Community adoption and behavior change evaluations</li>
-      <li>Institutional capacity and governance outcome documentation</li>
-      <li>Ecological monitoring of restored landscape trajectories</li>
-      <li>Lessons-learned publications and case study development</li>
-      <li>Cross-project comparative analysis and synthesis</li>
-    </ul>
-    <div class="view-highlight">The impact of AFOLU's completed projects extends far beyond the communities and landscapes where they were directly implemented — through the knowledge, relationships, and institutional capacities they built that continue to generate results long after closure.</div>
-  </div>
-  <div class="view-nav-btns">
-    <button class="view-btn" data-view="Projects">← Current Projects</button>
-    <button class="view-btn" data-view="Regional">Regional Projects →</button>
-  </div>
-</div>
-</div>
-
-<!-- REGIONAL PROJECTS VIEW -->
-<div id="view-Regional" class="content-view">
-<div class="view-inner">
-  <div class="view-breadcrumb"><a data-view="home">Home</a><span class="sep">›</span><span>Projects</span><span class="sep">›</span><span class="current">Regional Projects</span></div>
-  <div class="view-badge">🗺 Projects</div>
-  <h1 class="view-title">Regional <em>Projects</em></h1>
-  <div class="view-body">
-    <p>AFOLU Ethiopia's regional projects reflect the organization's recognition that Ethiopia's diverse agroecological, cultural, and institutional landscape requires tailored approaches adapted to the specific conditions of different regions. From the highland plateaus of Amhara and Tigray to the pastoral lowlands of Afar and Somali, each region presents a distinct combination of ecological conditions, land use pressures, and community livelihood systems.</p>
-    <p>Regional projects are developed through close consultation with regional government bureaus of agriculture, environment, and rural development. AFOLU's regional engagement goes beyond project implementation to include capacity building for regional technical staff, support for regional policy and planning processes, and the development of regional knowledge products.</p>
-    <p>The geographic diversity of AFOLU's regional project portfolio also provides a valuable basis for comparative learning — examining how similar land management approaches perform under different ecological and social conditions, and identifying the contextual factors that determine success or failure.</p>
-    <div class="view-h3">Regional Coverage</div>
-    <div class="view-table-wrap">
-      <table class="view-table">
-        <thead><tr><th>Region</th><th>Ecosystem Type</th><th>Primary Focus</th></tr></thead>
-        <tbody>
-          <tr><td>Oromia</td><td>Highland and forest</td><td>Coffee agroforestry and REDD+</td></tr>
-          <tr><td>Amhara</td><td>Highland plateau</td><td>Watershed restoration and food security</td></tr>
-          <tr><td>Tigray</td><td>Semi-arid highland</td><td>Soil conservation and reforestation</td></tr>
-          <tr><td>SNNP Region</td><td>Diverse agroecological</td><td>Enset and homegarden agroforestry</td></tr>
-          <tr><td>Afar &amp; Somali</td><td>Arid and semi-arid</td><td>Pastoral rangeland management</td></tr>
-          <tr><td>Southwest Ethiopia</td><td>Afromontane forest</td><td>Biodiversity and forest conservation</td></tr>
-        </tbody>
-      </table>
-    </div>
-    <div class="view-highlight">Ethiopia's regional diversity is both its greatest ecological asset and its greatest implementation challenge — AFOLU's regional projects are designed to harness this diversity as a source of adaptive learning and innovation.</div>
-  </div>
-  <div class="view-nav-btns">
-    <button class="view-btn" data-view="Completed">← Completed Projects</button>
-    <button class="view-btn" data-view="home">↑ Home</button>
-  </div>
-</div>
-</div>
-
-<!-- NEWS VIEW -->
-<div id="view-News" class="content-view">
-<div class="view-inner">
-  <div class="view-breadcrumb"><a data-view="home">Home</a><span class="sep">›</span><span>News</span><span class="sep">›</span><span class="current">Latest Updates</span></div>
-  <div class="view-badge">📰 Updates</div>
-  <h1 class="view-title">Site-Wide <em>Updates</em></h1>
-  <p style="color:var(--text-soft);font-size:0.93rem;margin-bottom:1.75rem;line-height:1.7;">
-    Daily updates across all sections of the website — Sectors, Programs, Projects, Resources, News, and About. Use the filters below to find updates for any heading or subheading.
-  </p>
-
-  <!-- Search & Filter Bar -->
-  <div style="display:flex;gap:0.75rem;margin-bottom:0.75rem;flex-wrap:wrap;align-items:center;">
-    <input id="news-search" type="text" placeholder="🔍  Search all updates…" style="
-      flex:1;min-width:200px;padding:0.6rem 1rem;border-radius:8px;
-      border:1px solid rgba(58,144,87,0.3);background:rgba(255,255,255,0.05);
-      color:var(--text-main);font-family:'Outfit',sans-serif;font-size:0.88rem;outline:none;">
-    <select id="news-section-filter" style="
-      padding:0.6rem 1rem;border-radius:8px;border:1px solid rgba(58,144,87,0.3);
-      background:rgba(15,45,24,0.97);color:var(--text-main);font-family:'Outfit',sans-serif;font-size:0.85rem;cursor:pointer;min-width:160px;">
-      <option value="">All Sections</option>
-      <optgroup label="── About">
-        <option value="About AFOLU">About AFOLU</option>
-        <option value="Mission &amp; Vision">Mission &amp; Vision</option>
-        <option value="Leadership">Leadership</option>
-        <option value="Organizational Structure">Organizational Structure</option>
-      </optgroup>
-      <optgroup label="── Sectors">
-        <option value="Plant Science">Plant Science</option>
-        <option value="Natural Resource Management">Natural Resource Management</option>
-        <option value="Agroforestry">Agroforestry</option>
-        <option value="Animal Science">Animal Science</option>
-        <option value="Rural Development">Rural Development</option>
-        <option value="Agro-Economics">Agro-Economics</option>
-        <option value="Forestry">Forestry</option>
-        <option value="Wildlife &amp; Ecotourism">Wildlife &amp; Ecotourism</option>
-      </optgroup>
-      <optgroup label="── Programs">
-        <option value="Green Legacy Initiative">Green Legacy Initiative</option>
-        <option value="Food Security">Food Security</option>
-        <option value="Climate Resilience">Climate Resilience</option>
-        <option value="REDD+">REDD+</option>
-      </optgroup>
-      <optgroup label="── Resources">
-        <option value="Reports &amp; Publications">Reports &amp; Publications</option>
-        <option value="Geospatial &amp; GIS">Geospatial &amp; GIS</option>
-        <option value="Technical Manuals">Technical Manuals</option>
-      </optgroup>
-      <optgroup label="── Projects">
-        <option value="Current Projects">Current Projects</option>
-        <option value="Completed Projects">Completed Projects</option>
-        <option value="Regional Projects">Regional Projects</option>
-      </optgroup>
-      <optgroup label="── News">
-        <option value="Latest News">Latest News</option>
-        <option value="Events">Events</option>
-        <option value="Photo Gallery">Photo Gallery</option>
-        <option value="Testimonials">Testimonials</option>
-      </optgroup>
-    </select>
-    <select id="news-type-filter" style="
-      padding:0.6rem 1rem;border-radius:8px;border:1px solid rgba(58,144,87,0.3);
-      background:rgba(15,45,24,0.97);color:var(--text-main);font-family:'Outfit',sans-serif;font-size:0.85rem;cursor:pointer;">
-      <option value="">All Types</option>
-      <option value="Update">Update</option>
-      <option value="News">News</option>
-      <option value="Event">Event</option>
-      <option value="Report">Report</option>
-      <option value="Announcement">Announcement</option>
-      <option value="Achievement">Achievement</option>
-    </select>
-  </div>
-
-  <!-- Active filters display -->
-  <div id="news-active-filters" style="display:none;margin-bottom:1rem;font-size:0.82rem;color:var(--text-dim);">
-    Showing results for: <span id="news-filter-label" style="color:var(--gold);font-weight:600;"></span>
-    <button onclick="clearNewsFilters()" style="margin-left:0.6rem;background:none;border:none;color:var(--pale);cursor:pointer;font-size:0.8rem;text-decoration:underline;">Clear filters</button>
-  </div>
-
-  <!-- Results count -->
-  <div id="news-count" style="margin-bottom:1.25rem;font-size:0.8rem;color:var(--text-dim);font-family:'JetBrains Mono',monospace;"></div>
-
-  <!-- News Cards Container -->
-  <div id="news-feed" style="display:flex;flex-direction:column;gap:1.1rem;"></div>
-  <div id="news-loading" style="text-align:center;padding:2.5rem;color:var(--text-soft);font-size:0.9rem;">
-    ⏳ Loading updates…
-  </div>
-  <div id="news-empty" style="display:none;text-align:center;padding:2.5rem;color:var(--text-soft);font-size:0.9rem;">
-    No updates found for your search. Try a different filter or keyword.
-  </div>
-
-  <div class="view-nav-btns" style="margin-top:2rem;">
-    <button class="view-btn" data-view="home">↑ Home</button>
-    <button class="view-btn" data-view="events">Events →</button>
-  </div>
-</div>
-</div>
-
-<style>
-/* ===== NEWS CARD STYLES ===== */
-.news-card {
-  background: rgba(255,255,255,0.035);
-  border: 1px solid rgba(58,144,87,0.18);
-  border-radius: 14px;
-  padding: 1.35rem 1.6rem;
-  transition: border-color 0.2s, background 0.2s, transform 0.2s;
-}
-.news-card:hover { background: rgba(58,144,87,0.07); border-color: rgba(58,144,87,0.38); transform: translateY(-1px); }
-.news-card-top { display:flex; justify-content:space-between; align-items:flex-start; margin-bottom:0.55rem; gap:0.75rem; flex-wrap:wrap; }
-.news-card-meta { display:flex; align-items:center; gap:0.6rem; flex-wrap:wrap; }
-.news-card-date { font-family:'JetBrains Mono',monospace; font-size:0.7rem; color:var(--gold); letter-spacing:0.08em; }
-.news-card-section {
-  font-size:0.67rem; font-weight:600; letter-spacing:0.1em; text-transform:uppercase;
-  padding:0.18rem 0.6rem; border-radius:20px;
-  background:rgba(200,150,62,0.12); color:var(--gold-light); border:1px solid rgba(200,150,62,0.25);
-}
-.news-card-type {
-  font-size:0.67rem; font-weight:600; letter-spacing:0.1em; text-transform:uppercase;
-  padding:0.18rem 0.6rem; border-radius:20px;
-  background:rgba(58,144,87,0.15); color:var(--pale); border:1px solid rgba(58,144,87,0.28);
-}
-.news-card-title { font-family:'Cormorant Garamond',serif; font-size:1.2rem; font-weight:700; color:var(--white); margin-bottom:0.5rem; line-height:1.3; }
-.news-card-body { font-size:0.88rem; color:var(--text-soft); line-height:1.68; }
-.news-card-footer { display:flex; justify-content:space-between; align-items:center; margin-top:0.85rem; flex-wrap:wrap; gap:0.5rem; }
-.news-card-author { font-size:0.76rem; color:var(--text-dim); font-style:italic; }
-.news-card-link { font-size:0.75rem; color:var(--pale); cursor:pointer; text-decoration:none; font-family:'JetBrains Mono',monospace; letter-spacing:0.05em; border:none; background:none; padding:0; transition:color 0.2s; }
-.news-card-link:hover { color:var(--white); }
-.news-latest-badge {
-  display:inline-flex; align-items:center; gap:0.3rem;
-  font-size:0.63rem; font-weight:700; letter-spacing:0.12em; text-transform:uppercase;
-  padding:0.18rem 0.55rem; border-radius:20px; background:var(--gold); color:var(--ink);
-  margin-left:0.4rem; vertical-align:middle;
-}
-.news-latest-badge::before { content:''; width:5px; height:5px; border-radius:50%; background:var(--ink); display:inline-block; animation: livePulse 1.6s ease infinite; }
-@keyframes livePulse { 0%,100%{opacity:1} 50%{opacity:0.3} }
-
-/* Section colour coding */
-.news-card[data-group="About"] { border-left: 3px solid rgba(93,184,122,0.5); }
-.news-card[data-group="Sectors"] { border-left: 3px solid rgba(200,150,62,0.5); }
-.news-card[data-group="Programs"] { border-left: 3px solid rgba(58,144,87,0.7); }
-.news-card[data-group="Resources"] { border-left: 3px solid rgba(168,217,184,0.5); }
-.news-card[data-group="Projects"] { border-left: 3px solid rgba(240,195,90,0.5); }
-.news-card[data-group="News"] { border-left: 3px solid rgba(93,184,122,0.35); }
-</style>
-
-<!-- EVENTS VIEW -->
-<div id="view-events" class="content-view">
-<div class="view-inner">
-  <div class="view-breadcrumb"><a data-view="home">Home</a><span class="sep">›</span><span>News</span><span class="sep">›</span><span class="current">Events</span></div>
-  <div class="view-badge">📅 News</div>
-  <h1 class="view-title">Events <em>&amp; Engagements</em></h1>
-  <div class="view-body">
-    <p>Events are a central feature of AFOLU Ethiopia's stakeholder engagement strategy, providing opportunities for face-to-face dialogue, knowledge sharing, community celebration, and collective action. AFOLU organizes and participates in a wide range of events throughout the year — from national tree planting days and community watershed restoration ceremonies to technical workshops, policy dialogues, research conferences, and international climate negotiations.</p>
-    <p>Technical workshops and training events are among the most frequent and important types of events in AFOLU's calendar. These events bring together agricultural extension workers, community forest managers, watershed technicians, and other land management practitioners for focused skill-building and knowledge exchange. The hands-on, participatory format maximizes learning effectiveness and provides opportunities for practitioners to share their experiences and build professional networks.</p>
-    <p>Community-level events — including field days, farmer exchange visits, watershed management celebrations, and tree planting ceremonies — provide visible opportunities to recognize and celebrate community achievements, build environmental awareness, and reinforce the culture of land stewardship that the organization is working to nurture.</p>
-    <div class="view-h3">Event Types</div>
-    <ul class="view-list">
-      <li>National Green Legacy tree planting mobilization days</li>
-      <li>Technical workshops and capacity building training events</li>
-      <li>Policy dialogues and national stakeholder consultations</li>
-      <li>Community field days and farmer exchange visits</li>
-      <li>Research conferences and knowledge sharing forums</li>
-      <li>International climate and biodiversity convention participation</li>
-    </ul>
-    <div class="view-highlight">From community field days to international climate forums, AFOLU's events build the connections, knowledge, and collective will needed to sustain Ethiopia's land management transformation across generations.</div>
-  </div>
-  <div class="view-nav-btns">
-    <button class="view-btn" data-view="News">← Latest News</button>
-    <button class="view-btn" data-view="Gallery">Photo Gallery →</button>
-  </div>
-</div>
-</div>
-
-<!-- GALLERY VIEW -->
-<div id="view-Gallery" class="content-view">
-<div class="view-inner">
-  <div class="view-breadcrumb"><a data-view="home">Home</a><span class="sep">›</span><span>News</span><span class="sep">›</span><span class="current">Photo Gallery</span></div>
-  <div class="view-badge">🖼 News</div>
-  <h1 class="view-title">Photo <em>Gallery</em></h1>
-  <div class="view-body">
-    <p>AFOLU Ethiopia's photo gallery is a powerful visual record of the organization's field work, community partnerships, and landscape transformation achievements across Ethiopia's diverse environments. Images often convey what words struggle to capture — the scale of a restored watershed, the vitality of a thriving agroforestry system, and the contrast between degraded and rehabilitated landscapes.</p>
-    <p>The gallery features images from across AFOLU's full portfolio of activities — field implementation work, community training events, technical workshops, policy advocacy meetings, and ceremonial occasions such as the annual Green Legacy tree planting day. Special attention is given to images that humanize AFOLU's work — portraits of farmers, foresters, and community leaders, and candid moments from field activities.</p>
-    <p>Beyond its communication function, the photo gallery also serves as an organizational memory system — a visual archive that documents the evolution of AFOLU's work over time. Images from the gallery are made available for use by media organizations, research institutions, partner organizations, and community groups, subject to appropriate attribution and permissions.</p>
-    <div class="view-highlight">Every image in AFOLU's gallery is a testimony — to the landscapes being restored, the communities driving change, and the long-term vision of a green and resilient Ethiopia that unites everyone involved in this work.</div>
-  </div>
-  <div class="view-nav-btns">
-    <button class="view-btn" data-view="events">← Events</button>
-    <button class="view-btn" data-view="Testimonials">Testimonials →</button>
-  </div>
-</div>
-</div>
-
-<!-- TESTIMONIALS VIEW -->
-<div id="view-Testimonials" class="content-view">
-<div class="view-inner">
-  <div class="view-breadcrumb"><a data-view="home">Home</a><span class="sep">›</span><span>News</span><span class="sep">›</span><span class="current">Testimonials</span></div>
-  <div class="view-badge">💬 News</div>
-  <h1 class="view-title">Community <em>Testimonials</em></h1>
-  <div class="view-body">
-    <p>Testimonials from community members, program beneficiaries, government partners, and development colleagues represent some of the most compelling and authentic evidence of AFOLU Ethiopia's impact — voices that speak directly to the human reality of sustainable land management and the difference it makes in people's lives.</p>
-    <p>AFOLU collects and shares testimonials through a range of methods — structured interviews with program beneficiaries, video testimonials recorded during field visits, written accounts gathered by extension workers, and spontaneous feedback captured at community events. These testimonials are edited and presented with care and respect for the individuals who share their stories.</p>
-    <p>Testimonials also serve an important organizational learning function, providing qualitative insights into how communities experience AFOLU's programs that complement quantitative monitoring data. Community feedback captured through testimonials has informed significant program design improvements — highlighting barriers to adoption and identifying community assets and innovations that AFOLU has been able to incorporate into its technical approaches.</p>
-    <div class="view-highlight">By listening carefully to community voices and amplifying them through its testimonials platform, AFOLU demonstrates its commitment to being not just a technically competent organization, but a genuinely accountable and community-responsive one.</div>
-  </div>
-  <div class="view-nav-btns">
-    <button class="view-btn" data-view="Gallery">← Photo Gallery</button>
-    <button class="view-btn" data-view="home">↑ Home</button>
-  </div>
-</div>
-</div>
-
-<!-- FOOTER -->
-<footer>
-  <div class="footer-top">
-    <div class="footer-brand-col">
-      <div class="footer-logo-wrap">
-        <div class="footer-logo"><img src="https://i.imgur.com/stFhOHw.png" alt="AFOLU Logo"></div>
-        <div>
-          <div class="footer-brand-name">AFOLU Ethiopia</div>
-          <div class="footer-brand-sub">Agriculture · Forestry · Land Use</div>
-        </div>
-      </div>
-      <p class="footer-brand-desc">Advancing sustainable land management, forest conservation, and climate resilience across Ethiopia's diverse landscapes since 2019.</p>
-      <div class="footer-socials">
-        <a href="https://www.facebook.com/afoluethiopia" target="_blank" class="footer-social" title="Facebook">f</a>
-        <a href="#" class="footer-social" title="Twitter">𝕏</a>
-        <a href="#" class="footer-social" title="YouTube">▶</a>
-        <a href="#" class="footer-social" title="Instagram">◎</a>
-      </div>
-    </div>
-    <div class="footer-col">
-      <h5>Sectors</h5>
-      <ul>
-        <li><a data-view="plant-science">Plant Science</a></li>
-        <li><a data-view="Natural-Resource-Mgmt">Natural Resource Mgmt</a></li>
-        <li><a data-view="agroforestry">Agroforestry</a></li>
-        <li><a data-view="animal-science">Animal Science</a></li>
-        <li><a data-view="forestry">Forestry</a></li>
-        <li><a data-view="Wildlife">Wildlife &amp; Ecotourism</a></li>
-        <li><a data-view="Agro-Economics">Agro-Economics</a></li>
-        <li><a data-view="Extension">Rural Development</a></li>
-      </ul>
-    </div>
-    <div class="footer-col">
-      <h5>Programs</h5>
-      <ul>
-        <li><a data-view="Legacy">Green Legacy Initiative</a></li>
-        <li><a data-view="REDD">REDD+ Program</a></li>
-        <li><a data-view="Climate">Climate Resilience</a></li>
-        <li><a data-view="Food">Food Security</a></li>
-      </ul>
-    </div>
-    <div class="footer-col">
-      <h5>Contact</h5>
-      <ul>
-        <li><a href="tel:+251911946191">+251 911 946 101</a></li>
-        <li><a href="/cdn-cgi/l/email-protection#8feee9e0e3fae0e9eafbe7e6e0ffe6eecfe8e2eee6e3a1ece0e2"><span class="__cf_email__" data-cfemail="0c6d6a636079636a69786465637c656d4c6b616d6560226f6361">[email&#160;protected]</span></a></li>
-        <li><a>Finfinnee / Addis Ababa, Ethiopia</a></li>
-      </ul>
-    </div>
-  </div>
-  <div class="footer-bottom">
-    <p class="footer-copy">© 2026 AFOLU Ethiopia. All rights reserved.</p>
-    <div class="footer-links">
-      <a href="#">Privacy Policy</a>
-      <a href="#">Terms of Use</a>
-      <a href="#">Sitemap</a>
-    </div>
-  </div>
-</footer>
-
-<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
-/* ===== BACKGROUND CANVAS ===== */
-(function(){
-  const canvas = document.getElementById('bgCanvas');
-  const ctx = canvas.getContext('2d');
-  let W, H, particles = [];
-  function resize() { W = canvas.width = window.innerWidth; H = canvas.height = window.innerHeight; }
-  function Particle() {
-    this.reset = function() {
-      this.x = Math.random() * W; this.y = Math.random() * H;
-      this.r = Math.random() * 1.5 + 0.3;
-      this.vx = (Math.random() - 0.5) * 0.3; this.vy = (Math.random() - 0.5) * 0.3;
-      this.alpha = Math.random() * 0.4 + 0.05;
-      this.color = Math.random() > 0.6 ? '#3a9057' : Math.random() > 0.5 ? '#c8963e' : '#5db87a';
-    };
-    this.reset();
-  }
-  for(let i = 0; i < 90; i++) particles.push(new Particle());
-  function draw() {
-    ctx.clearRect(0, 0, W, H);
-    const grad = ctx.createRadialGradient(W*0.5, H*0.4, 0, W*0.5, H*0.4, Math.max(W,H)*0.7);
-    grad.addColorStop(0, 'rgba(30,86,48,0.12)'); grad.addColorStop(1, 'rgba(10,26,14,0)');
-    ctx.fillStyle = grad; ctx.fillRect(0,0,W,H);
-    particles.forEach(p => {
-      ctx.beginPath(); ctx.arc(p.x, p.y, p.r, 0, Math.PI*2);
-      ctx.fillStyle = p.color; ctx.globalAlpha = p.alpha; ctx.fill();
-      p.x += p.vx; p.y += p.vy;
-      if(p.x<0||p.x>W||p.y<0||p.y>H) p.reset();
-    });
-    ctx.globalAlpha = 1;
-    ctx.strokeStyle = 'rgba(58,144,87,0.04)'; ctx.lineWidth = 1;
-    for(let x = 0; x < W; x += 80) { ctx.beginPath(); ctx.moveTo(x, 0); ctx.lineTo(x, H); ctx.stroke(); }
-    for(let y = 0; y < H; y += 80) { ctx.beginPath(); ctx.moveTo(0, y); ctx.lineTo(W, y); ctx.stroke(); }
-    requestAnimationFrame(draw);
-  }
-  resize(); draw();
-  window.addEventListener('resize', resize);
-})();
-
-/* ===== NAV SCROLL ===== */
-const mainNav = document.getElementById('mainNav');
-window.addEventListener('scroll', () => {
-  mainNav.classList.toggle('scrolled', window.scrollY > 40);
-});
-
-/* ===== HAMBURGER ===== */
-const hamburger = document.getElementById('hamburger');
-const navLinks = document.getElementById('navLinks');
-hamburger.addEventListener('click', () => {
-  hamburger.classList.toggle('open');
-  navLinks.classList.toggle('open');
-});
-
-/* ===== DROPDOWN TOGGLE (click-based, works on all devices) ===== */
-document.querySelectorAll('.has-drop > a').forEach(trigger => {
-  trigger.addEventListener('click', function(e) {
-    e.preventDefault();
-    e.stopPropagation();
-    const parentLi = this.parentElement;
-    const isOpen = parentLi.classList.contains('open');
-
-    // Close all other dropdowns
-    document.querySelectorAll('.has-drop').forEach(li => {
-      if (li !== parentLi) li.classList.remove('open');
-    });
-
-    // Toggle this one
-    parentLi.classList.toggle('open', !isOpen);
-  });
-});
-
-/* Close dropdowns when clicking anywhere else */
-document.addEventListener('click', function(e) {
-  if (!e.target.closest('.has-drop')) {
-    document.querySelectorAll('.has-drop').forEach(li => li.classList.remove('open'));
-  }
-});
-
-/* ===== VIEW NAVIGATION ===== */
-const HOME_VIEW = 'home';
-
-function showView(viewId) {
-  const homeDiv = document.getElementById('view-home');
-  const footer = document.querySelector('footer');
-  document.querySelectorAll('.content-view').forEach(v => v.classList.remove('active'));
-  if (!viewId || viewId === HOME_VIEW) {
-    homeDiv.style.display = 'block';
-    footer.style.display = '';
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-    return;
-  }
-  homeDiv.style.display = 'none';
-  const el = document.getElementById('view-' + viewId);
-  if (el) el.classList.add('active');
-  window.scrollTo({ top: 0, behavior: 'smooth' });
-  hamburger.classList.remove('open');
-  navLinks.classList.remove('open');
-  document.querySelectorAll('.has-drop').forEach(li => li.classList.remove('open'));
-}
-
-/* Single delegated handler for all [data-view] elements */
-document.addEventListener('click', function(e) {
-  const el = e.target.closest('[data-view]');
-  if (!el) return;
-  if (el.closest('.has-drop') && el === el.closest('.has-drop').querySelector(':scope > a')) return;
-  e.preventDefault();
-  const view = el.getAttribute('data-view');
-  if (view) {
-    showView(view);
-    if (view === 'News') loadNews();
-  }
-});
-
-/* ===== SITE-WIDE UPDATES SYSTEM ===== */
-
-const SECTION_GROUP_MAP = {
-  'About AFOLU':'About','Mission & Vision':'About','Leadership':'About','Organizational Structure':'About',
-  'Plant Science':'Sectors','Natural Resource Management':'Sectors','Agroforestry':'Sectors',
-  'Animal Science':'Sectors','Rural Development':'Sectors','Agro-Economics':'Sectors',
-  'Forestry':'Sectors','Wildlife & Ecotourism':'Sectors',
-  'Green Legacy Initiative':'Programs','Food Security':'Programs','Climate Resilience':'Programs','REDD+':'Programs',
-  'Reports & Publications':'Resources','Geospatial & GIS':'Resources','Technical Manuals':'Resources',
-  'Current Projects':'Projects','Completed Projects':'Projects','Regional Projects':'Projects',
-  'Latest News':'News','Events':'News','Photo Gallery':'News','Testimonials':'News',
-};
-
-const SECTION_VIEW_MAP = {
-  'About AFOLU':'About','Mission & Vision':'Mission','Leadership':'Leadership','Organizational Structure':'Organizational',
-  'Plant Science':'plant-science','Natural Resource Management':'Natural-Resource-Mgmt','Agroforestry':'agroforestry',
-  'Animal Science':'animal-science','Rural Development':'Extension','Agro-Economics':'Agro-Economics',
-  'Forestry':'forestry','Wildlife & Ecotourism':'Wildlife',
-  'Green Legacy Initiative':'Legacy','Food Security':'Food','Climate Resilience':'Climate','REDD+':'REDD',
-  'Reports & Publications':'Reports','Geospatial & GIS':'Geospatial','Technical Manuals':'publications',
-  'Current Projects':'Projects','Completed Projects':'Completed','Regional Projects':'Regional',
-  'Latest News':'News','Events':'events','Photo Gallery':'Gallery','Testimonials':'Testimonials',
-};
-
-let allNewsItems = [];
-
-async function loadNews() {
-  const feed = document.getElementById('news-feed');
-  const loading = document.getElementById('news-loading');
-  const empty = document.getElementById('news-empty');
-  const countEl = document.getElementById('news-count');
-  feed.innerHTML = '';
-  loading.style.display = 'block';
-  empty.style.display = 'none';
-  countEl.textContent = '';
-  try {
-    const res = await fetch('news.json?v=' + Date.now());
-    if (!res.ok) throw new Error('news.json not found');
-    const data = await res.json();
-    allNewsItems = (data.posts || []).sort((a, b) => new Date(b.date) - new Date(a.date));
-    loading.style.display = 'none';
-    renderNews(allNewsItems);
-  } catch (err) {
-    loading.style.display = 'none';
-    feed.innerHTML = `<div style="background:rgba(200,150,62,0.08);border:1px solid rgba(200,150,62,0.25);border-radius:12px;padding:1.5rem 1.75rem;"><div style="font-family:'Cormorant Garamond',serif;font-size:1.1rem;color:var(--gold);margin-bottom:0.5rem;">⚠ Could Not Load Updates</div><p style="font-size:0.88rem;color:var(--text-soft);line-height:1.65;">Make sure <strong style="color:var(--white);">news.json</strong> is in the <strong style="color:var(--white);">same folder</strong> as index.html on your server.</p></div>`;
-  }
-}
-
-function renderNews(items) {
-  const feed = document.getElementById('news-feed');
-  const empty = document.getElementById('news-empty');
-  const countEl = document.getElementById('news-count');
-  feed.innerHTML = '';
-  if (!items.length) {
-    empty.style.display = 'block';
-    countEl.textContent = '0 updates found';
-    return;
-  }
-  empty.style.display = 'none';
-  countEl.textContent = items.length + ' update' + (items.length !== 1 ? 's' : '') + ' found';
-  items.forEach((post, i) => {
-    const d = new Date(post.date);
-    const dateStr = d.toLocaleDateString('en-GB', { day:'numeric', month:'long', year:'numeric' });
-    const group = SECTION_GROUP_MAP[post.section] || 'News';
-    const viewTarget = SECTION_VIEW_MAP[post.section] || '';
-    const isLatest = i === 0;
-    const card = document.createElement('div');
-    card.className = 'news-card';
-    card.setAttribute('data-group', group);
-    card.innerHTML = `
-      <div class="news-card-top">
-        <div class="news-card-meta">
-          <span class="news-card-date">${dateStr}${isLatest ? '<span class="news-latest-badge">Latest</span>' : ''}</span>
-          ${post.section ? `<span class="news-card-section">${post.section}</span>` : ''}
-          ${post.type ? `<span class="news-card-type">${post.type}</span>` : ''}
-        </div>
-      </div>
-      <div class="news-card-title">${post.title}</div>
-      <div class="news-card-body">${post.body}</div>
-      <div class="news-card-footer">
-        <span class="news-card-author">${post.author ? '— ' + post.author : ''}</span>
-        ${viewTarget ? `<button class="news-card-link" onclick="showView('${viewTarget}')">Go to ${post.section} →</button>` : ''}
-      </div>`;
-    feed.appendChild(card);
-  });
-}
-
-function filterNews() {
-  const q = document.getElementById('news-search').value.toLowerCase().trim();
-  const sec = document.getElementById('news-section-filter').value;
-  const type = document.getElementById('news-type-filter').value;
-  const filtered = allNewsItems.filter(p => {
-    const matchSec = !sec || p.section === sec;
-    const matchType = !type || p.type === type;
-    const matchQ = !q || (p.title||'').toLowerCase().includes(q) || (p.body||'').toLowerCase().includes(q) || (p.section||'').toLowerCase().includes(q) || (p.author||'').toLowerCase().includes(q);
-    return matchSec && matchType && matchQ;
-  });
-  const activeFilters = document.getElementById('news-active-filters');
-  const filterLabel = document.getElementById('news-filter-label');
-  const parts = [];
-  if (sec) parts.push(sec);
-  if (type) parts.push(type);
-  if (q) parts.push('"' + q + '"');
-  if (parts.length) {
-    activeFilters.style.display = 'block';
-    filterLabel.textContent = parts.join(' · ');
-  } else {
-    activeFilters.style.display = 'none';
-  }
-  renderNews(filtered);
-}
-
-function clearNewsFilters() {
-  document.getElementById('news-search').value = '';
-  document.getElementById('news-section-filter').value = '';
-  document.getElementById('news-type-filter').value = '';
-  document.getElementById('news-active-filters').style.display = 'none';
-  renderNews(allNewsItems);
-}
-
-document.getElementById('news-search').addEventListener('input', filterNews);
-document.getElementById('news-section-filter').addEventListener('change', filterNews);
-document.getElementById('news-type-filter').addEventListener('change', filterNews);
-
-// Initia
