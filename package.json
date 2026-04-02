@@ -1,1 +1,9 @@
+{
+  "name": "afolu-ethiopia",
+  "version": "1.0.0",
+  "description": "AFOLU Ethiopia website — CMS build scripts",
+  "scripts": {
+    "build-news": "node scripts/build-news.js"
+  }
+}
 
