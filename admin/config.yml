@@ -1,0 +1,162 @@
+# ================================================================
+#  AFOLU Ethiopia — Decap CMS Configuration
+#  Repo:   github.com/Afoluofethiopia/afolu
+#  Branch: main
+#  Live:   https://afoluofethiopia.github.io/afolu
+# ================================================================
+
+backend:
+  name: github
+  repo: Afoluofethiopia/afolu
+  branch: main
+  base_url: https://afolu-oauth.onrender.com   # ← your OAuth server URL (set up once)
+
+media_folder: "images/uploads"
+public_folder: "/images/uploads"
+
+# ================================================================
+#  COLLECTIONS
+# ================================================================
+collections:
+
+  # --------------------------------------------------------------
+  #  NEWS & UPDATES
+  #  Creates .md files in _posts/ → GitHub Action builds news.json
+  #  Your website reads news.json via loadNews() — no code changes!
+  # --------------------------------------------------------------
+  - name: "news"
+    label: "📰 News & Updates"
+    label_singular: "News Post"
+    folder: "_posts"
+    create: true
+    delete: true
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+    summary: "{{title}} — {{date}} [{{fields.section}}]"
+    sortable_fields: ["date", "title", "section"]
+    view_filters:
+      - label: "Latest News only"
+        field: section
+        pattern: "Latest News"
+      - label: "Events only"
+        field: section
+        pattern: "Events"
+      - label: "Reports only"
+        field: section
+        pattern: "Reports & Publications"
+      - label: "Drafts"
+        field: draft
+        pattern: true
+    fields:
+
+      - label: "Title"
+        name: "title"
+        widget: "string"
+        hint: "Headline shown on the news card"
+
+      - label: "Date"
+        name: "date"
+        widget: "datetime"
+        format: "YYYY-MM-DD"
+        date_format: "DD/MM/YYYY"
+        time_format: false
+
+      - label: "Section / Category"
+        name: "section"
+        widget: "select"
+        hint: "Choose which section of your website this post belongs to"
+        options:
+          - { label: "📰 Latest News", value: "Latest News" }
+          - { label: "📅 Events", value: "Events" }
+          - { label: "🌾 Plant Science", value: "Plant Science" }
+          - { label: "🌍 Natural Resource Management", value: "Natural Resource Management" }
+          - { label: "🌿 Agroforestry", value: "Agroforestry" }
+          - { label: "🐄 Animal Science", value: "Animal Science" }
+          - { label: "🏘 Rural Development", value: "Rural Development" }
+          - { label: "📊 Agro-Economics", value: "Agro-Economics" }
+          - { label: "🌳 Forestry", value: "Forestry" }
+          - { label: "🦁 Wildlife & Ecotourism", value: "Wildlife & Ecotourism" }
+          - { label: "🌱 Green Legacy Initiative", value: "Green Legacy Initiative" }
+          - { label: "🌾 Food Security", value: "Food Security" }
+          - { label: "🌡 Climate Resilience", value: "Climate Resilience" }
+          - { label: "♻️ REDD+", value: "REDD+" }
+          - { label: "📄 Reports & Publications", value: "Reports & Publications" }
+          - { label: "🛰 Geospatial & GIS", value: "Geospatial & GIS" }
+          - { label: "📘 Technical Manuals", value: "Technical Manuals" }
+          - { label: "🖼 Photo Gallery", value: "Photo Gallery" }
+          - { label: "💬 Testimonials", value: "Testimonials" }
+
+      - label: "Post Type"
+        name: "type"
+        widget: "select"
+        required: false
+        hint: "Optional: tag the kind of post"
+        options:
+          - "Announcement"
+          - "Event"
+          - "Report"
+          - "Publication"
+          - "Research"
+          - "Media"
+          - "Update"
+
+      - label: "Author"
+        name: "author"
+        widget: "string"
+        required: false
+        hint: "e.g. Dr. Abebe Girma  or  AFOLU Editorial Team"
+
+      - label: "Summary / Body"
+        name: "body"
+        widget: "text"
+        hint: "Short paragraph (plain text) shown on the news card. Keep it under 300 characters for best display."
+
+      - label: "Featured Image"
+        name: "image"
+        widget: "image"
+        required: false
+        hint: "Optional cover image. Will be stored in images/uploads/"
+
+      - label: "External Link"
+        name: "link"
+        widget: "string"
+        required: false
+        hint: "Optional URL to a report, article, or event page (https://...)"
+
+      - label: "Save as Draft (hide from website)"
+        name: "draft"
+        widget: "boolean"
+        default: false
+        hint: "Turn ON to save without publishing to the live site"
+
+  # --------------------------------------------------------------
+  #  SITE SETTINGS  (singleton — edits _data/settings.json)
+  # --------------------------------------------------------------
+  - name: "settings"
+    label: "⚙️ Site Settings"
+    files:
+
+      - label: "General Info"
+        name: "general"
+        file: "_data/settings.json"
+        fields:
+          - { label: "Site Title",    name: "site_title", widget: "string", default: "AFOLU of Ethiopia" }
+          - { label: "Tagline",       name: "tagline",    widget: "string", default: "Agriculture, Forestry & Land Use" }
+          - { label: "Contact Email", name: "email",      widget: "string", default: "afoluofethiopia@gmail.com" }
+          - { label: "Phone",         name: "phone",      widget: "string", required: false }
+          - { label: "Address",       name: "address",    widget: "string", default: "Addis Ababa, Ethiopia" }
+          - { label: "Facebook URL",  name: "facebook",   widget: "string", required: false }
+          - { label: "Twitter / X",   name: "twitter",    widget: "string", required: false }
+          - { label: "YouTube URL",   name: "youtube",    widget: "string", required: false }
+
+      # ----------------------------------------------------------
+      #  HERO SLIDES  (edits _data/hero.json)
+      #  Future: could make hero slides editable from CMS
+      # ----------------------------------------------------------
+      - label: "Hero Statistics"
+        name: "stats"
+        file: "_data/stats.json"
+        fields:
+          - { label: "Seedlings Planted",   name: "seedlings",  widget: "string", default: "28B+" }
+          - { label: "Hectares Restored",   name: "hectares",   widget: "string", default: "15M+" }
+          - { label: "Technical Sectors",   name: "sectors",    widget: "string", default: "8" }
+          - { label: "Year Established",    name: "year",       widget: "string", default: "2019" }
