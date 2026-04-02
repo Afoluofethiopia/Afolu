@@ -1,0 +1,34 @@
+name: 🤖 Build news.json
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - "_posts/**"
+      - "scripts/build-news.js"
+
+jobs:
+  build-news:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+
+    steps:
+      - name: ⬇️ Checkout repository
+        uses: actions/checkout@v4
+
+      - name: 🟢 Setup Node.js 20
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+
+      - name: 🔨 Build news.json
+        run: node scripts/build-news.js
+
+      - name: 💾 Commit & push updated news.json
+        uses: stefanzweifel/git-auto-commit-action@v5
+        with:
+          commit_message: "🤖 Auto-rebuild news.json [skip ci]"
+          file_pattern: "news.json"
+          commit_user_name: "AFOLU CMS Bot"
+          commit_user_email: "afoluofethiopia@gmail.com"
