@@ -1,12 +1,3277 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>AFOLU Ethiopia — Content Manager</title>
-  <link rel="icon" type="image/png" href="https://i.imgur.com/TOLgCdy.png" />
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>AFOLU of Ethiopia — Agriculture, Forestry & Land Use</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="icon" type="image/png" href="https://i.imgur.com/TOLgCdy.png">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,900;1,400;1,600&family=DM+Sans:wght@300;400;500;600;700&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet"/>
+<style>
+/* ============================================================
+   AFOLU ETHIOPIA — REBUILT PREMIUM INSTITUTIONAL WEBSITE
+   ============================================================ */
+:root {
+  --forest:       #0d2818;
+  --forest-mid:   #1a4a2e;
+  --forest-light: #2a7a48;
+  --forest-bright:#3aab62;
+  --earth:        #c8963e;
+  --earth-light:  #e8b86d;
+  --earth-pale:   #f5e6ca;
+  --sky:          #1a3a5c;
+  --sky-mid:      #204b78;
+  --sky-bright:   #4a9fd4;
+  --ivory:        #faf8f4;
+  --cream:        #f0ebe0;
+  --white:        #ffffff;
+  --ink:          #1a1a1a;
+  --ink-soft:     #3d3d3d;
+  --muted:        #7a7a7a;
+  --border:       #e0dcd4;
+  --border-soft:  #ede9e0;
+  --red:          #b83232;
+  --nav-h:        72px;
+  --top-h:        38px;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; font-size: 16px; }
+body {
+  font-family: 'DM Sans', sans-serif;
+  background: var(--white);
+  color: var(--ink-soft);
+  overflow-x: hidden;
+  line-height: 1.65;
+}
+::selection { background: var(--earth); color: var(--white); }
+::-webkit-scrollbar { width: 4px; }
+::-webkit-scrollbar-track { background: var(--cream); }
+::-webkit-scrollbar-thumb { background: var(--forest-light); border-radius: 2px; }
+a { text-decoration: none; color: inherit; }
+img { display: block; max-width: 100%; }
+
+/* ============================================================
+   TOP UTILITY BAR
+   ============================================================ */
+.topbar {
+  background: var(--forest);
+  height: var(--top-h);
+  display: flex; align-items: center;
+  justify-content: space-between;
+  padding: 0 2.5rem;
+  font-size: 0.72rem;
+  color: rgba(255,255,255,0.65);
+  position: sticky; top: 0; z-index: 1001;
+  letter-spacing: 0.02em;
+}
+.topbar-left { display: flex; align-items: center; gap: 2rem; }
+.topbar-left span { display: flex; align-items: center; gap: 0.5rem; }
+.topbar-left span svg { opacity: 0.5; }
+.topbar-right { display: flex; align-items: center; gap: 1.5rem; }
+.topbar-right a {
+  color: rgba(255,255,255,0.6);
+  font-size: 0.72rem;
+  transition: color 0.2s;
+  display: flex; align-items: center; gap: 0.35rem;
+}
+.topbar-right a:hover { color: var(--earth-light); }
+.topbar-divider { width: 1px; height: 14px; background: rgba(255,255,255,0.15); }
+@media(max-width:768px) { .topbar-left { display: none; } }
+
+/* ============================================================
+   NAVIGATION
+   ============================================================ */
+.nav-wrapper {
+  position: sticky;
+  top: var(--top-h);
+  z-index: 1000;
+  background: rgba(26,58,92,0.97);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  box-shadow: 0 1px 0 rgba(255,255,255,0.05), 0 4px 24px rgba(0,0,0,0.3);
+  height: var(--nav-h);
+}
+.nav-inner {
+  max-width: 1360px; margin: 0 auto;
+  width: 100%; padding: 0 2.5rem;
+  display: flex; align-items: center;
+  justify-content: space-between;
+  height: 100%;
+}
+.brand { display: flex; align-items: center; gap: 1rem; cursor: pointer; }
+.brand-logo {
+  width: 48px; height: 48px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--forest) 0%, var(--forest-mid) 100%);
+  border: 2px solid rgba(200,150,62,0.5);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 1.4rem;
+  box-shadow: 0 0 0 4px rgba(200,150,62,0.12), inset 0 1px 0 rgba(255,255,255,0.1);
+  flex-shrink: 0;
+  overflow: hidden;
+}
+.brand-logo img { width: 100%; height: 100%; object-fit: cover; }
+.brand-text { line-height: 1.2; }
+.brand-name {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.05rem; font-weight: 700;
+  color: var(--white); letter-spacing: 0.01em;
+}
+.brand-sub { font-size: 0.6rem; color: var(--earth-light); letter-spacing: 0.12em; text-transform: uppercase; margin-top: 2px; }
+
+.nav-links { display: flex; align-items: stretch; height: 100%; list-style: none; gap: 0; }
+.nav-links > li { position: relative; display: flex; align-items: center; }
+.nav-links > li > a {
+  font-size: 0.75rem; font-weight: 600;
+  letter-spacing: 0.08em; text-transform: uppercase;
+  color: rgba(255,255,255,0.75);
+  padding: 0 1.1rem; height: 100%;
+  display: flex; align-items: center; gap: 0.3rem;
+  transition: color 0.2s, background 0.2s;
+  cursor: pointer; white-space: nowrap;
+  position: relative;
+}
+.nav-links > li > a::after {
+  content: ''; position: absolute; bottom: 0; left: 50%; right: 50%;
+  height: 2px; background: var(--earth);
+  transition: left 0.25s, right 0.25s;
+}
+.nav-links > li > a:hover,
+.nav-links > li > a.active { color: var(--white); }
+.nav-links > li > a:hover::after,
+.nav-links > li > a.active::after { left: 0.8rem; right: 0.8rem; }
+
+.chevron { display: inline-block; width: 0; height: 0; border-left: 3px solid transparent; border-right: 3px solid transparent; border-top: 3px solid currentColor; opacity: 0.5; transition: transform 0.2s; margin-left: 2px; }
+.has-drop.open > a .chevron, .has-drop:hover > a .chevron { transform: rotate(180deg); opacity: 0.8; }
+
+/* Dropdown */
+.dropdown {
+  display: none; position: absolute; top: 100%; left: 0;
+  min-width: 240px;
+  background: var(--white);
+  border-top: 2px solid var(--earth);
+  border-radius: 0 0 8px 8px;
+  box-shadow: 0 16px 48px rgba(0,0,0,0.18);
+  padding: 0.4rem 0; z-index: 999;
+}
+@media(min-width:1001px) { .has-drop:hover .dropdown { display: block; animation: ddFade 0.18s ease; } }
+.has-drop.open .dropdown { display: block; }
+@keyframes ddFade { from { opacity:0; transform:translateY(-8px); } to { opacity:1; transform:translateY(0); } }
+.dropdown a {
+  display: flex; align-items: center; gap: 0.7rem;
+  font-size: 0.82rem; color: var(--ink-soft);
+  padding: 0.6rem 1.2rem;
+  transition: background 0.15s, color 0.15s, padding-left 0.15s;
+  cursor: pointer; border-bottom: 1px solid var(--border-soft);
+}
+.dropdown a:last-child { border-bottom: none; }
+.dropdown a:hover { background: var(--ivory); color: var(--forest); padding-left: 1.5rem; }
+.dropdown .di { width: 22px; text-align: center; font-size: 0.95rem; flex-shrink: 0; }
+
+.nav-cta {
+  font-size: 0.72rem; font-weight: 700;
+  padding: 0.5rem 1.3rem;
+  background: var(--earth);
+  color: var(--forest);
+  border-radius: 4px; border: none; cursor: pointer;
+  transition: all 0.2s;
+  letter-spacing: 0.06em; text-transform: uppercase;
+  white-space: nowrap; flex-shrink: 0;
+  box-shadow: 0 2px 8px rgba(200,150,62,0.3);
+}
+.nav-cta:hover { background: var(--earth-light); transform: translateY(-1px); box-shadow: 0 4px 16px rgba(200,150,62,0.4); }
+
+.hamburger { display: none; background: none; border: none; cursor: pointer; padding: 4px; flex-direction: column; gap: 5px; }
+.hamburger span { display: block; width: 22px; height: 2px; background: rgba(255,255,255,0.8); border-radius: 2px; transition: all 0.3s; }
+.hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+.hamburger.open span:nth-child(2) { opacity: 0; }
+.hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+@media(max-width:1000px) {
+  .hamburger { display: flex; }
+  .nav-links {
+    display: none; flex-direction: column; height: auto;
+    position: fixed; top: calc(var(--top-h) + var(--nav-h)); left: 0; right: 0;
+    background: var(--sky); padding: 1rem 1.5rem;
+    max-height: calc(100vh - var(--top-h) - var(--nav-h));
+    overflow-y: auto; z-index: 999;
+  }
+  .nav-links.open { display: flex; }
+  .nav-links > li { width: 100%; height: auto; }
+  .nav-links > li > a { width: 100%; padding: 0.8rem 0.5rem; height: auto; border-bottom: 1px solid rgba(255,255,255,0.08); justify-content: space-between; }
+  .nav-links > li > a::after { display: none; }
+  .dropdown { position: static; border-top: none; box-shadow: none; border-radius: 0; padding: 0; max-height: 0; overflow: hidden; transition: max-height 0.3s; }
+  .has-drop.open .dropdown { max-height: 500px; display: block; }
+  .dropdown a { color: rgba(255,255,255,0.7); background: rgba(0,0,0,0.2); border-bottom-color: rgba(255,255,255,0.05); }
+  .dropdown a:hover { background: rgba(255,255,255,0.08); color: var(--white); padding-left: 1.8rem; }
+  .nav-cta { display: none; }
+}
+
+/* ============================================================
+   HERO SLIDER
+   ============================================================ */
+.hero-slider { position: relative; overflow: hidden; background: var(--forest); }
+.hero-slide {
+  position: absolute; inset: 0; opacity: 0;
+  transition: opacity 0.9s ease;
+  display: flex; flex-direction: column;
+  align-items: flex-start; justify-content: center;
+}
+.hero-slide.active { opacity: 1; position: relative; }
+.hero-bg {
+  position: absolute; inset: 0;
+  background-size: cover; background-position: center;
+}
+.hero-bg::after {
+  content: '';
+  position: absolute; inset: 0;
+  background: linear-gradient(105deg, rgba(13,40,24,0.92) 0%, rgba(13,40,24,0.75) 55%, rgba(13,40,24,0.4) 100%);
+}
+/* Decorative texture overlay */
+.hero-bg::before {
+  content: '';
+  position: absolute; inset: 0; z-index: 1;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='60' height='60'%3E%3Cpath d='M0 60L60 0M-10 10L10 -10M50 70L70 50' stroke='rgba(255,255,255,0.02)' stroke-width='1'/%3E%3C/svg%3E");
+  pointer-events: none;
+}
+.hero-content {
+  position: relative; z-index: 2;
+  max-width: 1360px; margin: 0 auto; width: 100%;
+  padding: 7rem 2.5rem 8rem;
+  min-height: 540px;
+  display: flex; flex-direction: column; justify-content: center;
+}
+.hero-eyebrow {
+  display: inline-flex; align-items: center; gap: 0.6rem;
+  font-size: 0.68rem; letter-spacing: 0.2em; text-transform: uppercase;
+  color: var(--earth-light);
+  margin-bottom: 1.4rem;
+}
+.hero-eyebrow-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--earth); animation: pulse 2s ease infinite; }
+@keyframes pulse { 0%,100%{opacity:1;transform:scale(1)} 50%{opacity:0.5;transform:scale(0.8)} }
+.hero-eyebrow-line { width: 32px; height: 1px; background: var(--earth); opacity: 0.5; }
+.hero-title {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(2.4rem, 5.5vw, 4.2rem);
+  font-weight: 900; line-height: 1.1;
+  color: var(--white);
+  margin-bottom: 1.4rem;
+  max-width: 720px;
+}
+.hero-title em { font-style: italic; color: var(--earth-light); font-weight: 400; }
+.hero-desc {
+  font-size: clamp(0.95rem, 1.8vw, 1.1rem);
+  color: rgba(255,255,255,0.75);
+  max-width: 540px; line-height: 1.8;
+  margin-bottom: 2.5rem;
+  font-weight: 300;
+}
+.hero-btns { display: flex; gap: 0.9rem; flex-wrap: wrap; }
+
+/* Slide gradient images */
+.slide-bg-1 { background-image: linear-gradient(135deg, #0d2818 0%, #1a4a2e 40%, #2a7a48 100%); }
+.slide-bg-2 { background-image: linear-gradient(135deg, #081810 0%, #142a1c 40%, #1e5630 100%); }
+.slide-bg-3 { background-image: linear-gradient(135deg, #1a2808 0%, #2a4010 40%, #3a6020 100%); }
+
+/* SVG forest decoration on hero */
+.hero-decoration {
+  position: absolute; right: 6%; bottom: 0; top: 0;
+  width: 400px; z-index: 1;
+  display: flex; align-items: flex-end;
+  pointer-events: none;
+  opacity: 0.12;
+}
+
+/* Slider controls */
+.slider-dots {
+  position: absolute; bottom: 2rem; left: 50%; transform: translateX(-50%);
+  display: flex; gap: 0.6rem; z-index: 10;
+}
+.sdot {
+  width: 8px; height: 8px; border-radius: 50%;
+  background: rgba(255,255,255,0.3); border: none; cursor: pointer;
+  transition: all 0.3s; padding: 0;
+}
+.sdot.active { background: var(--earth); transform: scale(1.3); }
+.sarrow {
+  position: absolute; top: 50%; transform: translateY(-50%);
+  background: rgba(0,0,0,0.3); border: 1px solid rgba(255,255,255,0.15);
+  color: rgba(255,255,255,0.75); width: 44px; height: 44px;
+  border-radius: 50%; display: flex; align-items: center; justify-content: center;
+  cursor: pointer; z-index: 10; font-size: 1.2rem;
+  transition: background 0.2s, border-color 0.2s; padding: 0;
+}
+.sarrow:hover { background: var(--earth); border-color: var(--earth); color: var(--forest); }
+.sarrow-prev { left: 2rem; }
+.sarrow-next { right: 2rem; }
+
+/* ============================================================
+   BUTTONS
+   ============================================================ */
+.btn-forest {
+  font-size: 0.8rem; font-weight: 700;
+  padding: 0.8rem 2rem;
+  background: var(--earth);
+  color: var(--forest);
+  border-radius: 4px; border: none; cursor: pointer;
+  transition: all 0.25s;
+  display: inline-flex; align-items: center; gap: 0.5rem;
+  letter-spacing: 0.05em; text-transform: uppercase;
+  box-shadow: 0 4px 16px rgba(200,150,62,0.35);
+}
+.btn-forest:hover { background: var(--earth-light); transform: translateY(-2px); box-shadow: 0 8px 24px rgba(200,150,62,0.45); }
+.btn-ghost {
+  font-size: 0.8rem; font-weight: 600;
+  padding: 0.8rem 2rem;
+  background: transparent;
+  color: var(--white);
+  border: 1.5px solid rgba(255,255,255,0.45);
+  border-radius: 4px; cursor: pointer;
+  transition: all 0.25s;
+  display: inline-flex; align-items: center; gap: 0.5rem;
+  letter-spacing: 0.05em; text-transform: uppercase;
+}
+.btn-ghost:hover { background: rgba(255,255,255,0.1); border-color: var(--white); }
+.btn-outline {
+  font-size: 0.78rem; font-weight: 600;
+  padding: 0.65rem 1.5rem;
+  background: transparent;
+  color: var(--forest-mid);
+  border: 1.5px solid var(--forest-light);
+  border-radius: 4px; cursor: pointer;
+  transition: all 0.2s;
+  display: inline-flex; align-items: center; gap: 0.5rem;
+  letter-spacing: 0.04em; text-transform: uppercase;
+}
+.btn-outline:hover { background: var(--forest-mid); color: var(--white); }
+
+/* ============================================================
+   QUICK LINKS BAR
+   ============================================================ */
+.quickbar {
+  background: var(--sky-mid);
+  border-bottom: 3px solid var(--earth);
+  overflow-x: auto;
+  scrollbar-width: none;
+}
+.quickbar::-webkit-scrollbar { display: none; }
+.quickbar-inner {
+  max-width: 1360px; margin: 0 auto;
+  display: flex; align-items: stretch;
+  height: 58px;
+}
+.qlink {
+  display: flex; align-items: center; gap: 0.5rem;
+  padding: 0 1.5rem;
+  font-size: 0.72rem; font-weight: 600;
+  letter-spacing: 0.06em; text-transform: uppercase;
+  color: rgba(255,255,255,0.72);
+  cursor: pointer; white-space: nowrap;
+  transition: background 0.2s, color 0.2s;
+  border-right: 1px solid rgba(255,255,255,0.08);
+  flex-shrink: 0;
+}
+.qlink:hover { background: rgba(255,255,255,0.1); color: var(--white); }
+.qlink-icon { font-size: 1rem; }
+
+/* ============================================================
+   STATS BANNER
+   ============================================================ */
+.stats-banner {
+  background: linear-gradient(135deg, var(--forest) 0%, var(--forest-mid) 100%);
+  padding: 0;
+}
+.stats-inner {
+  max-width: 1360px; margin: 0 auto;
+  display: grid; grid-template-columns: repeat(4, 1fr);
+}
+.stat-block {
+  padding: 2.5rem 2rem;
+  display: flex; flex-direction: column; align-items: center;
+  text-align: center;
+  border-right: 1px solid rgba(255,255,255,0.08);
+  position: relative;
+}
+.stat-block:last-child { border-right: none; }
+.stat-block::before {
+  content: '';
+  position: absolute; bottom: 0; left: 50%; transform: translateX(-50%);
+  width: 0; height: 3px; background: var(--earth);
+  transition: width 0.4s ease;
+}
+.stat-block:hover::before { width: 80%; }
+.stat-num {
+  font-family: 'Playfair Display', serif;
+  font-size: 2.6rem; font-weight: 900;
+  color: var(--earth-light); line-height: 1;
+  margin-bottom: 0.4rem;
+}
+.stat-label { font-size: 0.72rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--white); }
+.stat-sub { font-size: 0.65rem; color: rgba(255,255,255,0.45); letter-spacing: 0.06em; margin-top: 0.3rem; }
+@media(max-width:600px) { .stats-inner { grid-template-columns: 1fr 1fr; } .stat-block { border-bottom: 1px solid rgba(255,255,255,0.08); } }
+
+/* ============================================================
+   SECTION UTILITIES
+   ============================================================ */
+.container { max-width: 1360px; margin: 0 auto; padding: 0 2.5rem; }
+.section-header {
+  display: flex; align-items: flex-end;
+  justify-content: space-between;
+  margin-bottom: 2.5rem; padding-bottom: 1rem;
+  border-bottom: 1px solid var(--border);
+}
+.section-eyebrow {
+  font-size: 0.65rem; letter-spacing: 0.18em; text-transform: uppercase;
+  color: var(--earth); font-weight: 700;
+  display: flex; align-items: center; gap: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+.section-eyebrow::before { content: ''; width: 24px; height: 2px; background: var(--earth); }
+.section-title {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(1.6rem, 3vw, 2.2rem);
+  font-weight: 700; color: var(--forest);
+  line-height: 1.2;
+}
+.section-title em { font-style: italic; color: var(--forest-light); }
+.see-all {
+  font-size: 0.75rem; font-weight: 700;
+  letter-spacing: 0.06em; text-transform: uppercase;
+  color: var(--earth); cursor: pointer;
+  display: flex; align-items: center; gap: 0.4rem;
+  white-space: nowrap; flex-shrink: 0;
+  transition: gap 0.2s;
+}
+.see-all:hover { gap: 0.7rem; }
+
+/* ============================================================
+   ABOUT INTRO BLOCK
+   ============================================================ */
+.about-section { padding: 6rem 0; background: var(--ivory); }
+.about-grid {
+  display: grid; grid-template-columns: 1fr 1.5fr; gap: 5rem;
+  align-items: center;
+}
+.about-visual {
+  position: relative;
+}
+.about-visual-card {
+  background: linear-gradient(135deg, var(--forest) 0%, var(--forest-mid) 60%, var(--forest-light) 100%);
+  border-radius: 12px;
+  padding: 3rem 2rem;
+  display: flex; flex-direction: column; align-items: center; justify-content: center;
+  min-height: 380px;
+  position: relative; overflow: hidden;
+  box-shadow: 0 24px 64px rgba(13,40,24,0.3);
+}
+.about-visual-card::before {
+  content: '';
+  position: absolute; top: -40px; right: -40px;
+  width: 200px; height: 200px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.03);
+  border: 1px solid rgba(255,255,255,0.06);
+}
+.about-visual-card::after {
+  content: '';
+  position: absolute; bottom: -30px; left: -30px;
+  width: 150px; height: 150px;
+  border-radius: 50%;
+  background: rgba(200,150,62,0.08);
+  border: 1px solid rgba(200,150,62,0.12);
+}
+.about-visual-icon { font-size: 4rem; margin-bottom: 1.5rem; position: relative; z-index: 1; }
+.about-visual-label {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.3rem; font-weight: 700; color: var(--white);
+  position: relative; z-index: 1; text-align: center;
+  margin-bottom: 0.5rem;
+}
+.about-visual-sub {
+  font-size: 0.72rem; letter-spacing: 0.1em; text-transform: uppercase;
+  color: var(--earth-light); position: relative; z-index: 1; text-align: center;
+}
+.about-badge {
+  position: absolute; bottom: -1.5rem; right: -1.5rem;
+  background: var(--white);
+  border-radius: 10px;
+  padding: 1.2rem 1.5rem;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.12);
+  display: flex; align-items: center; gap: 0.8rem;
+  border-left: 4px solid var(--earth);
+  z-index: 2;
+}
+.about-badge-icon { font-size: 1.8rem; }
+.about-badge-text { line-height: 1.3; }
+.about-badge-label { font-size: 0.65rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted); font-weight: 700; }
+.about-badge-val { font-family: 'Playfair Display', serif; font-size: 1.1rem; font-weight: 700; color: var(--forest); }
+
+.about-content { }
+.about-content h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(1.8rem, 3vw, 2.6rem);
+  font-weight: 700; color: var(--forest);
+  line-height: 1.2; margin-bottom: 1.5rem;
+}
+.about-content h2 em { font-style: italic; color: var(--forest-light); }
+.about-content p {
+  font-size: 0.95rem; color: var(--ink-soft);
+  line-height: 1.9; margin-bottom: 1.2rem;
+  font-weight: 300;
+}
+.pillars {
+  display: flex; flex-wrap: wrap; gap: 0.6rem;
+  margin: 1.8rem 0 2rem;
+}
+.pillar {
+  font-size: 0.72rem; font-weight: 600; letter-spacing: 0.04em;
+  color: var(--forest-mid);
+  background: var(--cream);
+  border: 1px solid var(--border);
+  padding: 0.4rem 0.9rem;
+  border-radius: 30px;
+  transition: all 0.2s;
+}
+.pillar:hover { background: var(--forest-mid); color: var(--white); border-color: var(--forest-mid); }
+@media(max-width:900px) { .about-grid { grid-template-columns: 1fr; gap: 3rem; } .about-badge { right: -0.5rem; } }
+
+/* ============================================================
+   MAIN LAYOUT (News + Sidebar)
+   ============================================================ */
+.main-section { padding: 5rem 0; background: var(--white); }
+.main-layout {
+  display: grid; grid-template-columns: 1fr 340px; gap: 3rem;
+}
+@media(max-width:1000px) { .main-layout { grid-template-columns: 1fr; } }
+
+/* News Cards */
+.news-grid { display: flex; flex-direction: column; gap: 0; margin-bottom: 3rem; }
+.news-item {
+  display: flex; gap: 1.5rem;
+  padding: 1.5rem 0;
+  border-bottom: 1px solid var(--border-soft);
+  cursor: pointer; transition: all 0.2s;
+  align-items: flex-start;
+}
+.news-item:hover { padding-left: 0.5rem; }
+.news-item:hover .news-title { color: var(--forest); }
+.news-date {
+  background: var(--forest);
+  color: var(--white);
+  border-radius: 6px;
+  min-width: 52px; padding: 0.7rem 0.5rem;
+  text-align: center; flex-shrink: 0;
+  line-height: 1.1;
+}
+.news-date-day { font-family: 'Playfair Display', serif; font-size: 1.4rem; font-weight: 700; }
+.news-date-mon { font-size: 0.6rem; letter-spacing: 0.1em; text-transform: uppercase; opacity: 0.7; margin-top: 2px; }
+.news-body { flex: 1; }
+.news-tag {
+  display: inline-block;
+  font-size: 0.6rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase;
+  color: var(--earth); background: var(--earth-pale);
+  padding: 0.2rem 0.6rem; border-radius: 3px;
+  margin-bottom: 0.5rem;
+}
+.news-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 1rem; font-weight: 700;
+  color: var(--sky); line-height: 1.4;
+  margin-bottom: 0.4rem;
+  transition: color 0.2s;
+}
+.news-excerpt { font-size: 0.83rem; color: var(--muted); line-height: 1.7; }
+
+/* Announcements */
+.ann-list { display: flex; flex-direction: column; gap: 0; }
+.ann-item {
+  display: flex; align-items: flex-start; gap: 1rem;
+  padding: 1rem 0;
+  border-bottom: 1px solid var(--border-soft);
+  cursor: pointer; transition: all 0.2s;
+}
+.ann-item:hover { padding-left: 0.5rem; }
+.ann-dot {
+  width: 36px; height: 36px; border-radius: 8px;
+  background: var(--ivory);
+  border: 1px solid var(--border);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 1rem; flex-shrink: 0;
+  transition: all 0.2s;
+}
+.ann-item:hover .ann-dot { background: var(--earth); border-color: var(--earth); }
+.ann-title { font-size: 0.88rem; font-weight: 600; color: var(--ink-soft); margin-bottom: 0.2rem; line-height: 1.4; }
+.ann-meta { font-size: 0.72rem; color: var(--muted); }
+
+/* Sidebar */
+.sidebar-card {
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  overflow: hidden;
+  margin-bottom: 1.5rem;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+}
+.sidebar-head {
+  background: var(--forest);
+  color: var(--white);
+  padding: 0.75rem 1.2rem;
+  font-size: 0.72rem; font-weight: 700;
+  letter-spacing: 0.1em; text-transform: uppercase;
+  display: flex; align-items: center; gap: 0.5rem;
+}
+.sidebar-body { padding: 1rem 0; }
+.sidebar-link {
+  display: flex; align-items: center; gap: 0.7rem;
+  padding: 0.55rem 1.2rem;
+  font-size: 0.82rem; color: var(--ink-soft);
+  cursor: pointer; transition: all 0.15s;
+  border-bottom: 1px solid var(--border-soft);
+}
+.sidebar-link:last-child { border-bottom: none; }
+.sidebar-link:hover { background: var(--ivory); color: var(--forest); padding-left: 1.6rem; }
+
+.leader-card { padding: 1.2rem; }
+.leader-icon {
+  width: 64px; height: 64px; border-radius: 50%;
+  background: linear-gradient(135deg, var(--forest-mid), var(--forest-light));
+  display: flex; align-items: center; justify-content: center;
+  font-size: 1.8rem; margin: 0 auto 1rem;
+  border: 3px solid var(--earth-pale);
+}
+.leader-role { font-size: 0.68rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--earth); font-weight: 700; text-align: center; margin-bottom: 0.3rem; }
+.leader-name { font-family: 'Playfair Display', serif; font-size: 1.05rem; font-weight: 700; color: var(--forest); text-align: center; margin-bottom: 0.8rem; }
+.leader-quote {
+  font-size: 0.82rem; color: var(--muted); line-height: 1.7;
+  font-style: italic;
+  border-left: 3px solid var(--earth);
+  padding-left: 0.8rem;
+  margin-bottom: 0.8rem;
+}
+
+/* ============================================================
+   SECTORS SECTION
+   ============================================================ */
+.sectors-section { padding: 6rem 0; background: var(--cream); }
+.sectors-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.5rem;
+  margin-top: 2.5rem;
+}
+.sector-card {
+  background: var(--white);
+  border-radius: 8px;
+  padding: 2rem 1.5rem;
+  cursor: pointer;
+  transition: all 0.3s;
+  border: 1px solid var(--border);
+  border-bottom: 3px solid transparent;
+  position: relative; overflow: hidden;
+}
+.sector-card::before {
+  content: '';
+  position: absolute; inset: 0;
+  background: linear-gradient(135deg, var(--forest) 0%, var(--forest-mid) 100%);
+  opacity: 0; transition: opacity 0.3s;
+}
+.sector-card:hover { transform: translateY(-6px); box-shadow: 0 16px 48px rgba(13,40,24,0.15); border-bottom-color: var(--earth); }
+.sector-card:hover::before { opacity: 1; }
+.sector-card:hover .sector-name,
+.sector-card:hover .sector-desc,
+.sector-card:hover .sector-arrow { color: var(--white); }
+.sector-icon { font-size: 2.2rem; margin-bottom: 1rem; display: block; position: relative; z-index: 1; }
+.sector-name {
+  font-family: 'Playfair Display', serif;
+  font-size: 1rem; font-weight: 700;
+  color: var(--forest); margin-bottom: 0.6rem;
+  position: relative; z-index: 1;
+  transition: color 0.3s;
+}
+.sector-desc {
+  font-size: 0.8rem; color: var(--muted); line-height: 1.7;
+  position: relative; z-index: 1; transition: color 0.3s;
+}
+.sector-arrow {
+  font-size: 0.72rem; font-weight: 700; letter-spacing: 0.06em;
+  color: var(--earth); margin-top: 1rem;
+  position: relative; z-index: 1; display: block;
+  transition: color 0.3s, letter-spacing 0.2s;
+}
+.sector-card:hover .sector-arrow { color: var(--earth-light); letter-spacing: 0.1em; }
+@media(max-width:900px) { .sectors-grid { grid-template-columns: repeat(2, 1fr); } }
+@media(max-width:500px) { .sectors-grid { grid-template-columns: 1fr; } }
+
+/* ============================================================
+   PROGRAMS SECTION
+   ============================================================ */
+.programs-section { padding: 6rem 0; background: var(--white); }
+.programs-grid {
+  display: grid;
+  grid-template-columns: 1.6fr 1fr;
+  grid-template-rows: auto auto;
+  gap: 1.5rem;
+}
+.program-card {
+  background: var(--ivory);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 2.5rem;
+  cursor: pointer;
+  transition: all 0.25s;
+  position: relative; overflow: hidden;
+}
+.program-card:hover { box-shadow: 0 12px 40px rgba(0,0,0,0.1); transform: translateY(-3px); }
+.program-card.featured {
+  grid-row: span 2;
+  background: linear-gradient(150deg, var(--forest) 0%, var(--forest-mid) 100%);
+  border-color: var(--forest);
+  display: flex; flex-direction: column; justify-content: space-between;
+}
+.program-card.featured::after {
+  content: '';
+  position: absolute; top: -60px; right: -60px;
+  width: 250px; height: 250px;
+  border-radius: 50%;
+  background: rgba(200,150,62,0.07);
+  border: 1px solid rgba(200,150,62,0.12);
+}
+.prog-tag {
+  display: inline-block;
+  font-size: 0.62rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase;
+  padding: 0.3rem 0.8rem; border-radius: 30px;
+  margin-bottom: 1rem;
+}
+.prog-tag.gold { background: rgba(200,150,62,0.2); color: var(--earth-light); }
+.prog-tag.green { background: rgba(58,171,98,0.15); color: var(--forest-bright); }
+.prog-tag.sky { background: rgba(26,58,92,0.12); color: var(--sky); }
+.prog-tag.earth { background: var(--earth-pale); color: #8a5a00; }
+.featured .prog-tag { background: rgba(200,150,62,0.2); color: var(--earth-light); }
+.prog-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.5rem; font-weight: 700;
+  color: var(--forest); margin-bottom: 0.8rem; line-height: 1.2;
+}
+.featured .prog-title { color: var(--white); font-size: 1.9rem; }
+.prog-body {
+  font-size: 0.88rem; color: var(--ink-soft); line-height: 1.8;
+  margin-bottom: 1.2rem;
+}
+.featured .prog-body { color: rgba(255,255,255,0.75); font-size: 0.92rem; }
+.prog-list { list-style: none; margin-bottom: 1.5rem; display: flex; flex-direction: column; gap: 0.4rem; }
+.prog-list li {
+  font-size: 0.82rem; color: rgba(255,255,255,0.8);
+  display: flex; align-items: flex-start; gap: 0.7rem;
+  line-height: 1.5;
+}
+.prog-list li::before { content: '▸'; color: var(--earth-light); flex-shrink: 0; margin-top: 0.05rem; }
+.prog-big {
+  background: rgba(200,150,62,0.12);
+  border: 1px solid rgba(200,150,62,0.25);
+  border-radius: 8px;
+  padding: 1.5rem;
+  display: flex; flex-direction: column; align-items: center;
+  margin-top: auto; position: relative; z-index: 1;
+}
+.prog-big-num {
+  font-family: 'Playfair Display', serif;
+  font-size: 3rem; font-weight: 900;
+  color: var(--earth-light); line-height: 1;
+}
+.prog-big-label { font-size: 0.7rem; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(255,255,255,0.5); margin-top: 0.3rem; }
+@media(max-width:900px) { .programs-grid { grid-template-columns: 1fr; } .program-card.featured { grid-row: auto; } }
+
+/* ============================================================
+   LEADERS SECTION
+   ============================================================ */
+.leaders-section { padding: 5rem 0; background: var(--ivory); }
+.leaders-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.5rem; }
+.leader-profile {
+  background: var(--white); border: 1px solid var(--border);
+  border-radius: 8px; overflow: hidden;
+  transition: all 0.25s; cursor: pointer;
+}
+.leader-profile:hover { transform: translateY(-4px); box-shadow: 0 12px 36px rgba(0,0,0,0.1); }
+.lp-img {
+  height: 140px;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 3rem;
+  background: linear-gradient(135deg, var(--forest), var(--forest-mid));
+}
+.lp-body { padding: 1.3rem 1.2rem; }
+.lp-role { font-size: 0.65rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--earth); font-weight: 700; margin-bottom: 0.3rem; }
+.lp-name { font-family: 'Playfair Display', serif; font-size: 1rem; font-weight: 700; color: var(--forest); margin-bottom: 0.6rem; }
+.lp-desc { font-size: 0.8rem; color: var(--muted); line-height: 1.65; margin-bottom: 0.8rem; }
+.lp-link { font-size: 0.72rem; font-weight: 700; letter-spacing: 0.05em; color: var(--earth); transition: gap 0.2s; display: inline-flex; align-items: center; gap: 0.3rem; }
+.lp-link:hover { gap: 0.6rem; }
+@media(max-width:900px) { .leaders-grid { grid-template-columns: 1fr 1fr; } }
+@media(max-width:500px) { .leaders-grid { grid-template-columns: 1fr; } }
+
+/* ============================================================
+   QUOTE BAND
+   ============================================================ */
+.quote-section {
+  background: linear-gradient(135deg, var(--forest) 0%, var(--sky) 100%);
+  padding: 5rem 2.5rem;
+  text-align: center; position: relative; overflow: hidden;
+}
+.quote-section::before {
+  content: '"';
+  position: absolute; top: -1rem; left: 50%; transform: translateX(-50%);
+  font-family: 'Playfair Display', serif; font-size: 18rem;
+  color: rgba(255,255,255,0.04); line-height: 1;
+  pointer-events: none;
+}
+.quote-inner { max-width: 780px; margin: 0 auto; position: relative; z-index: 1; }
+.quote-text {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(1.2rem, 2.5vw, 1.6rem);
+  font-style: italic; font-weight: 400;
+  color: var(--white); line-height: 1.7;
+  margin-bottom: 1rem;
+}
+.quote-oromo { font-size: 0.78rem; color: rgba(255,255,255,0.5); letter-spacing: 0.04em; margin-bottom: 0.5rem; font-style: italic; }
+.quote-source { font-size: 0.72rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--earth-light); font-weight: 700; }
+
+/* ============================================================
+   CONTACT SECTION
+   ============================================================ */
+.contact-section { padding: 6rem 0; background: var(--ivory); }
+.contact-grid { display: grid; grid-template-columns: 1fr 1.4fr; gap: 4rem; }
+.contact-info-list { display: flex; flex-direction: column; gap: 1.5rem; margin-bottom: 2rem; }
+.ci-item { display: flex; align-items: flex-start; gap: 1rem; }
+.ci-icon {
+  width: 44px; height: 44px; border-radius: 8px;
+  background: var(--forest);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 1.1rem; flex-shrink: 0;
+}
+.ci-label { font-size: 0.65rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted); font-weight: 700; margin-bottom: 0.2rem; }
+.ci-value { font-size: 0.9rem; color: var(--ink-soft); font-weight: 500; }
+.ci-value a:hover { color: var(--forest); }
+
+.contact-form-card {
+  background: var(--white); border: 1px solid var(--border);
+  border-radius: 10px; padding: 2.5rem;
+  box-shadow: 0 4px 24px rgba(0,0,0,0.06);
+}
+.contact-form-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.4rem; font-weight: 700; color: var(--forest);
+  margin-bottom: 0.5rem;
+}
+.contact-form-sub { font-size: 0.83rem; color: var(--muted); margin-bottom: 2rem; }
+.form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+.form-group { display: flex; flex-direction: column; gap: 0.4rem; margin-bottom: 1rem; }
+.form-label { font-size: 0.72rem; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; color: var(--ink-soft); }
+.form-input, .form-select, .form-textarea {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.88rem; color: var(--ink);
+  background: var(--ivory); border: 1.5px solid var(--border);
+  border-radius: 5px; padding: 0.7rem 1rem;
+  outline: none; transition: border-color 0.2s, background 0.2s;
+  width: 100%;
+}
+.form-input:focus, .form-select:focus, .form-textarea:focus { border-color: var(--forest-light); background: var(--white); }
+.form-textarea { min-height: 100px; resize: vertical; }
+@media(max-width:900px) { .contact-grid { grid-template-columns: 1fr; gap: 3rem; } .form-row { grid-template-columns: 1fr; } }
+
+/* ============================================================
+   FOOTER
+   ============================================================ */
+footer {
+  background: var(--forest);
+  color: rgba(255,255,255,0.65);
+}
+.footer-top {
+  padding: 4rem 2.5rem;
+  max-width: 1360px; margin: 0 auto;
+  display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 3rem;
+}
+.footer-brand { }
+.footer-brand-name {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.3rem; font-weight: 700; color: var(--white);
+  margin-bottom: 0.3rem;
+}
+.footer-brand-sub { font-size: 0.65rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--earth-light); margin-bottom: 1.2rem; }
+.footer-brand-desc { font-size: 0.82rem; line-height: 1.8; color: rgba(255,255,255,0.5); margin-bottom: 1.5rem; }
+.footer-social { display: flex; gap: 0.6rem; }
+.fsoc {
+  width: 36px; height: 36px; border-radius: 6px;
+  background: rgba(255,255,255,0.08);
+  border: 1px solid rgba(255,255,255,0.12);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 0.75rem; font-weight: 700; color: rgba(255,255,255,0.6);
+  cursor: pointer; transition: all 0.2s;
+}
+.fsoc:hover { background: var(--earth); border-color: var(--earth); color: var(--forest); }
+.footer-col-title {
+  font-size: 0.7rem; letter-spacing: 0.12em; text-transform: uppercase;
+  color: var(--white); font-weight: 700;
+  margin-bottom: 1.2rem; padding-bottom: 0.6rem;
+  border-bottom: 1px solid rgba(255,255,255,0.1);
+}
+.footer-col-links { list-style: none; display: flex; flex-direction: column; gap: 0.5rem; }
+.footer-col-links li a, .footer-col-links li span {
+  font-size: 0.8rem; color: rgba(255,255,255,0.5);
+  cursor: pointer; transition: color 0.2s; display: block;
+}
+.footer-col-links li a:hover, .footer-col-links li span:hover { color: var(--earth-light); }
+.footer-bottom {
+  border-top: 1px solid rgba(255,255,255,0.08);
+  padding: 1.5rem 2.5rem;
+  max-width: 1360px; margin: 0 auto;
+  display: flex; align-items: center;
+  justify-content: space-between;
+  font-size: 0.72rem; color: rgba(255,255,255,0.35);
+  flex-wrap: wrap; gap: 0.5rem;
+}
+@media(max-width:900px) { .footer-top { grid-template-columns: 1fr 1fr; gap: 2rem; } }
+@media(max-width:500px) { .footer-top { grid-template-columns: 1fr; } }
+
+/* ============================================================
+   CONTENT VIEWS
+   ============================================================ */
+.content-view { display: none; }
+.content-view.active { display: block; }
+
+.view-header {
+  background: linear-gradient(150deg, var(--forest) 0%, var(--sky) 100%);
+  padding: 4rem 2.5rem 3rem;
+  position: relative; overflow: hidden;
+}
+.view-header::after {
+  content: '';
+  position: absolute; inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='80' height='80'%3E%3Ccircle cx='40' cy='40' r='35' fill='none' stroke='rgba(255,255,255,0.03)' stroke-width='1'/%3E%3C/svg%3E");
+  pointer-events: none;
+}
+.view-header-inner { max-width: 1000px; margin: 0 auto; position: relative; z-index: 1; }
+.view-crumb {
+  display: flex; align-items: center; gap: 0.5rem;
+  font-size: 0.68rem; letter-spacing: 0.1em; text-transform: uppercase;
+  color: rgba(255,255,255,0.45); margin-bottom: 1.2rem; flex-wrap: wrap;
+}
+.view-crumb a { color: rgba(255,255,255,0.45); cursor: pointer; transition: color 0.2s; }
+.view-crumb a:hover { color: var(--earth-light); }
+.view-crumb-sep { color: var(--earth); }
+.view-crumb-cur { color: var(--earth-light); }
+.view-badge {
+  display: inline-flex; align-items: center; gap: 0.4rem;
+  font-size: 0.62rem; letter-spacing: 0.1em; text-transform: uppercase;
+  color: var(--earth-light);
+  background: rgba(200,150,62,0.12);
+  border: 1px solid rgba(200,150,62,0.25);
+  padding: 0.3rem 0.9rem; border-radius: 30px;
+  margin-bottom: 1rem;
+}
+.view-h1 {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(1.9rem, 4vw, 3rem); font-weight: 900;
+  color: var(--white); line-height: 1.15;
+}
+.view-h1 em { font-style: italic; color: var(--earth-light); font-weight: 400; }
+
+.view-body-wrap { padding: 4rem 2.5rem; }
+.view-content { max-width: 1000px; margin: 0 auto; }
+.view-body p { font-size: 0.95rem; color: var(--ink-soft); line-height: 1.9; margin-bottom: 1.3rem; font-weight: 300; }
+.view-h3 {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.2rem; font-weight: 700; color: var(--forest);
+  margin: 2.5rem 0 1rem;
+  padding-bottom: 0.6rem;
+  border-bottom: 2px solid var(--border);
+}
+.view-list { list-style: none; display: flex; flex-direction: column; gap: 0; margin-bottom: 2rem; }
+.view-list li {
+  font-size: 0.92rem; color: var(--ink-soft);
+  display: flex; align-items: flex-start; gap: 0.8rem;
+  padding: 0.65rem 0;
+  border-bottom: 1px solid var(--border-soft);
+  line-height: 1.5;
+}
+.view-list li:last-child { border-bottom: none; }
+.view-list li::before { content: '✓'; color: var(--forest-light); font-weight: 700; font-size: 0.8rem; margin-top: 0.1rem; flex-shrink: 0; }
+.view-highlight {
+  background: var(--ivory); border: 1px solid var(--border);
+  border-left: 5px solid var(--forest-light);
+  border-radius: 0 6px 6px 0;
+  padding: 1.4rem 1.8rem;
+  margin: 2rem 0;
+  font-style: italic; font-size: 0.95rem;
+  color: var(--ink-soft); line-height: 1.8;
+}
+.view-stats { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1rem; margin: 2rem 0; }
+.vstat {
+  background: var(--ivory); border: 1px solid var(--border);
+  border-top: 3px solid var(--forest);
+  border-radius: 6px; padding: 1.3rem;
+  text-align: center;
+}
+.vstat-num { font-family: 'Playfair Display', serif; font-size: 1.5rem; font-weight: 900; color: var(--forest); line-height: 1; }
+.vstat-label { font-size: 0.65rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); margin-top: 0.4rem; }
+@media(max-width:600px) { .view-stats { grid-template-columns: 1fr 1fr; } }
+.view-nav {
+  display: flex; gap: 0.8rem; flex-wrap: wrap;
+  margin-top: 3rem; padding-top: 2rem;
+  border-top: 1px solid var(--border);
+}
+.view-nav-btn {
+  font-size: 0.75rem; font-weight: 600;
+  padding: 0.55rem 1.2rem; border-radius: 4px;
+  color: var(--sky); border: 1.5px solid var(--sky);
+  background: transparent; cursor: pointer;
+  transition: all 0.2s; display: inline-flex; align-items: center; gap: 0.4rem;
+  letter-spacing: 0.04em;
+}
+.view-nav-btn:hover { background: var(--sky); color: var(--white); }
+
+/* News view special styles */
+.news-filter-bar { display: flex; gap: 0.8rem; flex-wrap: wrap; margin-bottom: 1.5rem; align-items: center; }
+.nf-input {
+  font-family: 'DM Sans', sans-serif; font-size: 0.85rem;
+  color: var(--ink); background: var(--ivory);
+  border: 1.5px solid var(--border); border-radius: 5px;
+  padding: 0.6rem 1rem; outline: none; flex: 1; min-width: 200px;
+}
+.nf-input:focus { border-color: var(--forest-light); }
+.nf-select {
+  font-family: 'DM Sans', sans-serif; font-size: 0.82rem;
+  background: var(--ivory); border: 1.5px solid var(--border);
+  border-radius: 5px; padding: 0.6rem 1rem; outline: none; color: var(--ink);
+}
+#news-count { font-size: 0.78rem; color: var(--muted); white-space: nowrap; }
+.news-active-filters {
+  background: var(--ivory); border: 1px solid var(--border);
+  border-radius: 5px; padding: 0.5rem 1rem;
+  margin-bottom: 1rem; font-size: 0.78rem; color: var(--muted);
+  display: flex; align-items: center; justify-content: space-between;
+}
+.clear-btn { font-size: 0.75rem; color: var(--red); cursor: pointer; background: none; border: none; font-weight: 700; }
+.news-loading, .news-empty { text-align: center; padding: 3rem; font-size: 0.88rem; color: var(--muted); }
+.news-feed { display: flex; flex-direction: column; gap: 1rem; }
+.ncard {
+  background: var(--white); border: 1px solid var(--border);
+  border-left: 4px solid var(--sky);
+  border-radius: 4px; padding: 1.4rem 1.5rem;
+  transition: all 0.2s;
+}
+.ncard:hover { box-shadow: 0 4px 16px rgba(0,0,0,0.08); border-left-color: var(--earth); }
+.ncard-meta { display: flex; align-items: center; gap: 0.5rem; flex-wrap: wrap; margin-bottom: 0.6rem; }
+.ncard-date { font-size: 0.7rem; color: var(--muted); }
+.ncard-latest { background: var(--red); color: var(--white); font-size: 0.58rem; font-weight: 700; padding: 0.1rem 0.4rem; border-radius: 2px; text-transform: uppercase; letter-spacing: 0.05em; }
+.ncard-section { font-size: 0.65rem; background: var(--ivory); color: var(--sky); padding: 0.15rem 0.5rem; border-radius: 3px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em; }
+.ncard-type { font-size: 0.65rem; background: var(--forest-light); color: var(--white); padding: 0.15rem 0.5rem; border-radius: 3px; font-weight: 700; text-transform: uppercase; }
+.ncard-title { font-family: 'Playfair Display', serif; font-size: 1rem; font-weight: 700; color: var(--sky); margin-bottom: 0.5rem; line-height: 1.4; }
+.ncard-body { font-size: 0.87rem; color: var(--ink-soft); line-height: 1.75; }
+.ncard-footer { display: flex; align-items: center; justify-content: space-between; margin-top: 0.9rem; flex-wrap: wrap; gap: 0.4rem; }
+.ncard-author { font-size: 0.77rem; color: var(--muted); font-style: italic; }
+.ncard-goto { font-size: 0.73rem; font-weight: 700; color: var(--sky-bright); background: none; border: none; cursor: pointer; transition: color 0.2s; }
+.ncard-goto:hover { color: var(--forest); }
+
+/* ============================================================
+   REVEAL ANIMATIONS
+   ============================================================ */
+.reveal { opacity: 0; transform: translateY(24px); transition: opacity 0.65s ease, transform 0.65s ease; }
+.reveal.visible { opacity: 1; transform: none; }
+.rd1 { transition-delay: 0.1s; } .rd2 { transition-delay: 0.2s; }
+.rd3 { transition-delay: 0.3s; } .rd4 { transition-delay: 0.4s; }
+
+/* ============================================================
+   SITE MAP PANEL
+   ============================================================ */
+.sitemap-fab {
+  position: fixed;
+  bottom: 2rem; right: 2rem;
+  z-index: 2000;
+  background: var(--earth);
+  color: var(--forest);
+  border: none; border-radius: 50px;
+  padding: 0.75rem 1.4rem;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.72rem; font-weight: 700;
+  letter-spacing: 0.08em; text-transform: uppercase;
+  cursor: pointer;
+  display: flex; align-items: center; gap: 0.5rem;
+  box-shadow: 0 4px 20px rgba(200,150,62,0.45), 0 2px 8px rgba(0,0,0,0.2);
+  transition: all 0.25s;
+}
+.sitemap-fab:hover { background: var(--earth-light); transform: translateY(-2px); box-shadow: 0 8px 28px rgba(200,150,62,0.55); }
+.sitemap-fab svg { flex-shrink: 0; }
+
+.sitemap-overlay {
+  display: none;
+  position: fixed; inset: 0; z-index: 1999;
+  background: rgba(10,20,14,0.72);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  animation: smFadeIn 0.2s ease;
+}
+.sitemap-overlay.open { display: flex; align-items: center; justify-content: center; padding: 1.5rem; }
+@keyframes smFadeIn { from { opacity: 0; } to { opacity: 1; } }
+
+.sitemap-panel {
+  background: var(--white);
+  border-radius: 14px;
+  width: 100%; max-width: 860px;
+  max-height: 90vh;
+  overflow-y: auto;
+  box-shadow: 0 32px 80px rgba(0,0,0,0.35);
+  animation: smSlideUp 0.25s ease;
+  scrollbar-width: thin;
+  scrollbar-color: var(--forest-light) var(--cream);
+}
+.sitemap-panel::-webkit-scrollbar { width: 4px; }
+.sitemap-panel::-webkit-scrollbar-thumb { background: var(--forest-light); border-radius: 2px; }
+@keyframes smSlideUp { from { opacity: 0; transform: translateY(24px); } to { opacity: 1; transform: translateY(0); } }
+
+.sitemap-header {
+  background: linear-gradient(135deg, var(--forest) 0%, var(--sky) 100%);
+  padding: 1.8rem 2rem 1.5rem;
+  border-radius: 14px 14px 0 0;
+  display: flex; align-items: flex-start; justify-content: space-between;
+  gap: 1rem;
+  position: sticky; top: 0; z-index: 10;
+}
+.sitemap-header-left {}
+.sitemap-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.5rem; font-weight: 700; color: var(--white);
+  line-height: 1.2; margin-bottom: 0.3rem;
+}
+.sitemap-title em { font-style: italic; color: var(--earth-light); font-weight: 400; }
+.sitemap-subtitle { font-size: 0.72rem; color: rgba(255,255,255,0.5); letter-spacing: 0.08em; text-transform: uppercase; }
+.sitemap-close {
+  background: rgba(255,255,255,0.12); border: 1px solid rgba(255,255,255,0.2);
+  color: rgba(255,255,255,0.75); border-radius: 8px;
+  width: 36px; height: 36px;
+  display: flex; align-items: center; justify-content: center;
+  cursor: pointer; font-size: 1.1rem; transition: all 0.2s; flex-shrink: 0;
+}
+.sitemap-close:hover { background: rgba(255,255,255,0.22); color: var(--white); }
+
+.sitemap-body { padding: 2rem; display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; }
+@media(max-width:580px) { .sitemap-body { grid-template-columns: 1fr; } .sitemap-panel { border-radius: 10px; } }
+
+.sm-group {
+  background: var(--ivory);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  overflow: hidden;
+}
+.sm-group-head {
+  background: var(--forest);
+  padding: 0.7rem 1.1rem;
+  display: flex; align-items: center; gap: 0.5rem;
+  font-size: 0.65rem; font-weight: 700;
+  letter-spacing: 0.12em; text-transform: uppercase;
+  color: var(--white);
+}
+.sm-group-head span { font-size: 0.95rem; }
+.sm-group-accent { width: 3px; height: 14px; border-radius: 2px; background: var(--earth); }
+.sm-items { display: flex; flex-direction: column; }
+.sm-item {
+  display: flex; align-items: center; gap: 0.7rem;
+  padding: 0.6rem 1.1rem;
+  font-size: 0.82rem; color: var(--ink-soft);
+  cursor: pointer; border-bottom: 1px solid var(--border-soft);
+  transition: background 0.15s, color 0.15s, padding-left 0.15s;
+  text-decoration: none;
+}
+.sm-item:last-child { border-bottom: none; }
+.sm-item:hover { background: var(--cream); color: var(--forest); padding-left: 1.5rem; }
+.sm-item-icon { font-size: 0.95rem; width: 20px; text-align: center; flex-shrink: 0; }
+.sm-item-label { flex: 1; }
+.sm-item-arrow { font-size: 0.7rem; color: var(--earth); opacity: 0; transition: opacity 0.15s; }
+.sm-item:hover .sm-item-arrow { opacity: 1; }
+.sm-item.sm-home {
+  background: linear-gradient(135deg, var(--forest) 0%, var(--forest-mid) 100%);
+  color: var(--white); justify-content: center; padding: 0.9rem;
+  font-weight: 700; letter-spacing: 0.05em; font-size: 0.8rem;
+  border-bottom: none;
+}
+.sm-item.sm-home:hover { background: linear-gradient(135deg, var(--forest-mid) 0%, var(--forest-light) 100%); padding-left: 0.9rem; color: var(--white); }
+
+.sitemap-footer {
+  border-top: 1px solid var(--border);
+  padding: 1rem 2rem;
+  display: flex; align-items: center; justify-content: space-between;
+  flex-wrap: wrap; gap: 0.5rem;
+  background: var(--cream); border-radius: 0 0 14px 14px;
+}
+.sitemap-footer-note { font-size: 0.7rem; color: var(--muted); }
+.sitemap-footer-count {
+  font-size: 0.68rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase;
+  color: var(--earth); background: rgba(200,150,62,0.1);
+  padding: 0.25rem 0.8rem; border-radius: 20px;
+  border: 1px solid rgba(200,150,62,0.25);
+}
+
+/* ============================================================
+   URL / SECTION INDICATOR BAR  (like research.hu.edu.et)
+   ============================================================ */
+#url-bar {
+  position: sticky;
+  top: calc(var(--top-h) + var(--nav-h));
+  z-index: 998;
+  background: #f0f7f2;
+  border-bottom: 1.5px solid #c8e6d0;
+  height: 34px;
+  display: flex;
+  align-items: center;
+  padding: 0 1.5rem;
+  gap: 0.6rem;
+  font-family: 'DM Mono', monospace;
+  font-size: 0.72rem;
+  overflow: hidden;
+  transition: background 0.3s;
+}
+#url-bar[data-slug]:not([data-slug="home"]) {
+  background: #e8f5ec;
+}
+.url-bar-icon {
+  color: var(--forest-light);
+  flex-shrink: 0;
+  opacity: 0.6;
+  display: flex; align-items: center;
+}
+#url-bar-path {
+  color: #5a7a66;
+  flex: 1;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  letter-spacing: 0.01em;
+}
+#url-bar-segment {
+  display: inline-flex;
+  align-items: center;
+  background: var(--forest);
+  color: var(--earth-light);
+  font-weight: 700;
+  padding: 0.18rem 0.65rem;
+  border-radius: 3px;
+  letter-spacing: 0.04em;
+  font-size: 0.68rem;
+  white-space: nowrap;
+  flex-shrink: 0;
+  display: none;
+}
+#url-bar-copy {
+  flex-shrink: 0;
+  background: var(--forest-mid);
+  color: rgba(255,255,255,0.85);
+  border: none; border-radius: 3px;
+  padding: 0.22rem 0.75rem;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.67rem; font-weight: 600;
+  cursor: pointer; letter-spacing: 0.04em;
+  transition: background 0.2s, color 0.2s;
+  white-space: nowrap;
+}
+#url-bar-copy:hover { background: var(--forest-light); color: var(--white); }
+#url-bar-copy.copied { background: #2a7a48; color: var(--white); }
+.url-bar-divider { width: 1px; height: 14px; background: #b8d8c0; flex-shrink: 0; }
+@media(max-width:600px) {
+  #url-bar { font-size: 0.62rem; padding: 0 0.8rem; gap: 0.4rem; }
+  #url-bar-path { font-size: 0.6rem; }
+}
+</style>
 </head>
 <body>
-  <script src="https://unpkg.com/decap-cms@^3.0.0/dist/decap-cms.js"></script>
+
+<!-- TOP UTILITY BAR -->
+<div class="topbar">
+  <div class="topbar-left">
+    <span>
+      <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+      Finfinnee / Addis Ababa, Ethiopia
+    </span>
+    <div class="topbar-divider"></div>
+    <span>
+      <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.79 19.79 0 0 1 2.12 4.18 2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+      +251 911 946 101
+    </span>
+    <div class="topbar-divider"></div>
+    <span><a href="mailto:afoluofethiopia@gmail.com">afoluofethiopia@gmail.com</a></span>
+  </div>
+  <div class="topbar-right">
+    <a href="https://www.facebook.com/afoluethiopia" target="_blank">
+      <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+      Facebook
+    </a>
+    <div class="topbar-divider"></div>
+    <a href="#">Twitter / X</a>
+    <div class="topbar-divider"></div>
+    <a href="#">YouTube</a>
+  </div>
+</div>
+
+<!-- NAVIGATION -->
+<nav class="nav-wrapper" id="mainNav">
+  <div class="nav-inner">
+    <div class="brand" data-view="home">
+      <div class="brand-logo">
+        <img src="https://i.imgur.com/stFhOHw.png" alt="AFOLU Logo" onerror="this.parentElement.innerHTML='🌿'">
+      </div>
+      <div class="brand-text">
+        <div class="brand-name">AFOLU of Ethiopia</div>
+        <div class="brand-sub">Agriculture · Forestry · Land Use</div>
+      </div>
+    </div>
+
+    <ul class="nav-links" id="navLinks">
+      <li><a data-view="home" class="active">Home</a></li>
+      <li class="has-drop">
+        <a>About <span class="chevron"></span></a>
+        <div class="dropdown">
+          <a data-view="About"><span class="di">🌱</span>About AFOLU</a>
+          <a data-view="Mission"><span class="di">🎯</span>Mission &amp; Vision</a>
+          <a data-view="Leadership"><span class="di">👥</span>Leadership</a>
+          <a data-view="Organizational"><span class="di">🏛</span>Org. Structure</a>
+        </div>
+      </li>
+      <li class="has-drop">
+        <a>Sectors <span class="chevron"></span></a>
+        <div class="dropdown">
+          <a data-view="plant-science"><span class="di">🌾</span>Plant Science</a>
+          <a data-view="Natural-Resource-Mgmt"><span class="di">🌍</span>Natural Resource Mgmt</a>
+          <a data-view="agroforestry"><span class="di">🌿</span>Agroforestry</a>
+          <a data-view="animal-science"><span class="di">🐄</span>Animal Science</a>
+          <a data-view="Extension"><span class="di">🏘</span>Rural Development</a>
+          <a data-view="Agro-Economics"><span class="di">📊</span>Agro-Economics</a>
+          <a data-view="forestry"><span class="di">🌳</span>Forestry</a>
+          <a data-view="Wildlife"><span class="di">🦁</span>Wildlife &amp; Ecotourism</a>
+        </div>
+      </li>
+      <li class="has-drop">
+        <a>Programs <span class="chevron"></span></a>
+        <div class="dropdown">
+          <a data-view="Legacy"><span class="di">🌱</span>Green Legacy</a>
+          <a data-view="Food"><span class="di">🌾</span>Food Security</a>
+          <a data-view="Climate"><span class="di">🌡</span>Climate Resilience</a>
+          <a data-view="REDD"><span class="di">🌳</span>REDD+</a>
+        </div>
+      </li>
+      <li class="has-drop">
+        <a>Resources <span class="chevron"></span></a>
+        <div class="dropdown">
+          <a data-view="Reports"><span class="di">📄</span>Reports &amp; Publications</a>
+          <a data-view="Geospatial"><span class="di">🛰</span>Geospatial &amp; GIS</a>
+          <a data-view="publications"><span class="di">📘</span>Technical Manuals</a>
+        </div>
+      </li>
+      <li class="has-drop">
+        <a>Projects <span class="chevron"></span></a>
+        <div class="dropdown">
+          <a data-view="Projects"><span class="di">🔬</span>Current Projects</a>
+          <a data-view="Completed"><span class="di">✅</span>Completed Projects</a>
+          <a data-view="Regional"><span class="di">🗺</span>Regional Projects</a>
+        </div>
+      </li>
+      <li class="has-drop">
+        <a>News <span class="chevron"></span></a>
+        <div class="dropdown">
+          <a data-view="News"><span class="di">📰</span>Latest News</a>
+          <a data-view="events"><span class="di">📅</span>Events</a>
+          <a data-view="Gallery"><span class="di">🖼</span>Photo Gallery</a>
+          <a data-view="Testimonials"><span class="di">💬</span>Testimonials</a>
+        </div>
+      </li>
+    </ul>
+
+    <button class="nav-cta" data-view="contact-section">Contact Us</button>
+    <button class="hamburger" id="hamburger" aria-label="Menu"><span></span><span></span><span></span></button>
+  </div>
+</nav>
+
+<!-- ============================================================
+     URL / SECTION INDICATOR BAR
+     Shows the current section URL. Readers and sharers can copy
+     a direct link (e.g. yoursite.com/#plant-science) to send
+     to others who will land exactly on that section.
+     ============================================================ -->
+<div id="url-bar" data-slug="home">
+  <span class="url-bar-icon">
+    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/>
+      <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/>
+    </svg>
+  </span>
+  <span id="url-bar-path"></span>
+  <span id="url-bar-segment"></span>
+  <span class="url-bar-divider"></span>
+  <button id="url-bar-copy" onclick="copyUrlBar()">⎘ Copy</button>
+</div>
+     ============================================================ -->
+<div id="view-home">
+
+  <!-- HERO SLIDER -->
+  <div class="hero-slider" id="heroSlider">
+
+    <!-- Slide 1 -->
+    <div class="hero-slide active">
+      <div class="hero-bg slide-bg-1"></div>
+      <div class="hero-content">
+        <div class="hero-eyebrow">
+          <span class="hero-eyebrow-dot"></span>
+          <span class="hero-eyebrow-line"></span>
+          Finfinnee · Ethiopia
+        </div>
+        <h1 class="hero-title">AFOLU <em>of Ethiopia</em></h1>
+        <p class="hero-desc">Agriculture, Forestry &amp; Other Land Use — advancing sustainable landscapes, climate resilience, and rural livelihoods across Ethiopia's diverse ecosystems.</p>
+        <div class="hero-btns">
+          <button class="btn-forest" data-view="About">Explore Our Work →</button>
+          <button class="btn-ghost" data-view="Legacy">Green Legacy Initiative</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Slide 2 -->
+    <div class="hero-slide">
+      <div class="hero-bg slide-bg-2"></div>
+      <div class="hero-content">
+        <div class="hero-eyebrow">
+          <span class="hero-eyebrow-dot"></span>
+          <span class="hero-eyebrow-line"></span>
+          Flagship Program
+        </div>
+        <h1 class="hero-title">Green Legacy <em>Initiative</em></h1>
+        <p class="hero-desc">Ethiopia's largest community-driven environmental restoration campaign — over 28 billion seedlings planted since 2019, making it one of the largest in recorded history.</p>
+        <div class="hero-btns">
+          <button class="btn-forest" data-view="Legacy">Learn More →</button>
+          <button class="btn-ghost" data-view="About">About AFOLU</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Slide 3 -->
+    <div class="hero-slide">
+      <div class="hero-bg slide-bg-3"></div>
+      <div class="hero-content">
+        <div class="hero-eyebrow">
+          <span class="hero-eyebrow-dot"></span>
+          <span class="hero-eyebrow-line"></span>
+          Climate Action
+        </div>
+        <h1 class="hero-title">Building <em>Climate Resilience</em></h1>
+        <p class="hero-desc">Integrated land use interventions supporting food security, biodiversity conservation, and climate adaptation across Ethiopia's highlands, wetlands, and drylands.</p>
+        <div class="hero-btns">
+          <button class="btn-forest" data-view="Climate">Climate Resilience →</button>
+          <button class="btn-ghost" data-view="REDD">REDD+ Program</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="slider-dots">
+      <button class="sdot active" data-s="0"></button>
+      <button class="sdot" data-s="1"></button>
+      <button class="sdot" data-s="2"></button>
+    </div>
+    <button class="sarrow sarrow-prev" id="sPrev">&#8249;</button>
+    <button class="sarrow sarrow-next" id="sNext">&#8250;</button>
+  </div>
+
+  <!-- QUICK LINKS BAR -->
+  <div class="quickbar">
+    <div class="quickbar-inner">
+      <div class="qlink" data-view="About"><span class="qlink-icon">🌱</span>About AFOLU</div>
+      <div class="qlink" data-view="Reports"><span class="qlink-icon">📄</span>Publications</div>
+      <div class="qlink" data-view="Geospatial"><span class="qlink-icon">🛰</span>GIS &amp; Maps</div>
+      <div class="qlink" data-view="News"><span class="qlink-icon">📰</span>News</div>
+      <div class="qlink" data-view="Projects"><span class="qlink-icon">🔬</span>Projects</div>
+      <div class="qlink" data-view="events"><span class="qlink-icon">📅</span>Events</div>
+      <div class="qlink" data-view="Legacy"><span class="qlink-icon">🌳</span>Green Legacy</div>
+      <div class="qlink" data-view="Gallery"><span class="qlink-icon">🖼</span>Gallery</div>
+    </div>
+  </div>
+
+  <!-- STATS BANNER -->
+  <div class="stats-banner">
+    <div class="stats-inner">
+      <div class="stat-block">
+        <div class="stat-num">28B+</div>
+        <div class="stat-label">Seedlings Planted</div>
+        <div class="stat-sub">Green Legacy Initiative</div>
+      </div>
+      <div class="stat-block">
+        <div class="stat-num">15M+</div>
+        <div class="stat-label">Hectares Restored</div>
+        <div class="stat-sub">Nationwide</div>
+      </div>
+      <div class="stat-block">
+        <div class="stat-num">8</div>
+        <div class="stat-label">Technical Sectors</div>
+        <div class="stat-sub">Integrated approach</div>
+      </div>
+      <div class="stat-block">
+        <div class="stat-num">2019</div>
+        <div class="stat-label">Year Established</div>
+        <div class="stat-sub">CRGE aligned</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ABOUT INTRO -->
+  <div class="about-section">
+    <div class="container">
+      <div class="about-grid">
+        <div class="about-visual reveal">
+          <div class="about-visual-card">
+            <div class="about-visual-icon">🌿</div>
+            <div class="about-visual-label">AFOLU Ethiopia</div>
+            <div class="about-visual-sub">Established 2019</div>
+          </div>
+          <div class="about-badge">
+            <div class="about-badge-icon">🌍</div>
+            <div class="about-badge-text">
+              <div class="about-badge-label">Strategy Alignment</div>
+              <div class="about-badge-val">Ethiopia CRGE</div>
+            </div>
+          </div>
+        </div>
+        <div class="about-content reveal rd2">
+          <div class="section-eyebrow">About AFOLU Ethiopia</div>
+          <h2>Shaping <em>Sustainable</em> Land Use Systems</h2>
+          <p>AFOLU Ethiopia operates at the intersection of agriculture, forestry, and land stewardship — driving evidence-based policy, community participation, and ecosystem restoration across Ethiopia's diverse landscapes. Established in 2019, AFOLU brings together deep technical expertise and an enduring commitment to sustainable development, spanning from the highlands of Ras Dashen to the Dallol Depression.</p>
+          <p>As a nationally rooted organization aligned with Ethiopia's Climate Resilient Green Economy (CRGE) strategy, AFOLU works in close partnership with government agencies, research institutions, international development partners, and local communities to build a future where land use decisions protect the ecological inheritance of coming generations.</p>
+          <div class="pillars">
+            <span class="pillar">🌾 Sustainable Agriculture</span>
+            <span class="pillar">🌳 Forest Conservation</span>
+            <span class="pillar">💧 Watershed Restoration</span>
+            <span class="pillar">🌡 Climate Adaptation</span>
+            <span class="pillar">🦋 Biodiversity Protection</span>
+            <span class="pillar">🏘 Rural Livelihoods</span>
+          </div>
+          <button class="btn-outline" data-view="About">Read More →</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- NEWS + SIDEBAR -->
+  <div class="main-section">
+    <div class="container">
+      <div class="main-layout">
+        <!-- Main -->
+        <div>
+          <div class="section-header reveal">
+            <div>
+              <div class="section-eyebrow">Updates</div>
+              <h2 class="section-title">Latest <em>News</em></h2>
+            </div>
+            <span class="see-all" data-view="News">See All News →</span>
+          </div>
+          <div class="news-grid reveal rd1">
+            <div class="news-item" data-view="News">
+              <div class="news-date"><div class="news-date-day">15</div><div class="news-date-mon">Apr</div></div>
+              <div class="news-body">
+                <span class="news-tag">Programs</span>
+                <div class="news-title">Green Legacy Initiative Surpasses 28 Billion Seedlings Milestone</div>
+                <div class="news-excerpt">Ethiopia's flagship environmental restoration campaign has reached a historic milestone, mobilizing millions of citizens in nationwide tree planting drives across all regions.</div>
+              </div>
+            </div>
+            <div class="news-item" data-view="News">
+              <div class="news-date"><div class="news-date-day">08</div><div class="news-date-mon">Apr</div></div>
+              <div class="news-body">
+                <span class="news-tag">Climate</span>
+                <div class="news-title">AFOLU Launches New REDD+ Community Forest Management Program</div>
+                <div class="news-excerpt">New pilot program links carbon conservation with community livelihood improvement across priority forest landscapes in three regions of Ethiopia.</div>
+              </div>
+            </div>
+            <div class="news-item" data-view="News">
+              <div class="news-date"><div class="news-date-day">01</div><div class="news-date-mon">Apr</div></div>
+              <div class="news-body">
+                <span class="news-tag">Sectors</span>
+                <div class="news-title">Watershed Restoration Initiative Covers 15 Million+ Hectares Nationwide</div>
+                <div class="news-excerpt">AFOLU's integrated watershed management program continues expanding, combining physical soil conservation with community governance systems at scale.</div>
+              </div>
+            </div>
+            <div class="news-item" data-view="News">
+              <div class="news-date"><div class="news-date-day">22</div><div class="news-date-mon">Mar</div></div>
+              <div class="news-body">
+                <span class="news-tag">Research</span>
+                <div class="news-title">New Geospatial Analysis Tools Deployed for Land Use Monitoring</div>
+                <div class="news-excerpt">Advanced remote sensing and GIS technologies now support landscape-level monitoring across Ethiopia's priority intervention zones.</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="section-header reveal" style="margin-top:3rem">
+            <div>
+              <div class="section-eyebrow">Upcoming</div>
+              <h2 class="section-title"><em>Announcements</em></h2>
+            </div>
+            <span class="see-all" data-view="events">See All →</span>
+          </div>
+          <div class="ann-list reveal rd1">
+            <div class="ann-item" data-view="events">
+              <div class="ann-dot">📢</div>
+              <div>
+                <div class="ann-title">Workshop on Climate-Smart Agriculture — Registration Open</div>
+                <div class="ann-meta">April 25, 2026 · Addis Ababa</div>
+              </div>
+            </div>
+            <div class="ann-item" data-view="events">
+              <div class="ann-dot">📋</div>
+              <div>
+                <div class="ann-title">Call for Applications: AFOLU Fellowship Program 2026</div>
+                <div class="ann-meta">Deadline: May 10, 2026</div>
+              </div>
+            </div>
+            <div class="ann-item" data-view="Projects">
+              <div class="ann-dot">🔬</div>
+              <div>
+                <div class="ann-title">REDD+ Project Implementation Review — Stakeholder Meeting</div>
+                <div class="ann-meta">May 3, 2026 · Virtual &amp; In-Person</div>
+              </div>
+            </div>
+            <div class="ann-item" data-view="Reports">
+              <div class="ann-dot">📄</div>
+              <div>
+                <div class="ann-title">Annual Report 2025 Now Available for Download</div>
+                <div class="ann-meta">Released: March 30, 2026</div>
+              </div>
+            </div>
+            <div class="ann-item" data-view="events">
+              <div class="ann-dot">🎓</div>
+              <div>
+                <div class="ann-title">National Symposium on Sustainable Land Management — Call for Papers</div>
+                <div class="ann-meta">Abstract Deadline: April 30, 2026</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Sidebar -->
+        <div>
+          <div class="sidebar-card reveal">
+            <div class="sidebar-head">👤 Leadership</div>
+            <div class="sidebar-body" style="padding:1.2rem">
+              <div class="leader-card" style="padding:0">
+                <div class="leader-icon">🌿</div>
+                <div class="leader-role">Director General</div>
+                <div class="leader-name">AFOLU Ethiopia Leadership</div>
+                <div class="leader-quote">"Sustainable land management is both an environmental imperative and a social justice issue. We remain committed to restoring Ethiopia's landscapes for future generations."</div>
+                <span class="see-all" data-view="Leadership" style="justify-content:center">Read More →</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="sidebar-card reveal rd1">
+            <div class="sidebar-head">🌿 Our Sectors</div>
+            <div class="sidebar-body">
+              <div class="sidebar-link" data-view="plant-science">🌾 Plant Science</div>
+              <div class="sidebar-link" data-view="Natural-Resource-Mgmt">🌍 Natural Resource Management</div>
+              <div class="sidebar-link" data-view="agroforestry">🌿 Agroforestry</div>
+              <div class="sidebar-link" data-view="animal-science">🐄 Animal Science</div>
+              <div class="sidebar-link" data-view="Extension">🏘 Rural Development</div>
+              <div class="sidebar-link" data-view="Agro-Economics">📊 Agro-Economics</div>
+              <div class="sidebar-link" data-view="forestry">🌳 Forestry</div>
+              <div class="sidebar-link" data-view="Wildlife">🦁 Wildlife &amp; Ecotourism</div>
+            </div>
+          </div>
+
+          <div class="sidebar-card reveal rd2">
+            <div class="sidebar-head">🏆 Key Programs</div>
+            <div class="sidebar-body">
+              <div class="sidebar-link" data-view="Legacy">🌱 Green Legacy Initiative</div>
+              <div class="sidebar-link" data-view="REDD">🌿 REDD+ Program</div>
+              <div class="sidebar-link" data-view="Climate">🌡 Climate Resilience</div>
+              <div class="sidebar-link" data-view="Food">🌾 Food Security</div>
+            </div>
+          </div>
+
+          <div class="sidebar-card reveal rd3">
+            <div class="sidebar-head">📚 Resources</div>
+            <div class="sidebar-body">
+              <div class="sidebar-link" data-view="Reports">📄 Reports &amp; Publications</div>
+              <div class="sidebar-link" data-view="Geospatial">🛰 Geospatial &amp; GIS</div>
+              <div class="sidebar-link" data-view="publications">📘 Technical Manuals</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SECTORS -->
+  <div class="sectors-section">
+    <div class="container">
+      <div class="section-header reveal">
+        <div>
+          <div class="section-eyebrow">Technical Expertise</div>
+          <h2 class="section-title">Eight Pillars of <em>Knowledge</em></h2>
+        </div>
+        <span class="see-all" data-view="plant-science">Explore Sectors →</span>
+      </div>
+      <div class="sectors-grid">
+        <div class="sector-card reveal" data-view="plant-science">
+          <span class="sector-icon">🌾</span>
+          <div class="sector-name">Plant Science</div>
+          <div class="sector-desc">Crop improvement, seed systems, and agronomic research for food security.</div>
+          <span class="sector-arrow">Explore →</span>
+        </div>
+        <div class="sector-card reveal rd1" data-view="Natural-Resource-Mgmt">
+          <span class="sector-icon">🌍</span>
+          <div class="sector-name">Natural Resource Mgmt</div>
+          <div class="sector-desc">Watershed restoration, soil conservation, and sustainable ecosystem management.</div>
+          <span class="sector-arrow">Explore →</span>
+        </div>
+        <div class="sector-card reveal rd2" data-view="agroforestry">
+          <span class="sector-icon">🌿</span>
+          <div class="sector-name">Agroforestry</div>
+          <div class="sector-desc">Integrated tree-crop-livestock systems for sustainable smallholder farming.</div>
+          <span class="sector-arrow">Explore →</span>
+        </div>
+        <div class="sector-card reveal rd3" data-view="animal-science">
+          <span class="sector-icon">🐄</span>
+          <div class="sector-name">Animal Science</div>
+          <div class="sector-desc">Livestock productivity, veterinary services, and rangeland management.</div>
+          <span class="sector-arrow">Explore →</span>
+        </div>
+        <div class="sector-card reveal" data-view="Extension">
+          <span class="sector-icon">🏘</span>
+          <div class="sector-name">Rural Development</div>
+          <div class="sector-desc">Agricultural extension services and rural community empowerment programs.</div>
+          <span class="sector-arrow">Explore →</span>
+        </div>
+        <div class="sector-card reveal rd1" data-view="Agro-Economics">
+          <span class="sector-icon">📊</span>
+          <div class="sector-name">Agro-Economics</div>
+          <div class="sector-desc">Value chain development, market systems, and agricultural finance solutions.</div>
+          <span class="sector-arrow">Explore →</span>
+        </div>
+        <div class="sector-card reveal rd2" data-view="forestry">
+          <span class="sector-icon">🌳</span>
+          <div class="sector-name">Forestry</div>
+          <div class="sector-desc">Forest management, REDD+ implementation, and timber value chain development.</div>
+          <span class="sector-arrow">Explore →</span>
+        </div>
+        <div class="sector-card reveal rd3" data-view="Wildlife">
+          <span class="sector-icon">🦁</span>
+          <div class="sector-name">Wildlife &amp; Ecotourism</div>
+          <div class="sector-desc">Biodiversity conservation, protected area management, and ecotourism development.</div>
+          <span class="sector-arrow">Explore →</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- PROGRAMS -->
+  <div class="programs-section">
+    <div class="container">
+      <div class="section-header reveal">
+        <div>
+          <div class="section-eyebrow">Initiatives</div>
+          <h2 class="section-title">Flagship <em>Programs</em></h2>
+        </div>
+        <span class="see-all" data-view="Legacy">View All →</span>
+      </div>
+      <div class="programs-grid">
+        <div class="program-card featured reveal" data-view="Legacy">
+          <div>
+            <span class="prog-tag gold">🌱 Flagship Program</span>
+            <div class="prog-title">Green Legacy Initiative</div>
+            <div class="prog-body">Ethiopia's largest community-driven environmental restoration campaign, mobilizing millions of citizens to plant trees and restore degraded landscapes. Since 2019, the initiative has planted over 28 billion seedlings — making it one of the largest tree planting campaigns ever recorded globally.</div>
+            <ul class="prog-list">
+              <li>28 billion+ seedlings planted since 2019</li>
+              <li>Community mobilization at national scale</li>
+              <li>Aligned with CRGE climate strategy</li>
+              <li>Restoring watershed and highland ecosystems</li>
+            </ul>
+          </div>
+          <div class="prog-big">
+            <div class="prog-big-num">28B+</div>
+            <div class="prog-big-label">Seedlings Planted</div>
+          </div>
+        </div>
+        <div class="program-card reveal rd1" data-view="REDD">
+          <span class="prog-tag green">🌿 Climate Finance</span>
+          <div class="prog-title">REDD+ Program</div>
+          <div class="prog-body">Reducing emissions from deforestation and forest degradation while strengthening community-based forest management across priority landscapes. AFOLU links carbon conservation, biodiversity protection, and community livelihood improvement through Ethiopia's REDD+ strategy.</div>
+        </div>
+        <div class="program-card reveal rd2" data-view="Climate">
+          <span class="prog-tag sky">🌡 Climate Action</span>
+          <div class="prog-title">Climate Resilience</div>
+          <div class="prog-body">Building adaptive capacity through CRGE strategy implementation, climate-smart agriculture, and landscape restoration across vulnerable regions. AFOLU invests in ecosystem-based adaptation and community-level capacity building to meet Ethiopia's national climate commitments.</div>
+        </div>
+        <div class="program-card reveal rd3" data-view="Food">
+          <span class="prog-tag earth">🌾 Food Systems</span>
+          <div class="prog-title">Food Security</div>
+          <div class="prog-body">Integrated AFOLU interventions supporting food availability, access, utilization, and stability for smallholder farming communities across Ethiopia. Combining improved agricultural production with natural resource management and agroforestry expansion builds resilient food systems.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- LEADERS -->
+  <div class="leaders-section">
+    <div class="container">
+      <div class="section-header reveal">
+        <div>
+          <div class="section-eyebrow">Leadership</div>
+          <h2 class="section-title">Leaders at <em>AFOLU Ethiopia</em></h2>
+        </div>
+        <span class="see-all" data-view="Leadership">View All →</span>
+      </div>
+      <div class="leaders-grid">
+        <div class="leader-profile reveal" data-view="Leadership">
+          <div class="lp-img" style="background:linear-gradient(135deg,#0d2818,#1a4a2e)">🌿</div>
+          <div class="lp-body">
+            <div class="lp-role">Director General</div>
+            <div class="lp-name">AFOLU Ethiopia Leadership</div>
+            <div class="lp-desc">Strategic oversight and institutional direction for all AFOLU programs and partnerships across Ethiopia's diverse landscapes.</div>
+            <span class="lp-link" data-view="Leadership">Read more →</span>
+          </div>
+        </div>
+        <div class="leader-profile reveal rd1" data-view="Organizational">
+          <div class="lp-img" style="background:linear-gradient(135deg,#1a4a20,#2a7042)">🌾</div>
+          <div class="lp-body">
+            <div class="lp-role">Sectors Coordination</div>
+            <div class="lp-name">Technical Directorate</div>
+            <div class="lp-desc">Coordinating eight specialized technical sectors delivering comprehensive land use solutions and field-level implementation nationwide.</div>
+            <span class="lp-link" data-view="Organizational">Read more →</span>
+          </div>
+        </div>
+        <div class="leader-profile reveal rd2" data-view="Legacy">
+          <div class="lp-img" style="background:linear-gradient(135deg,#1a3060,#2d6ea8)">📊</div>
+          <div class="lp-body">
+            <div class="lp-role">Programs &amp; Finance</div>
+            <div class="lp-name">Programs Directorate</div>
+            <div class="lp-desc">Managing flagship programs including Green Legacy Initiative, REDD+, and climate resilience initiatives with full accountability.</div>
+            <span class="lp-link" data-view="Legacy">Read more →</span>
+          </div>
+        </div>
+        <div class="leader-profile reveal rd3" data-view="Projects">
+          <div class="lp-img" style="background:linear-gradient(135deg,#4a1a00,#8a4000)">🤝</div>
+          <div class="lp-body">
+            <div class="lp-role">Research &amp; Partnerships</div>
+            <div class="lp-name">Partnerships Office</div>
+            <div class="lp-desc">Building and sustaining strategic partnerships with international development partners, research institutions, and government agencies.</div>
+            <span class="lp-link" data-view="Projects">Read more →</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- QUOTE BAND -->
+  <div class="quote-section reveal">
+    <div class="quote-inner">
+      <div class="quote-oromo">Aadaa Oromoo — Oromo Tradition</div>
+      <p class="quote-text">"Protection of the land where we were born, the water we drank, and the forest where we grew is the duty of today's and tomorrow's generations."</p>
+      <div class="quote-source">— Lafa itti dhalanne, bishaan itti dhugnee guddanne</div>
+    </div>
+  </div>
+
+  <!-- CONTACT -->
+  <div class="contact-section" id="contact">
+    <div class="container">
+      <div class="section-header reveal">
+        <div>
+          <div class="section-eyebrow">Get in Touch</div>
+          <h2 class="section-title">Connect with <em>AFOLU Ethiopia</em></h2>
+        </div>
+      </div>
+      <div class="contact-grid">
+        <div class="reveal">
+          <p style="font-size:0.92rem;color:var(--muted);line-height:1.8;margin-bottom:2rem;font-weight:300">AFOLU Ethiopia welcomes inquiries from researchers, government partners, development organizations, journalists, and community members. Our team is committed to responding to all messages within three business days.</p>
+          <div class="contact-info-list">
+            <div class="ci-item">
+              <div class="ci-icon">📍</div>
+              <div>
+                <div class="ci-label">Location</div>
+                <div class="ci-value">Finfinnee / Addis Ababa, Ethiopia</div>
+              </div>
+            </div>
+            <div class="ci-item">
+              <div class="ci-icon">📞</div>
+              <div>
+                <div class="ci-label">Phone</div>
+                <div class="ci-value"><a href="tel:+251911946101">+251 911 946 101</a></div>
+              </div>
+            </div>
+            <div class="ci-item">
+              <div class="ci-icon">✉</div>
+              <div>
+                <div class="ci-label">Email</div>
+                <div class="ci-value"><a href="mailto:afoluofethiopia@gmail.com">afoluofethiopia@gmail.com</a></div>
+              </div>
+            </div>
+            <div class="ci-item">
+              <div class="ci-icon">🌐</div>
+              <div>
+                <div class="ci-label">Follow Us</div>
+                <div class="ci-value"><a href="https://www.facebook.com/afoluethiopia" target="_blank">facebook.com/afoluethiopia</a></div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="contact-form-card reveal rd2">
+          <div class="contact-form-title">Send a Message</div>
+          <div class="contact-form-sub">Reach our team directly with your inquiry or partnership request.</div>
+          <form action="https://formsubmit.co/afoluofethiopia@gmail.com" method="POST">
+            <input type="hidden" name="_autoresponse" value="Thank you for contacting AFOLU Ethiopia. Your message has been received. Our team will respond soon.">
+            <input type="hidden" name="_subject" value="New Message from AFOLU Ethiopia Website">
+            <input type="text" name="_honey" style="display:none">
+            <div class="form-row">
+              <div class="form-group">
+                <label class="form-label">First Name</label>
+                <input class="form-input" type="text" name="First Name" placeholder="Your first name" required>
+              </div>
+              <div class="form-group">
+                <label class="form-label">Last Name</label>
+                <input class="form-input" type="text" name="Last Name" placeholder="Your last name" required>
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="form-label">Email Address</label>
+              <input class="form-input" type="email" name="Email" placeholder="you@example.com" required>
+            </div>
+            <div class="form-group">
+              <label class="form-label">Subject</label>
+              <select class="form-select" name="Subject" required>
+                <option value="">Select a topic</option>
+                <option>Partnership Inquiry</option>
+                <option>Research Collaboration</option>
+                <option>Program Information</option>
+                <option>Student Training Request</option>
+                <option>Media &amp; Press</option>
+                <option>Other</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label class="form-label">Message</label>
+              <textarea class="form-textarea" name="Message" placeholder="How can we help you?" required></textarea>
+            </div>
+            <button type="submit" class="btn-forest">Send Message →</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div><!-- end #view-home -->
+
+<!-- ============================================================
+     CONTENT VIEWS
+     ============================================================ -->
+
+<!-- ABOUT -->
+<div id="view-About" class="content-view">
+  <div class="view-header">
+    <div class="view-header-inner">
+      <div class="view-crumb"><a data-view="home">Home</a><span class="view-crumb-sep"> › </span><span class="view-crumb-cur">About AFOLU</span></div>
+      <div class="view-badge">🌱 About</div>
+      <h1 class="view-h1">About <em>AFOLU Ethiopia</em></h1>
+    </div>
+  </div>
+  <div class="view-body-wrap"><div class="view-content">
+    <div class="view-body">
+      <p>AFOLU Ethiopia was established to address the complex and interconnected challenges facing Ethiopia's agricultural, forestry, and land use sectors. The organization recognizes that sustainable development cannot be achieved through isolated interventions — it requires coordinated, science-led, and community-driven approaches that address the root causes of land degradation, food insecurity, and environmental vulnerability.</p>
+      <p>The name AFOLU — Agriculture, Forestry, and Other Land Use — reflects the breadth of the organization's mandate. It encompasses everything from crop science and agroforestry to watershed restoration, wildlife conservation, and climate finance mechanisms like REDD+. This wide scope allows AFOLU to identify and respond to the deep interdependencies between different land use systems across Ethiopia's varied landscapes.</p>
+      <p>At its core, AFOLU Ethiopia is driven by the conviction that sustainable land management is both an environmental imperative and a social justice issue. The communities most dependent on Ethiopia's natural resources — smallholder farmers, pastoral communities, and forest-dependent households — are also the most vulnerable to land degradation and climate change.</p>
+      <div class="view-h3">Our Core Pillars</div>
+      <ul class="view-list">
+        <li>Sustainable agriculture and food system strengthening</li>
+        <li>Forest conservation and landscape restoration</li>
+        <li>Watershed rehabilitation and water resource management</li>
+        <li>Climate change mitigation and adaptation</li>
+        <li>Biodiversity protection and wildlife conservation</li>
+        <li>Rural livelihood development and community empowerment</li>
+        <li>Evidence-based policy advocacy and knowledge sharing</li>
+      </ul>
+      <div class="view-highlight">AFOLU Ethiopia represents a commitment to ensuring that today's land use decisions protect the ecological inheritance of future generations — bridging science, policy, and community action across Ethiopia's diverse landscapes.</div>
+    </div>
+    <div class="view-nav">
+      <button class="view-nav-btn" data-view="home">↑ Home</button>
+      <button class="view-nav-btn" data-view="Mission">Mission &amp; Vision →</button>
+    </div>
+  </div></div>
+</div>
+
+<!-- MISSION -->
+<div id="view-Mission" class="content-view">
+  <div class="view-header">
+    <div class="view-header-inner">
+      <div class="view-crumb"><a data-view="home">Home</a><span class="view-crumb-sep"> › </span><a data-view="About">About</a><span class="view-crumb-sep"> › </span><span class="view-crumb-cur">Mission &amp; Vision</span></div>
+      <div class="view-badge">🎯 About</div>
+      <h1 class="view-h1">Mission <em>&amp; Vision</em></h1>
+    </div>
+  </div>
+  <div class="view-body-wrap"><div class="view-content">
+    <div class="view-body">
+      <p>AFOLU Ethiopia's mission is to advance sustainable agriculture, forest conservation, and integrated land use management across Ethiopia through evidence-based advocacy, community participation, and climate-resilient development programs.</p>
+      <p>The vision of AFOLU Ethiopia is a future in which Ethiopia's landscapes are ecologically healthy, productively managed, and resilient to the pressures of climate change and population growth — a future in which every community has access to the natural resources they need to thrive.</p>
+      <div class="view-h3">Strategic Objectives</div>
+      <ul class="view-list">
+        <li>Advance evidence-based sustainable land management policy across Ethiopia</li>
+        <li>Restore degraded landscapes through community-driven ecosystem rehabilitation</li>
+        <li>Build climate resilience in vulnerable agricultural and forest-dependent communities</li>
+        <li>Strengthen biodiversity conservation across priority ecosystem types</li>
+        <li>Improve rural livelihoods through integrated AFOLU value chain development</li>
+        <li>Contribute to Ethiopia's national climate commitments through AFOLU sector action</li>
+      </ul>
+      <div class="view-highlight">AFOLU Ethiopia's mission and vision serve as both a compass and a call to action — a living framework anchored in the conviction that sustainable land use is essential to Ethiopia's ecological and social future.</div>
+    </div>
+    <div class="view-nav">
+      <button class="view-nav-btn" data-view="About">← About AFOLU</button>
+      <button class="view-nav-btn" data-view="Leadership">Leadership →</button>
+    </div>
+  </div></div>
+</div>
+
+<!-- LEADERSHIP -->
+<div id="view-Leadership" class="content-view">
+  <div class="view-header">
+    <div class="view-header-inner">
+      <div class="view-crumb"><a data-view="home">Home</a><span class="view-crumb-sep"> › </span><a data-view="About">About</a><span class="view-crumb-sep"> › </span><span class="view-crumb-cur">Leadership</span></div>
+      <div class="view-badge">👥 About</div>
+      <h1 class="view-h1"><em>Leadership</em></h1>
+    </div>
+  </div>
+  <div class="view-body-wrap"><div class="view-content">
+    <div class="view-body">
+      <p>AFOLU Ethiopia is guided by experienced and dedicated leadership committed to advancing sustainable land use across Ethiopia. The leadership team brings together expertise in agricultural science, forestry, environmental policy, and development economics — creating a diverse and capable foundation for the organization's work.</p>
+      <p>The Director General provides strategic oversight and institutional direction, working closely with technical directorate heads to ensure that AFOLU's programs are grounded in both scientific excellence and community relevance. The Programs Directorate manages flagship initiatives while the Partnerships Office cultivates the relationships that extend AFOLU's reach and impact.</p>
+      <div class="view-h3">Leadership Structure</div>
+      <ul class="view-list">
+        <li>Director General — Strategic leadership and institutional oversight</li>
+        <li>Technical Directorate — Coordination of eight specialized technical sectors</li>
+        <li>Programs Directorate — Flagship program management and reporting</li>
+        <li>Partnerships &amp; Research Office — International and domestic partnerships</li>
+        <li>Finance &amp; Administration — Institutional governance and accountability</li>
+      </ul>
+    </div>
+    <div class="view-nav">
+      <button class="view-nav-btn" data-view="Mission">← Mission</button>
+      <button class="view-nav-btn" data-view="Organizational">Org. Structure →</button>
+    </div>
+  </div></div>
+</div>
+
+<!-- ORGANIZATIONAL STRUCTURE -->
+<div id="view-Organizational" class="content-view">
+  <div class="view-header">
+    <div class="view-header-inner">
+      <div class="view-crumb"><a data-view="home">Home</a><span class="view-crumb-sep"> › </span><a data-view="About">About</a><span class="view-crumb-sep"> › </span><span class="view-crumb-cur">Org. Structure</span></div>
+      <div class="view-badge">🏛 About</div>
+      <h1 class="view-h1">Organizational <em>Structure</em></h1>
+    </div>
+  </div>
+  <div class="view-body-wrap"><div class="view-content">
+    <div class="view-body">
+      <p>AFOLU Ethiopia's organizational structure is designed to integrate technical expertise with program delivery and institutional accountability. The structure supports a matrix of technical and programmatic functions that enable responsive, evidence-based programming across Ethiopia's diverse regions.</p>
+      <div class="view-h3">Directorates</div>
+      <ul class="view-list">
+        <li>Office of the Director General</li>
+        <li>Technical Directorate (Plant Science, Forestry, Animal Science, NRM, Agroforestry, Extension, Agro-Economics, Wildlife)</li>
+        <li>Programs Directorate (Green Legacy, REDD+, Climate Resilience, Food Security)</li>
+        <li>Research and Partnerships Office</li>
+        <li>Geospatial and Information Management Unit</li>
+        <li>Finance, Administration and Human Resources</li>
+      </ul>
+    </div>
+    <div class="view-nav">
+      <button class="view-nav-btn" data-view="Leadership">← Leadership</button>
+      <button class="view-nav-btn" data-view="plant-science">Sectors →</button>
+    </div>
+  </div></div>
+</div>
+
+<!-- PLANT SCIENCE -->
+<div id="view-plant-science" class="content-view">
+  <div class="view-header">
+    <div class="view-header-inner">
+      <div class="view-crumb"><a data-view="home">Home</a><span class="view-crumb-sep"> › </span>Sectors<span class="view-crumb-sep"> › </span><span class="view-crumb-cur">Plant Science</span></div>
+      <div class="view-badge">🌾 Sector 01</div>
+      <h1 class="view-h1">Plant <em>Science</em></h1>
+    </div>
+  </div>
+  <div class="view-body-wrap"><div class="view-content">
+    <div class="view-body">
+      <p>The Plant Science sector at AFOLU Ethiopia addresses the full spectrum of crop development, seed system management, and agronomic innovation required to sustainably improve food production across Ethiopia's diverse agroecological zones. With farmers operating across highland, midland, and lowland environments, plant science interventions must be adapted, evidence-based, and locally relevant.</p>
+      <p>AFOLU's plant science work focuses on supporting the development and dissemination of improved crop varieties, strengthening formal and informal seed systems, and advancing knowledge on soil-crop-water interactions that can improve productivity while protecting long-term soil health.</p>
+      <div class="view-h3">Key Activities</div>
+      <ul class="view-list">
+        <li>Crop variety development, testing, and dissemination</li>
+        <li>Seed system strengthening — formal and community-based</li>
+        <li>Agronomic research and extension in diverse agroecological zones</li>
+        <li>Integrated crop management including pest and disease control</li>
+        <li>Climate-smart crop systems and drought-tolerant variety promotion</li>
+      </ul>
+    </div>
+    <div class="view-nav">
+      <button class="view-nav-btn" data-view="home">↑ Home</button>
+      <button class="view-nav-btn" data-view="Natural-Resource-Mgmt">NRM →</button>
+    </div>
+  </div></div>
+</div>
+
+<!-- NRM -->
+<div id="view-Natural-Resource-Mgmt" class="content-view">
+  <div class="view-header">
+    <div class="view-header-inner">
+      <div class="view-crumb"><a data-view="home">Home</a><span class="view-crumb-sep"> › </span>Sectors<span class="view-crumb-sep"> › </span><span class="view-crumb-cur">Natural Resource Management</span></div>
+      <div class="view-badge">🌍 Sector 02</div>
+      <h1 class="view-h1">Natural Resource <em>Management</em></h1>
+    </div>
+  </div>
+  <div class="view-body-wrap"><div class="view-content">
+    <div class="view-body">
+      <p>Natural Resource Management (NRM) is a cornerstone of AFOLU Ethiopia's technical programming. Ethiopia's landscapes — from the Blue Nile gorges to the Rift Valley lakes — face significant pressure from land degradation, deforestation, and water scarcity. Effective NRM addresses these pressures through a combination of physical conservation measures, community-based governance systems, and ecosystem restoration.</p>
+      <p>AFOLU's NRM sector leads integrated watershed management programs that combine soil and water conservation infrastructure with community organization, land use planning, and long-term monitoring. The goal is not only to stop degradation but to actively rehabilitate the ecological functions that support agriculture, water supply, and biodiversity.</p>
+      <div class="view-h3">Key Areas</div>
+      <ul class="view-list">
+        <li>Integrated watershed management and rehabilitation</li>
+        <li>Soil and water conservation structures and practices</li>
+        <li>Community-based NRM governance and planning</li>
+        <li>Land use and land cover monitoring</li>
+        <li>Rangeland and dryland ecosystem management</li>
+      </ul>
+    </div>
+    <div class="view-nav">
+      <button class="view-nav-btn" data-view="plant-science">← Plant Science</button>
+      <button class="view-nav-btn" data-view="agroforestry">Agroforestry →</button>
+    </div>
+  </div></div>
+</div>
+
+<!-- AGROFORESTRY -->
+<div id="view-agroforestry" class="content-view">
+  <div class="view-header">
+    <div class="view-header-inner">
+      <div class="view-crumb"><a data-view="home">Home</a><span class="view-crumb-sep"> › </span>Sectors<span class="view-crumb-sep"> › </span><span class="view-crumb-cur">Agroforestry</span></div>
+      <div class="view-badge">🌿 Sector 03</div>
+      <h1 class="view-h1"><em>Agroforestry</em></h1>
+    </div>
+  </div>
+  <div class="view-body-wrap"><div class="view-content">
+    <div class="view-body">
+      <p>Agroforestry represents one of the most powerful tools available for simultaneously addressing food security, climate resilience, and ecological restoration. By integrating trees, crops, and livestock on the same land unit, agroforestry systems can improve smallholder incomes, protect soil and water resources, sequester carbon, and enhance biodiversity — all while producing food and fodder for household and market needs.</p>
+      <p>AFOLU Ethiopia's agroforestry sector promotes evidence-based agroforestry practices adapted to Ethiopia's diverse farming systems — from homestead gardens in the highlands to parkland agroforestry in the drylands. The sector works with farmers, communities, and local institutions to design, plant, and manage agroforestry systems that deliver lasting benefits.</p>
+      <div class="view-h3">Key Activities</div>
+      <ul class="view-list">
+        <li>Agroforestry system design and farmer participatory planning</li>
+        <li>Multipurpose tree species selection, nursery, and planting</li>
+        <li>Integration of trees into crop and livestock farming systems</li>
+        <li>Farmer training and peer-learning networks</li>
+        <li>Carbon benefit assessment and climate reporting</li>
+      </ul>
+    </div>
+    <div class="view-nav">
+      <button class="view-nav-btn" data-view="Natural-Resource-Mgmt">← NRM</button>
+      <button class="view-nav-btn" data-view="animal-science">Animal Science →</button>
+    </div>
+  </div></div>
+</div>
+
+<!-- ANIMAL SCIENCE -->
+<div id="view-animal-science" class="content-view">
+  <div class="view-header">
+    <div class="view-header-inner">
+      <div class="view-crumb"><a data-view="home">Home</a><span class="view-crumb-sep"> › </span>Sectors<span class="view-crumb-sep"> › </span><span class="view-crumb-cur">Animal Science</span></div>
+      <div class="view-badge">🐄 Sector 04</div>
+      <h1 class="view-h1">Animal <em>Science</em></h1>
+    </div>
+  </div>
+  <div class="view-body-wrap"><div class="view-content">
+    <div class="view-body">
+      <p>Livestock production is central to the livelihoods of millions of Ethiopian farmers, pastoralists, and agropastoralists. Ethiopia holds Africa's largest livestock population, yet productivity remains constrained by disease, poor nutrition, limited market access, and the increasing pressure of climate variability on rangelands and pasture systems.</p>
+      <p>AFOLU's animal science activities focus on improving livestock productivity while managing the land use pressures that high livestock densities can create — including overgrazing, rangeland degradation, and watershed damage. The organization approaches livestock development through an integrated lens that links productivity improvement with ecological sustainability.</p>
+      <div class="view-h3">Key Areas</div>
+      <ul class="view-list">
+        <li>Livestock breed improvement and genetic resource conservation</li>
+        <li>Animal nutrition and feed system development</li>
+        <li>Veterinary services and disease control</li>
+        <li>Rangeland and pasture management</li>
+        <li>Livestock value chain and market development</li>
+      </ul>
+    </div>
+    <div class="view-nav">
+      <button class="view-nav-btn" data-view="agroforestry">← Agroforestry</button>
+      <button class="view-nav-btn" data-view="Extension">Rural Development →</button>
+    </div>
+  </div></div>
+</div>
+
+<!-- RURAL DEVELOPMENT -->
+<div id="view-Extension" class="content-view">
+  <div class="view-header">
+    <div class="view-header-inner">
+      <div class="view-crumb"><a data-view="home">Home</a><span class="view-crumb-sep"> › </span>Sectors<span class="view-crumb-sep"> › </span><span class="view-crumb-cur">Rural Development</span></div>
+      <div class="view-badge">🏘 Sector 05</div>
+      <h1 class="view-h1">Rural <em>Development</em></h1>
+    </div>
+  </div>
+  <div class="view-body-wrap"><div class="view-content">
+    <div class="view-body">
+      <p>Rural development and agricultural extension form the bridge between technical knowledge and farmer practice in AFOLU Ethiopia's programming. Extension services bring improved technologies, practices, and market connections directly to smallholder farmers and rural communities across Ethiopia's diverse regions.</p>
+      <p>AFOLU's extension and rural development activities are guided by a participatory approach that begins with community needs assessment, builds local technical capacity through farmer-to-farmer learning platforms, and connects rural communities to input markets, financial services, and agricultural value chains.</p>
+      <div class="view-h3">Extension Approach</div>
+      <ul class="view-list">
+        <li>Farmer Training Centers and demonstration sites</li>
+        <li>Farmer-to-farmer learning networks</li>
+        <li>Women and youth farmer group empowerment</li>
+        <li>Agricultural market linkage and value chain development</li>
+        <li>Digital extension tools and rural ICT platforms</li>
+      </ul>
+    </div>
+    <div class="view-nav">
+      <button class="view-nav-btn" data-view="animal-science">← Animal Science</button>
+      <button class="view-nav-btn" data-view="Agro-Economics">Agro-Economics →</button>
+    </div>
+  </div></div>
+</div>
+
+<!-- AGRO-ECONOMICS -->
+<div id="view-Agro-Economics" class="content-view">
+  <div class="view-header">
+    <div class="view-header-inner">
+      <div class="view-crumb"><a data-view="home">Home</a><span class="view-crumb-sep"> › </span>Sectors<span class="view-crumb-sep"> › </span><span class="view-crumb-cur">Agro-Economics</span></div>
+      <div class="view-badge">📊 Sector 06</div>
+      <h1 class="view-h1">Agro-<em>Economics</em></h1>
+    </div>
+  </div>
+  <div class="view-body-wrap"><div class="view-content">
+    <div class="view-body">
+      <p>The agro-economics sector provides the analytical and strategic foundation for AFOLU Ethiopia's value chain, market, and policy work. By understanding the economic drivers and constraints shaping agricultural and land use decisions, AFOLU can design interventions that create real and lasting incentives for sustainable practice adoption.</p>
+      <p>Ethiopia's agricultural sector is characterized by predominant smallholder farming, fragmented markets, limited financial services, and significant post-harvest losses that reduce economic returns to sustainable land management investment. AFOLU's agro-economics work addresses these structural challenges through targeted value chain analysis, market systems development, and agricultural policy advocacy.</p>
+      <div class="view-h3">Core Activities</div>
+      <ul class="view-list">
+        <li>Agricultural value chain analysis and development</li>
+        <li>Market systems diagnosis and market development programming</li>
+        <li>Agricultural policy analysis and evidence-based advocacy</li>
+        <li>Rural financial services and agricultural credit facilitation</li>
+        <li>Economic valuation of ecosystem services</li>
+      </ul>
+    </div>
+    <div class="view-nav">
+      <button class="view-nav-btn" data-view="Extension">← Rural Development</button>
+      <button class="view-nav-btn" data-view="forestry">Forestry →</button>
+    </div>
+  </div></div>
+</div>
+
+<!-- FORESTRY -->
+<div id="view-forestry" class="content-view">
+  <div class="view-header">
+    <div class="view-header-inner">
+      <div class="view-crumb"><a data-view="home">Home</a><span class="view-crumb-sep"> › </span>Sectors<span class="view-crumb-sep"> › </span><span class="view-crumb-cur">Forestry</span></div>
+      <div class="view-badge">🌳 Sector 07</div>
+      <h1 class="view-h1"><em>Forestry</em></h1>
+    </div>
+  </div>
+  <div class="view-body-wrap"><div class="view-content">
+    <div class="view-body">
+      <p>Ethiopia's forests are among its most valuable and most threatened natural assets. Covering diverse forest types from the Afromontane forests of the highlands to the dry woodland systems of the lowlands, Ethiopia's forests provide critical ecosystem services — including water regulation, biodiversity habitat, and carbon storage — while supporting the livelihoods of millions of forest-dependent communities.</p>
+      <p>AFOLU Ethiopia's forestry sector works to reverse the trend of forest loss by strengthening forest governance, building community forest management capacity, promoting sustainable timber and non-timber forest product value chains, and integrating forests into Ethiopia's climate change response through REDD+ and other mechanisms.</p>
+      <div class="view-h3">Key Activities</div>
+      <ul class="view-list">
+        <li>Community Forest Management (CFM) program development</li>
+        <li>Forest inventory and monitoring systems</li>
+        <li>REDD+ readiness and implementation support</li>
+        <li>Sustainable timber and non-timber forest product value chains</li>
+        <li>Forest landscape restoration planning</li>
+      </ul>
+    </div>
+    <div class="view-nav">
+      <button class="view-nav-btn" data-view="Agro-Economics">← Agro-Economics</button>
+      <button class="view-nav-btn" data-view="Wildlife">Wildlife &amp; Ecotourism →</button>
+    </div>
+  </div></div>
+</div>
+
+<!-- WILDLIFE -->
+<div id="view-Wildlife" class="content-view">
+  <div class="view-header">
+    <div class="view-header-inner">
+      <div class="view-crumb"><a data-view="home">Home</a><span class="view-crumb-sep"> › </span>Sectors<span class="view-crumb-sep"> › </span><span class="view-crumb-cur">Wildlife &amp; Ecotourism</span></div>
+      <div class="view-badge">🦁 Sector 08</div>
+      <h1 class="view-h1">Wildlife <em>&amp; Ecotourism</em></h1>
+    </div>
+  </div>
+  <div class="view-body-wrap"><div class="view-content">
+    <div class="view-body">
+      <p>Ethiopia is one of Africa's most biodiverse countries, with high levels of endemic species across its diverse ecosystems — from the Ethiopian wolf of the Bale Mountains to the gelada baboons of the Simien highlands. AFOLU Ethiopia's wildlife and ecotourism sector works to protect this biodiversity heritage while creating economic opportunities for communities living alongside wildlife.</p>
+      <p>The sector supports protected area management, human-wildlife conflict mitigation, community conservation areas, and ecotourism development as tools for simultaneously achieving biodiversity conservation and rural livelihood improvement — demonstrating that nature and communities can thrive together.</p>
+      <div class="view-h3">Key Focus Areas</div>
+      <ul class="view-list">
+        <li>Protected area management support and capacity building</li>
+        <li>Human-wildlife conflict mitigation programs</li>
+        <li>Community conservation area development</li>
+        <li>Wildlife population monitoring and research</li>
+        <li>Ecotourism product and enterprise development</li>
+      </ul>
+    </div>
+    <div class="view-nav">
+      <button class="view-nav-btn" data-view="forestry">← Forestry</button>
+      <button class="view-nav-btn" data-view="Legacy">Programs →</button>
+    </div>
+  </div></div>
+</div>
+
+<!-- GREEN LEGACY -->
+<div id="view-Legacy" class="content-view">
+  <div class="view-header">
+    <div class="view-header-inner">
+      <div class="view-crumb"><a data-view="home">Home</a><span class="view-crumb-sep"> › </span>Programs<span class="view-crumb-sep"> › </span><span class="view-crumb-cur">Green Legacy Initiative</span></div>
+      <div class="view-badge">🌱 Flagship Program</div>
+      <h1 class="view-h1">Green Legacy <em>Initiative</em></h1>
+    </div>
+  </div>
+  <div class="view-body-wrap"><div class="view-content">
+    <div class="view-stats">
+      <div class="vstat"><div class="vstat-num">28B+</div><div class="vstat-label">Seedlings Planted</div></div>
+      <div class="vstat"><div class="vstat-num">2019</div><div class="vstat-label">Year Launched</div></div>
+      <div class="vstat"><div class="vstat-num">11+</div><div class="vstat-label">Regions Covered</div></div>
+      <div class="vstat"><div class="vstat-num">100M+</div><div class="vstat-label">Citizens Mobilized</div></div>
+    </div>
+    <div class="view-body">
+      <p>The Green Legacy Initiative is Ethiopia's most ambitious and high-profile environmental restoration program. Launched in 2019, the initiative set out to plant billions of seedlings across Ethiopia to restore degraded landscapes, reverse deforestation, and contribute to the global fight against climate change. In its first year alone, Ethiopia planted over 350 million trees in a single day — setting a world record.</p>
+      <p>Since then, the initiative has continued expanding, reaching over 28 billion seedlings planted across all of Ethiopia's regions. The program is uniquely community-driven, mobilizing millions of Ethiopians — from schoolchildren and farmers to government officials — in large-scale planting events that combine ecological restoration with national civic engagement.</p>
+      <div class="view-h3">Core Objectives</div>
+      <ul class="view-list">
+        <li>Restore degraded highlands, watersheds, and forest landscapes</li>
+        <li>Increase Ethiopia's national tree cover and forest area</li>
+        <li>Contribute to Ethiopia's Nationally Determined Contribution (NDC) under the Paris Agreement</li>
+        <li>Mobilize communities as active stewards of their natural environments</li>
+        <li>Support biodiversity recovery across restored landscapes</li>
+      </ul>
+      <div class="view-highlight">The Green Legacy Initiative stands as proof that large-scale ecological transformation is possible when governments, communities, and citizens unite around a shared vision for sustainable landscapes.</div>
+    </div>
+    <div class="view-nav">
+      <button class="view-nav-btn" data-view="home">↑ Home</button>
+      <button class="view-nav-btn" data-view="REDD">REDD+ →</button>
+    </div>
+  </div></div>
+</div>
+
+<!-- FOOD SECURITY -->
+<div id="view-Food" class="content-view">
+  <div class="view-header">
+    <div class="view-header-inner">
+      <div class="view-crumb"><a data-view="home">Home</a><span class="view-crumb-sep"> › </span>Programs<span class="view-crumb-sep"> › </span><span class="view-crumb-cur">Food Security</span></div>
+      <div class="view-badge">🌾 Program</div>
+      <h1 class="view-h1">Food <em>Security</em></h1>
+    </div>
+  </div>
+  <div class="view-body-wrap"><div class="view-content">
+    <div class="view-body">
+      <p>Food security remains one of Ethiopia's most pressing development challenges. Despite significant agricultural potential, millions of Ethiopians face seasonal food insecurity driven by drought, land degradation, poor market access, and climate variability. AFOLU Ethiopia's food security program addresses these challenges through integrated, multi-sector interventions that simultaneously improve agricultural production, natural resource management, and market linkages.</p>
+      <p>By integrating AFOLU's technical sectors — including plant science, animal science, agroforestry, and rural development — the food security program builds resilient food systems that can withstand both environmental and economic shocks. The program particularly focuses on the most vulnerable communities, including female-headed households and smallholder farmers in climate-stressed regions.</p>
+      <div class="view-h3">Program Pillars</div>
+      <ul class="view-list">
+        <li>Improved agricultural technology and input access for smallholders</li>
+        <li>Natural resource rehabilitation to restore productive land base</li>
+        <li>Market linkage and post-harvest loss reduction</li>
+        <li>Nutrition-sensitive agriculture and dietary diversification</li>
+        <li>Safety net and social protection integration</li>
+      </ul>
+    </div>
+    <div class="view-nav">
+      <button class="view-nav-btn" data-view="Climate">← Climate Resilience</button>
+      <button class="view-nav-btn" data-view="REDD">REDD+ →</button>
+    </div>
+  </div></div>
+</div>
+
+<!-- CLIMATE RESILIENCE -->
+<div id="view-Climate" class="content-view">
+  <div class="view-header">
+    <div class="view-header-inner">
+      <div class="view-crumb"><a data-view="home">Home</a><span class="view-crumb-sep"> › </span>Programs<span class="view-crumb-sep"> › </span><span class="view-crumb-cur">Climate Resilience</span></div>
+      <div class="view-badge">🌡 Program</div>
+      <h1 class="view-h1">Climate <em>Resilience</em></h1>
+    </div>
+  </div>
+  <div class="view-body-wrap"><div class="view-content">
+    <div class="view-body">
+      <p>Climate change poses an existential threat to Ethiopia's agricultural systems, water resources, and ecosystems. Rising temperatures, erratic rainfall, and increasing frequency of extreme weather events are already affecting millions of Ethiopians — particularly in climate-exposed lowlands and highlands. AFOLU Ethiopia's climate resilience program builds adaptive capacity at community, institutional, and landscape levels.</p>
+      <p>The program is aligned with Ethiopia's Climate Resilient Green Economy (CRGE) strategy, supporting implementation of nationally determined contributions through AFOLU sector actions. From climate-smart agriculture and ecosystem-based adaptation to community early warning systems and climate finance mechanisms, AFOLU's climate resilience program offers a comprehensive response.</p>
+      <div class="view-h3">Key Interventions</div>
+      <ul class="view-list">
+        <li>Climate-smart agriculture (CSA) technology dissemination</li>
+        <li>Ecosystem-based adaptation through watershed and landscape restoration</li>
+        <li>Community climate vulnerability assessments and adaptation planning</li>
+        <li>CRGE strategy implementation support at regional and local levels</li>
+        <li>Climate finance access facilitation for community-level programs</li>
+      </ul>
+      <div class="view-highlight">Resilience is not simply the capacity to survive shocks — it is the capacity to transform challenges into opportunities for regeneration. That is the vision animating AFOLU's climate resilience work.</div>
+    </div>
+    <div class="view-nav">
+      <button class="view-nav-btn" data-view="Food">← Food Security</button>
+      <button class="view-nav-btn" data-view="REDD">REDD+ →</button>
+    </div>
+  </div></div>
+</div>
+
+<!-- REDD+ -->
+<div id="view-REDD" class="content-view">
+  <div class="view-header">
+    <div class="view-header-inner">
+      <div class="view-crumb"><a data-view="home">Home</a><span class="view-crumb-sep"> › </span>Programs<span class="view-crumb-sep"> › </span><span class="view-crumb-cur">REDD+</span></div>
+      <div class="view-badge">🌳 Program</div>
+      <h1 class="view-h1">REDD+ <em>Program</em></h1>
+    </div>
+  </div>
+  <div class="view-body-wrap"><div class="view-content">
+    <div class="view-body">
+      <p>REDD+ (Reducing Emissions from Deforestation and Forest Degradation) represents a major international climate finance mechanism that rewards developing countries for protecting and restoring their forests. Ethiopia's forests store vast quantities of carbon, and their protection is critical both for global climate stability and for local communities that depend on forest ecosystem services.</p>
+      <p>AFOLU Ethiopia supports Ethiopia's REDD+ strategy by developing community-based forest management programs, building the forest monitoring and measurement systems required for REDD+ reporting, and linking forest conservation with biodiversity protection and community livelihood improvement through payment for ecosystem services approaches.</p>
+      <div class="view-h3">REDD+ Activities</div>
+      <ul class="view-list">
+        <li>REDD+ readiness support and national strategy implementation</li>
+        <li>Forest reference level development and emissions accounting</li>
+        <li>Community-based forest management linked to REDD+ incentives</li>
+        <li>Forest monitoring, reporting, and verification (MRV) systems</li>
+        <li>Safeguard information systems development</li>
+      </ul>
+    </div>
+    <div class="view-nav">
+      <button class="view-nav-btn" data-view="Climate">← Climate Resilience</button>
+      <button class="view-nav-btn" data-view="Reports">Resources →</button>
+    </div>
+  </div></div>
+</div>
+
+<!-- REPORTS -->
+<div id="view-Reports" class="content-view">
+  <div class="view-header">
+    <div class="view-header-inner">
+      <div class="view-crumb"><a data-view="home">Home</a><span class="view-crumb-sep"> › </span>Resources<span class="view-crumb-sep"> › </span><span class="view-crumb-cur">Reports &amp; Publications</span></div>
+      <div class="view-badge">📄 Resources</div>
+      <h1 class="view-h1">Reports <em>&amp; Publications</em></h1>
+    </div>
+  </div>
+  <div class="view-body-wrap"><div class="view-content">
+    <div class="view-body">
+      <p>AFOLU Ethiopia produces a range of knowledge products to share evidence, lessons, and recommendations with stakeholders across Ethiopia and internationally. Our publications include annual reports, technical research papers, program evaluation reports, policy briefs, and sector-specific knowledge products covering all eight technical sectors.</p>
+      <div class="view-h3">Publication Categories</div>
+      <ul class="view-list">
+        <li>Annual Reports — institutional performance and financial reporting</li>
+        <li>Program Reports — flagship program implementation documentation</li>
+        <li>Technical Research Papers — sector-specific scientific publications</li>
+        <li>Policy Briefs — evidence-based policy recommendations</li>
+        <li>Training Manuals — extension and capacity building materials</li>
+        <li>Case Studies — community and landscape success stories</li>
+      </ul>
+      <p style="margin-top:1.5rem">For the latest publications, contact us at <a href="mailto:afoluofethiopia@gmail.com">afoluofethiopia@gmail.com</a></p>
+    </div>
+    <div class="view-nav">
+      <button class="view-nav-btn" data-view="home">↑ Home</button>
+      <button class="view-nav-btn" data-view="Geospatial">Geospatial →</button>
+    </div>
+  </div></div>
+</div>
+
+<!-- GEOSPATIAL -->
+<div id="view-Geospatial" class="content-view">
+  <div class="view-header">
+    <div class="view-header-inner">
+      <div class="view-crumb"><a data-view="home">Home</a><span class="view-crumb-sep"> › </span>Resources<span class="view-crumb-sep"> › </span><span class="view-crumb-cur">Geospatial &amp; GIS</span></div>
+      <div class="view-badge">🛰 Resources</div>
+      <h1 class="view-h1">Geospatial <em>&amp; GIS</em></h1>
+    </div>
+  </div>
+  <div class="view-body-wrap"><div class="view-content">
+    <div class="view-body">
+      <p>Geospatial technologies and Geographic Information Systems (GIS) are essential tools for AFOLU Ethiopia's monitoring, planning, and reporting functions. From satellite-based land cover change analysis to drone surveys and mobile data collection, AFOLU's geospatial unit deploys a range of remote sensing and spatial analysis capabilities to support evidence-based programming.</p>
+      <p>The unit supports forest monitoring for REDD+ and Green Legacy reporting, watershed characterization for NRM programming, and land use change analysis for policy and planning. By combining satellite imagery, field data, and spatial modeling, AFOLU produces high-quality geospatial products that inform both programmatic decisions and national policy processes.</p>
+      <div class="view-h3">Geospatial Capabilities</div>
+      <ul class="view-list">
+        <li>Land use and land cover change analysis using satellite imagery</li>
+        <li>Forest cover monitoring for REDD+ and Green Legacy</li>
+        <li>Watershed delineation and hydrological modeling</li>
+        <li>Mobile data collection and field survey management</li>
+        <li>Spatial data management and GIS platform development</li>
+      </ul>
+    </div>
+    <div class="view-nav">
+      <button class="view-nav-btn" data-view="Reports">← Reports</button>
+      <button class="view-nav-btn" data-view="publications">Technical Manuals →</button>
+    </div>
+  </div></div>
+</div>
+
+<!-- TECHNICAL MANUALS -->
+<div id="view-publications" class="content-view">
+  <div class="view-header">
+    <div class="view-header-inner">
+      <div class="view-crumb"><a data-view="home">Home</a><span class="view-crumb-sep"> › </span>Resources<span class="view-crumb-sep"> › </span><span class="view-crumb-cur">Technical Manuals</span></div>
+      <div class="view-badge">📘 Resources</div>
+      <h1 class="view-h1">Technical <em>Manuals</em></h1>
+    </div>
+  </div>
+  <div class="view-body-wrap"><div class="view-content">
+    <div class="view-body">
+      <p>AFOLU Ethiopia develops practical technical manuals and training materials to support extension workers, community facilitators, and field practitioners across its technical sectors. These manuals translate research findings and international best practices into accessible, locally adapted guidance for Ethiopian contexts.</p>
+      <div class="view-h3">Manual Categories</div>
+      <ul class="view-list">
+        <li>Agroforestry Practice Guides for Different Agroecological Zones</li>
+        <li>Community Watershed Management Facilitation Manuals</li>
+        <li>Livestock Management and Rangeland Health Guides</li>
+        <li>Farmer Training Center Operations Manuals</li>
+        <li>GIS and Geospatial Field Data Collection Guides</li>
+        <li>REDD+ Community Forest Management Facilitation Manuals</li>
+      </ul>
+      <p style="margin-top:1.5rem">To request specific technical manuals, contact <a href="mailto:afoluofethiopia@gmail.com">afoluofethiopia@gmail.com</a></p>
+    </div>
+    <div class="view-nav">
+      <button class="view-nav-btn" data-view="Geospatial">← Geospatial</button>
+      <button class="view-nav-btn" data-view="Projects">Projects →</button>
+    </div>
+  </div></div>
+</div>
+
+<!-- PROJECTS -->
+<div id="view-Projects" class="content-view">
+  <div class="view-header">
+    <div class="view-header-inner">
+      <div class="view-crumb"><a data-view="home">Home</a><span class="view-crumb-sep"> › </span>Projects<span class="view-crumb-sep"> › </span><span class="view-crumb-cur">Current Projects</span></div>
+      <div class="view-badge">🔬 Projects</div>
+      <h1 class="view-h1">Current <em>Projects</em></h1>
+    </div>
+  </div>
+  <div class="view-body-wrap"><div class="view-content">
+    <div class="view-body">
+      <p>AFOLU Ethiopia currently implements a portfolio of projects across its technical sectors and programs, each contributing to the organization's broader mission of sustainable land use and ecological resilience. Projects range from community-level extension and restoration programs to national-scale policy and monitoring initiatives.</p>
+      <div class="view-h3">Active Project Portfolio</div>
+      <ul class="view-list">
+        <li>Green Legacy Initiative Implementation and Monitoring (2024–2026)</li>
+        <li>Integrated Watershed Management in Oromia and Amhara Highlands</li>
+        <li>REDD+ Community Forest Management Pilot — Three Regions</li>
+        <li>Climate-Smart Agriculture Scale-Up Program</li>
+        <li>Agroforestry Value Chain Development for Smallholders</li>
+        <li>National Land Cover Monitoring and Forest Inventory Support</li>
+      </ul>
+      <p style="margin-top:1.5rem">For project partnership inquiries, contact us at <a href="mailto:afoluofethiopia@gmail.com">afoluofethiopia@gmail.com</a></p>
+    </div>
+    <div class="view-nav">
+      <button class="view-nav-btn" data-view="home">↑ Home</button>
+      <button class="view-nav-btn" data-view="Completed">Completed →</button>
+    </div>
+  </div></div>
+</div>
+
+<!-- COMPLETED PROJECTS -->
+<div id="view-Completed" class="content-view">
+  <div class="view-header">
+    <div class="view-header-inner">
+      <div class="view-crumb"><a data-view="home">Home</a><span class="view-crumb-sep"> › </span>Projects<span class="view-crumb-sep"> › </span><span class="view-crumb-cur">Completed Projects</span></div>
+      <div class="view-badge">✅ Projects</div>
+      <h1 class="view-h1">Completed <em>Projects</em></h1>
+    </div>
+  </div>
+  <div class="view-body-wrap"><div class="view-content">
+    <div class="view-body">
+      <p>AFOLU Ethiopia has successfully completed a range of projects since its establishment in 2019, building a strong evidence base and a growing network of community partners across Ethiopia. Our completed project portfolio demonstrates AFOLU's capacity for effective project implementation and impact generation.</p>
+      <div class="view-h3">Completed Project Highlights</div>
+      <ul class="view-list">
+        <li>Community Nursery and Seedling Production Support (2019–2021)</li>
+        <li>Farmer Field School Network Development — Oromia Region</li>
+        <li>Dryland Agroforestry Demonstration Sites Establishment</li>
+        <li>GIS Capacity Building for Regional Land Use Planning Offices</li>
+        <li>Participatory Land Use Planning in Three Woredas</li>
+      </ul>
+    </div>
+    <div class="view-nav">
+      <button class="view-nav-btn" data-view="Projects">← Current Projects</button>
+      <button class="view-nav-btn" data-view="Regional">Regional Projects →</button>
+    </div>
+  </div></div>
+</div>
+
+<!-- REGIONAL PROJECTS -->
+<div id="view-Regional" class="content-view">
+  <div class="view-header">
+    <div class="view-header-inner">
+      <div class="view-crumb"><a data-view="home">Home</a><span class="view-crumb-sep"> › </span>Projects<span class="view-crumb-sep"> › </span><span class="view-crumb-cur">Regional Projects</span></div>
+      <div class="view-badge">🗺 Projects</div>
+      <h1 class="view-h1">Regional <em>Projects</em></h1>
+    </div>
+  </div>
+  <div class="view-body-wrap"><div class="view-content">
+    <div class="view-body">
+      <p>AFOLU Ethiopia's regional projects address landscape-specific challenges and opportunities across Ethiopia's diverse administrative regions. Regional programming recognizes that sustainable land management must be adapted to local ecological, cultural, and institutional contexts — from the humid forests of Southwestern Ethiopia to the pastoral rangelands of the Somali and Afar regions.</p>
+      <div class="view-h3">Regional Focus Areas</div>
+      <ul class="view-list">
+        <li>Oromia — Highland watershed restoration and agroforestry expansion</li>
+        <li>Amhara — Soil and water conservation and food security programming</li>
+        <li>SNNPR — Forest conservation and non-timber forest product development</li>
+        <li>Tigray — Dryland rehabilitation and climate-smart agriculture</li>
+        <li>Somali &amp; Afar — Pastoral rangeland management and water development</li>
+        <li>Benishangul-Gumuz — Community forest management and REDD+ piloting</li>
+      </ul>
+    </div>
+    <div class="view-nav">
+      <button class="view-nav-btn" data-view="Completed">← Completed</button>
+      <button class="view-nav-btn" data-view="News">News →</button>
+    </div>
+  </div></div>
+</div>
+
+<!-- NEWS VIEW -->
+<div id="view-News" class="content-view">
+  <div class="view-header">
+    <div class="view-header-inner">
+      <div class="view-crumb"><a data-view="home">Home</a><span class="view-crumb-sep"> › </span><span class="view-crumb-cur">Latest News</span></div>
+      <div class="view-badge">📰 News</div>
+      <h1 class="view-h1">Latest <em>News</em></h1>
+    </div>
+  </div>
+  <div class="view-body-wrap"><div class="view-content">
+    <div class="news-filter-bar">
+      <input class="nf-input" id="news-search" type="text" placeholder="Search news…" oninput="filterNews()">
+      <select class="nf-select" id="news-section-filter" onchange="filterNews()">
+        <option value="">All Sections</option>
+        <option>Plant Science</option><option>Natural Resource Management</option>
+        <option>Agroforestry</option><option>Animal Science</option>
+        <option>Rural Development</option><option>Agro-Economics</option>
+        <option>Forestry</option><option>Wildlife &amp; Ecotourism</option>
+        <option>Green Legacy Initiative</option><option>Food Security</option>
+        <option>Climate Resilience</option><option>REDD+</option>
+        <option>Reports &amp; Publications</option><option>Geospatial &amp; GIS</option>
+        <option>Technical Manuals</option><option>Latest News</option>
+        <option>Events</option>
+      </select>
+      <select class="nf-select" id="news-type-filter" onchange="filterNews()">
+        <option value="">All Types</option>
+        <option>Announcement</option><option>Report</option>
+        <option>Event</option><option>Publication</option>
+      </select>
+      <span id="news-count"></span>
+    </div>
+    <div class="news-active-filters" id="news-active-filters" style="display:none">
+      <span id="news-filter-label"></span>
+      <button class="clear-btn" onclick="clearNewsFilters()">✕ Clear Filters</button>
+    </div>
+    <div id="news-loading" class="news-loading">Loading updates…</div>
+    <div id="news-empty" class="news-empty" style="display:none">No updates match your search. Try adjusting filters.</div>
+    <div id="news-feed" class="news-feed"></div>
+  </div></div>
+</div>
+
+<!-- EVENTS -->
+<div id="view-events" class="content-view">
+  <div class="view-header">
+    <div class="view-header-inner">
+      <div class="view-crumb"><a data-view="home">Home</a><span class="view-crumb-sep"> › </span>News<span class="view-crumb-sep"> › </span><span class="view-crumb-cur">Events</span></div>
+      <div class="view-badge">📅 Events</div>
+      <h1 class="view-h1">Upcoming <em>Events</em></h1>
+    </div>
+  </div>
+  <div class="view-body-wrap"><div class="view-content">
+    <div class="view-body">
+      <p>AFOLU Ethiopia regularly organizes and participates in workshops, conferences, stakeholder consultations, and field events across Ethiopia and internationally. Our events bring together researchers, practitioners, government partners, and community members to share knowledge, review progress, and plan future action.</p>
+      <div class="view-h3">Upcoming Events — 2026</div>
+      <ul class="view-list">
+        <li><strong>April 25, 2026</strong> — Workshop on Climate-Smart Agriculture, Addis Ababa (Registration Open)</li>
+        <li><strong>May 3, 2026</strong> — REDD+ Project Implementation Review, Virtual &amp; In-Person</li>
+        <li><strong>May 10, 2026</strong> — AFOLU Fellowship Program 2026 Application Deadline</li>
+        <li><strong>April 30, 2026</strong> — National Symposium on Sustainable Land Management Abstract Deadline</li>
+        <li><strong>June 2026</strong> — Annual Green Legacy Community Planting Days (Nationwide)</li>
+      </ul>
+      <p style="margin-top:1.5rem">To register for events or submit abstracts, contact <a href="mailto:afoluofethiopia@gmail.com">afoluofethiopia@gmail.com</a></p>
+    </div>
+    <div class="view-nav">
+      <button class="view-nav-btn" data-view="News">← News</button>
+      <button class="view-nav-btn" data-view="Gallery">Gallery →</button>
+    </div>
+  </div></div>
+</div>
+
+<!-- GALLERY -->
+<div id="view-Gallery" class="content-view">
+  <div class="view-header">
+    <div class="view-header-inner">
+      <div class="view-crumb"><a data-view="home">Home</a><span class="view-crumb-sep"> › </span>News<span class="view-crumb-sep"> › </span><span class="view-crumb-cur">Photo Gallery</span></div>
+      <div class="view-badge">🖼 Gallery</div>
+      <h1 class="view-h1">Photo <em>Gallery</em></h1>
+    </div>
+  </div>
+  <div class="view-body-wrap"><div class="view-content">
+    <p style="font-size:0.95rem;color:var(--muted);margin-bottom:2rem">Visual documentation of AFOLU Ethiopia's programs, fieldwork, events, and landscapes. Follow us on <a href="https://www.facebook.com/afoluethiopia" target="_blank" style="color:var(--forest);font-weight:600">Facebook</a> for the latest photos and updates from the field.</p>
+    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:1rem">
+      <div style="aspect-ratio:1;background:linear-gradient(135deg,#0d2818,#2a7a48);border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:3rem">🌾</div>
+      <div style="aspect-ratio:1;background:linear-gradient(135deg,#1a3060,#2d6ea8);border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:3rem">🌿</div>
+      <div style="aspect-ratio:1;background:linear-gradient(135deg,#3a2000,#8a5000);border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:3rem">🌳</div>
+      <div style="aspect-ratio:1;background:linear-gradient(135deg,#0a2018,#1a5a38);border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:3rem">🦁</div>
+      <div style="aspect-ratio:1;background:linear-gradient(135deg,#2a1a08,#6a4018);border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:3rem">🐄</div>
+      <div style="aspect-ratio:1;background:linear-gradient(135deg,#0a1a30,#1a3a60);border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:3rem">🛰</div>
+    </div>
+    <div class="view-nav">
+      <button class="view-nav-btn" data-view="events">← Events</button>
+      <button class="view-nav-btn" data-view="Testimonials">Testimonials →</button>
+    </div>
+  </div></div>
+</div>
+
+<!-- TESTIMONIALS -->
+<div id="view-Testimonials" class="content-view">
+  <div class="view-header">
+    <div class="view-header-inner">
+      <div class="view-crumb"><a data-view="home">Home</a><span class="view-crumb-sep"> › </span>News<span class="view-crumb-sep"> › </span><span class="view-crumb-cur">Testimonials</span></div>
+      <div class="view-badge">💬 Community</div>
+      <h1 class="view-h1"><em>Testimonials</em></h1>
+    </div>
+  </div>
+  <div class="view-body-wrap"><div class="view-content">
+    <div class="view-body">
+      <p>The work of AFOLU Ethiopia is grounded in community relationships and field-level impact. Here are perspectives from communities, partners, and practitioners who have experienced the transformation that sustainable land management can bring.</p>
+      <div style="display:flex;flex-direction:column;gap:1.5rem;margin-top:2rem">
+        <div class="view-highlight">"The agroforestry techniques we learned through AFOLU have transformed our farm. Our soil is healthier, we have more shade for our crops, and we now have additional income from fruit trees. This is real change for our family." — Smallholder Farmer, Oromia Region</div>
+        <div class="view-highlight">"AFOLU's watershed program gave our community the tools and knowledge to take ownership of our natural resources. We now manage our forest together and our water sources have improved." — Community Leader, Amhara Region</div>
+        <div class="view-highlight">"The partnership with AFOLU has been invaluable for our REDD+ implementation. Their technical rigor and community engagement approach are exactly what Ethiopia's forest conservation program needs." — Development Partner Representative</div>
+      </div>
+    </div>
+    <div class="view-nav">
+      <button class="view-nav-btn" data-view="Gallery">← Gallery</button>
+      <button class="view-nav-btn" data-view="home">↑ Home</button>
+    </div>
+  </div></div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-top">
+    <div class="footer-brand">
+      <div class="footer-brand-name">AFOLU of Ethiopia</div>
+      <div class="footer-brand-sub">Agriculture · Forestry · Land Use</div>
+      <div class="footer-brand-desc">Advancing sustainable land management, climate resilience, and rural livelihoods across Ethiopia's diverse landscapes since 2019. Aligned with Ethiopia's Climate Resilient Green Economy (CRGE) Strategy.</div>
+      <div class="footer-social">
+        <a class="fsoc" href="https://www.facebook.com/afoluethiopia" target="_blank">fb</a>
+        <a class="fsoc" href="#">tw</a>
+        <a class="fsoc" href="#">yt</a>
+        <a class="fsoc" href="#">in</a>
+      </div>
+    </div>
+    <div>
+      <div class="footer-col-title">Quick Links</div>
+      <ul class="footer-col-links">
+        <li><span data-view="About">About AFOLU</span></li>
+        <li><span data-view="Mission">Mission &amp; Vision</span></li>
+        <li><span data-view="Leadership">Leadership</span></li>
+        <li><span data-view="Legacy">Green Legacy</span></li>
+        <li><span data-view="REDD">REDD+ Program</span></li>
+        <li><span data-view="Climate">Climate Resilience</span></li>
+      </ul>
+    </div>
+    <div>
+      <div class="footer-col-title">Sectors</div>
+      <ul class="footer-col-links">
+        <li><span data-view="plant-science">Plant Science</span></li>
+        <li><span data-view="Natural-Resource-Mgmt">NRM</span></li>
+        <li><span data-view="agroforestry">Agroforestry</span></li>
+        <li><span data-view="animal-science">Animal Science</span></li>
+        <li><span data-view="Extension">Rural Development</span></li>
+        <li><span data-view="forestry">Forestry</span></li>
+      </ul>
+    </div>
+    <div>
+      <div class="footer-col-title">Contact</div>
+      <ul class="footer-col-links">
+        <li><span>📍 Finfinnee / Addis Ababa</span></li>
+        <li><a href="tel:+251911946101">📞 +251 911 946 101</a></li>
+        <li><a href="mailto:afoluofethiopia@gmail.com">✉ afoluofethiopia@gmail.com</a></li>
+        <li><a href="https://www.facebook.com/afoluethiopia" target="_blank">🌐 Facebook</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2026 AFOLU of Ethiopia. All rights reserved.</span>
+    <span>Agriculture · Forestry · Other Land Use · Finfinnee, Ethiopia</span>
+  </div>
+</footer>
+
+<!-- ============================================================
+     SITE MAP FLOATING BUTTON
+     ============================================================ -->
+<button class="sitemap-fab" id="sitemapFab" aria-label="View Site Map">
+  <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+    <rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/>
+    <rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/>
+  </svg>
+  Site Map
+</button>
+
+<!-- SITE MAP OVERLAY -->
+<div class="sitemap-overlay" id="sitemapOverlay">
+  <div class="sitemap-panel" id="sitemapPanel">
+
+    <!-- Header -->
+    <div class="sitemap-header">
+      <div class="sitemap-header-left">
+        <div class="sitemap-title">Site <em>Directory</em></div>
+        <div class="sitemap-subtitle">Click any section to navigate directly</div>
+      </div>
+      <button class="sitemap-close" id="sitemapClose" aria-label="Close">✕</button>
+    </div>
+
+    <!-- Body -->
+    <div class="sitemap-body">
+
+      <!-- Home -->
+      <div class="sm-group" style="grid-column:1/-1">
+        <div class="sm-group-head"><span>🏠</span><div class="sm-group-accent"></div>Main</div>
+        <div class="sm-items">
+          <div class="sm-item sm-home" data-view="home" data-sm>🏠 &nbsp; Back to Home</div>
+        </div>
+      </div>
+
+      <!-- About -->
+      <div class="sm-group">
+        <div class="sm-group-head"><span>🌱</span><div class="sm-group-accent"></div>About</div>
+        <div class="sm-items">
+          <div class="sm-item" data-view="About" data-sm><span class="sm-item-icon">🌱</span><span class="sm-item-label">About AFOLU</span><span class="sm-item-arrow">→</span></div>
+          <div class="sm-item" data-view="Mission" data-sm><span class="sm-item-icon">🎯</span><span class="sm-item-label">Mission &amp; Vision</span><span class="sm-item-arrow">→</span></div>
+          <div class="sm-item" data-view="Leadership" data-sm><span class="sm-item-icon">👥</span><span class="sm-item-label">Leadership</span><span class="sm-item-arrow">→</span></div>
+          <div class="sm-item" data-view="Organizational" data-sm><span class="sm-item-icon">🏛</span><span class="sm-item-label">Organizational Structure</span><span class="sm-item-arrow">→</span></div>
+        </div>
+      </div>
+
+      <!-- Sectors -->
+      <div class="sm-group">
+        <div class="sm-group-head"><span>🌿</span><div class="sm-group-accent"></div>Technical Sectors</div>
+        <div class="sm-items">
+          <div class="sm-item" data-view="plant-science" data-sm><span class="sm-item-icon">🌾</span><span class="sm-item-label">Plant Science</span><span class="sm-item-arrow">→</span></div>
+          <div class="sm-item" data-view="Natural-Resource-Mgmt" data-sm><span class="sm-item-icon">🌍</span><span class="sm-item-label">Natural Resource Management</span><span class="sm-item-arrow">→</span></div>
+          <div class="sm-item" data-view="agroforestry" data-sm><span class="sm-item-icon">🌿</span><span class="sm-item-label">Agroforestry</span><span class="sm-item-arrow">→</span></div>
+          <div class="sm-item" data-view="animal-science" data-sm><span class="sm-item-icon">🐄</span><span class="sm-item-label">Animal Science</span><span class="sm-item-arrow">→</span></div>
+          <div class="sm-item" data-view="Extension" data-sm><span class="sm-item-icon">🏘</span><span class="sm-item-label">Rural Development</span><span class="sm-item-arrow">→</span></div>
+          <div class="sm-item" data-view="Agro-Economics" data-sm><span class="sm-item-icon">📊</span><span class="sm-item-label">Agro-Economics</span><span class="sm-item-arrow">→</span></div>
+          <div class="sm-item" data-view="forestry" data-sm><span class="sm-item-icon">🌳</span><span class="sm-item-label">Forestry</span><span class="sm-item-arrow">→</span></div>
+          <div class="sm-item" data-view="Wildlife" data-sm><span class="sm-item-icon">🦁</span><span class="sm-item-label">Wildlife &amp; Ecotourism</span><span class="sm-item-arrow">→</span></div>
+        </div>
+      </div>
+
+      <!-- Programs -->
+      <div class="sm-group">
+        <div class="sm-group-head"><span>🚀</span><div class="sm-group-accent"></div>Programs</div>
+        <div class="sm-items">
+          <div class="sm-item" data-view="Legacy" data-sm><span class="sm-item-icon">🌱</span><span class="sm-item-label">Green Legacy Initiative</span><span class="sm-item-arrow">→</span></div>
+          <div class="sm-item" data-view="REDD" data-sm><span class="sm-item-icon">🌳</span><span class="sm-item-label">REDD+ Program</span><span class="sm-item-arrow">→</span></div>
+          <div class="sm-item" data-view="Climate" data-sm><span class="sm-item-icon">🌡</span><span class="sm-item-label">Climate Resilience</span><span class="sm-item-arrow">→</span></div>
+          <div class="sm-item" data-view="Food" data-sm><span class="sm-item-icon">🌾</span><span class="sm-item-label">Food Security</span><span class="sm-item-arrow">→</span></div>
+        </div>
+      </div>
+
+      <!-- Resources -->
+      <div class="sm-group">
+        <div class="sm-group-head"><span>📚</span><div class="sm-group-accent"></div>Resources</div>
+        <div class="sm-items">
+          <div class="sm-item" data-view="Reports" data-sm><span class="sm-item-icon">📄</span><span class="sm-item-label">Reports &amp; Publications</span><span class="sm-item-arrow">→</span></div>
+          <div class="sm-item" data-view="Geospatial" data-sm><span class="sm-item-icon">🛰</span><span class="sm-item-label">Geospatial &amp; GIS</span><span class="sm-item-arrow">→</span></div>
+          <div class="sm-item" data-view="publications" data-sm><span class="sm-item-icon">📘</span><span class="sm-item-label">Technical Manuals</span><span class="sm-item-arrow">→</span></div>
+        </div>
+      </div>
+
+      <!-- Projects -->
+      <div class="sm-group">
+        <div class="sm-group-head"><span>🔬</span><div class="sm-group-accent"></div>Projects</div>
+        <div class="sm-items">
+          <div class="sm-item" data-view="Projects" data-sm><span class="sm-item-icon">🔬</span><span class="sm-item-label">Current Projects</span><span class="sm-item-arrow">→</span></div>
+          <div class="sm-item" data-view="Completed" data-sm><span class="sm-item-icon">✅</span><span class="sm-item-label">Completed Projects</span><span class="sm-item-arrow">→</span></div>
+          <div class="sm-item" data-view="Regional" data-sm><span class="sm-item-icon">🗺</span><span class="sm-item-label">Regional Projects</span><span class="sm-item-arrow">→</span></div>
+        </div>
+      </div>
+
+      <!-- News & Media -->
+      <div class="sm-group">
+        <div class="sm-group-head"><span>📰</span><div class="sm-group-accent"></div>News &amp; Media</div>
+        <div class="sm-items">
+          <div class="sm-item" data-view="News" data-sm><span class="sm-item-icon">📰</span><span class="sm-item-label">Latest News</span><span class="sm-item-arrow">→</span></div>
+          <div class="sm-item" data-view="events" data-sm><span class="sm-item-icon">📅</span><span class="sm-item-label">Events &amp; Announcements</span><span class="sm-item-arrow">→</span></div>
+          <div class="sm-item" data-view="Gallery" data-sm><span class="sm-item-icon">🖼</span><span class="sm-item-label">Photo Gallery</span><span class="sm-item-arrow">→</span></div>
+          <div class="sm-item" data-view="Testimonials" data-sm><span class="sm-item-icon">💬</span><span class="sm-item-label">Testimonials</span><span class="sm-item-arrow">→</span></div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Footer -->
+    <div class="sitemap-footer">
+      <span class="sitemap-footer-note">AFOLU of Ethiopia — Agriculture · Forestry · Land Use · Finfinnee</span>
+      <span class="sitemap-footer-count">28 Sections</span>
+    </div>
+
+  </div>
+</div>
+
+<script>
+/* ============================================================
+   HERO SLIDER
+   ============================================================ */
+(function() {
+  const slides = document.querySelectorAll('.hero-slide');
+  const dots = document.querySelectorAll('.sdot');
+  let cur = 0, timer;
+
+  function goTo(n) {
+    slides[cur].classList.remove('active');
+    dots[cur].classList.remove('active');
+    cur = (n + slides.length) % slides.length;
+    slides[cur].classList.add('active');
+    dots[cur].classList.add('active');
+  }
+
+  document.getElementById('sNext').addEventListener('click', () => { goTo(cur + 1); resetTimer(); });
+  document.getElementById('sPrev').addEventListener('click', () => { goTo(cur - 1); resetTimer(); });
+  dots.forEach(d => d.addEventListener('click', () => { goTo(+d.dataset.s); resetTimer(); }));
+
+  function resetTimer() { clearInterval(timer); timer = setInterval(() => goTo(cur + 1), 6000); }
+  resetTimer();
+})();
+
+/* ============================================================
+   HAMBURGER
+   ============================================================ */
+const hbg = document.getElementById('hamburger');
+const navLinks = document.getElementById('navLinks');
+hbg.addEventListener('click', () => {
+  hbg.classList.toggle('open');
+  navLinks.classList.toggle('open');
+});
+
+/* ============================================================
+   DROPDOWNS
+   ============================================================ */
+document.querySelectorAll('.has-drop > a').forEach(trigger => {
+  trigger.addEventListener('click', function(e) {
+    e.preventDefault(); e.stopPropagation();
+    const li = this.parentElement;
+    const wasOpen = li.classList.contains('open');
+    document.querySelectorAll('.has-drop').forEach(x => x.classList.remove('open'));
+    if (!wasOpen) li.classList.add('open');
+  });
+});
+document.addEventListener('click', () => document.querySelectorAll('.has-drop').forEach(x => x.classList.remove('open')));
+
+/* ============================================================
+   HASH-BASED URL ROUTING
+   e.g. yoursite.com/#about  →  shows the About section
+        yoursite.com/#plant-science  →  shows Plant Science
+        yoursite.com/  (no hash)  →  shows Home
+   Share any URL directly and it loads that exact section.
+   ============================================================ */
+
+/* Map of view IDs to human-readable URL slugs and back */
+const VIEW_SLUG = {
+  'home':                 'home',
+  'About':                'about',
+  'Mission':              'mission',
+  'Leadership':           'leadership',
+  'Organizational':       'org-structure',
+  'plant-science':        'plant-science',
+  'Natural-Resource-Mgmt':'natural-resource-management',
+  'agroforestry':         'agroforestry',
+  'animal-science':       'animal-science',
+  'Extension':            'rural-development',
+  'Agro-Economics':       'agro-economics',
+  'forestry':             'forestry',
+  'Wildlife':             'wildlife-ecotourism',
+  'Legacy':               'green-legacy',
+  'REDD':                 'redd-plus',
+  'Climate':              'climate-resilience',
+  'Food':                 'food-security',
+  'Reports':              'reports-publications',
+  'Geospatial':           'geospatial-gis',
+  'publications':         'technical-manuals',
+  'Projects':             'current-projects',
+  'Completed':            'completed-projects',
+  'Regional':             'regional-projects',
+  'News':                 'news',
+  'events':               'events',
+  'Gallery':              'gallery',
+  'Testimonials':         'testimonials',
+  'contact-section':      'contact',
+};
+
+/* Reverse map: slug → view id */
+const SLUG_VIEW = {};
+Object.entries(VIEW_SLUG).forEach(([v, s]) => { SLUG_VIEW[s] = v; });
+
+/* Update the browser address bar hash without triggering popstate scroll */
+function setHash(slug) {
+  const newHash = (slug === 'home' || !slug) ? '' : '#' + slug;
+  const url = window.location.pathname + window.location.search + newHash;
+  history.pushState({ view: slug }, '', url);
+}
+
+/* Core render function — switches visible section */
+function showView(id, pushHistory) {
+  if (pushHistory === undefined) pushHistory = true;
+
+  const homeDiv = document.getElementById('view-home');
+  const footer  = document.querySelector('footer');
+  document.querySelectorAll('.content-view').forEach(v => v.classList.remove('active'));
+
+  const slug = VIEW_SLUG[id] || id;
+
+  if (!id || id === 'home') {
+    homeDiv.style.display = '';
+    footer.style.display  = '';
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+    document.querySelectorAll('.nav-links > li > a').forEach(a =>
+      a.classList.toggle('active', a.getAttribute('data-view') === 'home')
+    );
+    if (pushHistory) setHash('home');
+    updateBreadcrumbBar('home', slug);
+    return;
+  }
+
+  homeDiv.style.display = 'none';
+  footer.style.display  = 'block';
+  const el = document.getElementById('view-' + id);
+  if (el) el.classList.add('active');
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+  hbg.classList.remove('open');
+  navLinks.classList.remove('open');
+  document.querySelectorAll('.has-drop').forEach(x => x.classList.remove('open'));
+  document.querySelectorAll('.nav-links > li > a').forEach(a => a.classList.remove('active'));
+
+  if (pushHistory) setHash(slug);
+  updateBreadcrumbBar(id, slug);
+}
+
+/* ── URL Breadcrumb Bar ── */
+function updateBreadcrumbBar(viewId, slug) {
+  const bar = document.getElementById('url-bar');
+  if (!bar) return;
+  const base = window.location.origin + window.location.pathname;
+  const hash = (viewId === 'home') ? '' : '#' + slug;
+  const fullUrl = base + hash;
+
+  document.getElementById('url-bar-path').textContent = fullUrl;
+  bar.setAttribute('data-slug', slug);
+
+  /* Highlight the active segment */
+  const segEl = document.getElementById('url-bar-segment');
+  if (viewId === 'home' || !viewId) {
+    segEl.textContent = '';
+    segEl.style.display = 'none';
+  } else {
+    segEl.textContent = '#' + slug;
+    segEl.style.display = 'inline-flex';
+  }
+
+  /* Copy flash reset */
+  const copyBtn = document.getElementById('url-bar-copy');
+  if (copyBtn) { copyBtn.textContent = '⎘ Copy'; copyBtn.classList.remove('copied'); }
+}
+
+/* Click handler for all [data-view] elements */
+document.addEventListener('click', function(e) {
+  const el = e.target.closest('[data-view]');
+  if (!el) return;
+  /* Skip dropdown parent triggers (they only open the menu) */
+  if (el.closest('.has-drop') && el === el.closest('.has-drop').querySelector(':scope > a')) return;
+  /* Skip sitemap items — they have their own handler */
+  if (el.hasAttribute('data-sm')) return;
+  e.preventDefault();
+  const view = el.getAttribute('data-view');
+  if (view) {
+    showView(view);
+    if (view === 'News') loadNews();
+  }
+});
+
+/* Handle browser back/forward buttons */
+window.addEventListener('popstate', function(e) {
+  const hash = window.location.hash.replace('#', '');
+  const viewId = hash ? (SLUG_VIEW[hash] || hash) : 'home';
+  showView(viewId, false);
+  if (viewId === 'News') loadNews();
+});
+
+/* On first load: read hash from URL and navigate to that section */
+(function initFromHash() {
+  const hash = window.location.hash.replace('#', '').trim();
+  if (hash) {
+    const viewId = SLUG_VIEW[hash] || hash;
+    showView(viewId, false);
+    if (viewId === 'News') loadNews();
+  } else {
+    updateBreadcrumbBar('home', 'home');
+  }
+})();
+
+/* ============================================================
+   NEWS SYSTEM
+   ============================================================ */
+const SECTION_VIEW_MAP = {
+  'Plant Science':'plant-science','Natural Resource Management':'Natural-Resource-Mgmt',
+  'Agroforestry':'agroforestry','Animal Science':'animal-science',
+  'Rural Development':'Extension','Agro-Economics':'Agro-Economics',
+  'Forestry':'forestry','Wildlife & Ecotourism':'Wildlife',
+  'Green Legacy Initiative':'Legacy','Food Security':'Food',
+  'Climate Resilience':'Climate','REDD+':'REDD',
+  'Reports & Publications':'Reports','Geospatial & GIS':'Geospatial',
+  'Technical Manuals':'publications','Latest News':'News',
+  'Events':'events','Photo Gallery':'Gallery','Testimonials':'Testimonials',
+};
+let allNews = [];
+
+async function loadNews() {
+  const feed = document.getElementById('news-feed');
+  const loading = document.getElementById('news-loading');
+  const empty = document.getElementById('news-empty');
+  const countEl = document.getElementById('news-count');
+  feed.innerHTML = '';
+  loading.style.display = 'block';
+  empty.style.display = 'none';
+  countEl.textContent = '';
+  try {
+    const res = await fetch('news.json?v=' + Date.now());
+    if (!res.ok) throw new Error('not found');
+    const data = await res.json();
+    allNews = (data.posts || []).sort((a, b) => new Date(b.date) - new Date(a.date));
+    loading.style.display = 'none';
+    renderNews(allNews);
+  } catch {
+    loading.style.display = 'none';
+    feed.innerHTML = `<div style="background:var(--ivory);border:1px solid var(--border);border-left:4px solid var(--earth);border-radius:6px;padding:1.6rem 2rem">
+      <div style="font-size:1rem;font-weight:700;color:var(--forest);margin-bottom:0.5rem">⚠ Updates Unavailable</div>
+      <p style="font-size:0.85rem;color:var(--muted);line-height:1.7">Make sure <strong>news.json</strong> is in the same folder as this HTML file on your server. Contact us at afoluofethiopia@gmail.com for updates.</p>
+    </div>`;
+  }
+}
+
+function renderNews(items) {
+  const feed = document.getElementById('news-feed');
+  const empty = document.getElementById('news-empty');
+  const countEl = document.getElementById('news-count');
+  feed.innerHTML = '';
+  if (!items.length) { empty.style.display = 'block'; countEl.textContent = '0 updates'; return; }
+  empty.style.display = 'none';
+  countEl.textContent = items.length + ' update' + (items.length !== 1 ? 's' : '');
+  items.forEach((post, i) => {
+    const d = new Date(post.date);
+    const dateStr = d.toLocaleDateString('en-GB', { day:'numeric', month:'long', year:'numeric' });
+    const vt = SECTION_VIEW_MAP[post.section] || '';
+    const card = document.createElement('div');
+    card.className = 'ncard';
+    card.innerHTML = `
+      <div class="ncard-meta">
+        <span class="ncard-date">${dateStr}</span>
+        ${i === 0 ? '<span class="ncard-latest">Latest</span>' : ''}
+        ${post.section ? `<span class="ncard-section">${post.section}</span>` : ''}
+        ${post.type ? `<span class="ncard-type">${post.type}</span>` : ''}
+      </div>
+      <div class="ncard-title">${post.title}</div>
+      <div class="ncard-body">${post.body}</div>
+      <div class="ncard-footer">
+        <span class="ncard-author">${post.author ? '— ' + post.author : ''}</span>
+        ${vt ? `<button class="ncard-goto" onclick="showView('${vt}')">Go to ${post.section} →</button>` : ''}
+      </div>`;
+    feed.appendChild(card);
+  });
+}
+
+function filterNews() {
+  const q = document.getElementById('news-search').value.toLowerCase().trim();
+  const sec = document.getElementById('news-section-filter').value;
+  const type = document.getElementById('news-type-filter').value;
+  const filtered = allNews.filter(p => {
+    return (!sec || p.section === sec)
+      && (!type || p.type === type)
+      && (!q || [p.title, p.body, p.section, p.author].some(x => (x||'').toLowerCase().includes(q)));
+  });
+  const parts = [sec, type, q ? `"${q}"` : ''].filter(Boolean);
+  console.log('Filters active:', parts);
+  renderNews(filtered);
+}
+
+/* ============================================================
+   SITE MAP PANEL JS
+   ============================================================ */
+(function() {
+  const fab = document.getElementById('sitemapFab');
+  const overlay = document.getElementById('sitemapOverlay');
+  const panel = document.getElementById('sitemapPanel');
+  const closeBtn = document.getElementById('sitemapClose');
+
+  function openSitemap() {
+    overlay.classList.add('open');
+    document.body.style.overflow = 'hidden';
+  }
+  function closeSitemap() {
+    overlay.classList.remove('open');
+    document.body.style.overflow = '';
+  }
+
+  fab.addEventListener('click', openSitemap);
+  closeBtn.addEventListener('click', closeSitemap);
+
+  overlay.addEventListener('click', function(e) {
+    if (!panel.contains(e.target)) closeSitemap();
+  });
+
+  document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape') closeSitemap();
+  });
+
+  document.querySelectorAll('[data-sm]').forEach(function(item) {
+    item.addEventListener('click', function(e) {
+      e.stopPropagation();
+      const view = this.getAttribute('data-view');
+      if (view) {
+        closeSitemap();
+        setTimeout(function() {
+          showView(view);
+          if (view === 'News') loadNews();
+        }, 180);
+      }
+    });
+  });
+})();
+
+/* ============================================================
+   URL BAR — COPY BUTTON
+   ============================================================ */
+function copyUrlBar() {
+  const bar = document.getElementById('url-bar');
+  const slug = bar.getAttribute('data-slug') || 'home';
+  const base = window.location.origin + window.location.pathname;
+  const hash = (slug === 'home') ? '' : '#' + slug;
+  const fullUrl = base + hash;
+
+  navigator.clipboard.writeText(fullUrl).then(function() {
+    const btn = document.getElementById('url-bar-copy');
+    btn.textContent = '✓ Copied!';
+    btn.classList.add('copied');
+    setTimeout(function() {
+      btn.textContent = '⎘ Copy';
+      btn.classList.remove('copied');
+    }, 2200);
+  }).catch(function() {
+    /* Fallback for older browsers */
+    const ta = document.createElement('textarea');
+    ta.value = fullUrl;
+    ta.style.position = 'fixed'; ta.style.opacity = '0';
+    document.body.appendChild(ta);
+    ta.select();
+    document.execCommand('copy');
+    document.body.removeChild(ta);
+    const btn = document.getElementById('url-bar-copy');
+    btn.textContent = '✓ Copied!';
+    btn.classList.add('copied');
+    setTimeout(function() { btn.textContent = '⎘ Copy'; btn.classList.remove('copied'); }, 2200);
+  });
+}
+
+/* ============================================================
+   SCROLL REVEAL
+   ============================================================ */
+const revealObserver = new IntersectionObserver(entries => {
+  entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); revealObserver.unobserve(e.target); } });
+}, { threshold: 0.08 });
+document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
+
+</script>
 </body>
 </html>
