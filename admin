@@ -1,0 +1,177 @@
+# ============================================================
+#  AFOLU Ethiopia — Decap CMS Configuration
+#  Place this file at: admin/config.yml
+# ============================================================
+
+backend:
+  name: github
+  repo: Afoluofethiopia/afolu   # ← Replace with your GitHub username/repo
+  branch: main                          # ← Replace with your branch (main or master)
+  base_url: https://Afoluofethiopia.github.io/afolu  # ← Replace with your deployed site URL
+
+# Where uploaded images/files are stored in the repo
+media_folder: "images/uploads"
+public_folder: "/images/uploads"
+
+# ============================================================
+#  COLLECTIONS
+# ============================================================
+collections:
+
+  # ----------------------------------------------------------
+  #  NEWS POSTS
+  #  Editors create posts here → auto-builds news.json via
+  #  the GitHub Action (see .github/workflows/build-news.yml)
+  # ----------------------------------------------------------
+  - name: "news"
+    label: "📰 News & Updates"
+    label_singular: "News Post"
+    folder: "_posts"
+    create: true
+    delete: true
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+    summary: "{{title}} — {{date}} [{{fields.section}}]"
+    sortable_fields: ["date", "title", "section"]
+    view_filters:
+      - label: "Latest News"
+        field: section
+        pattern: "Latest News"
+      - label: "Events"
+        field: section
+        pattern: "Events"
+      - label: "Reports"
+        field: section
+        pattern: "Reports & Publications"
+    fields:
+      - label: "Title"
+        name: "title"
+        widget: "string"
+        hint: "Headline of the news post"
+
+      - label: "Date"
+        name: "date"
+        widget: "datetime"
+        format: "YYYY-MM-DD"
+        date_format: "DD/MM/YYYY"
+        time_format: false
+        hint: "Publication date"
+
+      - label: "Section / Category"
+        name: "section"
+        widget: "select"
+        options:
+          - "Latest News"
+          - "Events"
+          - "Plant Science"
+          - "Natural Resource Management"
+          - "Agroforestry"
+          - "Animal Science"
+          - "Rural Development"
+          - "Agro-Economics"
+          - "Forestry"
+          - "Wildlife & Ecotourism"
+          - "Green Legacy Initiative"
+          - "Food Security"
+          - "Climate Resilience"
+          - "REDD+"
+          - "Reports & Publications"
+          - "Geospatial & GIS"
+          - "Technical Manuals"
+          - "Photo Gallery"
+          - "Testimonials"
+        hint: "Which section of the website does this belong to?"
+
+      - label: "Post Type"
+        name: "type"
+        widget: "select"
+        required: false
+        options:
+          - "Announcement"
+          - "Event"
+          - "Report"
+          - "Publication"
+          - "Research"
+          - "Media"
+          - "Update"
+        hint: "Optional: tag the type of post"
+
+      - label: "Author"
+        name: "author"
+        widget: "string"
+        required: false
+        hint: "Optional: e.g. Dr. Abebe Girma or AFOLU Editorial Team"
+
+      - label: "Summary / Body"
+        name: "body"
+        widget: "text"
+        hint: "Short paragraph shown on the news card (plain text, no markdown)"
+
+      - label: "Featured Image"
+        name: "image"
+        widget: "image"
+        required: false
+        hint: "Optional cover image for this post"
+
+      - label: "External Link"
+        name: "link"
+        widget: "string"
+        required: false
+        hint: "Optional: URL to a report, article, or event page"
+
+      - label: "Draft (hide from site)"
+        name: "draft"
+        widget: "boolean"
+        default: false
+        hint: "Toggle ON to save without publishing"
+
+  # ----------------------------------------------------------
+  #  SITE SETTINGS (singleton)
+  #  Edit the top-level info shown on the website
+  # ----------------------------------------------------------
+  - name: "settings"
+    label: "⚙️ Site Settings"
+    files:
+      - label: "General Info"
+        name: "general"
+        file: "_data/settings.json"
+        fields:
+          - label: "Site Title"
+            name: "site_title"
+            widget: "string"
+            default: "AFOLU of Ethiopia"
+
+          - label: "Tagline"
+            name: "tagline"
+            widget: "string"
+            default: "Agriculture, Forestry & Land Use"
+
+          - label: "Contact Email"
+            name: "email"
+            widget: "string"
+            default: "afoluofethiopia@gmail.com"
+
+          - label: "Phone Number"
+            name: "phone"
+            widget: "string"
+            required: false
+
+          - label: "Address"
+            name: "address"
+            widget: "string"
+            required: false
+            default: "Addis Ababa, Ethiopia"
+
+          - label: "Facebook URL"
+            name: "facebook"
+            widget: "string"
+            required: false
+
+          - label: "Twitter / X URL"
+            name: "twitter"
+            widget: "string"
+            required: false
+
+          - label: "YouTube URL"
+            name: "youtube"
+            widget: "string"
+            required: false
