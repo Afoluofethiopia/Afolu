@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>AFOLU of Ethiopia — Agriculture, Forestry & Land Use</title>
+<title>AFOLU of Ethiopia</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="icon" type="image/png" href="https://i.imgur.com/TOLgCdy.png">
@@ -307,6 +307,14 @@ img { display: block; max-width: 100%; }
 .sarrow-prev { left: 2rem; }
 .sarrow-next { right: 2rem; }
 
+.hero-slide {
+  min-height: 540px;
+}
+
+.hero-slide.active {
+  position: relative;
+  min-height: 540px;
+}
 /* ============================================================
    BUTTONS
    ============================================================ */
@@ -1279,6 +1287,42 @@ footer {
   #url-bar { font-size: 0.62rem; padding: 0 0.8rem; gap: 0.4rem; }
   #url-bar-path { font-size: 0.6rem; }
 }
+
+  .slide-img-wrap {
+  flex: 1 1 auto;
+  min-width: 0;
+  overflow: hidden;
+  border-radius: 12px;
+  align-self: stretch;
+}
+
+.slide-img-wrap img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 12px;
+  display: block;
+}
+
+@media (max-width: 768px) {
+  .slide-img-wrap {
+    flex: unset;
+    width: 100%;
+    height: 220px;
+    align-self: auto;
+    order: -1;
+  }
+
+  .hero-content > div {
+    flex-direction: column !important;
+  }
+}
+
+<div class="slide-img-wrap">
+  <img src="your-image.png" alt="your description" />
+</div>
+
+</style>
 </style>
 </head>
 <body>
@@ -1412,59 +1456,162 @@ footer {
   <!-- HERO SLIDER -->
   <div class="hero-slider" id="heroSlider">
 
-    <!-- Slide 1 -->
-    <div class="hero-slide active">
-      <div class="hero-bg slide-bg-1"></div>
-      <div class="hero-content">
-        <div class="hero-eyebrow">
-          <span class="hero-eyebrow-dot"></span>
-          <span class="hero-eyebrow-line"></span>
-          Finfinnee · Ethiopia
-        </div>
-        <h1 class="hero-title">AFOLU <em>of Ethiopia</em></h1>
-        <p class="hero-desc">Agriculture, Forestry &amp; Other Land Use — advancing sustainable landscapes, climate resilience, and rural livelihoods across Ethiopia's diverse ecosystems.</p>
-        <div class="hero-btns">
-          <button class="btn-forest" data-view="About">Explore Our Work →</button>
-          <button class="btn-ghost" data-view="Legacy">Green Legacy Initiative</button>
-        </div>
-      </div>
-    </div>
+<!-- Slide 1 -->
+<div class="hero-slide active">
+  <div class="hero-bg slide-bg-1"></div>
 
-    <!-- Slide 2 -->
-    <div class="hero-slide">
-      <div class="hero-bg slide-bg-2"></div>
-      <div class="hero-content">
-        <div class="hero-eyebrow">
-          <span class="hero-eyebrow-dot"></span>
-          <span class="hero-eyebrow-line"></span>
-          Flagship Program
-        </div>
-        <h1 class="hero-title">Green Legacy <em>Initiative</em></h1>
-        <p class="hero-desc">Ethiopia's largest community-driven environmental restoration campaign — over 28 billion seedlings planted since 2019, making it one of the largest in recorded history.</p>
-        <div class="hero-btns">
-          <button class="btn-forest" data-view="Legacy">Learn More →</button>
-          <button class="btn-ghost" data-view="About">About AFOLU</button>
-        </div>
-      </div>
-    </div>
+  <!-- Full Background Image -->
+  <img
+    src="https://i.imgur.com/TOLgCdy.png"
+    alt="AFOLU of Ethiopia"
+    style="
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      object-fit: cover;
+      display: block;
+      z-index: 1;
+    "
+  />
 
-    <!-- Slide 3 -->
-    <div class="hero-slide">
-      <div class="hero-bg slide-bg-3"></div>
-      <div class="hero-content">
-        <div class="hero-eyebrow">
-          <span class="hero-eyebrow-dot"></span>
-          <span class="hero-eyebrow-line"></span>
-          Climate Action
-        </div>
-        <h1 class="hero-title">Building <em>Climate Resilience</em></h1>
-        <p class="hero-desc">Integrated land use interventions supporting food security, biodiversity conservation, and climate adaptation across Ethiopia's highlands, wetlands, and drylands.</p>
-        <div class="hero-btns">
-          <button class="btn-forest" data-view="Climate">Climate Resilience →</button>
-          <button class="btn-ghost" data-view="REDD">REDD+ Program</button>
-        </div>
-      </div>
+  <!-- Dark overlay so text is readable -->
+  <div style="
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background: linear-gradient(to top, rgba(0,0,0,0.80) 0%, rgba(0,0,0,0.25) 100%);
+    z-index: 2;
+  "></div>
+
+  <!-- Text Content at Bottom -->
+  <div class="hero-content" style="
+    position: absolute;
+    bottom: 0; left: 0; right: 0;
+    z-index: 3;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding-bottom: 4rem;
+    min-height: unset;
+  ">
+    <div class="hero-eyebrow">
+      <span class="hero-eyebrow-dot"></span>
+      <span class="hero-eyebrow-line"></span>
+      Finfinnee · Ethiopia
     </div>
+    <h1 class="hero-title">AFOLU <em>of Ethiopia</em></h1>
+    <p class="hero-desc">Agriculture, Forestry &amp; Other Land Use — advancing sustainable landscapes, climate resilience, and rural livelihoods across Ethiopia's diverse ecosystems.</p>
+    <div class="hero-btns">
+      <button class="btn-forest" data-view="About">Explore Our Work →</button>
+      <button class="btn-ghost" data-view="Legacy">Green Legacy Initiative</button>
+    </div>
+  </div>
+
+</div>
+<!-- Slide 2 -->
+<div class="hero-slide">
+  <div class="hero-bg slide-bg-2"></div>
+
+  <!-- Full Background Image -->
+  <img
+    src="https://i.imgur.com/36K6kb7.png"
+    alt="Green Legacy Initiative"
+    style="
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      object-fit: cover;
+      display: block;
+      z-index: 1;
+    "
+  />
+
+  <!-- Dark overlay so text is readable -->
+  <div style="
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background: linear-gradient(to top, rgba(0,0,0,0.80) 0%, rgba(0,0,0,0.25) 100%);
+    z-index: 2;
+  "></div>
+
+  <!-- Text Content at Bottom -->
+  <div class="hero-content" style="
+    position: absolute;
+    bottom: 0; left: 0; right: 0;
+    z-index: 3;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding-bottom: 4rem;
+    min-height: unset;
+  ">
+    <div class="hero-eyebrow">
+      <span class="hero-eyebrow-dot"></span>
+      <span class="hero-eyebrow-line"></span>
+      Flagship Program
+    </div>
+    <h1 class="hero-title">Green Legacy <em>Initiative</em></h1>
+    <p class="hero-desc">Ethiopia's largest community-driven environmental restoration campaign — over 28 billion seedlings planted since 2019, making it one of the largest in recorded history.</p>
+    <div class="hero-btns">
+      <button class="btn-forest" data-view="Legacy">Learn More →</button>
+      <button class="btn-ghost" data-view="About">About AFOLU</button>
+    </div>
+  </div>
+
+</div>
+   <!-- Slide 3 -->
+<div class="hero-slide">
+  <div class="hero-bg slide-bg-3"></div>
+
+  <!-- Full Background Image -->
+  <img
+    src="https://i.imgur.com/ksFd2DK.png"
+    alt="Building Climate Resilience"
+    style="
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      object-fit: cover;
+      display: block;
+      z-index: 1;
+    "
+  />
+
+  <!-- Dark overlay so text is readable -->
+  <div style="
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background: linear-gradient(to top, rgba(0,0,0,0.80) 0%, rgba(0,0,0,0.25) 100%);
+    z-index: 2;
+  "></div>
+
+  <!-- Text Content at Bottom -->
+  <div class="hero-content" style="
+    position: absolute;
+    bottom: 0; left: 0; right: 0;
+    z-index: 3;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding-bottom: 4rem;
+    min-height: unset;
+  ">
+    <div class="hero-eyebrow">
+      <span class="hero-eyebrow-dot"></span>
+      <span class="hero-eyebrow-line"></span>
+      Climate Action
+    </div>
+    <h1 class="hero-title">Building <em>Climate Resilience</em></h1>
+    <p class="hero-desc">Integrated land use interventions supporting food security, biodiversity conservation, and climate adaptation across Ethiopia's highlands, wetlands, and drylands.</p>
+    <div class="hero-btns">
+      <button class="btn-forest" data-view="Climate">Climate Resilience →</button>
+      <button class="btn-ghost" data-view="REDD">REDD+ Program</button>
+    </div>
+  </div>
+
+</div>
 
     <div class="slider-dots">
       <button class="sdot active" data-s="0"></button>
