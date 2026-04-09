@@ -81,105 +81,6 @@ img { display: block; max-width: 100%; }
 @media(max-width:768px) { .topbar-left { display: none; } }
 
 /* ============================================================
-   LANGUAGE SELECTOR
-   ============================================================ */
-.lang-selector {
-  position: relative;
-  display: flex; align-items: center;
-}
-.lang-btn {
-  background: rgba(255,255,255,0.1);
-  border: 1px solid rgba(255,255,255,0.2);
-  border-radius: 4px;
-  color: rgba(255,255,255,0.85);
-  font-size: 0.68rem;
-  font-weight: 600;
-  letter-spacing: 0.04em;
-  padding: 0.25rem 0.6rem;
-  cursor: pointer;
-  display: flex; align-items: center; gap: 0.35rem;
-  transition: all 0.2s;
-  white-space: nowrap;
-  font-family: 'DM Sans', sans-serif;
-}
-.lang-btn:hover { background: rgba(255,255,255,0.18); border-color: rgba(255,255,255,0.35); color: var(--white); }
-.lang-globe { font-size: 0.85rem; }
-.lang-chevron { font-size: 0.55rem; opacity: 0.6; transition: transform 0.2s; }
-.lang-selector.open .lang-chevron { transform: rotate(180deg); }
-
-.lang-dropdown {
-  display: none;
-  position: absolute;
-  top: calc(100% + 6px);
-  right: 0;
-  width: 260px;
-  background: var(--white);
-  border: 1px solid var(--border);
-  border-radius: 8px;
-  box-shadow: 0 12px 40px rgba(0,0,0,0.2);
-  z-index: 2000;
-  overflow: hidden;
-}
-.lang-selector.open .lang-dropdown { display: block; animation: ddFade 0.15s ease; }
-
-.lang-dropdown-header {
-  padding: 0.8rem 1rem 0.5rem;
-  font-size: 0.65rem;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  color: var(--muted);
-  font-weight: 700;
-  border-bottom: 1px solid var(--border-soft);
-  background: var(--ivory);
-}
-
-.lang-search-wrap {
-  padding: 0.5rem 0.7rem;
-  border-bottom: 1px solid var(--border-soft);
-}
-.lang-search {
-  width: 100%;
-  padding: 0.35rem 0.6rem;
-  font-size: 0.78rem;
-  border: 1px solid var(--border);
-  border-radius: 4px;
-  outline: none;
-  font-family: 'DM Sans', sans-serif;
-  color: var(--ink);
-  background: var(--white);
-}
-.lang-search:focus { border-color: var(--forest-light); }
-
-.lang-list {
-  max-height: 280px;
-  overflow-y: auto;
-  scrollbar-width: thin;
-}
-.lang-list::-webkit-scrollbar { width: 4px; }
-.lang-list::-webkit-scrollbar-thumb { background: var(--border); border-radius: 2px; }
-
-.lang-item {
-  display: flex; align-items: center; gap: 0.6rem;
-  padding: 0.55rem 1rem;
-  cursor: pointer;
-  font-size: 0.82rem;
-  color: var(--ink-soft);
-  transition: background 0.12s, color 0.12s;
-  border-bottom: 1px solid var(--border-soft);
-}
-.lang-item:last-child { border-bottom: none; }
-.lang-item:hover { background: var(--ivory); color: var(--forest); }
-.lang-item.active { background: var(--earth-pale); color: var(--forest); font-weight: 600; }
-.lang-item .lang-flag { font-size: 1rem; flex-shrink: 0; width: 20px; text-align: center; }
-.lang-item .lang-native { font-size: 0.72rem; color: var(--muted); }
-.lang-item.active .lang-native { color: var(--earth); }
-
-/* Hide Google's default translate bar completely */
-body { top: 0 !important; }
-
-
-
-/* ============================================================
    NAVIGATION
    ============================================================ */
 .nav-wrapper {
@@ -1439,7 +1340,7 @@ footer {
       +251 911 946 101
     </span>
     <div class="topbar-divider"></div>
-    <span><a href="/cdn-cgi/l/email-protection#dcbdbab3b0a9b3bab9a8b4b5b3acb5bd9cbbb1bdb5b0f2bfb3b1"><span class="__cf_email__" data-cfemail="bcdddad3d0c9d3dad9c8d4d5d3ccd5ddfcdbd1ddd5d092dfd3d1">[email&#160;protected]</span></a></span>
+    <span><a href="mailto:afoluofethiopia@gmail.com">afoluofethiopia@gmail.com</a></span>
   </div>
   <div class="topbar-right">
     <a href="https://www.facebook.com/afoluethiopia" target="_blank">
@@ -1450,29 +1351,7 @@ footer {
     <a href="#">Twitter / X</a>
     <div class="topbar-divider"></div>
     <a href="#">YouTube</a>
-    <div class="topbar-divider"></div>
-    <!-- Language Selector -->
-    <div class="lang-selector" id="langSelector">
-      <button class="lang-btn" id="langBtn" onclick="toggleLangDropdown(event)">
-        <span class="lang-globe" id="currentFlag">🇪🇹</span>
-        <span id="currentLangCode">Oromo</span>
-        <span class="lang-chevron">▼</span>
-      </button>
-      <div class="lang-dropdown" id="langDropdown">
-        <div class="lang-dropdown-header">Select Language</div>
-        <div class="lang-search-wrap">
-          <input class="lang-search" type="text" placeholder="Search language…" id="langSearch" oninput="filterLangs(this.value)" />
-        </div>
-        <div class="lang-list" id="langList"></div>
-      </div>
-    </div>
-    <!-- Hidden Google Translate element -->
-    
   </div>
-</div>
-
-
-  <span id="translateLoadingText">Translating…</span>
 </div>
 
 <!-- NAVIGATION -->
@@ -1483,13 +1362,13 @@ footer {
         <img src="https://i.imgur.com/stFhOHw.png" alt="AFOLU Logo" onerror="this.parentElement.innerHTML='🌿'">
       </div>
       <div class="brand-text">
-        <div class="brand-name">AFOLU of Ethiopia</div>
+        <div class="brand-name">AFOLU Itoophiyaa</div>
         <div class="brand-sub">Qonnaa · Bosonaa · Fayyadama Lafa</div>
       </div>
     </div>
 
     <ul class="nav-links" id="navLinks">
-      <li><a data-view="home" class="active">Mana</a></li>
+      <li><a data-view="home" class="active">Home</a></li>
       <li class="has-drop">
         <a>About <span class="chevron"></span></a>
         <div class="dropdown">
@@ -1548,7 +1427,7 @@ footer {
       </li>
     </ul>
 
-    <button class="nav-cta" data-view="contact-section">Nu Quunnamaa</button>
+    <button class="nav-cta" data-view="contact-section">Contact Us</button>
     <button class="hamburger" id="hamburger" aria-label="Menu"><span></span><span></span><span></span></button>
   </div>
 </nav>
@@ -1780,7 +1659,7 @@ footer {
       <div class="stat-num">
         <span class="count" data-target="8" data-suffix="">0</span>
       </div>
-      <div class="stat-label">Dameelee Teknikaa</div>
+      <div class="stat-label">Sectors Teknikaa</div>
       <div class="stat-sub">Haala Walitti Hidhamaa</div>
     </div>
 
@@ -1795,7 +1674,7 @@ footer {
   </div>
 </div>
 
-<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+<script>
   const counters = document.querySelectorAll('.count');
 
   const animateCounter = (el) => {
@@ -1961,7 +1840,7 @@ footer {
             <div class="news-item" data-view="News">
               <div class="news-date"><div class="news-date-day">15</div><div class="news-date-mon">Apr</div></div>
               <div class="news-body">
-                <span class="news-tag">Sagantaalee</span>
+                <span class="news-tag">Programs</span>
                 <div class="news-title">Sagantaan Dhaalota Magariisa Lakkoofsa Biqiltuu Biliyoona 28 Caale</div>
                 <div class="news-excerpt">Sagantaan haaromsa naannoo Itoophiyaa bakka bu'u seenaa haaraas gahee, miliyoonota lammiilee sagantaa dhaabuu muka naannoolee hundatti bosore.</div>
               </div>
@@ -2057,7 +1936,7 @@ footer {
             <div class="sidebar-head">🌿 Dameelee Keenya</div>
             <div class="sidebar-body">
               <div class="sidebar-link" data-view="plant-science">🌾 Saayinsii Biqiltuu</div>
-              <div class="sidebar-link" data-view="Natural-Resource-Mgmt">🌍 Bulchiinsa Qabeenya Uumamaa</div>
+              <div class="sidebar-link" data-view="Natural-Resource-Mgmt">🌍 Bulchiinsa Resources Uumamaa</div>
               <div class="sidebar-link" data-view="agroforestry">🌿 Agroforestirii</div>
               <div class="sidebar-link" data-view="animal-science">🐄 Saayinsii Bineeldota</div>
               <div class="sidebar-link" data-view="Extension">🏘 Misoomaa Baadiyyaa</div>
@@ -2098,7 +1977,7 @@ footer {
           <div class="section-eyebrow">Ogummaa Teknikaa</div>
           <h2 class="section-title">Garaagarummaa Saddeetii <em>Beekumsaa</em></h2>
         </div>
-        <span class="see-all" data-view="plant-science">Dameelee Qoradhu →</span>
+        <span class="see-all" data-view="plant-science">Sectors Qoradhu →</span>
       </div>
       <div class="sectors-grid">
         <div class="sector-card reveal" data-view="plant-science">
@@ -2159,7 +2038,7 @@ footer {
       <div class="section-header reveal">
         <div>
           <div class="section-eyebrow">Karoora</div>
-          <h2 class="section-title">Flagship <em>Sagantaalee</em></h2>
+          <h2 class="section-title">Flagship <em>Programs</em></h2>
         </div>
         <span class="see-all" data-view="Legacy">Hunda Ilaalaa →</span>
       </div>
@@ -2223,7 +2102,7 @@ footer {
         <div class="leader-profile reveal rd1" data-view="Organizational">
           <div class="lp-img" style="background:linear-gradient(135deg,#1a4a20,#2a7042)">🌾</div>
           <div class="lp-body">
-            <div class="lp-role">Walqabsiisa Dameelee</div>
+            <div class="lp-role">Walqabsiisa Sectors</div>
             <div class="lp-name">Daayirektooreettii Teknikaa</div>
             <div class="lp-desc">Walqabsiisuu dameelee teknikaa adda addaa saddeet furmaata fayyadama lafa bal'aa fi hojiirra oolmaa sadarkaa dirree biyyoolessaan kennuuf.</div>
             <span class="lp-link" data-view="Organizational">Read more →</span>
@@ -2265,7 +2144,7 @@ footer {
     <div class="container">
       <div class="section-header reveal">
         <div>
-          <div class="section-eyebrow">Nu Quunnamaa</div>
+          <div class="section-eyebrow">Contact Us</div>
           <h2 class="section-title">AFOLU Itoophiyaa wajjin <em>Walqunnamaa</em></h2>
         </div>
       </div>
@@ -2291,7 +2170,7 @@ footer {
               <div class="ci-icon">✉</div>
               <div>
                 <div class="ci-label">Imeelii</div>
-                <div class="ci-value"><a href="/cdn-cgi/l/email-protection#4021262f2c352f26253428292f30292100272d21292c6e232f2d"><span class="__cf_email__" data-cfemail="a5c4c3cac9d0cac3c0d1cdcccad5ccc4e5c2c8c4ccc98bc6cac8">[email&#160;protected]</span></a></div>
+                <div class="ci-value"><a href="mailto:afoluofethiopia@gmail.com">afoluofethiopia@gmail.com</a></div>
               </div>
             </div>
             <div class="ci-item">
@@ -2357,7 +2236,7 @@ footer {
 <div id="view-About" class="content-view">
   <div class="view-header">
     <div class="view-header-inner">
-      <div class="view-crumb"><a data-view="home">Mana</a><span class="view-crumb-sep"> › </span><span class="view-crumb-cur">Waa'ee AFOLU</span></div>
+      <div class="view-crumb"><a data-view="home">Home</a><span class="view-crumb-sep"> › </span><span class="view-crumb-cur">Waa'ee AFOLU</span></div>
       <div class="view-badge">🌱 About</div>
       <h1 class="view-h1">About <em>AFOLU Ethiopia</em></h1>
     </div>
@@ -2413,7 +2292,7 @@ footer {
 <div id="view-Mission" class="content-view">
   <div class="view-header">
     <div class="view-header-inner">
-      <div class="view-crumb"><a data-view="home">Mana</a><span class="view-crumb-sep"> › </span><a data-view="About">Waa'ee Keenya</a><span class="view-crumb-sep"> › </span><span class="view-crumb-cur">Ergama fi Mul'ata</span></div>
+      <div class="view-crumb"><a data-view="home">Home</a><span class="view-crumb-sep"> › </span><a data-view="About">Waa'ee Keenya</a><span class="view-crumb-sep"> › </span><span class="view-crumb-cur">Ergama fi Mul'ata</span></div>
       <div class="view-badge">🎯 About</div>
       <h1 class="view-h1">Mission <em>&amp; Vision</em></h1>
     </div>
@@ -2444,7 +2323,7 @@ footer {
 <div id="view-Leadership" class="content-view">
   <div class="view-header">
     <div class="view-header-inner">
-      <div class="view-crumb"><a data-view="home">Mana</a><span class="view-crumb-sep"> › </span><a data-view="About">Waa'ee Keenya</a><span class="view-crumb-sep"> › </span><span class="view-crumb-cur">Hoggansi</span></div>
+      <div class="view-crumb"><a data-view="home">Home</a><span class="view-crumb-sep"> › </span><a data-view="About">Waa'ee Keenya</a><span class="view-crumb-sep"> › </span><span class="view-crumb-cur">Hoggansi</span></div>
       <div class="view-badge">👥 About</div>
       <h1 class="view-h1"><em>Hoggansi</em></h1>
     </div>
@@ -2473,7 +2352,7 @@ footer {
 <div id="view-Organizational" class="content-view">
   <div class="view-header">
     <div class="view-header-inner">
-      <div class="view-crumb"><a data-view="home">Mana</a><span class="view-crumb-sep"> › </span><a data-view="About">Waa'ee Keenya</a><span class="view-crumb-sep"> › </span><span class="view-crumb-cur">Caasaa Dhaabbata</span></div>
+      <div class="view-crumb"><a data-view="home">Home</a><span class="view-crumb-sep"> › </span><a data-view="About">Waa'ee Keenya</a><span class="view-crumb-sep"> › </span><span class="view-crumb-cur">Caasaa Dhaabbata</span></div>
       <div class="view-badge">🏛 About</div>
       <h1 class="view-h1">Organizational <em>Structure</em></h1>
     </div>
@@ -2502,7 +2381,7 @@ footer {
 <div id="view-plant-science" class="content-view">
   <div class="view-header">
     <div class="view-header-inner">
-      <div class="view-crumb"><a data-view="home">Mana</a><span class="view-crumb-sep"> › </span>Dameelee<span class="view-crumb-sep"> › </span><span class="view-crumb-cur">Saayinsii Biqiltuu</span></div>
+      <div class="view-crumb"><a data-view="home">Home</a><span class="view-crumb-sep"> › </span>Dameelee<span class="view-crumb-sep"> › </span><span class="view-crumb-cur">Saayinsii Biqiltuu</span></div>
       <div class="view-badge">🌾 Sector 01</div>
       <h1 class="view-h1">Plant <em>Science</em></h1>
     </div>
@@ -2531,7 +2410,7 @@ footer {
 <div id="view-Natural-Resource-Mgmt" class="content-view">
   <div class="view-header">
     <div class="view-header-inner">
-      <div class="view-crumb"><a data-view="home">Mana</a><span class="view-crumb-sep"> › </span>Dameelee<span class="view-crumb-sep"> › </span><span class="view-crumb-cur">Natural Resource Management</span></div>
+      <div class="view-crumb"><a data-view="home">Home</a><span class="view-crumb-sep"> › </span>Dameelee<span class="view-crumb-sep"> › </span><span class="view-crumb-cur">Natural Resource Management</span></div>
       <div class="view-badge">🌍 Sector 02</div>
       <h1 class="view-h1">Natural Resource <em>Management</em></h1>
     </div>
@@ -2560,7 +2439,7 @@ footer {
 <div id="view-agroforestry" class="content-view">
   <div class="view-header">
     <div class="view-header-inner">
-      <div class="view-crumb"><a data-view="home">Mana</a><span class="view-crumb-sep"> › </span>Dameelee<span class="view-crumb-sep"> › </span><span class="view-crumb-cur">Agroforestirii</span></div>
+      <div class="view-crumb"><a data-view="home">Home</a><span class="view-crumb-sep"> › </span>Dameelee<span class="view-crumb-sep"> › </span><span class="view-crumb-cur">Agroforestirii</span></div>
       <div class="view-badge">🌿 Sector 03</div>
       <h1 class="view-h1"><em>Agroforestirii</em></h1>
     </div>
@@ -2589,7 +2468,7 @@ footer {
 <div id="view-animal-science" class="content-view">
   <div class="view-header">
     <div class="view-header-inner">
-      <div class="view-crumb"><a data-view="home">Mana</a><span class="view-crumb-sep"> › </span>Dameelee<span class="view-crumb-sep"> › </span><span class="view-crumb-cur">Saayinsii Bineeldota</span></div>
+      <div class="view-crumb"><a data-view="home">Home</a><span class="view-crumb-sep"> › </span>Dameelee<span class="view-crumb-sep"> › </span><span class="view-crumb-cur">Saayinsii Bineeldota</span></div>
       <div class="view-badge">🐄 Sector 04</div>
       <h1 class="view-h1">Animal <em>Science</em></h1>
     </div>
@@ -2618,7 +2497,7 @@ footer {
 <div id="view-Extension" class="content-view">
   <div class="view-header">
     <div class="view-header-inner">
-      <div class="view-crumb"><a data-view="home">Mana</a><span class="view-crumb-sep"> › </span>Dameelee<span class="view-crumb-sep"> › </span><span class="view-crumb-cur">Misoomaa Baadiyyaa</span></div>
+      <div class="view-crumb"><a data-view="home">Home</a><span class="view-crumb-sep"> › </span>Dameelee<span class="view-crumb-sep"> › </span><span class="view-crumb-cur">Misoomaa Baadiyyaa</span></div>
       <div class="view-badge">🏘 Sector 05</div>
       <h1 class="view-h1">Rural <em>Development</em></h1>
     </div>
@@ -2647,7 +2526,7 @@ footer {
 <div id="view-Agro-Economics" class="content-view">
   <div class="view-header">
     <div class="view-header-inner">
-      <div class="view-crumb"><a data-view="home">Mana</a><span class="view-crumb-sep"> › </span>Dameelee<span class="view-crumb-sep"> › </span><span class="view-crumb-cur">Agiroo-Ekonomiksii</span></div>
+      <div class="view-crumb"><a data-view="home">Home</a><span class="view-crumb-sep"> › </span>Dameelee<span class="view-crumb-sep"> › </span><span class="view-crumb-cur">Agiroo-Ekonomiksii</span></div>
       <div class="view-badge">📊 Sector 06</div>
       <h1 class="view-h1">Agro-<em>Economics</em></h1>
     </div>
@@ -2676,7 +2555,7 @@ footer {
 <div id="view-forestry" class="content-view">
   <div class="view-header">
     <div class="view-header-inner">
-      <div class="view-crumb"><a data-view="home">Mana</a><span class="view-crumb-sep"> › </span>Dameelee<span class="view-crumb-sep"> › </span><span class="view-crumb-cur">Marga</span></div>
+      <div class="view-crumb"><a data-view="home">Home</a><span class="view-crumb-sep"> › </span>Dameelee<span class="view-crumb-sep"> › </span><span class="view-crumb-cur">Marga</span></div>
       <div class="view-badge">🌳 Sector 07</div>
       <h1 class="view-h1"><em>Marga</em></h1>
     </div>
@@ -2705,7 +2584,7 @@ footer {
 <div id="view-Wildlife" class="content-view">
   <div class="view-header">
     <div class="view-header-inner">
-      <div class="view-crumb"><a data-view="home">Mana</a><span class="view-crumb-sep"> › </span>Dameelee<span class="view-crumb-sep"> › </span><span class="view-crumb-cur">Bineensota Bosonaa fi Tuuriizimii</span></div>
+      <div class="view-crumb"><a data-view="home">Home</a><span class="view-crumb-sep"> › </span>Dameelee<span class="view-crumb-sep"> › </span><span class="view-crumb-cur">Bineensota Bosonaa fi Tuuriizimii</span></div>
       <div class="view-badge">🦁 Sector 08</div>
       <h1 class="view-h1">Wildlife <em>&amp; Ecotourism</em></h1>
     </div>
@@ -2734,7 +2613,7 @@ footer {
 <div id="view-Legacy" class="content-view">
   <div class="view-header">
     <div class="view-header-inner">
-      <div class="view-crumb"><a data-view="home">Mana</a><span class="view-crumb-sep"> › </span>Sagantaalee<span class="view-crumb-sep"> › </span><span class="view-crumb-cur">Sagantaa Dhaalota Magariisa</span></div>
+      <div class="view-crumb"><a data-view="home">Home</a><span class="view-crumb-sep"> › </span>Programs<span class="view-crumb-sep"> › </span><span class="view-crumb-cur">Sagantaa Dhaalota Magariisa</span></div>
       <div class="view-badge">🌱 Sagantaa Guddaa</div>
       <h1 class="view-h1">Dhaalota <em>Magariisa</em></h1>
     </div>
@@ -2770,7 +2649,7 @@ footer {
 <div id="view-Food" class="content-view">
   <div class="view-header">
     <div class="view-header-inner">
-      <div class="view-crumb"><a data-view="home">Mana</a><span class="view-crumb-sep"> › </span>Sagantaalee<span class="view-crumb-sep"> › </span><span class="view-crumb-cur">Nageenya Nyaataa</span></div>
+      <div class="view-crumb"><a data-view="home">Home</a><span class="view-crumb-sep"> › </span>Programs<span class="view-crumb-sep"> › </span><span class="view-crumb-cur">Nageenya Nyaataa</span></div>
       <div class="view-badge">🌾 Program</div>
       <h1 class="view-h1">Food <em>Security</em></h1>
     </div>
@@ -2799,7 +2678,7 @@ footer {
 <div id="view-Climate" class="content-view">
   <div class="view-header">
     <div class="view-header-inner">
-      <div class="view-crumb"><a data-view="home">Mana</a><span class="view-crumb-sep"> › </span>Sagantaalee<span class="view-crumb-sep"> › </span><span class="view-crumb-cur">Dandamachuu Qilleensaa</span></div>
+      <div class="view-crumb"><a data-view="home">Home</a><span class="view-crumb-sep"> › </span>Programs<span class="view-crumb-sep"> › </span><span class="view-crumb-cur">Dandamachuu Qilleensaa</span></div>
       <div class="view-badge">🌡 Program</div>
       <h1 class="view-h1">Climate <em>Resilience</em></h1>
     </div>
@@ -2829,7 +2708,7 @@ footer {
 <div id="view-REDD" class="content-view">
   <div class="view-header">
     <div class="view-header-inner">
-      <div class="view-crumb"><a data-view="home">Mana</a><span class="view-crumb-sep"> › </span>Sagantaalee<span class="view-crumb-sep"> › </span><span class="view-crumb-cur">REDD+</span></div>
+      <div class="view-crumb"><a data-view="home">Home</a><span class="view-crumb-sep"> › </span>Programs<span class="view-crumb-sep"> › </span><span class="view-crumb-cur">REDD+</span></div>
       <div class="view-badge">🌳 Program</div>
       <h1 class="view-h1">REDD+ <em>Program</em></h1>
     </div>
@@ -2858,7 +2737,7 @@ footer {
 <div id="view-Reports" class="content-view">
   <div class="view-header">
     <div class="view-header-inner">
-      <div class="view-crumb"><a data-view="home">Mana</a><span class="view-crumb-sep"> › </span>Qabeenya<span class="view-crumb-sep"> › </span><span class="view-crumb-cur">Gabaasaalee fi Maxxansaalee</span></div>
+      <div class="view-crumb"><a data-view="home">Home</a><span class="view-crumb-sep"> › </span>Qabeenya<span class="view-crumb-sep"> › </span><span class="view-crumb-cur">Gabaasaalee fi Maxxansaalee</span></div>
       <div class="view-badge">📄 Resources</div>
       <h1 class="view-h1">Reports <em>&amp; Publications</em></h1>
     </div>
@@ -2875,7 +2754,7 @@ footer {
         <li>Training Manuals — extension and capacity building materials</li>
         <li>Case Studies — community and landscape success stories</li>
       </ul>
-      <p style="margin-top:1.5rem">For the latest publications, contact us at <a href="/cdn-cgi/l/email-protection#167770797a63797073627e7f79667f7756717b777f7a3875797b"><span class="__cf_email__" data-cfemail="29484f46455c464f4c5d414046594048694e44484045074a4644">[email&#160;protected]</span></a></p>
+      <p style="margin-top:1.5rem">For the latest publications, contact us at <a href="mailto:afoluofethiopia@gmail.com">afoluofethiopia@gmail.com</a></p>
     </div>
     <div class="view-nav">
       <button class="view-nav-btn" data-view="home">↑ Home</button>
@@ -2888,7 +2767,7 @@ footer {
 <div id="view-Geospatial" class="content-view">
   <div class="view-header">
     <div class="view-header-inner">
-      <div class="view-crumb"><a data-view="home">Mana</a><span class="view-crumb-sep"> › </span>Qabeenya<span class="view-crumb-sep"> › </span><span class="view-crumb-cur">Jiyoospeeshalii fi GIS</span></div>
+      <div class="view-crumb"><a data-view="home">Home</a><span class="view-crumb-sep"> › </span>Qabeenya<span class="view-crumb-sep"> › </span><span class="view-crumb-cur">Jiyoospeeshalii fi GIS</span></div>
       <div class="view-badge">🛰 Resources</div>
       <h1 class="view-h1">Geospatial <em>&amp; GIS</em></h1>
     </div>
@@ -2917,7 +2796,7 @@ footer {
 <div id="view-publications" class="content-view">
   <div class="view-header">
     <div class="view-header-inner">
-      <div class="view-crumb"><a data-view="home">Mana</a><span class="view-crumb-sep"> › </span>Qabeenya<span class="view-crumb-sep"> › </span><span class="view-crumb-cur">Qajeelcha Teknikaa</span></div>
+      <div class="view-crumb"><a data-view="home">Home</a><span class="view-crumb-sep"> › </span>Qabeenya<span class="view-crumb-sep"> › </span><span class="view-crumb-cur">Qajeelcha Teknikaa</span></div>
       <div class="view-badge">📘 Resources</div>
       <h1 class="view-h1">Technical <em>Manuals</em></h1>
     </div>
@@ -2934,7 +2813,7 @@ footer {
         <li>GIS and Geospatial Field Data Collection Guides</li>
         <li>REDD+ Community Forest Management Facilitation Manuals</li>
       </ul>
-      <p style="margin-top:1.5rem">To request specific technical manuals, contact <a href="/cdn-cgi/l/email-protection#81e0e7eeedf4eee7e4f5e9e8eef1e8e0c1e6ece0e8edafe2eeec"><span class="__cf_email__" data-cfemail="6100070e0d140e07041509080e11080021060c00080d4f020e0c">[email&#160;protected]</span></a></p>
+      <p style="margin-top:1.5rem">To request specific technical manuals, contact <a href="mailto:afoluofethiopia@gmail.com">afoluofethiopia@gmail.com</a></p>
     </div>
     <div class="view-nav">
       <button class="view-nav-btn" data-view="Geospatial">← Geospatial</button>
@@ -2947,7 +2826,7 @@ footer {
 <div id="view-Projects" class="content-view">
   <div class="view-header">
     <div class="view-header-inner">
-      <div class="view-crumb"><a data-view="home">Mana</a><span class="view-crumb-sep"> › </span>Pirojektii<span class="view-crumb-sep"> › </span><span class="view-crumb-cur">Pirojektii Amma</span></div>
+      <div class="view-crumb"><a data-view="home">Home</a><span class="view-crumb-sep"> › </span>Pirojektii<span class="view-crumb-sep"> › </span><span class="view-crumb-cur">Pirojektii Amma</span></div>
       <div class="view-badge">🔬 Projects</div>
       <h1 class="view-h1">Current <em>Pirojektii</em></h1>
     </div>
@@ -2964,7 +2843,7 @@ footer {
         <li>Agroforestry Value Chain Development for Smallholders</li>
         <li>National Land Cover Monitoring and Forest Inventory Support</li>
       </ul>
-      <p style="margin-top:1.5rem">For project partnership inquiries, contact us at <a href="/cdn-cgi/l/email-protection#4c2d2a232039232a29382425233c252d0c2b212d2520622f2321"><span class="__cf_email__" data-cfemail="0564636a69706a6360716d6c6a756c64456268646c692b666a68">[email&#160;protected]</span></a></p>
+      <p style="margin-top:1.5rem">For project partnership inquiries, contact us at <a href="mailto:afoluofethiopia@gmail.com">afoluofethiopia@gmail.com</a></p>
     </div>
     <div class="view-nav">
       <button class="view-nav-btn" data-view="home">↑ Home</button>
@@ -2977,7 +2856,7 @@ footer {
 <div id="view-Completed" class="content-view">
   <div class="view-header">
     <div class="view-header-inner">
-      <div class="view-crumb"><a data-view="home">Mana</a><span class="view-crumb-sep"> › </span>Pirojektii<span class="view-crumb-sep"> › </span><span class="view-crumb-cur">Pirojektii Xumurame</span></div>
+      <div class="view-crumb"><a data-view="home">Home</a><span class="view-crumb-sep"> › </span>Pirojektii<span class="view-crumb-sep"> › </span><span class="view-crumb-cur">Pirojektii Xumurame</span></div>
       <div class="view-badge">✅ Projects</div>
       <h1 class="view-h1">Completed <em>Pirojektii</em></h1>
     </div>
@@ -3005,7 +2884,7 @@ footer {
 <div id="view-Regional" class="content-view">
   <div class="view-header">
     <div class="view-header-inner">
-      <div class="view-crumb"><a data-view="home">Mana</a><span class="view-crumb-sep"> › </span>Pirojektii<span class="view-crumb-sep"> › </span><span class="view-crumb-cur">Pirojektii Naannoo</span></div>
+      <div class="view-crumb"><a data-view="home">Home</a><span class="view-crumb-sep"> › </span>Pirojektii<span class="view-crumb-sep"> › </span><span class="view-crumb-cur">Pirojektii Naannoo</span></div>
       <div class="view-badge">🗺 Projects</div>
       <h1 class="view-h1">Regional <em>Pirojektii</em></h1>
     </div>
@@ -3034,7 +2913,7 @@ footer {
 <div id="view-News" class="content-view">
   <div class="view-header">
     <div class="view-header-inner">
-      <div class="view-crumb"><a data-view="home">Mana</a><span class="view-crumb-sep"> › </span><span class="view-crumb-cur">Oduu Haaraa</span></div>
+      <div class="view-crumb"><a data-view="home">Home</a><span class="view-crumb-sep"> › </span><span class="view-crumb-cur">Oduu Haaraa</span></div>
       <div class="view-badge">📰 News</div>
       <h1 class="view-h1">Latest <em>Oduu</em></h1>
     </div>
@@ -3075,7 +2954,7 @@ footer {
 <div id="view-events" class="content-view">
   <div class="view-header">
     <div class="view-header-inner">
-      <div class="view-crumb"><a data-view="home">Mana</a><span class="view-crumb-sep"> › </span>Oduu<span class="view-crumb-sep"> › </span><span class="view-crumb-cur">Taateewwan</span></div>
+      <div class="view-crumb"><a data-view="home">Home</a><span class="view-crumb-sep"> › </span>Oduu<span class="view-crumb-sep"> › </span><span class="view-crumb-cur">Taateewwan</span></div>
       <div class="view-badge">📅 Events</div>
       <h1 class="view-h1">Upcoming <em>Taateewwan</em></h1>
     </div>
@@ -3091,7 +2970,7 @@ footer {
         <li><strong>April 30, 2026</strong> — National Symposium on Sustainable Land Management Abstract Deadline</li>
         <li><strong>June 2026</strong> — Annual Green Legacy Community Planting Days (Biyyoolessaan)</li>
       </ul>
-      <p style="margin-top:1.5rem">To register for events or submit abstracts, contact <a href="/cdn-cgi/l/email-protection#f495929b98819b9291809c9d9b849d95b49399959d98da979b99"><span class="__cf_email__" data-cfemail="1b7a7d74776e747d7e6f7372746b727a5b7c767a727735787476">[email&#160;protected]</span></a></p>
+      <p style="margin-top:1.5rem">To register for events or submit abstracts, contact <a href="mailto:afoluofethiopia@gmail.com">afoluofethiopia@gmail.com</a></p>
     </div>
     <div class="view-nav">
       <button class="view-nav-btn" data-view="News">← News</button>
@@ -3104,7 +2983,7 @@ footer {
 <div id="view-Gallery" class="content-view">
   <div class="view-header">
     <div class="view-header-inner">
-      <div class="view-crumb"><a data-view="home">Mana</a><span class="view-crumb-sep"> › </span>Oduu<span class="view-crumb-sep"> › </span><span class="view-crumb-cur">Galarii Suuraa</span></div>
+      <div class="view-crumb"><a data-view="home">Home</a><span class="view-crumb-sep"> › </span>Oduu<span class="view-crumb-sep"> › </span><span class="view-crumb-cur">Galarii Suuraa</span></div>
       <div class="view-badge">🖼 Gallery</div>
       <h1 class="view-h1">Photo <em>Galarii</em></h1>
     </div>
@@ -3130,7 +3009,7 @@ footer {
 <div id="view-Testimonials" class="content-view">
   <div class="view-header">
     <div class="view-header-inner">
-      <div class="view-crumb"><a data-view="home">Mana</a><span class="view-crumb-sep"> › </span>Oduu<span class="view-crumb-sep"> › </span><span class="view-crumb-cur">Ragaalee</span></div>
+      <div class="view-crumb"><a data-view="home">Home</a><span class="view-crumb-sep"> › </span>Oduu<span class="view-crumb-sep"> › </span><span class="view-crumb-cur">Ragaalee</span></div>
       <div class="view-badge">💬 Community</div>
       <h1 class="view-h1"><em>Ragaalee</em></h1>
     </div>
@@ -3192,7 +3071,7 @@ footer {
       <ul class="footer-col-links">
         <li><span>📍 Finfinnee / Addis Ababa</span></li>
         <li><a href="tel:+251911946101">📞 +251 911 946 101</a></li>
-        <li><a href="/cdn-cgi/l/email-protection#2041464f4c554f46455448494f50494160474d41494c0e434f4d">✉ <span class="__cf_email__" data-cfemail="dbbabdb4b7aeb4bdbeafb3b2b4abb2ba9bbcb6bab2b7f5b8b4b6">[email&#160;protected]</span></a></li>
+        <li><a href="mailto:afoluofethiopia@gmail.com">✉ afoluofethiopia@gmail.com</a></li>
         <li><a href="https://www.facebook.com/afoluethiopia" target="_blank">🌐 Facebook</a></li>
       </ul>
     </div>
@@ -3251,7 +3130,7 @@ footer {
 
       <!-- Sectors -->
       <div class="sm-group">
-        <div class="sm-group-head"><span>🌿</span><div class="sm-group-accent"></div>Dameelee Teknikaa</div>
+        <div class="sm-group-head"><span>🌿</span><div class="sm-group-accent"></div>Sectors Teknikaa</div>
         <div class="sm-items">
           <div class="sm-item" data-view="plant-science" data-sm><span class="sm-item-icon">🌾</span><span class="sm-item-label">Saayinsii Biqiltuu</span><span class="sm-item-arrow">→</span></div>
           <div class="sm-item" data-view="Natural-Resource-Mgmt" data-sm><span class="sm-item-icon">🌍</span><span class="sm-item-label">Natural Resource Management</span><span class="sm-item-arrow">→</span></div>
@@ -3266,7 +3145,7 @@ footer {
 
       <!-- Programs -->
       <div class="sm-group">
-        <div class="sm-group-head"><span>🚀</span><div class="sm-group-accent"></div>Sagantaalee</div>
+        <div class="sm-group-head"><span>🚀</span><div class="sm-group-accent"></div>Programs</div>
         <div class="sm-items">
           <div class="sm-item" data-view="Legacy" data-sm><span class="sm-item-icon">🌱</span><span class="sm-item-label">Sagantaa Dhaalota Magariisa</span><span class="sm-item-arrow">→</span></div>
           <div class="sm-item" data-view="REDD" data-sm><span class="sm-item-icon">🌳</span><span class="sm-item-label">Sagantaa REDD+</span><span class="sm-item-arrow">→</span></div>
@@ -3317,7 +3196,7 @@ footer {
   </div>
 </div>
 
-<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+<script>
 /* ============================================================
    HERO SLIDER
    ============================================================ */
@@ -3667,177 +3546,7 @@ function copyUrlBar() {
     if (btn) btn.textContent = 'Error';
   });
 }
-/* ============================================================
-   LANGUAGE SELECTOR — triggers browser's built-in translation
-   The page is in Afaan Oromo (lang="om"), so Chrome/Edge/Safari
-   will automatically offer to translate it, just like any
-   foreign-language website. The dropdown below lets users
-   explicitly request a language using the browser translate API.
-   ============================================================ */
-
-const LANGUAGES = [
-  { code:'en',    flag:'🇺🇸', name:'English',                native:'English' },
-  { code:'am',    flag:'🇪🇹', name:'Amharic',                native:'አማርኛ' },
-  { code:'om',    flag:'🇪🇹', name:'Afaan Oromo',            native:'Afaan Oromoo' },
-  { code:'ti',    flag:'🇪🇹', name:'Tigrinya',               native:'ትግርኛ' },
-  { code:'so',    flag:'🇸🇴', name:'Somali',                 native:'Soomaali' },
-  { code:'ar',    flag:'🇸🇦', name:'Arabic',                 native:'العربية' },
-  { code:'fr',    flag:'🇫🇷', name:'French',                 native:'Français' },
-  { code:'es',    flag:'🇪🇸', name:'Spanish',                native:'Español' },
-  { code:'pt',    flag:'🇵🇹', name:'Portuguese',             native:'Português' },
-  { code:'de',    flag:'🇩🇪', name:'German',                 native:'Deutsch' },
-  { code:'it',    flag:'🇮🇹', name:'Italian',                native:'Italiano' },
-  { code:'nl',    flag:'🇳🇱', name:'Dutch',                  native:'Nederlands' },
-  { code:'ru',    flag:'🇷🇺', name:'Russian',                native:'Русский' },
-  { code:'zh-CN', flag:'🇨🇳', name:'Chinese (Simplified)',   native:'中文(简体)' },
-  { code:'zh-TW', flag:'🇹🇼', name:'Chinese (Traditional)', native:'中文(繁體)' },
-  { code:'ja',    flag:'🇯🇵', name:'Japanese',               native:'日本語' },
-  { code:'ko',    flag:'🇰🇷', name:'Korean',                 native:'한국어' },
-  { code:'hi',    flag:'🇮🇳', name:'Hindi',                  native:'हिन्दी' },
-  { code:'sw',    flag:'🇰🇪', name:'Swahili',                native:'Kiswahili' },
-  { code:'tr',    flag:'🇹🇷', name:'Turkish',                native:'Türkçe' },
-  { code:'id',    flag:'🇮🇩', name:'Indonesian',             native:'Bahasa Indonesia' },
-  { code:'vi',    flag:'🇻🇳', name:'Vietnamese',             native:'Tiếng Việt' },
-  { code:'th',    flag:'🇹🇭', name:'Thai',                   native:'ภาษาไทย' },
-  { code:'ms',    flag:'🇲🇾', name:'Malay',                  native:'Bahasa Melayu' },
-  { code:'pl',    flag:'🇵🇱', name:'Polish',                 native:'Polski' },
-  { code:'uk',    flag:'🇺🇦', name:'Ukrainian',              native:'Українська' },
-  { code:'ha',    flag:'🇳🇬', name:'Hausa',                  native:'Hausa' },
-  { code:'yo',    flag:'🇳🇬', name:'Yoruba',                 native:'Yorùbá' },
-];
-
-let currentLangCode = 'om';
-
-function renderLangList(query) {
-  const list = document.getElementById('langList');
-  if (!list) return;
-  const q = (query || '').toLowerCase().trim();
-  const filtered = q ? LANGUAGES.filter(l =>
-    l.name.toLowerCase().includes(q) ||
-    l.native.toLowerCase().includes(q) ||
-    l.code.toLowerCase().includes(q)
-  ) : LANGUAGES;
-  list.innerHTML = '';
-  filtered.forEach(function(lang) {
-    const item = document.createElement('div');
-    item.className = 'lang-item' + (currentLangCode === lang.code ? ' active' : '');
-    item.innerHTML =
-      '<span class="lang-flag">' + lang.flag + '</span>' +
-      '<span><div style="font-weight:500">' + lang.name + '</div>' +
-      '<div class="lang-native">' + lang.native + '</div></span>';
-    item.addEventListener('click', function() { selectLanguage(lang); });
-    list.appendChild(item);
-  });
-}
-
-function filterLangs(q) { renderLangList(q); }
-
-function selectLanguage(lang) {
-  currentLangCode = lang.code;
-
-  /* Update button */
-  var flagEl = document.getElementById('currentFlag');
-  var codeEl = document.getElementById('currentLangCode');
-  if (flagEl) flagEl.textContent = lang.flag;
-  if (codeEl) codeEl.textContent = lang.name;
-
-  /* Close dropdown */
-  document.getElementById('langSelector').classList.remove('open');
-  renderLangList('');
-
-  /* Save preference */
-  try {
-    localStorage.setItem('afolu-lang-code', lang.code);
-    localStorage.setItem('afolu-lang-name', lang.name);
-    localStorage.setItem('afolu-lang-flag', lang.flag);
-  } catch(e) {}
-
-  /* Trigger browser translation via Google Translate widget */
-  triggerBrowserTranslate(lang.code);
-}
-
-function triggerBrowserTranslate(targetCode) {
-  /* If Oromo selected — restore original */
-  if (targetCode === 'om') {
-    var restore = document.querySelector('.goog-te-menu-value span') ||
-                  document.querySelector('#\:1\.container');
-    /* Try clicking "Show original" button if present */
-    var showOrig = document.querySelector('.goog-te-gadget-icon + span a') ||
-                   document.querySelector('a.goog-te-menu-value');
-    /* Use the GT combo select */
-    var select = document.querySelector('select.goog-te-combo');
-    if (select) { select.value = ''; select.dispatchEvent(new Event('change')); }
-    return;
-  }
-
-  /* Use Google Translate Element to translate to target */
-  var select = document.querySelector('select.goog-te-combo');
-  if (select) {
-    select.value = targetCode;
-    select.dispatchEvent(new Event('change'));
-  } else {
-    /* GT not loaded yet — load it now */
-    if (!window._gtLoading) {
-      window._gtLoading = true;
-      window.googleTranslateElementInit = function() {
-        new google.translate.TranslateElement({
-          pageLanguage: 'om',
-          autoDisplay: false
-        }, 'google_translate_element');
-        /* After init, try again */
-        setTimeout(function() {
-          var s = document.querySelector('select.goog-te-combo');
-          if (s) { s.value = targetCode; s.dispatchEvent(new Event('change')); }
-        }, 800);
-      };
-      var script = document.createElement('script');
-      script.src = 'https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit';
-      document.head.appendChild(script);
-    }
-  }
-}
-
-function toggleLangDropdown(e) {
-  e.stopPropagation();
-  var sel = document.getElementById('langSelector');
-  var wasOpen = sel.classList.contains('open');
-  sel.classList.toggle('open');
-  if (!wasOpen) {
-    renderLangList('');
-    var search = document.getElementById('langSearch');
-    if (search) { search.value = ''; setTimeout(function(){ search.focus(); }, 50); }
-  }
-}
-
-document.addEventListener('click', function(e) {
-  var sel = document.getElementById('langSelector');
-  if (sel && !sel.contains(e.target)) sel.classList.remove('open');
-});
-
-/* Init */
-(function() {
-  renderLangList('');
-  try {
-    var savedCode = localStorage.getItem('afolu-lang-code');
-    var savedName = localStorage.getItem('afolu-lang-name');
-    var savedFlag = localStorage.getItem('afolu-lang-flag');
-    if (savedCode && savedCode !== 'om' && savedName) {
-      var flagEl = document.getElementById('currentFlag');
-      var codeEl = document.getElementById('currentLangCode');
-      if (flagEl) flagEl.textContent = savedFlag || '🌐';
-      if (codeEl) codeEl.textContent = savedName;
-      currentLangCode = savedCode;
-      setTimeout(function() { triggerBrowserTranslate(savedCode); }, 600);
-    }
-  } catch(e) {}
-})();
-
-/* Hidden GT element for programmatic translation */
 
 </script>
-
-<!-- Google Translate Element (hidden, used programmatically) -->
-<div id="google_translate_element" style="display:none;visibility:hidden;height:0;overflow:hidden;"></div>
-
 </body>
 </html>
