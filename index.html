@@ -174,13 +174,37 @@ img { display: block; max-width: 100%; }
 .lang-item .lang-native { font-size: 0.72rem; color: var(--muted); }
 .lang-item.active .lang-native { color: var(--earth); }
 
-/* Hide Google's default translate bar */
+/* Hide Google's default translate bar completely */
 body > .skiptranslate { display: none !important; }
+.goog-te-banner-frame.skiptranslate { display: none !important; }
 .goog-te-banner-frame { display: none !important; }
 body { top: 0 !important; }
 .goog-logo-link, .goog-te-gadget span { display: none !important; }
-.goog-te-gadget { font-size: 0 !important; }
+.goog-te-gadget { font-size: 0 !important; height: 0 !important; overflow: hidden !important; }
 #google_translate_element { display: none !important; }
+iframe.goog-te-menu-frame { box-shadow: none !important; }
+.goog-te-balloon-frame { display: none !important; }
+#goog-gt-tt, .goog-te-balloon-frame { display: none !important; }
+font[style] { vertical-align: inherit !important; }
+
+/* Translate loading indicator */
+.translate-loading {
+  position: fixed; top: calc(var(--top-h) + var(--nav-h) + 8px); right: 1.5rem;
+  background: var(--forest); color: var(--white);
+  padding: 0.5rem 1rem; border-radius: 6px;
+  font-size: 0.72rem; font-weight: 600; letter-spacing: 0.04em;
+  display: none; align-items: center; gap: 0.5rem;
+  z-index: 9999; box-shadow: 0 4px 16px rgba(0,0,0,0.25);
+  animation: tlFade 0.2s ease;
+}
+.translate-loading.show { display: flex; }
+@keyframes tlFade { from { opacity: 0; transform: translateY(-6px); } to { opacity: 1; transform: none; } }
+.translate-spinner {
+  width: 12px; height: 12px; border: 2px solid rgba(255,255,255,0.3);
+  border-top-color: var(--earth-light); border-radius: 50%;
+  animation: spin 0.7s linear infinite;
+}
+@keyframes spin { to { transform: rotate(360deg); } }
 
 /* ============================================================
    NAVIGATION
@@ -1442,7 +1466,7 @@ footer {
       +251 911 946 101
     </span>
     <div class="topbar-divider"></div>
-    <span><a href="/cdn-cgi/l/email-protection#18797e77746d777e7d6c707177687179587f75797174367b7775"><span class="__cf_email__" data-cfemail="f293949d9e879d9497869a9b9d829b93b2959f939b9edc919d9f">[email&#160;protected]</span></a></span>
+    <span><a href="mailto:afoluofethiopia@gmail.com">afoluofethiopia@gmail.com</a></span>
   </div>
   <div class="topbar-right">
     <a href="https://www.facebook.com/afoluethiopia" target="_blank">
@@ -1472,6 +1496,12 @@ footer {
     <!-- Hidden Google Translate element -->
     <div id="google_translate_element"></div>
   </div>
+</div>
+
+<!-- Translate loading indicator -->
+<div class="translate-loading" id="translateLoading">
+  <div class="translate-spinner"></div>
+  <span id="translateLoadingText">Translating…</span>
 </div>
 
 <!-- NAVIGATION -->
@@ -1794,7 +1824,7 @@ footer {
   </div>
 </div>
 
-<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+<script>
   const counters = document.querySelectorAll('.count');
 
   const animateCounter = (el) => {
@@ -2290,7 +2320,7 @@ footer {
               <div class="ci-icon">✉</div>
               <div>
                 <div class="ci-label">Email</div>
-                <div class="ci-value"><a href="/cdn-cgi/l/email-protection#8feee9e0e3fae0e9eafbe7e6e0ffe6eecfe8e2eee6e3a1ece0e2"><span class="__cf_email__" data-cfemail="28494e47445d474e4d5c404147584149684f45494144064b4745">[email&#160;protected]</span></a></div>
+                <div class="ci-value"><a href="mailto:afoluofethiopia@gmail.com">afoluofethiopia@gmail.com</a></div>
               </div>
             </div>
             <div class="ci-item">
@@ -2874,7 +2904,7 @@ footer {
         <li>Training Manuals — extension and capacity building materials</li>
         <li>Case Studies — community and landscape success stories</li>
       </ul>
-      <p style="margin-top:1.5rem">For the latest publications, contact us at <a href="/cdn-cgi/l/email-protection#4120272e2d342e27243529282e31282001262c20282d6f222e2c"><span class="__cf_email__" data-cfemail="accdcac3c0d9c3cac9d8c4c5c3dcc5cdeccbc1cdc5c082cfc3c1">[email&#160;protected]</span></a></p>
+      <p style="margin-top:1.5rem">For the latest publications, contact us at <a href="mailto:afoluofethiopia@gmail.com">afoluofethiopia@gmail.com</a></p>
     </div>
     <div class="view-nav">
       <button class="view-nav-btn" data-view="home">↑ Home</button>
@@ -2933,7 +2963,7 @@ footer {
         <li>GIS and Geospatial Field Data Collection Guides</li>
         <li>REDD+ Community Forest Management Facilitation Manuals</li>
       </ul>
-      <p style="margin-top:1.5rem">To request specific technical manuals, contact <a href="/cdn-cgi/l/email-protection#4223242d2e372d2427362a2b2d322b2302252f232b2e6c212d2f"><span class="__cf_email__" data-cfemail="6405020b08110b0201100c0d0b140d05240309050d084a070b09">[email&#160;protected]</span></a></p>
+      <p style="margin-top:1.5rem">To request specific technical manuals, contact <a href="mailto:afoluofethiopia@gmail.com">afoluofethiopia@gmail.com</a></p>
     </div>
     <div class="view-nav">
       <button class="view-nav-btn" data-view="Geospatial">← Geospatial</button>
@@ -2963,7 +2993,7 @@ footer {
         <li>Agroforestry Value Chain Development for Smallholders</li>
         <li>National Land Cover Monitoring and Forest Inventory Support</li>
       </ul>
-      <p style="margin-top:1.5rem">For project partnership inquiries, contact us at <a href="/cdn-cgi/l/email-protection#f190979e9d849e97948599989e819890b1969c90989ddf929e9c"><span class="__cf_email__" data-cfemail="7b1a1d14170e141d1e0f1312140b121a3b1c161a121755181416">[email&#160;protected]</span></a></p>
+      <p style="margin-top:1.5rem">For project partnership inquiries, contact us at <a href="mailto:afoluofethiopia@gmail.com">afoluofethiopia@gmail.com</a></p>
     </div>
     <div class="view-nav">
       <button class="view-nav-btn" data-view="home">↑ Home</button>
@@ -3090,7 +3120,7 @@ footer {
         <li><strong>April 30, 2026</strong> — National Symposium on Sustainable Land Management Abstract Deadline</li>
         <li><strong>June 2026</strong> — Annual Green Legacy Community Planting Days (Nationwide)</li>
       </ul>
-      <p style="margin-top:1.5rem">To register for events or submit abstracts, contact <a href="/cdn-cgi/l/email-protection#f190979e9d849e97948599989e819890b1969c90989ddf929e9c"><span class="__cf_email__" data-cfemail="ec8d8a838099838a89988485839c858dac8b818d8580c28f8381">[email&#160;protected]</span></a></p>
+      <p style="margin-top:1.5rem">To register for events or submit abstracts, contact <a href="mailto:afoluofethiopia@gmail.com">afoluofethiopia@gmail.com</a></p>
     </div>
     <div class="view-nav">
       <button class="view-nav-btn" data-view="News">← News</button>
@@ -3191,7 +3221,7 @@ footer {
       <ul class="footer-col-links">
         <li><span>📍 Finfinnee / Addis Ababa</span></li>
         <li><a href="tel:+251911946101">📞 +251 911 946 101</a></li>
-        <li><a href="/cdn-cgi/l/email-protection#e78681888b92888182938f8e88978e86a7808a868e8bc984888a">✉ <span class="__cf_email__" data-cfemail="761710191a03191013021e1f19061f1736111b171f1a5815191b">[email&#160;protected]</span></a></li>
+        <li><a href="mailto:afoluofethiopia@gmail.com">✉ afoluofethiopia@gmail.com</a></li>
         <li><a href="https://www.facebook.com/afoluethiopia" target="_blank">🌐 Facebook</a></li>
       </ul>
     </div>
@@ -3316,7 +3346,7 @@ footer {
   </div>
 </div>
 
-<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+<script>
 /* ============================================================
    HERO SLIDER
    ============================================================ */
@@ -3666,720 +3696,50 @@ function copyUrlBar() {
     if (btn) btn.textContent = 'Error';
   });
 }
-
 /* ============================================================
-   LANGUAGE SYSTEM
+   GOOGLE TRANSLATE — FULL AUTO TRANSLATION
    ============================================================ */
-const TRANSLATIONS = {
-  en: {
-    flag: '🇺🇸', code: 'EN',
-    // Navigation
-    nav_home: 'Home', nav_about: 'About', nav_sectors: 'Sectors',
-    nav_programs: 'Programs', nav_resources: 'Resources', nav_projects: 'Projects',
-    nav_news: 'News', nav_contact: 'Contact Us',
-    // About dropdown
-    dd_about: 'About AFOLU', dd_mission: 'Mission & Vision', dd_leadership: 'Leadership', dd_org: 'Org. Structure',
-    // Sectors dropdown
-    dd_plant: 'Plant Science', dd_nrm: 'Natural Resource Mgmt', dd_agro: 'Agroforestry',
-    dd_animal: 'Animal Science', dd_rural: 'Rural Development', dd_econ: 'Agro-Economics',
-    dd_forestry: 'Forestry', dd_wildlife: 'Wildlife & Ecotourism',
-    // Programs
-    dd_legacy: 'Green Legacy', dd_food: 'Food Security', dd_climate: 'Climate Resilience', dd_redd: 'REDD+',
-    // Resources
-    dd_reports: 'Reports & Publications', dd_geo: 'Geospatial & GIS', dd_manuals: 'Technical Manuals',
-    // Projects
-    dd_current: 'Current Projects', dd_completed: 'Completed Projects', dd_regional: 'Regional Projects',
-    // News
-    dd_news: 'Latest News', dd_events: 'Events', dd_gallery: 'Photo Gallery', dd_testimonials: 'Testimonials',
-    // Brand
-    brand_sub: 'Agriculture · Forestry · Land Use',
-    // Topbar
-    tb_location: 'Finfinnee / Addis Ababa, Ethiopia',
-    // Hero slide 1
-    h1_eyebrow: 'Finfinnee · Ethiopia', h1_title: 'AFOLU', h1_title_em: 'of Ethiopia',
-    h1_desc: 'Agriculture, Forestry & Other Land Use — advancing sustainable landscapes, climate resilience, and rural livelihoods across Ethiopia\'s diverse ecosystems.',
-    h1_btn1: 'Explore Our Work →', h1_btn2: 'Green Legacy Initiative',
-    // Hero slide 2
-    h2_eyebrow: 'Flagship Program', h2_title: 'Green Legacy', h2_title_em: 'Initiative',
-    h2_desc: 'Ethiopia\'s largest community-driven environmental restoration campaign — over 28 billion seedlings planted since 2019, making it one of the largest in recorded history.',
-    h2_btn1: 'Learn More →', h2_btn2: 'About AFOLU',
-    // Hero slide 3
-    h3_eyebrow: 'Climate Action', h3_title: 'Building', h3_title_em: 'Climate Resilience',
-    h3_desc: 'Integrated land use interventions supporting food security, biodiversity conservation, and climate adaptation across Ethiopia\'s highlands, wetlands, and drylands.',
-    h3_btn1: 'Climate Resilience →', h3_btn2: 'REDD+ Program',
-    // About section
-    about_eyebrow: 'About AFOLU Ethiopia',
-    about_read_more: 'Read More →',
-    // Sections
-    sec_updates: 'Updates', sec_latest_news: 'Latest', sec_latest_news_em: 'News',
-    sec_see_all_news: 'See All News →',
-    sec_upcoming: 'Upcoming', sec_announcements: 'Announcements', sec_see_all: 'See All →',
-    // Stats
-    stat1_label: 'Seedlings Planted', stat1_sub: 'Green Legacy Initiative',
-    stat2_label: 'Hectares Restored', stat2_sub: 'Nationwide',
-    stat3_label: 'Technical Sectors', stat3_sub: 'Integrated approach',
-    stat4_label: 'Year Established', stat4_sub: 'CRGE aligned',
-    // Footer / contact
-    footer_about_title: 'AFOLU of Ethiopia',
-    contact_title: 'Contact Us',
-  },
 
-  am: {
-    flag: '🇪🇹', code: 'AM',
-    nav_home: 'መነሻ', nav_about: 'ስለ እኛ', nav_sectors: 'ዘርፎች',
-    nav_programs: 'ፕሮግራሞች', nav_resources: 'ሀብቶች', nav_projects: 'ፕሮጀክቶች',
-    nav_news: 'ዜና', nav_contact: 'ያግኙን',
-    dd_about: 'ስለ AFOLU', dd_mission: 'ተልዕኮ እና ራዕይ', dd_leadership: 'አመራር', dd_org: 'የድርጅት መዋቅር',
-    dd_plant: 'የዕፅዋት ሳይንስ', dd_nrm: 'የተፈጥሮ ሀብት አስተዳደር', dd_agro: 'አግሮፎሬስትሪ',
-    dd_animal: 'የእንስሳት ሳይንስ', dd_rural: 'የገጠር ልማት', dd_econ: 'አግሮ-ኢኮኖሚክስ',
-    dd_forestry: 'ደን', dd_wildlife: 'የዱር ህይወት እና ቱሪዝም',
-    dd_legacy: 'አረንጓዴ አሻራ', dd_food: 'የምግብ ዋስትና', dd_climate: 'የአየር ንብረት መቋቋም', dd_redd: 'REDD+',
-    dd_reports: 'ሪፖርቶች እና ህትመቶች', dd_geo: 'ጂኦስፓሻል እና GIS', dd_manuals: 'ቴክኒካዊ መመሪያዎች',
-    dd_current: 'አሁን ያሉ ፕሮጀክቶች', dd_completed: 'የተጠናቀቁ ፕሮጀክቶች', dd_regional: 'የክልል ፕሮጀክቶች',
-    dd_news: 'የቅርብ ዜናዎች', dd_events: 'ዝግጅቶች', dd_gallery: 'የፎቶ ማዕከለ-ስዕላት', dd_testimonials: 'ምስክርነቶች',
-    brand_sub: 'ግብርና · ደን · የመሬት አጠቃቀም',
-    tb_location: 'ፊንፊኔ / አዲስ አበባ፣ ኢትዮጵያ',
-    h1_eyebrow: 'የእውቀት መድረክ', h1_title: 'ግብርና፣ ደን እና', h1_title_em: 'የመሬት አጠቃቀም',
-    h1_desc: 'ተመራማሪዎችን፣ ባለሙያዎችን እና ማህበረሰቦችን በግብርና፣ ደን እና የተፈጥሮ ሀብት አስተዳደር ዘርፎች የሚያገናኝ የኢትዮጵያ ዋና የእውቀት-ማጋሪያ መድረክ።',
-    h1_btn1: 'ስራዎቻችንን ይዳስሱ', h1_btn2: 'ስለ AFOLU',
-    h2_eyebrow: 'ዋና ፕሮግራም', h2_title: 'አረንጓዴ አሻራ', h2_title_em: 'ተነሳሽነት',
-    h2_desc: 'ከ 2019 ጀምሮ ከ 28 ቢሊዮን በላይ ችግኞችን ተክሏል — የኢትዮጵያ ትልቁ ማህበረሰብ-ተኮር የአካባቢ ተሃድሶ ዘመቻ።',
-    h2_btn1: 'የበለጠ ይወቁ', h2_btn2: 'ስለ AFOLU',
-    h3_eyebrow: 'የአየር ንብረት እርምጃ', h3_title: 'መገንባት', h3_title_em: 'የአየር ንብረት ተቋቋሚነት',
-    h3_desc: 'በኢትዮጵያ ከፍተኛ ቦታዎች፣ እርጥብ ቦታዎች እና ደረቅ ቦታዎች ላይ የምግብ ዋስትናን፣ የብዝሀ-ህይወት ጥበቃን እና የአየር ንብረት መላመድን የሚደግፍ የተቀናጀ የመሬት አጠቃቀም ጣልቃ-ገብነት።',
-    h3_btn1: 'የአየር ንብረት ተቋቋሚነት', h3_btn2: 'REDD+ ፕሮግራም',
-    about_eyebrow: 'ስለ AFOLU ኢትዮጵያ', about_read_more: 'ተጨማሪ ያንብቡ →',
-    sec_updates: 'ዝማኔዎች', sec_latest_news: 'የቅርብ', sec_latest_news_em: 'ዜና',
-    sec_see_all_news: 'ሁሉንም ዜናዎች ይመልከቱ →',
-    sec_upcoming: 'መጪ', sec_announcements: 'ማስታወቂያዎች', sec_see_all: 'ሁሉንም ይመልከቱ →',
-    stat1_label: 'የሚሸፈኑ ክልሎች', stat1_sub: 'ሁሉም ስነ-ምህዳር ዞኖች',
-    stat2_label: 'አጋርነቶች', stat2_sub: 'ምርምር እና መንግስት',
-    stat3_label: 'ጀምሮ', stat3_sub: 'የተቋቋመ',
-    stat4_label: 'ዘርፎች', stat4_sub: 'ባለ ብዙ ዲሲፕሊን',
-    footer_about_title: 'AFOLU ኢትዮጵያ', contact_title: 'ያግኙን',
-  },
-
-  om: {
-    flag: '🇪🇹', code: 'OM',
-    nav_home: 'Mana', nav_about: 'Waa\'ee Keenya', nav_sectors: 'Dameelee',
-    nav_programs: 'Sagantaalee', nav_resources: 'Qabeenya', nav_projects: 'Pirojektii',
-    nav_news: 'Oduu', nav_contact: 'Nu Quunnamaa',
-    dd_about: 'Waa\'ee AFOLU', dd_mission: 'Ergama fi Mul\'ata', dd_leadership: 'Hoggansi', dd_org: 'Caasaa Dhaabbata',
-    dd_plant: 'Saayinsii Biqiltuu', dd_nrm: 'Bulchiinsa Qabeenya Uumamaa', dd_agro: 'Agroforestirii',
-    dd_animal: 'Saayinsii Bineeldota', dd_rural: 'Misoomaaaroo', dd_econ: 'Agiroo-Ekonomiksii',
-    dd_forestry: 'Marga', dd_wildlife: 'Bineensota Bosonaa fi Tuuriizimii',
-    dd_legacy: 'Dhaalota Magariisa', dd_food: 'Nageenya Nyaataa', dd_climate: 'Dandamachuu Qilleensaa', dd_redd: 'REDD+',
-    dd_reports: 'Gabaasaalee fi Maxxansaalee', dd_geo: 'Jiyoospeeshalii fi GIS', dd_manuals: 'Qajeelcha Teknikaa',
-    dd_current: 'Pirojektii Amma', dd_completed: 'Pirojektii Xumurame', dd_regional: 'Pirojektii Naannoo',
-    dd_news: 'Oduu Haaraa', dd_events: 'Taateewwan', dd_gallery: 'Galarii Suuraa', dd_testimonials: 'Ragaalee',
-    brand_sub: 'Qonnaa · Bosonaa · Fayyadama Lafa',
-    tb_location: 'Finfinne / Addis Ababa, Itoophiyaa',
-    h1_eyebrow: 'Madda Beekumsa', h1_title: 'Qonnaa, Bosonaa fi', h1_title_em: 'Fayyadama Lafa',
-    h1_desc: 'Madda qoodinsa beekumsaa qorattootaa, ogeeyyii fi hawaasota qonnaa, bosonaa fi bulchiinsa qabeenya uumamaa irratti walqunnamsiisu.',
-    h1_btn1: 'Hojii Keenya Ilaalaa', h1_btn2: 'Waa\'ee AFOLU',
-    h2_eyebrow: 'Sagantaa Guddaa', h2_title: 'Dhaalota', h2_title_em: 'Magariisa',
-    h2_desc: 'Itoophiyaa keessatti loon biqiltuu biliyoona 28 ol dhaabame — sagantaa haaromsa naannoo hawaasni durfatu guddaan.',
-    h2_btn1: 'Dabalata Baradhu', h2_btn2: 'Waa\'ee AFOLU',
-    h3_eyebrow: 'Tarkaanfii Qilleensaa', h3_title: 'Ijaaruu', h3_title_em: 'Dandamachuu Qilleensaa',
-    h3_desc: 'Nageenya nyaataa, eegumsa biodiversity fi adapteeshn qilleensaa Itoophiyaa keessatti deeggaruu.',
-    h3_btn1: 'Dandamachuu Qilleensaa', h3_btn2: 'Sagantaa REDD+',
-    about_eyebrow: 'Waa\'ee AFOLU Itoophiyaa', about_read_more: 'Dabalata Dubbisi →',
-    sec_updates: 'Haaromsaalee', sec_latest_news: 'Oduu', sec_latest_news_em: 'Haaraa',
-    sec_see_all_news: 'Oduu Hunda Ilaalaa →',
-    sec_upcoming: 'Dhufaatii', sec_announcements: 'Beeksisaalee', sec_see_all: 'Hunda Ilaalaa →',
-    stat1_label: 'Naannolee', stat1_sub: 'Zoonu mariyatame',
-    stat2_label: 'Gamtaalee', stat2_sub: 'Qorannoo fi mootummaa',
-    stat3_label: 'Irraa', stat3_sub: 'Hundaa\'ame',
-    stat4_label: 'Dameelee', stat4_sub: 'Hedduu-Saayinsii',
-    footer_about_title: 'AFOLU Itoophiyaa', contact_title: 'Nu Quunnamaa',
-  },
-
-  ti: {
-    flag: '🇪🇹', code: 'TI',
-    nav_home: 'መበቆ', nav_about: 'ብዛዕባና', nav_sectors: 'ዘርፍታት',
-    nav_programs: 'መደባት', nav_resources: 'ሓይልታት', nav_projects: 'ፕሮጀክቲታት',
-    nav_news: 'ዜና', nav_contact: 'ርኸቡና',
-    dd_about: 'ብዛዕባ AFOLU', dd_mission: 'ዕላማን ራዕይን', dd_leadership: 'መሪሕነት', dd_org: 'ቅርጺ ትካል',
-    dd_plant: 'ሳይንስ ተኽሊ', dd_nrm: 'ምሕደራ ተፈጥሮኣዊ ሓብሒብ', dd_agro: 'ኣግሮፎሬስትሪ',
-    dd_animal: 'ሳይንስ እንስሳ', dd_rural: 'ልምዓት ገጠር', dd_econ: 'ኣግሮ-ኢኮኖሚክስ',
-    dd_forestry: 'ደን', dd_wildlife: 'ዱሪ ህይወትን ቱሪዝምን',
-    dd_legacy: 'ሓምላይ ቅርሲ', dd_food: 'ድሕነት መግቢ', dd_climate: 'ምቅዋም ሃዋህው', dd_redd: 'REDD+',
-    dd_reports: 'ጸብጻባት', dd_geo: 'ጂኦስፓሻልን GISን', dd_manuals: 'ቴክኒካዊ መምርሒ',
-    dd_current: 'ህሉዋት ፕሮጀክቲታት', dd_completed: 'ዝተወድኡ ፕሮጀክቲታት', dd_regional: 'ኣህጉራዊ ፕሮጀክቲታት',
-    dd_news: 'ሓደሽቲ ዜናታት', dd_events: 'ኣጋጣሚታት', dd_gallery: 'ናይ ስእሊ ጋለሪ', dd_testimonials: 'ምስክርነታት',
-    brand_sub: 'ሕርሻ · ደን · ኣጠቃቀም መሬት',
-    tb_location: 'ፊንፊኔ / ኣዲስ ኣበባ፣ ኢትዮጵያ',
-    h1_eyebrow: 'መድረኽ ፍልጠት', h1_title: 'ሕርሻ፣ ደን፣ ን', h1_title_em: 'ኣጠቃቀም መሬት',
-    h1_desc: 'ዋና ፕላትፎርም ምምቕቓል ፍልጠት ናይ ኢትዮጵያ ዘራኸብ ተመራመርቲ፣ ሰብ ሞያ፣ ን ማሕበረሰባት ኣብ ሕርሻ፣ ደን ን ምሕደራ ተፈጥሮኣዊ ሓብሒብ።',
-    h1_btn1: 'ስራሕና ይዳለሉ', h1_btn2: 'ብዛዕባ AFOLU',
-    h2_eyebrow: 'ቀንዲ መደብ', h2_title: 'ሓምላይ', h2_title_em: 'ቅርሲ',
-    h2_desc: 'ዝዓበየ ምንቅስቃስ ሓምልዊ ምምላስ ዝምስረቱ ማሕበረሰብ ኢትዮጵያ — ልዕሊ 28 ቢሊዮን ዘርኢ ካብ 2019 ምስ ዝተኸሉ።',
-    h2_btn1: 'ዝያዳ ፍለጡ', h2_btn2: 'ብዛዕባ AFOLU',
-    h3_eyebrow: 'ስጉምቲ ሃዋህው', h3_title: 'ምህናጽ', h3_title_em: 'ምቅዋም ሃዋህው',
-    h3_desc: 'ዝሳኸሐ ጣልቃ ምእታው ናይ ኣጠቃቀም መሬት ዝደግፍ ድሕነት መግቢ፣ ምሕላው ብዙሕነት ህይወት፣ ን ምልምማድ ሃዋህው ኣብ ኢትዮጵያ።',
-    h3_btn1: 'ምቅዋም ሃዋህው', h3_btn2: 'REDD+ መደብ',
-    about_eyebrow: 'ብዛዕባ AFOLU ኢትዮጵያ', about_read_more: 'ዝያዳ ኣንብቡ →',
-    sec_updates: 'ዝተሓደሱ', sec_latest_news: 'ሓደሽቲ', sec_latest_news_em: 'ዜናታት',
-    sec_see_all_news: 'ኩሎም ዜናታት ርኣዩ →',
-    sec_upcoming: 'መጻኢ', sec_announcements: 'ኣዋጆ', sec_see_all: 'ኩሉ ርኣዩ →',
-    stat1_label: 'ክልልታት', stat1_sub: 'ኩሎም ዞናታት', stat2_label: 'ሽርክነት', stat2_sub: 'ምርምር ን መንግስቲ',
-    stat3_label: 'ካብ', stat3_sub: 'ዝተቖረጸ', stat4_label: 'ዘርፍታት', stat4_sub: 'ብዙሕ-ዲሲፕሊን',
-    footer_about_title: 'AFOLU ኢትዮጵያ', contact_title: 'ርኸቡና',
-  },
-
-  so: {
-    flag: '🇸🇴', code: 'SO',
-    nav_home: 'Hoyga', nav_about: 'Naga Waran', nav_sectors: 'Qeybaha',
-    nav_programs: 'Barnaamijyada', nav_resources: 'Khayraadka', nav_projects: 'Mashruucyada',
-    nav_news: 'Wararka', nav_contact: 'Nala Xiriir',
-    dd_about: 'Ku Saabsan AFOLU', dd_mission: 'Hawsha & Aragtida', dd_leadership: 'Hogaanka', dd_org: 'Qaabdhismeedka',
-    dd_plant: 'Cilmiga Dhirta', dd_nrm: 'Maaraynta Kheyraadka Dabiiciga', dd_agro: 'Beeraha Dhirta',
-    dd_animal: 'Cilmiga Xoolaha', dd_rural: 'Horumarinta Reer Miyi', dd_econ: 'Dhaqaalaha Beeraha',
-    dd_forestry: 'Kaynta', dd_wildlife: 'Xayawaanka & Dalxiiska',
-    dd_legacy: 'Dhaxalka Cagaarka', dd_food: 'Badqabka Cuntada', dd_climate: 'U Adkeysiga Cimilada', dd_redd: 'REDD+',
-    dd_reports: 'Warbixinnada & Daabacaadaha', dd_geo: 'Juqraafi & GIS', dd_manuals: 'Tilmaamo Farsameed',
-    dd_current: 'Mashruucyada Hadda', dd_completed: 'Mashruucyada Dhammaystiran', dd_regional: 'Mashruucyada Gobolka',
-    dd_news: 'Wararka Ugu Dambeeyay', dd_events: 'Dhacdooyinka', dd_gallery: 'Galariiga Sawirrada', dd_testimonials: 'Marag-furka',
-    brand_sub: 'Beeraha · Kaynta · Isticmaalka Dhulka',
-    tb_location: 'Finfinnee / Addis Ababa, Itoobiya',
-    h1_eyebrow: 'Meesha Aqoonta', h1_title: 'Beeraha, Kaynta &', h1_title_em: 'Isticmaalka Dhulka',
-    h1_desc: 'Goobta ugu weyn ee wadaagga aqoonta Itoobiya ee xiriiriya cilmi-baarayaasha, xirfadlayaasha, iyo bulshada beeraha, kaynta, iyo maaraynta kheyraadka dabiiciga.',
-    h1_btn1: 'Baadh Shaqadeena', h1_btn2: 'Ku Saabsan AFOLU',
-    h2_eyebrow: 'Barnaamijka Muhiimka', h2_title: 'Dhaxalka', h2_title_em: 'Cagaarka',
-    h2_desc: 'Ololaha ugu weyn ee soo celinta deegaanka Itoobiya oo bulshadu hoggaamiso — in ka badan 28 bilyan oo geed la beertay.',
-    h2_btn1: 'Wax Dheeraad ah', h2_btn2: 'Ku Saabsan AFOLU',
-    h3_eyebrow: 'Tallaabada Cimilada', h3_title: 'Dhismaha', h3_title_em: 'U Adkeysiga Cimilada',
-    h3_desc: 'Faragelinta dhulka ee midaysan taageerta badqabka cuntada, xifaaladda kala duwanaanshaha noolaha, iyo qabsoomida cimilada Itoobiya.',
-    h3_btn1: 'U Adkeysiga Cimilada', h3_btn2: 'Barnaamijka REDD+',
-    about_eyebrow: 'Ku Saabsan AFOLU Itoobiya', about_read_more: 'Akhri Wax Dheeraad ah →',
-    sec_updates: 'Cusboonaysiinta', sec_latest_news: 'Ugu Dambe', sec_latest_news_em: 'Wararka',
-    sec_see_all_news: 'Arag Dhammaan Wararka →',
-    sec_upcoming: 'Soo Socda', sec_announcements: 'Xayeysiimaha', sec_see_all: 'Arag Dhammaan →',
-    stat1_label: 'Gobolada', stat1_sub: 'Dhammaan Aagagga', stat2_label: 'Iskaashiga', stat2_sub: 'Cilmi-baaris & Dowladda',
-    stat3_label: 'Tan iyo', stat3_sub: 'La Dhisay', stat4_label: 'Qaybaha', stat4_sub: 'Xirfadaha Kala Duwan',
-    footer_about_title: 'AFOLU Itoobiya', contact_title: 'Nala Xiriir',
-  },
-
-  ar: {
-    flag: '🇸🇦', code: 'AR',
-    nav_home: 'الرئيسية', nav_about: 'من نحن', nav_sectors: 'القطاعات',
-    nav_programs: 'البرامج', nav_resources: 'الموارد', nav_projects: 'المشاريع',
-    nav_news: 'الأخبار', nav_contact: 'تواصل معنا',
-    dd_about: 'عن AFOLU', dd_mission: 'المهمة والرؤية', dd_leadership: 'القيادة', dd_org: 'الهيكل التنظيمي',
-    dd_plant: 'علم النبات', dd_nrm: 'إدارة الموارد الطبيعية', dd_agro: 'الزراعة الحرجية',
-    dd_animal: 'علوم الحيوان', dd_rural: 'التنمية الريفية', dd_econ: 'الاقتصاد الزراعي',
-    dd_forestry: 'الغابات', dd_wildlife: 'الحياة البرية والسياحة البيئية',
-    dd_legacy: 'الإرث الأخضر', dd_food: 'الأمن الغذائي', dd_climate: 'المرونة المناخية', dd_redd: 'REDD+',
-    dd_reports: 'التقارير والمنشورات', dd_geo: 'المعلومات الجغرافية', dd_manuals: 'الأدلة التقنية',
-    dd_current: 'المشاريع الحالية', dd_completed: 'المشاريع المكتملة', dd_regional: 'المشاريع الإقليمية',
-    dd_news: 'آخر الأخبار', dd_events: 'الفعاليات', dd_gallery: 'معرض الصور', dd_testimonials: 'الشهادات',
-    brand_sub: 'الزراعة · الغابات · استخدام الأراضي',
-    tb_location: 'فنفينيه / أديس أبابا، إثيوبيا',
-    h1_eyebrow: 'منصة المعرفة', h1_title: 'الزراعة، الغابات و', h1_title_em: 'استخدام الأراضي',
-    h1_desc: 'منصة إثيوبيا الرائدة لتبادل المعرفة التي تربط الباحثين والممارسين والمجتمعات في مجالات الزراعة والغابات وإدارة الموارد الطبيعية.',
-    h1_btn1: 'استكشف أعمالنا', h1_btn2: 'عن AFOLU',
-    h2_eyebrow: 'برنامج الرائد', h2_title: 'الإرث', h2_title_em: 'الأخضر',
-    h2_desc: 'حملة استعادة البيئة المجتمعية الأكبر في إثيوبيا — أكثر من 28 مليار شتلة مزروعة منذ 2019.',
-    h2_btn1: 'اعرف المزيد', h2_btn2: 'عن AFOLU',
-    h3_eyebrow: 'العمل المناخي', h3_title: 'بناء', h3_title_em: 'المرونة المناخية',
-    h3_desc: 'تدخلات مدمجة لاستخدام الأراضي تدعم الأمن الغذائي وصون التنوع البيولوجي والتكيف المناخي في إثيوبيا.',
-    h3_btn1: 'المرونة المناخية', h3_btn2: 'برنامج REDD+',
-    about_eyebrow: 'عن AFOLU إثيوبيا', about_read_more: 'اقرأ المزيد ←',
-    sec_updates: 'التحديثات', sec_latest_news: 'أحدث', sec_latest_news_em: 'الأخبار',
-    sec_see_all_news: 'عرض جميع الأخبار ←',
-    sec_upcoming: 'القادمة', sec_announcements: 'الإعلانات', sec_see_all: 'عرض الكل ←',
-    stat1_label: 'الأقاليم', stat1_sub: 'جميع المناطق البيئية', stat2_label: 'الشراكات', stat2_sub: 'البحث والحكومة',
-    stat3_label: 'منذ', stat3_sub: 'تأسست', stat4_label: 'القطاعات', stat4_sub: 'متعدد التخصصات',
-    footer_about_title: 'AFOLU إثيوبيا', contact_title: 'تواصل معنا',
-  },
-
-  fr: {
-    flag: '🇫🇷', code: 'FR',
-    nav_home: 'Accueil', nav_about: 'À Propos', nav_sectors: 'Secteurs',
-    nav_programs: 'Programmes', nav_resources: 'Ressources', nav_projects: 'Projets',
-    nav_news: 'Actualités', nav_contact: 'Nous Contacter',
-    dd_about: 'À propos d\'AFOLU', dd_mission: 'Mission & Vision', dd_leadership: 'Direction', dd_org: 'Structure Organisationnelle',
-    dd_plant: 'Sciences Végétales', dd_nrm: 'Gestion des Ressources Naturelles', dd_agro: 'Agroforesterie',
-    dd_animal: 'Sciences Animales', dd_rural: 'Développement Rural', dd_econ: 'Agro-Économie',
-    dd_forestry: 'Sylviculture', dd_wildlife: 'Faune & Écotourisme',
-    dd_legacy: 'Héritage Vert', dd_food: 'Sécurité Alimentaire', dd_climate: 'Résilience Climatique', dd_redd: 'REDD+',
-    dd_reports: 'Rapports & Publications', dd_geo: 'Géospatial & SIG', dd_manuals: 'Manuels Techniques',
-    dd_current: 'Projets en Cours', dd_completed: 'Projets Terminés', dd_regional: 'Projets Régionaux',
-    dd_news: 'Dernières Nouvelles', dd_events: 'Événements', dd_gallery: 'Galerie Photos', dd_testimonials: 'Témoignages',
-    brand_sub: 'Agriculture · Forêts · Utilisation des Terres',
-    tb_location: 'Finfinnee / Addis-Abeba, Éthiopie',
-    h1_eyebrow: 'Plateforme de Connaissances', h1_title: 'Agriculture, Forêts &', h1_title_em: 'Utilisation des Terres',
-    h1_desc: 'La principale plateforme éthiopienne de partage des connaissances reliant chercheurs, praticiens et communautés en agriculture, foresterie et gestion des ressources naturelles.',
-    h1_btn1: 'Explorer Nos Travaux', h1_btn2: 'À Propos d\'AFOLU',
-    h2_eyebrow: 'Programme Phare', h2_title: 'Héritage', h2_title_em: 'Vert',
-    h2_desc: 'La plus grande campagne de restauration environnementale communautaire d\'Éthiopie — plus de 28 milliards de plants depuis 2019.',
-    h2_btn1: 'En Savoir Plus', h2_btn2: 'À Propos d\'AFOLU',
-    h3_eyebrow: 'Action Climatique', h3_title: 'Construire la', h3_title_em: 'Résilience Climatique',
-    h3_desc: 'Interventions intégrées d\'utilisation des terres soutenant la sécurité alimentaire, la conservation de la biodiversité et l\'adaptation climatique.',
-    h3_btn1: 'Résilience Climatique', h3_btn2: 'Programme REDD+',
-    about_eyebrow: 'À Propos d\'AFOLU Éthiopie', about_read_more: 'Lire Plus →',
-    sec_updates: 'Mises à Jour', sec_latest_news: 'Dernières', sec_latest_news_em: 'Actualités',
-    sec_see_all_news: 'Voir Toutes les Actualités →',
-    sec_upcoming: 'À Venir', sec_announcements: 'Annonces', sec_see_all: 'Voir Tout →',
-    stat1_label: 'Régions Couvertes', stat1_sub: 'Toutes les zones écologiques', stat2_label: 'Partenariats', stat2_sub: 'Recherche et gouvernement',
-    stat3_label: 'Depuis', stat3_sub: 'Établi', stat4_label: 'Secteurs', stat4_sub: 'Multidisciplinaire',
-    footer_about_title: 'AFOLU Éthiopie', contact_title: 'Nous Contacter',
-  },
-
-  es: {
-    flag: '🇪🇸', code: 'ES',
-    nav_home: 'Inicio', nav_about: 'Acerca de', nav_sectors: 'Sectores',
-    nav_programs: 'Programas', nav_resources: 'Recursos', nav_projects: 'Proyectos',
-    nav_news: 'Noticias', nav_contact: 'Contáctenos',
-    dd_about: 'Sobre AFOLU', dd_mission: 'Misión y Visión', dd_leadership: 'Liderazgo', dd_org: 'Estructura Organizacional',
-    dd_plant: 'Ciencias Vegetales', dd_nrm: 'Gestión de Recursos Naturales', dd_agro: 'Agroforestería',
-    dd_animal: 'Ciencias Animales', dd_rural: 'Desarrollo Rural', dd_econ: 'Agro-Economía',
-    dd_forestry: 'Silvicultura', dd_wildlife: 'Vida Silvestre & Ecoturismo',
-    dd_legacy: 'Legado Verde', dd_food: 'Seguridad Alimentaria', dd_climate: 'Resiliencia Climática', dd_redd: 'REDD+',
-    dd_reports: 'Informes y Publicaciones', dd_geo: 'Geoespacial y SIG', dd_manuals: 'Manuales Técnicos',
-    dd_current: 'Proyectos Actuales', dd_completed: 'Proyectos Completados', dd_regional: 'Proyectos Regionales',
-    dd_news: 'Últimas Noticias', dd_events: 'Eventos', dd_gallery: 'Galería Fotográfica', dd_testimonials: 'Testimonios',
-    brand_sub: 'Agricultura · Bosques · Uso de la Tierra',
-    tb_location: 'Finfinnee / Addis Abeba, Etiopía',
-    h1_eyebrow: 'Plataforma de Conocimiento', h1_title: 'Agricultura, Bosques y', h1_title_em: 'Uso de la Tierra',
-    h1_desc: 'La principal plataforma etíope de intercambio de conocimientos que conecta investigadores, profesionales y comunidades en agricultura, silvicultura y gestión de recursos naturales.',
-    h1_btn1: 'Explorar Nuestro Trabajo', h1_btn2: 'Sobre AFOLU',
-    h2_eyebrow: 'Programa Insignia', h2_title: 'Legado', h2_title_em: 'Verde',
-    h2_desc: 'La campaña de restauración ambiental comunitaria más grande de Etiopía — más de 28 mil millones de plantas desde 2019.',
-    h2_btn1: 'Saber Más', h2_btn2: 'Sobre AFOLU',
-    h3_eyebrow: 'Acción Climática', h3_title: 'Construyendo', h3_title_em: 'Resiliencia Climática',
-    h3_desc: 'Intervenciones integradas de uso de la tierra que apoyan la seguridad alimentaria, la conservación de la biodiversidad y la adaptación climática en Etiopía.',
-    h3_btn1: 'Resiliencia Climática', h3_btn2: 'Programa REDD+',
-    about_eyebrow: 'Sobre AFOLU Etiopía', about_read_more: 'Leer Más →',
-    sec_updates: 'Actualizaciones', sec_latest_news: 'Últimas', sec_latest_news_em: 'Noticias',
-    sec_see_all_news: 'Ver Todas las Noticias →',
-    sec_upcoming: 'Próximas', sec_announcements: 'Anuncios', sec_see_all: 'Ver Todo →',
-    stat1_label: 'Regiones', stat1_sub: 'Todas las zonas ecológicas', stat2_label: 'Alianzas', stat2_sub: 'Investigación y gobierno',
-    stat3_label: 'Desde', stat3_sub: 'Establecido', stat4_label: 'Sectores', stat4_sub: 'Multidisciplinario',
-    footer_about_title: 'AFOLU Etiopía', contact_title: 'Contáctenos',
-  },
-
-  pt: {
-    flag: '🇵🇹', code: 'PT',
-    nav_home: 'Início', nav_about: 'Sobre Nós', nav_sectors: 'Setores',
-    nav_programs: 'Programas', nav_resources: 'Recursos', nav_projects: 'Projetos',
-    nav_news: 'Notícias', nav_contact: 'Contate-Nos',
-    dd_about: 'Sobre AFOLU', dd_mission: 'Missão & Visão', dd_leadership: 'Liderança', dd_org: 'Estrutura Organizacional',
-    dd_plant: 'Ciências Vegetais', dd_nrm: 'Gestão de Recursos Naturais', dd_agro: 'Agrofloresta',
-    dd_animal: 'Ciências Animais', dd_rural: 'Desenvolvimento Rural', dd_econ: 'Agro-Economia',
-    dd_forestry: 'Silvicultura', dd_wildlife: 'Vida Selvagem & Ecoturismo',
-    dd_legacy: 'Legado Verde', dd_food: 'Segurança Alimentar', dd_climate: 'Resiliência Climática', dd_redd: 'REDD+',
-    dd_reports: 'Relatórios & Publicações', dd_geo: 'Geoespacial & SIG', dd_manuals: 'Manuais Técnicos',
-    dd_current: 'Projetos Atuais', dd_completed: 'Projetos Concluídos', dd_regional: 'Projetos Regionais',
-    dd_news: 'Últimas Notícias', dd_events: 'Eventos', dd_gallery: 'Galeria de Fotos', dd_testimonials: 'Depoimentos',
-    brand_sub: 'Agricultura · Florestas · Uso da Terra',
-    tb_location: 'Finfinnee / Addis Abeba, Etiópia',
-    h1_eyebrow: 'Plataforma de Conhecimento', h1_title: 'Agricultura, Florestas e', h1_title_em: 'Uso da Terra',
-    h1_desc: 'A principal plataforma etíope de partilha de conhecimentos ligando investigadores, profissionais e comunidades em agricultura, silvicultura e gestão de recursos naturais.',
-    h1_btn1: 'Explorar Nosso Trabalho', h1_btn2: 'Sobre AFOLU',
-    h2_eyebrow: 'Programa Principal', h2_title: 'Legado', h2_title_em: 'Verde',
-    h2_desc: 'A maior campanha de restauração ambiental liderada pela comunidade na Etiópia — mais de 28 bilhões de mudas plantadas desde 2019.',
-    h2_btn1: 'Saiba Mais', h2_btn2: 'Sobre AFOLU',
-    h3_eyebrow: 'Ação Climática', h3_title: 'Construindo', h3_title_em: 'Resiliência Climática',
-    h3_desc: 'Intervenções integradas de uso da terra apoiando segurança alimentar, conservação da biodiversidade e adaptação climática na Etiópia.',
-    h3_btn1: 'Resiliência Climática', h3_btn2: 'Programa REDD+',
-    about_eyebrow: 'Sobre AFOLU Etiópia', about_read_more: 'Ler Mais →',
-    sec_updates: 'Atualizações', sec_latest_news: 'Últimas', sec_latest_news_em: 'Notícias',
-    sec_see_all_news: 'Ver Todas as Notícias →',
-    sec_upcoming: 'Próximas', sec_announcements: 'Anúncios', sec_see_all: 'Ver Tudo →',
-    stat1_label: 'Regiões', stat1_sub: 'Todas as zonas ecológicas', stat2_label: 'Parcerias', stat2_sub: 'Pesquisa e governo',
-    stat3_label: 'Desde', stat3_sub: 'Estabelecido', stat4_label: 'Setores', stat4_sub: 'Multidisciplinar',
-    footer_about_title: 'AFOLU Etiópia', contact_title: 'Contate-Nos',
-  },
-
-  zh: {
-    flag: '🇨🇳', code: 'ZH',
-    nav_home: '首页', nav_about: '关于我们', nav_sectors: '部门',
-    nav_programs: '项目', nav_resources: '资源', nav_projects: '工程',
-    nav_news: '新闻', nav_contact: '联系我们',
-    dd_about: '关于AFOLU', dd_mission: '使命与愿景', dd_leadership: '领导层', dd_org: '组织结构',
-    dd_plant: '植物科学', dd_nrm: '自然资源管理', dd_agro: '农林复合系统',
-    dd_animal: '动物科学', dd_rural: '农村发展', dd_econ: '农业经济',
-    dd_forestry: '林业', dd_wildlife: '野生动物与生态旅游',
-    dd_legacy: '绿色遗产', dd_food: '粮食安全', dd_climate: '气候韧性', dd_redd: 'REDD+',
-    dd_reports: '报告与出版物', dd_geo: '地理空间与GIS', dd_manuals: '技术手册',
-    dd_current: '当前项目', dd_completed: '已完成项目', dd_regional: '区域项目',
-    dd_news: '最新新闻', dd_events: '活动', dd_gallery: '照片库', dd_testimonials: '证言',
-    brand_sub: '农业 · 林业 · 土地利用',
-    tb_location: '芬芬内 / 亚的斯亚贝巴，埃塞俄比亚',
-    h1_eyebrow: '知识共享平台', h1_title: '农业、林业与', h1_title_em: '土地利用',
-    h1_desc: '埃塞俄比亚首屈一指的知识共享平台，连接农业、林业和自然资源管理领域的研究人员、从业者和社区。',
-    h1_btn1: '探索我们的工作', h1_btn2: '关于AFOLU',
-    h2_eyebrow: '旗舰项目', h2_title: '绿色', h2_title_em: '遗产',
-    h2_desc: '埃塞俄比亚最大的社区驱动环境恢复运动——自2019年以来已种植超过280亿株幼苗。',
-    h2_btn1: '了解更多', h2_btn2: '关于AFOLU',
-    h3_eyebrow: '气候行动', h3_title: '构建', h3_title_em: '气候韧性',
-    h3_desc: '综合土地利用干预措施，支持埃塞俄比亚的粮食安全、生物多样性保护和气候适应。',
-    h3_btn1: '气候韧性', h3_btn2: 'REDD+项目',
-    about_eyebrow: '关于AFOLU埃塞俄比亚', about_read_more: '阅读更多 →',
-    sec_updates: '更新', sec_latest_news: '最新', sec_latest_news_em: '新闻',
-    sec_see_all_news: '查看全部新闻 →',
-    sec_upcoming: '即将到来', sec_announcements: '公告', sec_see_all: '查看全部 →',
-    stat1_label: '覆盖地区', stat1_sub: '所有生态区', stat2_label: '合作关系', stat2_sub: '研究与政府',
-    stat3_label: '自', stat3_sub: '成立', stat4_label: '部门', stat4_sub: '跨学科',
-    footer_about_title: 'AFOLU埃塞俄比亚', contact_title: '联系我们',
-  },
-
-  de: {
-    flag: '🇩🇪', code: 'DE',
-    nav_home: 'Startseite', nav_about: 'Über Uns', nav_sectors: 'Sektoren',
-    nav_programs: 'Programme', nav_resources: 'Ressourcen', nav_projects: 'Projekte',
-    nav_news: 'Nachrichten', nav_contact: 'Kontakt',
-    dd_about: 'Über AFOLU', dd_mission: 'Mission & Vision', dd_leadership: 'Führung', dd_org: 'Organisationsstruktur',
-    dd_plant: 'Pflanzenwissenschaften', dd_nrm: 'Natürliches Ressourcenmanagement', dd_agro: 'Agroforstwirtschaft',
-    dd_animal: 'Tierwissenschaften', dd_rural: 'Ländliche Entwicklung', dd_econ: 'Agrar-Ökonomie',
-    dd_forestry: 'Forstwirtschaft', dd_wildlife: 'Wildtiere & Ökotourismus',
-    dd_legacy: 'Grünes Erbe', dd_food: 'Ernährungssicherheit', dd_climate: 'Klimaresilienz', dd_redd: 'REDD+',
-    dd_reports: 'Berichte & Veröffentlichungen', dd_geo: 'Geospatial & GIS', dd_manuals: 'Technische Handbücher',
-    dd_current: 'Laufende Projekte', dd_completed: 'Abgeschlossene Projekte', dd_regional: 'Regionale Projekte',
-    dd_news: 'Aktuelle Nachrichten', dd_events: 'Veranstaltungen', dd_gallery: 'Fotogalerie', dd_testimonials: 'Testimonials',
-    brand_sub: 'Landwirtschaft · Forstwirtschaft · Landnutzung',
-    tb_location: 'Finfinnee / Addis Abeba, Äthiopien',
-    h1_eyebrow: 'Wissensplattform', h1_title: 'Landwirtschaft, Forstwirtschaft &', h1_title_em: 'Landnutzung',
-    h1_desc: 'Äthiopiens führende Wissensaustauschplattform, die Forscher, Praktiker und Gemeinschaften in Landwirtschaft, Forstwirtschaft und Naturressourcenmanagement verbindet.',
-    h1_btn1: 'Unsere Arbeit Entdecken', h1_btn2: 'Über AFOLU',
-    h2_eyebrow: 'Flaggschiff-Programm', h2_title: 'Grünes', h2_title_em: 'Erbe',
-    h2_desc: 'Äthiopiens größte gemeinschaftsgetriebene Umweltrestaurierungskampagne — mehr als 28 Milliarden Setzlinge seit 2019 gepflanzt.',
-    h2_btn1: 'Mehr Erfahren', h2_btn2: 'Über AFOLU',
-    h3_eyebrow: 'Klimamaßnahmen', h3_title: 'Aufbau von', h3_title_em: 'Klimaresilienz',
-    h3_desc: 'Integrierte Landnutzungsinterventionen zur Unterstützung von Ernährungssicherheit, Biodiversitätsschutz und Klimaanpassung in Äthiopien.',
-    h3_btn1: 'Klimaresilienz', h3_btn2: 'REDD+ Programm',
-    about_eyebrow: 'Über AFOLU Äthiopien', about_read_more: 'Mehr Lesen →',
-    sec_updates: 'Aktualisierungen', sec_latest_news: 'Neueste', sec_latest_news_em: 'Nachrichten',
-    sec_see_all_news: 'Alle Nachrichten Anzeigen →',
-    sec_upcoming: 'Bevorstehend', sec_announcements: 'Ankündigungen', sec_see_all: 'Alle Anzeigen →',
-    stat1_label: 'Regionen', stat1_sub: 'Alle ökologischen Zonen', stat2_label: 'Partnerschaften', stat2_sub: 'Forschung und Regierung',
-    stat3_label: 'Seit', stat3_sub: 'Gegründet', stat4_label: 'Sektoren', stat4_sub: 'Multidisziplinär',
-    footer_about_title: 'AFOLU Äthiopien', contact_title: 'Kontakt',
-  },
-
-  ja: {
-    flag: '🇯🇵', code: 'JA',
-    nav_home: 'ホーム', nav_about: '私たちについて', nav_sectors: 'セクター',
-    nav_programs: 'プログラム', nav_resources: 'リソース', nav_projects: 'プロジェクト',
-    nav_news: 'ニュース', nav_contact: 'お問い合わせ',
-    dd_about: 'AFOLUについて', dd_mission: 'ミッションとビジョン', dd_leadership: 'リーダーシップ', dd_org: '組織構造',
-    dd_plant: '植物科学', dd_nrm: '天然資源管理', dd_agro: '農林複合経営',
-    dd_animal: '動物科学', dd_rural: '農村開発', dd_econ: '農業経済',
-    dd_forestry: '林業', dd_wildlife: '野生生物とエコツーリズム',
-    dd_legacy: 'グリーンレガシー', dd_food: '食料安全保障', dd_climate: '気候レジリエンス', dd_redd: 'REDD+',
-    dd_reports: 'レポートと出版物', dd_geo: '地理空間とGIS', dd_manuals: '技術マニュアル',
-    dd_current: '現在のプロジェクト', dd_completed: '完了したプロジェクト', dd_regional: '地域プロジェクト',
-    dd_news: '最新ニュース', dd_events: 'イベント', dd_gallery: 'フォトギャラリー', dd_testimonials: '証言',
-    brand_sub: '農業 · 林業 · 土地利用',
-    tb_location: 'フィンフィンネ / アディスアベバ、エチオピア',
-    h1_eyebrow: '知識共有プラットフォーム', h1_title: '農業、林業と', h1_title_em: '土地利用',
-    h1_desc: 'エチオピアの主要な知識共有プラットフォームで、農業、林業、自然資源管理の研究者、実践者、地域社会をつなぎます。',
-    h1_btn1: '私たちの取り組みを探る', h1_btn2: 'AFOLUについて',
-    h2_eyebrow: '主力プログラム', h2_title: 'グリーン', h2_title_em: 'レガシー',
-    h2_desc: 'エチオピア最大のコミュニティ主導環境修復キャンペーン — 2019年以来280億本以上の苗木を植樹。',
-    h2_btn1: '詳細を見る', h2_btn2: 'AFOLUについて',
-    h3_eyebrow: '気候行動', h3_title: '構築する', h3_title_em: '気候レジリエンス',
-    h3_desc: 'エチオピアの食料安全保障、生物多様性保全、気候適応を支援する統合的な土地利用介入。',
-    h3_btn1: '気候レジリエンス', h3_btn2: 'REDD+プログラム',
-    about_eyebrow: 'AFOLUエチオピアについて', about_read_more: '詳細を読む →',
-    sec_updates: '更新情報', sec_latest_news: '最新の', sec_latest_news_em: 'ニュース',
-    sec_see_all_news: 'すべてのニュースを見る →',
-    sec_upcoming: '近日', sec_announcements: 'お知らせ', sec_see_all: 'すべて見る →',
-    stat1_label: '対象地域', stat1_sub: 'すべての生態ゾーン', stat2_label: 'パートナーシップ', stat2_sub: '研究・行政',
-    stat3_label: '以来', stat3_sub: '設立', stat4_label: 'セクター', stat4_sub: '学際的',
-    footer_about_title: 'AFOLUエチオピア', contact_title: 'お問い合わせ',
-  },
-
-  ko: {
-    flag: '🇰🇷', code: 'KO',
-    nav_home: '홈', nav_about: '소개', nav_sectors: '부문',
-    nav_programs: '프로그램', nav_resources: '자료', nav_projects: '프로젝트',
-    nav_news: '뉴스', nav_contact: '문의하기',
-    dd_about: 'AFOLU 소개', dd_mission: '미션 & 비전', dd_leadership: '리더십', dd_org: '조직 구조',
-    dd_plant: '식물 과학', dd_nrm: '자연자원 관리', dd_agro: '농림복합경영',
-    dd_animal: '동물 과학', dd_rural: '농촌 개발', dd_econ: '농업 경제',
-    dd_forestry: '임업', dd_wildlife: '야생동물 & 생태관광',
-    dd_legacy: '녹색 유산', dd_food: '식량 안보', dd_climate: '기후 회복력', dd_redd: 'REDD+',
-    dd_reports: '보고서 및 간행물', dd_geo: '지리공간 & GIS', dd_manuals: '기술 매뉴얼',
-    dd_current: '현재 프로젝트', dd_completed: '완료된 프로젝트', dd_regional: '지역 프로젝트',
-    dd_news: '최신 뉴스', dd_events: '이벤트', dd_gallery: '사진 갤러리', dd_testimonials: '증언',
-    brand_sub: '농업 · 임업 · 토지 이용',
-    tb_location: '핀피네 / 아디스아바바, 에티오피아',
-    h1_eyebrow: '지식 공유 플랫폼', h1_title: '농업, 임업 &', h1_title_em: '토지 이용',
-    h1_desc: '농업, 임업 및 자연자원 관리 분야의 연구자, 실무자, 지역사회를 연결하는 에티오피아 최고의 지식공유 플랫폼.',
-    h1_btn1: '우리 활동 탐색', h1_btn2: 'AFOLU 소개',
-    h2_eyebrow: '주력 프로그램', h2_title: '녹색', h2_title_em: '유산',
-    h2_desc: '에티오피아 최대의 지역사회 주도 환경 복원 캠페인 — 2019년부터 280억 그루 이상의 묘목 식재.',
-    h2_btn1: '자세히 알아보기', h2_btn2: 'AFOLU 소개',
-    h3_eyebrow: '기후 행동', h3_title: '구축하는', h3_title_em: '기후 회복력',
-    h3_desc: '에티오피아의 식량 안보, 생물다양성 보전, 기후 적응을 지원하는 통합적 토지 이용 개입.',
-    h3_btn1: '기후 회복력', h3_btn2: 'REDD+ 프로그램',
-    about_eyebrow: 'AFOLU 에티오피아 소개', about_read_more: '더 읽기 →',
-    sec_updates: '업데이트', sec_latest_news: '최신', sec_latest_news_em: '뉴스',
-    sec_see_all_news: '모든 뉴스 보기 →',
-    sec_upcoming: '다가오는', sec_announcements: '공지사항', sec_see_all: '전체 보기 →',
-    stat1_label: '대상 지역', stat1_sub: '모든 생태 지역', stat2_label: '파트너십', stat2_sub: '연구 및 정부',
-    stat3_label: '이후', stat3_sub: '설립', stat4_label: '부문', stat4_sub: '다학제적',
-    footer_about_title: 'AFOLU 에티오피아', contact_title: '문의하기',
-  },
-
-  ru: {
-    flag: '🇷🇺', code: 'RU',
-    nav_home: 'Главная', nav_about: 'О Нас', nav_sectors: 'Секторы',
-    nav_programs: 'Программы', nav_resources: 'Ресурсы', nav_projects: 'Проекты',
-    nav_news: 'Новости', nav_contact: 'Связаться',
-    dd_about: 'Об AFOLU', dd_mission: 'Миссия и Видение', dd_leadership: 'Руководство', dd_org: 'Организационная Структура',
-    dd_plant: 'Растениеводство', dd_nrm: 'Управление Природными Ресурсами', dd_agro: 'Агролесоводство',
-    dd_animal: 'Животноводство', dd_rural: 'Развитие Сельских Районов', dd_econ: 'Агроэкономика',
-    dd_forestry: 'Лесное Хозяйство', dd_wildlife: 'Дикая Природа и Экотуризм',
-    dd_legacy: 'Зелёное Наследие', dd_food: 'Продовольственная Безопасность', dd_climate: 'Климатическая Устойчивость', dd_redd: 'REDD+',
-    dd_reports: 'Отчёты и Публикации', dd_geo: 'Геопространство и ГИС', dd_manuals: 'Технические Руководства',
-    dd_current: 'Текущие Проекты', dd_completed: 'Завершённые Проекты', dd_regional: 'Региональные Проекты',
-    dd_news: 'Последние Новости', dd_events: 'Мероприятия', dd_gallery: 'Фотогалерея', dd_testimonials: 'Отзывы',
-    brand_sub: 'Сельское Хозяйство · Лесоводство · Землепользование',
-    tb_location: 'Финфиннее / Аддис-Абеба, Эфиопия',
-    h1_eyebrow: 'Платформа Знаний', h1_title: 'Сельское Хозяйство, Леса и', h1_title_em: 'Землепользование',
-    h1_desc: 'Ведущая эфиопская платформа обмена знаниями, объединяющая исследователей, практиков и сообщества в области сельского хозяйства, лесоводства и управления природными ресурсами.',
-    h1_btn1: 'Изучить Нашу Работу', h1_btn2: 'Об AFOLU',
-    h2_eyebrow: 'Флагманская Программа', h2_title: 'Зелёное', h2_title_em: 'Наследие',
-    h2_desc: 'Крупнейшая общественная кампания по восстановлению окружающей среды в Эфиопии — более 28 миллиардов саженцев с 2019 года.',
-    h2_btn1: 'Узнать Больше', h2_btn2: 'Об AFOLU',
-    h3_eyebrow: 'Климатические Действия', h3_title: 'Построение', h3_title_em: 'Климатической Устойчивости',
-    h3_desc: 'Комплексные меры по землепользованию, поддерживающие продовольственную безопасность, сохранение биоразнообразия и адаптацию к климату в Эфиопии.',
-    h3_btn1: 'Климатическая Устойчивость', h3_btn2: 'Программа REDD+',
-    about_eyebrow: 'Об AFOLU Эфиопия', about_read_more: 'Читать Далее →',
-    sec_updates: 'Обновления', sec_latest_news: 'Последние', sec_latest_news_em: 'Новости',
-    sec_see_all_news: 'Все Новости →',
-    sec_upcoming: 'Предстоящие', sec_announcements: 'Объявления', sec_see_all: 'Посмотреть Всё →',
-    stat1_label: 'Регионов', stat1_sub: 'Все экологические зоны', stat2_label: 'Партнёрства', stat2_sub: 'Наука и правительство',
-    stat3_label: 'С', stat3_sub: 'Основана', stat4_label: 'Секторов', stat4_sub: 'Междисциплинарный',
-    footer_about_title: 'AFOLU Эфиопия', contact_title: 'Связаться',
-  },
-
-  hi: {
-    flag: '🇮🇳', code: 'HI',
-    nav_home: 'होम', nav_about: 'हमारे बारे में', nav_sectors: 'क्षेत्र',
-    nav_programs: 'कार्यक्रम', nav_resources: 'संसाधन', nav_projects: 'परियोजनाएं',
-    nav_news: 'समाचार', nav_contact: 'संपर्क करें',
-    dd_about: 'AFOLU के बारे में', dd_mission: 'मिशन और दृष्टि', dd_leadership: 'नेतृत्व', dd_org: 'संगठनात्मक संरचना',
-    dd_plant: 'वनस्पति विज्ञान', dd_nrm: 'प्राकृतिक संसाधन प्रबंधन', dd_agro: 'कृषि वानिकी',
-    dd_animal: 'पशु विज्ञान', dd_rural: 'ग्रामीण विकास', dd_econ: 'कृषि अर्थशास्त्र',
-    dd_forestry: 'वानिकी', dd_wildlife: 'वन्य जीवन और पर्यावरण पर्यटन',
-    dd_legacy: 'हरित विरासत', dd_food: 'खाद्य सुरक्षा', dd_climate: 'जलवायु लचीलापन', dd_redd: 'REDD+',
-    dd_reports: 'रिपोर्ट और प्रकाशन', dd_geo: 'भू-स्थानिक और GIS', dd_manuals: 'तकनीकी मैनुअल',
-    dd_current: 'वर्तमान परियोजनाएं', dd_completed: 'पूर्ण परियोजनाएं', dd_regional: 'क्षेत्रीय परियोजनाएं',
-    dd_news: 'ताज़ा खबरें', dd_events: 'कार्यक्रम', dd_gallery: 'फोटो गैलरी', dd_testimonials: 'प्रशंसापत्र',
-    brand_sub: 'कृषि · वानिकी · भूमि उपयोग',
-    tb_location: 'फिनफिन्ने / अदीस अबाबा, इथियोपिया',
-    h1_eyebrow: 'ज्ञान मंच', h1_title: 'कृषि, वानिकी और', h1_title_em: 'भूमि उपयोग',
-    h1_desc: 'इथियोपिया का प्रमुख ज्ञान-साझाकरण मंच जो कृषि, वानिकी और प्राकृतिक संसाधन प्रबंधन में शोधकर्ताओं, व्यवसायियों और समुदायों को जोड़ता है।',
-    h1_btn1: 'हमारे कार्य का अन्वेषण करें', h1_btn2: 'AFOLU के बारे में',
-    h2_eyebrow: 'प्रमुख कार्यक्रम', h2_title: 'हरित', h2_title_em: 'विरासत',
-    h2_desc: 'इथियोपिया का सबसे बड़ा सामुदायिक पर्यावरण बहाली अभियान — 2019 से 28 अरब से अधिक पौधे लगाए गए।',
-    h2_btn1: 'अधिक जानें', h2_btn2: 'AFOLU के बारे में',
-    h3_eyebrow: 'जलवायु कार्य', h3_title: 'निर्माण', h3_title_em: 'जलवायु लचीलापन',
-    h3_desc: 'खाद्य सुरक्षा, जैव विविधता संरक्षण और जलवायु अनुकूलन का समर्थन करने वाले एकीकृत भूमि उपयोग हस्तक्षेप।',
-    h3_btn1: 'जलवायु लचीलापन', h3_btn2: 'REDD+ कार्यक्रम',
-    about_eyebrow: 'AFOLU इथियोपिया के बारे में', about_read_more: 'और पढ़ें →',
-    sec_updates: 'अपडेट', sec_latest_news: 'ताज़ा', sec_latest_news_em: 'समाचार',
-    sec_see_all_news: 'सभी समाचार देखें →',
-    sec_upcoming: 'आगामी', sec_announcements: 'घोषणाएं', sec_see_all: 'सब देखें →',
-    stat1_label: 'क्षेत्र', stat1_sub: 'सभी पारिस्थितिक क्षेत्र', stat2_label: 'भागीदारी', stat2_sub: 'अनुसंधान और सरकार',
-    stat3_label: 'से', stat3_sub: 'स्थापित', stat4_label: 'क्षेत्र', stat4_sub: 'बहु-अनुशासनात्मक',
-    footer_about_title: 'AFOLU इथियोपिया', contact_title: 'संपर्क करें',
-  },
-
-  sw: {
-    flag: '🇰🇪', code: 'SW',
-    nav_home: 'Nyumbani', nav_about: 'Kuhusu', nav_sectors: 'Sekta',
-    nav_programs: 'Mipango', nav_resources: 'Rasilimali', nav_projects: 'Miradi',
-    nav_news: 'Habari', nav_contact: 'Wasiliana Nasi',
-    dd_about: 'Kuhusu AFOLU', dd_mission: 'Dhamira na Maono', dd_leadership: 'Uongozi', dd_org: 'Muundo wa Shirika',
-    dd_plant: 'Sayansi ya Mimea', dd_nrm: 'Usimamizi wa Rasilimali Asilia', dd_agro: 'Kilimo-Misitu',
-    dd_animal: 'Sayansi ya Wanyama', dd_rural: 'Maendeleo ya Vijijini', dd_econ: 'Uchumi wa Kilimo',
-    dd_forestry: 'Misitu', dd_wildlife: 'Wanyamapori na Utalii wa Ikolojia',
-    dd_legacy: 'Urithi wa Kijani', dd_food: 'Usalama wa Chakula', dd_climate: 'Ustahimilivu wa Hali ya Hewa', dd_redd: 'REDD+',
-    dd_reports: 'Ripoti na Machapisho', dd_geo: 'Jiografia na GIS', dd_manuals: 'Miongozo ya Kiufundi',
-    dd_current: 'Miradi ya Sasa', dd_completed: 'Miradi Iliyokamilika', dd_regional: 'Miradi ya Kikanda',
-    dd_news: 'Habari za Hivi Karibuni', dd_events: 'Matukio', dd_gallery: 'Ukumbi wa Picha', dd_testimonials: 'Ushuhuda',
-    brand_sub: 'Kilimo · Misitu · Matumizi ya Ardhi',
-    tb_location: 'Finfinnee / Addis Ababa, Ethiopia',
-    h1_eyebrow: 'Jukwaa la Maarifa', h1_title: 'Kilimo, Misitu na', h1_title_em: 'Matumizi ya Ardhi',
-    h1_desc: 'Jukwaa kuu la kushiriki maarifa la Ethiopia linalochanganya watafiti, watendaji, na jamii katika kilimo, misitu, na usimamizi wa rasilimali asilia.',
-    h1_btn1: 'Chunguza Kazi Yetu', h1_btn2: 'Kuhusu AFOLU',
-    h2_eyebrow: 'Mpango Mkuu', h2_title: 'Urithi wa', h2_title_em: 'Kijani',
-    h2_desc: 'Kampeni kubwa zaidi ya kurejesha mazingira inayoongozwa na jamii nchini Ethiopia — zaidi ya miche 28 bilioni imepandwa tangu 2019.',
-    h2_btn1: 'Jifunza Zaidi', h2_btn2: 'Kuhusu AFOLU',
-    h3_eyebrow: 'Hatua za Hali ya Hewa', h3_title: 'Kujenga', h3_title_em: 'Ustahimilivu wa Hali ya Hewa',
-    h3_desc: 'Uingiliaji kati wa matumizi ya ardhi unaosaidia usalama wa chakula, uhifadhi wa viumbe vya aina nyingi, na kukabiliana na hali ya hewa Ethiopia.',
-    h3_btn1: 'Ustahimilivu wa Hali ya Hewa', h3_btn2: 'Mpango wa REDD+',
-    about_eyebrow: 'Kuhusu AFOLU Ethiopia', about_read_more: 'Soma Zaidi →',
-    sec_updates: 'Masasisho', sec_latest_news: 'Ya Hivi', sec_latest_news_em: 'Habari',
-    sec_see_all_news: 'Tazama Habari Zote →',
-    sec_upcoming: 'Zijazo', sec_announcements: 'Matangazo', sec_see_all: 'Tazama Zote →',
-    stat1_label: 'Mikoa', stat1_sub: 'Maeneo yote ya ikolojia', stat2_label: 'Ushirikiano', stat2_sub: 'Utafiti na serikali',
-    stat3_label: 'Tangu', stat3_sub: 'Ilianzishwa', stat4_label: 'Sekta', stat4_sub: 'Taaluma Nyingi',
-    footer_about_title: 'AFOLU Ethiopia', contact_title: 'Wasiliana Nasi',
-  },
-
-  tr: {
-    flag: '🇹🇷', code: 'TR',
-    nav_home: 'Ana Sayfa', nav_about: 'Hakkımızda', nav_sectors: 'Sektörler',
-    nav_programs: 'Programlar', nav_resources: 'Kaynaklar', nav_projects: 'Projeler',
-    nav_news: 'Haberler', nav_contact: 'İletişim',
-    dd_about: 'AFOLU Hakkında', dd_mission: 'Misyon ve Vizyon', dd_leadership: 'Liderlik', dd_org: 'Organizasyon Yapısı',
-    dd_plant: 'Bitki Bilimleri', dd_nrm: 'Doğal Kaynak Yönetimi', dd_agro: 'Agroormancılık',
-    dd_animal: 'Hayvan Bilimleri', dd_rural: 'Kırsal Kalkınma', dd_econ: 'Tarım Ekonomisi',
-    dd_forestry: 'Ormancılık', dd_wildlife: 'Yaban Hayatı ve Eko-turizm',
-    dd_legacy: 'Yeşil Miras', dd_food: 'Gıda Güvenliği', dd_climate: 'İklim Dayanıklılığı', dd_redd: 'REDD+',
-    dd_reports: 'Raporlar ve Yayınlar', dd_geo: 'Jeouzamsal ve CBS', dd_manuals: 'Teknik Kılavuzlar',
-    dd_current: 'Devam Eden Projeler', dd_completed: 'Tamamlanan Projeler', dd_regional: 'Bölgesel Projeler',
-    dd_news: 'Son Haberler', dd_events: 'Etkinlikler', dd_gallery: 'Fotoğraf Galerisi', dd_testimonials: 'Referanslar',
-    brand_sub: 'Tarım · Ormancılık · Arazi Kullanımı',
-    tb_location: 'Finfinnee / Addis Ababa, Etiyopya',
-    h1_eyebrow: 'Bilgi Platformu', h1_title: 'Tarım, Ormancılık ve', h1_title_em: 'Arazi Kullanımı',
-    h1_desc: 'Etiyopya\'nın tarım, ormancılık ve doğal kaynak yönetiminde araştırmacıları, uygulayıcıları ve toplulukları bir araya getiren lider bilgi paylaşım platformu.',
-    h1_btn1: 'Çalışmalarımızı Keşfet', h1_btn2: 'AFOLU Hakkında',
-    h2_eyebrow: 'Amiral Gemisi Program', h2_title: 'Yeşil', h2_title_em: 'Miras',
-    h2_desc: 'Etiyopya\'nın en büyük topluluk odaklı çevre restorasyon kampanyası — 2019\'dan bu yana 28 milyardan fazla fidan.',
-    h2_btn1: 'Daha Fazla Öğren', h2_btn2: 'AFOLU Hakkında',
-    h3_eyebrow: 'İklim Eylemi', h3_title: 'İklim', h3_title_em: 'Dayanıklılığı İnşa Etmek',
-    h3_desc: 'Etiyopya\'da gıda güvenliğini, biyoçeşitlilik korumayı ve iklim uyumunu destekleyen entegre arazi kullanım müdahaleleri.',
-    h3_btn1: 'İklim Dayanıklılığı', h3_btn2: 'REDD+ Programı',
-    about_eyebrow: 'AFOLU Etiyopya Hakkında', about_read_more: 'Daha Fazla Oku →',
-    sec_updates: 'Güncellemeler', sec_latest_news: 'Son', sec_latest_news_em: 'Haberler',
-    sec_see_all_news: 'Tüm Haberleri Gör →',
-    sec_upcoming: 'Yaklaşan', sec_announcements: 'Duyurular', sec_see_all: 'Tümünü Gör →',
-    stat1_label: 'Kapsanan Bölgeler', stat1_sub: 'Tüm ekolojik bölgeler', stat2_label: 'Ortaklıklar', stat2_sub: 'Araştırma ve hükümet',
-    stat3_label: 'den Beri', stat3_sub: 'Kuruldu', stat4_label: 'Sektörler', stat4_sub: 'Çok Disiplinli',
-    footer_about_title: 'AFOLU Etiyopya', contact_title: 'İletişim',
-  },
-
-  it: {
-    flag: '🇮🇹', code: 'IT',
-    nav_home: 'Home', nav_about: 'Chi Siamo', nav_sectors: 'Settori',
-    nav_programs: 'Programmi', nav_resources: 'Risorse', nav_projects: 'Progetti',
-    nav_news: 'Notizie', nav_contact: 'Contattaci',
-    dd_about: 'Su AFOLU', dd_mission: 'Missione e Visione', dd_leadership: 'Leadership', dd_org: 'Struttura Organizzativa',
-    dd_plant: 'Scienze Vegetali', dd_nrm: 'Gestione Risorse Naturali', dd_agro: 'Agroforestazione',
-    dd_animal: 'Scienze Animali', dd_rural: 'Sviluppo Rurale', dd_econ: 'Agro-Economia',
-    dd_forestry: 'Silvicoltura', dd_wildlife: 'Fauna Selvatica & Ecoturismo',
-    dd_legacy: 'Eredità Verde', dd_food: 'Sicurezza Alimentare', dd_climate: 'Resilienza Climatica', dd_redd: 'REDD+',
-    dd_reports: 'Rapporti e Pubblicazioni', dd_geo: 'Geospaziale e GIS', dd_manuals: 'Manuali Tecnici',
-    dd_current: 'Progetti Correnti', dd_completed: 'Progetti Completati', dd_regional: 'Progetti Regionali',
-    dd_news: 'Ultime Notizie', dd_events: 'Eventi', dd_gallery: 'Galleria Fotografica', dd_testimonials: 'Testimonianze',
-    brand_sub: 'Agricoltura · Foreste · Uso del Suolo',
-    tb_location: 'Finfinnee / Addis Abeba, Etiopia',
-    h1_eyebrow: 'Piattaforma della Conoscenza', h1_title: 'Agricoltura, Foreste e', h1_title_em: 'Uso del Suolo',
-    h1_desc: 'La principale piattaforma etiope di condivisione delle conoscenze che collega ricercatori, professionisti e comunità in agricoltura, silvicoltura e gestione delle risorse naturali.',
-    h1_btn1: 'Esplora il Nostro Lavoro', h1_btn2: 'Su AFOLU',
-    h2_eyebrow: 'Programma Principale', h2_title: 'Eredità', h2_title_em: 'Verde',
-    h2_desc: 'La più grande campagna di restauro ambientale guidata dalla comunità in Etiopia — oltre 28 miliardi di piantine dal 2019.',
-    h2_btn1: 'Scopri di Più', h2_btn2: 'Su AFOLU',
-    h3_eyebrow: 'Azione Climatica', h3_title: 'Costruendo la', h3_title_em: 'Resilienza Climatica',
-    h3_desc: 'Interventi integrati di uso del suolo a supporto della sicurezza alimentare, della conservazione della biodiversità e dell\'adattamento climatico in Etiopia.',
-    h3_btn1: 'Resilienza Climatica', h3_btn2: 'Programma REDD+',
-    about_eyebrow: 'Su AFOLU Etiopia', about_read_more: 'Leggi di Più →',
-    sec_updates: 'Aggiornamenti', sec_latest_news: 'Ultime', sec_latest_news_em: 'Notizie',
-    sec_see_all_news: 'Vedi Tutte le Notizie →',
-    sec_upcoming: 'In Arrivo', sec_announcements: 'Annunci', sec_see_all: 'Vedi Tutto →',
-    stat1_label: 'Regioni', stat1_sub: 'Tutte le zone ecologiche', stat2_label: 'Partenariati', stat2_sub: 'Ricerca e governo',
-    stat3_label: 'Dal', stat3_sub: 'Istituita', stat4_label: 'Settori', stat4_sub: 'Multidisciplinare',
-    footer_about_title: 'AFOLU Etiopia', contact_title: 'Contattaci',
-  },
-
-  nl: {
-    flag: '🇳🇱', code: 'NL',
-    nav_home: 'Startpagina', nav_about: 'Over Ons', nav_sectors: 'Sectoren',
-    nav_programs: "Programma's", nav_resources: 'Bronnen', nav_projects: 'Projecten',
-    nav_news: 'Nieuws', nav_contact: 'Neem Contact Op',
-    dd_about: 'Over AFOLU', dd_mission: 'Missie & Visie', dd_leadership: 'Leiderschap', dd_org: 'Organisatiestructuur',
-    dd_plant: 'Plantenwetenschappen', dd_nrm: 'Beheer Natuurlijke Hulpbronnen', dd_agro: 'Agrobosbouw',
-    dd_animal: 'Dierwetenschappen', dd_rural: 'Plattelandsontwikkeling', dd_econ: 'Agro-Economie',
-    dd_forestry: 'Bosbeheer', dd_wildlife: 'Wilde Fauna & Ecotoerisme',
-    dd_legacy: 'Groen Erfgoed', dd_food: 'Voedselzekerheid', dd_climate: 'Klimaatweerbaarheid', dd_redd: 'REDD+',
-    dd_reports: 'Rapporten & Publicaties', dd_geo: 'Geospatiaal & GIS', dd_manuals: 'Technische Handleidingen',
-    dd_current: 'Lopende Projecten', dd_completed: 'Voltooide Projecten', dd_regional: 'Regionale Projecten',
-    dd_news: 'Laatste Nieuws', dd_events: 'Evenementen', dd_gallery: 'Fotogalerij', dd_testimonials: 'Getuigenissen',
-    brand_sub: 'Landbouw · Bosbouw · Landgebruik',
-    tb_location: 'Finfinnee / Addis Abeba, Ethiopië',
-    h1_eyebrow: 'Kennisplatform', h1_title: 'Landbouw, Bosbouw &', h1_title_em: 'Landgebruik',
-    h1_desc: 'Ethiopiës toonaangevende kennisdelingsplatform dat onderzoekers, beoefenaars en gemeenschappen verbindt in landbouw, bosbouw en beheer van natuurlijke hulpbronnen.',
-    h1_btn1: 'Verken Ons Werk', h1_btn2: 'Over AFOLU',
-    h2_eyebrow: 'Vlaggenschip Programma', h2_title: 'Groene', h2_title_em: 'Erfenis',
-    h2_desc: 'Ethiopiës grootste gemeenschapsgedreven milieuherstelcampagne — meer dan 28 miljard zaailingen geplant sinds 2019.',
-    h2_btn1: 'Meer Informatie', h2_btn2: 'Over AFOLU',
-    h3_eyebrow: 'Klimaatactie', h3_title: 'Bouwen aan', h3_title_em: 'Klimaatweerbaarheid',
-    h3_desc: 'Geïntegreerde landgebruiksinterventies ter ondersteuning van voedselzekerheid, biodiversiteitsbehoud en klimaatadaptatie in Ethiopië.',
-    h3_btn1: 'Klimaatweerbaarheid', h3_btn2: 'REDD+ Programma',
-    about_eyebrow: 'Over AFOLU Ethiopië', about_read_more: 'Meer Lezen →',
-    sec_updates: 'Updates', sec_latest_news: 'Laatste', sec_latest_news_em: 'Nieuws',
-    sec_see_all_news: 'Alle Nieuws Bekijken →',
-    sec_upcoming: 'Aankomend', sec_announcements: 'Aankondigingen', sec_see_all: 'Alles Bekijken →',
-    stat1_label: 'Regio\'s', stat1_sub: "Alle ecologische zones", stat2_label: 'Partnerschappen', stat2_sub: 'Onderzoek en overheid',
-    stat3_label: 'Sinds', stat3_sub: 'Opgericht', stat4_label: 'Sectoren', stat4_sub: 'Multidisciplinair',
-    footer_about_title: 'AFOLU Ethiopië', contact_title: 'Neem Contact Op',
-  },
-
-  id: {
-    flag: '🇮🇩', code: 'ID',
-    nav_home: 'Beranda', nav_about: 'Tentang Kami', nav_sectors: 'Sektor',
-    nav_programs: 'Program', nav_resources: 'Sumber Daya', nav_projects: 'Proyek',
-    nav_news: 'Berita', nav_contact: 'Hubungi Kami',
-    dd_about: 'Tentang AFOLU', dd_mission: 'Misi & Visi', dd_leadership: 'Kepemimpinan', dd_org: 'Struktur Organisasi',
-    dd_plant: 'Ilmu Tanaman', dd_nrm: 'Pengelolaan Sumber Daya Alam', dd_agro: 'Agroforestri',
-    dd_animal: 'Ilmu Hewan', dd_rural: 'Pembangunan Pedesaan', dd_econ: 'Agro-Ekonomi',
-    dd_forestry: 'Kehutanan', dd_wildlife: 'Satwa Liar & Ekowisata',
-    dd_legacy: 'Warisan Hijau', dd_food: 'Ketahanan Pangan', dd_climate: 'Ketahanan Iklim', dd_redd: 'REDD+',
-    dd_reports: 'Laporan & Publikasi', dd_geo: 'Geospasial & GIS', dd_manuals: 'Panduan Teknis',
-    dd_current: 'Proyek Saat Ini', dd_completed: 'Proyek Selesai', dd_regional: 'Proyek Regional',
-    dd_news: 'Berita Terbaru', dd_events: 'Acara', dd_gallery: 'Galeri Foto', dd_testimonials: 'Kesaksian',
-    brand_sub: 'Pertanian · Kehutanan · Penggunaan Lahan',
-    tb_location: 'Finfinnee / Addis Ababa, Etiopia',
-    h1_eyebrow: 'Platform Pengetahuan', h1_title: 'Pertanian, Kehutanan &', h1_title_em: 'Penggunaan Lahan',
-    h1_desc: 'Platform berbagi pengetahuan terkemuka Ethiopia yang menghubungkan peneliti, praktisi, dan komunitas dalam pertanian, kehutanan, dan pengelolaan sumber daya alam.',
-    h1_btn1: 'Jelajahi Pekerjaan Kami', h1_btn2: 'Tentang AFOLU',
-    h2_eyebrow: 'Program Unggulan', h2_title: 'Warisan', h2_title_em: 'Hijau',
-    h2_desc: 'Kampanye pemulihan lingkungan berbasis masyarakat terbesar di Ethiopia — lebih dari 28 miliar bibit ditanam sejak 2019.',
-    h2_btn1: 'Pelajari Lebih Lanjut', h2_btn2: 'Tentang AFOLU',
-    h3_eyebrow: 'Aksi Iklim', h3_title: 'Membangun', h3_title_em: 'Ketahanan Iklim',
-    h3_desc: 'Intervensi penggunaan lahan terpadu yang mendukung ketahanan pangan, pelestarian keanekaragaman hayati, dan adaptasi iklim di Ethiopia.',
-    h3_btn1: 'Ketahanan Iklim', h3_btn2: 'Program REDD+',
-    about_eyebrow: 'Tentang AFOLU Ethiopia', about_read_more: 'Baca Lebih Lanjut →',
-    sec_updates: 'Pembaruan', sec_latest_news: 'Terbaru', sec_latest_news_em: 'Berita',
-    sec_see_all_news: 'Lihat Semua Berita →',
-    sec_upcoming: 'Mendatang', sec_announcements: 'Pengumuman', sec_see_all: 'Lihat Semua →',
-    stat1_label: 'Wilayah', stat1_sub: 'Semua zona ekologi', stat2_label: 'Kemitraan', stat2_sub: 'Penelitian dan pemerintah',
-    stat3_label: 'Sejak', stat3_sub: 'Didirikan', stat4_label: 'Sektor', stat4_sub: 'Multidisiplin',
-    footer_about_title: 'AFOLU Ethiopia', contact_title: 'Hubungi Kami',
-  },
-};
-
-/* Full language list for the dropdown */
+/* Language list for dropdown */
 const LANGUAGES = [
-  { code: 'en',  flag: '🇺🇸', name: 'English',            native: 'English' },
-  { code: 'am',  flag: '🇪🇹', name: 'Amharic',            native: 'አማርኛ' },
-  { code: 'om',  flag: '🇪🇹', name: 'Oromo',              native: 'Afaan Oromoo' },
-  { code: 'ti',  flag: '🇪🇹', name: 'Tigrinya',           native: 'ትግርኛ' },
-  { code: 'so',  flag: '🇸🇴', name: 'Somali',             native: 'Soomaali' },
-  { code: 'ar',  flag: '🇸🇦', name: 'Arabic',             native: 'العربية' },
-  { code: 'fr',  flag: '🇫🇷', name: 'French',             native: 'Français' },
-  { code: 'es',  flag: '🇪🇸', name: 'Spanish',            native: 'Español' },
-  { code: 'pt',  flag: '🇵🇹', name: 'Portuguese',         native: 'Português' },
-  { code: 'de',  flag: '🇩🇪', name: 'German',             native: 'Deutsch' },
-  { code: 'it',  flag: '🇮🇹', name: 'Italian',            native: 'Italiano' },
-  { code: 'nl',  flag: '🇳🇱', name: 'Dutch',              native: 'Nederlands' },
-  { code: 'ru',  flag: '🇷🇺', name: 'Russian',            native: 'Русский' },
-  { code: 'zh',  flag: '🇨🇳', name: 'Chinese',            native: '中文' },
-  { code: 'ja',  flag: '🇯🇵', name: 'Japanese',           native: '日本語' },
-  { code: 'ko',  flag: '🇰🇷', name: 'Korean',             native: '한국어' },
-  { code: 'hi',  flag: '🇮🇳', name: 'Hindi',              native: 'हिन्दी' },
-  { code: 'sw',  flag: '🇰🇪', name: 'Swahili',            native: 'Kiswahili' },
-  { code: 'tr',  flag: '🇹🇷', name: 'Turkish',            native: 'Türkçe' },
-  { code: 'id',  flag: '🇮🇩', name: 'Indonesian',         native: 'Bahasa Indonesia' },
+  { code: 'en',    flag: '🇺🇸', name: 'English',             native: 'English' },
+  { code: 'am',    flag: '🇪🇹', name: 'Amharic',             native: 'አማርኛ' },
+  { code: 'om',    flag: '🇪🇹', name: 'Oromo',               native: 'Afaan Oromoo' },
+  { code: 'ti',    flag: '🇪🇹', name: 'Tigrinya',            native: 'ትግርኛ' },
+  { code: 'so',    flag: '🇸🇴', name: 'Somali',              native: 'Soomaali' },
+  { code: 'ar',    flag: '🇸🇦', name: 'Arabic',              native: 'العربية' },
+  { code: 'fr',    flag: '🇫🇷', name: 'French',              native: 'Français' },
+  { code: 'es',    flag: '🇪🇸', name: 'Spanish',             native: 'Español' },
+  { code: 'pt',    flag: '🇵🇹', name: 'Portuguese',          native: 'Português' },
+  { code: 'de',    flag: '🇩🇪', name: 'German',              native: 'Deutsch' },
+  { code: 'it',    flag: '🇮🇹', name: 'Italian',             native: 'Italiano' },
+  { code: 'nl',    flag: '🇳🇱', name: 'Dutch',               native: 'Nederlands' },
+  { code: 'ru',    flag: '🇷🇺', name: 'Russian',             native: 'Русский' },
+  { code: 'zh-CN', flag: '🇨🇳', name: 'Chinese (Simplified)',native: '中文(简体)' },
+  { code: 'zh-TW', flag: '🇹🇼', name: 'Chinese (Traditional)',native:'中文(繁體)' },
+  { code: 'ja',    flag: '🇯🇵', name: 'Japanese',            native: '日本語' },
+  { code: 'ko',    flag: '🇰🇷', name: 'Korean',              native: '한국어' },
+  { code: 'hi',    flag: '🇮🇳', name: 'Hindi',               native: 'हिन्दी' },
+  { code: 'sw',    flag: '🇰🇪', name: 'Swahili',             native: 'Kiswahili' },
+  { code: 'tr',    flag: '🇹🇷', name: 'Turkish',             native: 'Türkçe' },
+  { code: 'id',    flag: '🇮🇩', name: 'Indonesian',          native: 'Bahasa Indonesia' },
+  { code: 'vi',    flag: '🇻🇳', name: 'Vietnamese',          native: 'Tiếng Việt' },
+  { code: 'th',    flag: '🇹🇭', name: 'Thai',                native: 'ภาษาไทย' },
+  { code: 'ms',    flag: '🇲🇾', name: 'Malay',               native: 'Bahasa Melayu' },
+  { code: 'pl',    flag: '🇵🇱', name: 'Polish',              native: 'Polski' },
+  { code: 'uk',    flag: '🇺🇦', name: 'Ukrainian',           native: 'Українська' },
+  { code: 'ha',    flag: '🇳🇬', name: 'Hausa',               native: 'Hausa' },
+  { code: 'yo',    flag: '🇳🇬', name: 'Yoruba',              native: 'Yorùbá' },
+  { code: 'ig',    flag: '🇳🇬', name: 'Igbo',                native: 'Igbo' },
+  { code: 'zu',    flag: '🇿🇦', name: 'Zulu',                native: 'isiZulu' },
+  { code: 'af',    flag: '🇿🇦', name: 'Afrikaans',           native: 'Afrikaans' },
 ];
 
+let currentLangCode = 'en';
+let currentLangName = 'English';
+let currentLangFlag = '🇺🇸';
+
+/* ── Render language dropdown list ── */
 function renderLangList(query) {
   const list = document.getElementById('langList');
   if (!list) return;
@@ -4390,232 +3750,159 @@ function renderLangList(query) {
   list.innerHTML = '';
   filtered.forEach(function(lang) {
     const item = document.createElement('div');
-    item.className = 'lang-item' + (currentLang === lang.code ? ' active' : '');
+    item.className = 'lang-item' + (currentLangCode === lang.code ? ' active' : '');
     item.setAttribute('data-lang-code', lang.code);
-    item.innerHTML = '<span class="lang-flag">' + lang.flag + '</span>'
-      + '<span><div style="font-weight:500">' + lang.name + '</div><div class="lang-native">' + lang.native + '</div></span>';
-    item.addEventListener('click', function() {
-      setLanguage(lang.code, item);
-    });
+    item.innerHTML =
+      '<span class="lang-flag">' + lang.flag + '</span>' +
+      '<span><div style="font-weight:500">' + lang.name + '</div>' +
+      '<div class="lang-native">' + lang.native + '</div></span>';
+    item.addEventListener('click', function() { selectLanguage(lang); });
     list.appendChild(item);
   });
 }
 
 function filterLangs(q) { renderLangList(q); }
 
-// Map keys to element IDs / selectors
-const ELEMENT_MAP = {
-  nav_home:     () => document.querySelectorAll('[data-view="home"].active, [data-view="home"]')[0],
-  nav_about:    () => document.querySelector('#navLinks li:nth-child(2) > a'),
-  nav_sectors:  () => document.querySelector('#navLinks li:nth-child(3) > a'),
-  nav_programs: () => document.querySelector('#navLinks li:nth-child(4) > a'),
-  nav_resources:() => document.querySelector('#navLinks li:nth-child(5) > a'),
-  nav_projects: () => document.querySelector('#navLinks li:nth-child(6) > a'),
-  nav_news:     () => document.querySelector('#navLinks li:nth-child(7) > a'),
-  nav_contact:  () => document.querySelector('.nav-cta'),
-  brand_sub:    () => document.querySelector('.brand-sub'),
-  tb_location:  () => document.querySelector('.topbar-left span:first-child'),
-};
+/* ── Core: trigger Google Translate ── */
+function selectLanguage(lang) {
+  currentLangCode = lang.code;
+  currentLangName = lang.name;
+  currentLangFlag = lang.flag;
 
-let currentLang = 'en';
+  /* Update button display */
+  var flagEl = document.getElementById('currentFlag');
+  var codeEl = document.getElementById('currentLangCode');
+  if (flagEl) flagEl.textContent = lang.flag;
+  if (codeEl) codeEl.textContent = lang.name;
 
-function applyTranslation(lang) {
-  const T = TRANSLATIONS[lang];
-  if (!T) return;
+  /* RTL for Arabic */
+  document.documentElement.dir = (lang.code === 'ar') ? 'rtl' : 'ltr';
 
-  // RTL support
-  const rtlLangs = ['ar'];
-  document.documentElement.dir = rtlLangs.includes(lang) ? 'rtl' : 'ltr';
-  document.documentElement.lang = lang;
+  /* Save preference */
+  try { localStorage.setItem('afolu-lang-code', lang.code); localStorage.setItem('afolu-lang-name', lang.name); localStorage.setItem('afolu-lang-flag', lang.flag); } catch(e){}
 
-  // Update lang button
-  document.getElementById('currentFlag').textContent = T.flag;
-  document.getElementById('currentLangCode').textContent = T.code;
+  /* Trigger Google Translate */
+  doGoogleTranslate(lang.code);
 
-  // Brand
-  const brandSub = document.querySelector('.brand-sub');
-  if (brandSub && T.brand_sub) brandSub.textContent = T.brand_sub;
-
-  // Location
-  const locEl = document.querySelector('.topbar-left span:first-child');
-  if (locEl && T.tb_location) locEl.lastChild.textContent = ' ' + T.tb_location;
-
-  // Nav items (with chevrons — only set text node)
-  function setNavText(el, text) {
-    if (!el) return;
-    const childNodes = Array.from(el.childNodes);
-    const textNode = childNodes.find(n => n.nodeType === 3);
-    if (textNode) textNode.textContent = text + ' ';
-    else el.prepend(document.createTextNode(text + ' '));
-  }
-
-  const navItems = document.querySelectorAll('#navLinks > li > a');
-  const navKeys = ['nav_home','nav_about','nav_sectors','nav_programs','nav_resources','nav_projects','nav_news'];
-  navItems.forEach((el, i) => { if (navKeys[i] && T[navKeys[i]]) setNavText(el, T[navKeys[i]]); });
-
-  // Contact/CTA button
-  const cta = document.querySelector('.nav-cta');
-  if (cta && T.nav_contact) cta.textContent = T.nav_contact;
-
-  // Dropdowns — About
-  setDropdownItems('#navLinks li:nth-child(2) .dropdown a', [T.dd_about, T.dd_mission, T.dd_leadership, T.dd_org]);
-  // Sectors
-  setDropdownItems('#navLinks li:nth-child(3) .dropdown a', [T.dd_plant, T.dd_nrm, T.dd_agro, T.dd_animal, T.dd_rural, T.dd_econ, T.dd_forestry, T.dd_wildlife]);
-  // Programs
-  setDropdownItems('#navLinks li:nth-child(4) .dropdown a', [T.dd_legacy, T.dd_food, T.dd_climate, T.dd_redd]);
-  // Resources
-  setDropdownItems('#navLinks li:nth-child(5) .dropdown a', [T.dd_reports, T.dd_geo, T.dd_manuals]);
-  // Projects
-  setDropdownItems('#navLinks li:nth-child(6) .dropdown a', [T.dd_current, T.dd_completed, T.dd_regional]);
-  // News
-  setDropdownItems('#navLinks li:nth-child(7) .dropdown a', [T.dd_news, T.dd_events, T.dd_gallery, T.dd_testimonials]);
-
-  // For English, skip overwriting HTML content — the original page text is already correct
-  if (lang !== 'en') {
-    // Hero sections
-    translateHeroSlide(1, T.h1_eyebrow, T.h1_title, T.h1_title_em, T.h1_desc, T.h1_btn1, T.h1_btn2);
-    translateHeroSlide(2, T.h2_eyebrow, T.h2_title, T.h2_title_em, T.h2_desc, T.h2_btn1, T.h2_btn2);
-    translateHeroSlide(3, T.h3_eyebrow, T.h3_title, T.h3_title_em, T.h3_desc, T.h3_btn1, T.h3_btn2);
-
-    // About section eyebrow
-    const aboutEyebrows = document.querySelectorAll('.about-content .section-eyebrow');
-    aboutEyebrows.forEach(el => { if (T.about_eyebrow) el.textContent = T.about_eyebrow; });
-
-    const readMoreBtns = document.querySelectorAll('.about-content .btn-outline');
-    readMoreBtns.forEach(el => { if (T.about_read_more) el.textContent = T.about_read_more; });
-
-    // Section headers (home page)
-    translateSectionHeaders(T);
-
-    // Stats
-    if (T.stat1_label) translateStats(T);
-  } else {
-    // Restore original English content
-    const EN = TRANSLATIONS['en'];
-    translateHeroSlide(1, EN.h1_eyebrow, EN.h1_title, EN.h1_title_em, EN.h1_desc, EN.h1_btn1, EN.h1_btn2);
-    translateHeroSlide(2, EN.h2_eyebrow, EN.h2_title, EN.h2_title_em, EN.h2_desc, EN.h2_btn1, EN.h2_btn2);
-    translateHeroSlide(3, EN.h3_eyebrow, EN.h3_title, EN.h3_title_em, EN.h3_desc, EN.h3_btn1, EN.h3_btn2);
-    const aboutEyebrows = document.querySelectorAll('.about-content .section-eyebrow');
-    aboutEyebrows.forEach(el => { el.textContent = EN.about_eyebrow; });
-    const readMoreBtns = document.querySelectorAll('.about-content .btn-outline');
-    readMoreBtns.forEach(el => { el.textContent = EN.about_read_more; });
-    translateSectionHeaders(EN);
-    translateStats(EN);
-  }
-
-  currentLang = lang;
-  localStorage.setItem('afolu-lang', lang);
+  /* Close dropdown */
+  document.getElementById('langSelector').classList.remove('open');
+  renderLangList('');
 }
 
-function setDropdownItems(selector, texts) {
-  const items = document.querySelectorAll(selector);
-  items.forEach((el, i) => {
-    if (!texts[i]) return;
-    const icon = el.querySelector('.di');
-    if (icon) {
-      el.childNodes.forEach(n => { if (n.nodeType === 3) n.remove(); });
-      el.appendChild(document.createTextNode(texts[i]));
-    } else {
-      el.textContent = texts[i];
+/* ── Google Translate trigger ── */
+function doGoogleTranslate(langCode) {
+  /* Show loading indicator */
+  var loader = document.getElementById('translateLoading');
+  var loaderText = document.getElementById('translateLoadingText');
+  if (loader) {
+    if (loaderText) loaderText.textContent = langCode === 'en' ? 'Restoring English…' : 'Translating page…';
+    loader.classList.add('show');
+    setTimeout(function(){ loader.classList.remove('show'); }, 3500);
+  }
+
+  var tryCount = 0;
+  function attempt() {
+    /* Primary: hidden select inside google_translate_element */
+    var select = document.querySelector('#google_translate_element select')
+               || document.querySelector('select.goog-te-combo');
+
+    if (!select) {
+      /* Fallback: search all iframes */
+      var iframes = document.querySelectorAll('iframe');
+      for (var i = 0; i < iframes.length; i++) {
+        try {
+          var s = iframes[i].contentDocument && iframes[i].contentDocument.querySelector('select');
+          if (s) { select = s; break; }
+        } catch(e) {}
+      }
     }
-  });
-}
 
-function translateHeroSlide(slideNum, eyebrow, title, titleEm, desc, btn1, btn2) {
-  const slides = document.querySelectorAll('.hero-slide');
-  const slide = slides[slideNum - 1];
-  if (!slide) return;
-  const eyeEl = slide.querySelector('.hero-eyebrow');
-  if (eyeEl && eyebrow) {
-    // Keep dots/lines, update text
-    const dot = eyeEl.querySelector('.hero-eyebrow-dot');
-    const line = eyeEl.querySelector('.hero-eyebrow-line');
-    eyeEl.innerHTML = '';
-    if (dot) eyeEl.appendChild(dot);
-    if (line) eyeEl.appendChild(line);
-    eyeEl.appendChild(document.createTextNode(' ' + eyebrow));
+    if (select) {
+      /* For English, reset to original */
+      if (langCode === 'en') {
+        select.value = langCode;
+        select.dispatchEvent(new Event('change'));
+        /* Also try clicking the "Show original" if GT adds it */
+        setTimeout(function(){
+          var showOrig = document.querySelector('.goog-te-gadget-icon') || document.querySelector('[id^="goog-gt"]');
+        }, 500);
+      } else {
+        select.value = langCode;
+        select.dispatchEvent(new Event('change'));
+      }
+    } else if (tryCount < 40) {
+      tryCount++;
+      setTimeout(attempt, 250);
+    }
   }
-  const titleEl = slide.querySelector('.hero-title');
-  if (titleEl && title) {
-    titleEl.innerHTML = title + (titleEm ? ' <em>' + titleEm + '</em>' : '');
-  }
-  const descEl = slide.querySelector('.hero-desc');
-  if (descEl && desc) descEl.textContent = desc;
-  const btns = slide.querySelectorAll('.hero-btns button, .hero-btns a');
-  if (btns[0] && btn1) btns[0].textContent = btn1;
-  if (btns[1] && btn2) btns[1].textContent = btn2;
+  attempt();
 }
 
-function translateSectionHeaders(T) {
-  // Updates, Latest News
-  const eyebrows = document.querySelectorAll('#view-home .section-eyebrow');
-  const titles = document.querySelectorAll('#view-home .section-title');
-  const seeAlls = document.querySelectorAll('#view-home .see-all');
-
-  if (eyebrows[0] && T.sec_updates) eyebrows[0].textContent = T.sec_updates;
-  if (titles[0] && T.sec_latest_news) titles[0].innerHTML = T.sec_latest_news + ' <em>' + (T.sec_latest_news_em||'') + '</em>';
-  if (seeAlls[0] && T.sec_see_all_news) seeAlls[0].textContent = T.sec_see_all_news;
-
-  if (eyebrows[1] && T.sec_upcoming) eyebrows[1].textContent = T.sec_upcoming;
-  if (titles[1] && T.sec_announcements) titles[1].innerHTML = '<em>' + T.sec_announcements + '</em>';
-  if (seeAlls[1] && T.sec_see_all) seeAlls[1].textContent = T.sec_see_all;
-}
-
-function translateStats(T) {
-  const blocks = document.querySelectorAll('.stat-block');
-  const keys = [
-    ['stat1_label','stat1_sub'],
-    ['stat2_label','stat2_sub'],
-    ['stat3_label','stat3_sub'],
-    ['stat4_label','stat4_sub'],
-  ];
-  blocks.forEach((block, i) => {
-    if (!keys[i]) return;
-    const label = block.querySelector('.stat-label');
-    const sub = block.querySelector('.stat-sub');
-    if (label && T[keys[i][0]]) label.textContent = T[keys[i][0]];
-    if (sub && T[keys[i][1]]) sub.textContent = T[keys[i][1]];
-  });
-}
-
+/* ── Toggle dropdown ── */
 function toggleLangDropdown(e) {
   e.stopPropagation();
-  const sel = document.getElementById('langSelector');
-  const wasOpen = sel.classList.contains('open');
+  var sel = document.getElementById('langSelector');
+  var wasOpen = sel.classList.contains('open');
   sel.classList.toggle('open');
   if (!wasOpen) {
-    // Populate on first open
     renderLangList('');
-    const search = document.getElementById('langSearch');
-    if (search) { search.value = ''; search.focus(); }
+    var search = document.getElementById('langSearch');
+    if (search) { search.value = ''; setTimeout(function(){ search.focus(); }, 50); }
   }
 }
 
-function setLanguage(lang, optEl) {
-  applyTranslation(lang);
-  // Re-render to update active state
-  renderLangList(document.getElementById('langSearch') ? document.getElementById('langSearch').value : '');
-  // Close dropdown
-  document.getElementById('langSelector').classList.remove('open');
-}
-
-// Close dropdown when clicking outside
+/* Close dropdown on outside click */
 document.addEventListener('click', function(e) {
-  const sel = document.getElementById('langSelector');
+  var sel = document.getElementById('langSelector');
   if (sel && !sel.contains(e.target)) sel.classList.remove('open');
 });
 
-// Init: restore saved language or detect browser language
+/* ── Google Translate initializer ── */
+function googleTranslateElementInit() {
+  new google.translate.TranslateElement({
+    pageLanguage: 'en',
+    includedLanguages: 'en,am,om,ti,so,ar,fr,es,pt,de,it,nl,ru,zh-CN,zh-TW,ja,ko,hi,sw,tr,id,vi,th,ms,pl,uk,ha,yo,ig,zu,af',
+    layout: google.translate.TranslateElement.InlineLayout.SIMPLE,
+    autoDisplay: false
+  }, 'google_translate_element');
+}
+
+/* ── Init on page load ── */
 (function initLang() {
   renderLangList('');
-  const saved = localStorage.getItem('afolu-lang');
-  const browser = navigator.language ? navigator.language.split('-')[0] : 'en';
-  const preferred = saved || (TRANSLATIONS[browser] ? browser : 'en');
-  if (preferred !== 'en') {
-    setLanguage(preferred, null);
-  }
+  /* Restore saved language */
+  try {
+    var savedCode = localStorage.getItem('afolu-lang-code');
+    var savedName = localStorage.getItem('afolu-lang-name');
+    var savedFlag = localStorage.getItem('afolu-lang-flag');
+    if (savedCode && savedCode !== 'en') {
+      var flagEl = document.getElementById('currentFlag');
+      var codeEl = document.getElementById('currentLangCode');
+      if (flagEl && savedFlag) flagEl.textContent = savedFlag;
+      if (codeEl && savedName) codeEl.textContent = savedName;
+      currentLangCode = savedCode;
+      currentLangName = savedName || savedCode;
+      currentLangFlag = savedFlag || '';
+      document.documentElement.dir = (savedCode === 'ar') ? 'rtl' : 'ltr';
+      /* Trigger translate after GT loads */
+      var tries = 0;
+      var waitForGT = setInterval(function() {
+        var select = document.querySelector('select.goog-te-combo');
+        if (select) {
+          clearInterval(waitForGT);
+          doGoogleTranslate(savedCode);
+        } else if (tries++ > 40) {
+          clearInterval(waitForGT);
+        }
+      }, 250);
+    }
+  } catch(e) {}
 })();
 
 </script>
+
+<!-- Google Translate Script -->
+<script src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+
 </body>
 </html>
