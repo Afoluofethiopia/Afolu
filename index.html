@@ -776,6 +776,76 @@ img { display: block; max-width: 100%; }
   margin-bottom: 0.8rem;
 }
 
+
+/* ============================================================
+   LATEST PUBLICATIONS SIDEBAR
+   ============================================================ */
+.pub-card {
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  overflow: hidden;
+  margin-bottom: 1rem;
+  transition: box-shadow 0.2s, transform 0.2s;
+}
+.pub-card:hover { box-shadow: 0 6px 20px rgba(0,0,0,0.09); transform: translateY(-2px); }
+.pub-img {
+  width: 100%; height: 130px; object-fit: cover; display: block;
+  background: linear-gradient(135deg, var(--sky) 0%, var(--forest-mid) 100%);
+}
+.pub-img-placeholder {
+  width: 100%; height: 130px;
+  background: linear-gradient(135deg, var(--sky) 0%, var(--forest-mid) 100%);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 2.2rem; color: rgba(255,255,255,0.8);
+}
+.pub-body { padding: 0.9rem 1rem 1rem; }
+.pub-type {
+  font-size: 0.65rem; font-weight: 700; letter-spacing: 0.08em;
+  text-transform: uppercase; color: var(--earth);
+  margin-bottom: 0.4rem; display: block;
+}
+.pub-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 0.88rem; font-weight: 700;
+  color: var(--sky); line-height: 1.4;
+  margin-bottom: 0.5rem;
+  display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden;
+}
+.pub-meta {
+  font-size: 0.72rem; color: var(--muted);
+  margin-bottom: 0.7rem; line-height: 1.5;
+}
+.pub-btns {
+  display: flex; flex-wrap: wrap; gap: 0.4rem;
+}
+.pub-btn {
+  display: inline-flex; align-items: center; gap: 0.3rem;
+  font-size: 0.65rem; font-weight: 700; letter-spacing: 0.04em;
+  padding: 0.32rem 0.7rem; border-radius: 4px; border: none;
+  cursor: pointer; transition: all 0.18s;
+  text-decoration: none;
+}
+.pub-btn-primary {
+  background: #0ab5c8; color: var(--white);
+}
+.pub-btn-primary:hover { background: #089aab; color: var(--white); }
+.pub-btn-secondary {
+  background: #0ab5c8; color: var(--white);
+}
+.pub-btn-secondary:hover { background: #089aab; }
+.pub-divider {
+  height: 1px; background: var(--border-soft); margin: 0.6rem 0;
+}
+.pub-see-all {
+  display: flex; align-items: center; justify-content: center;
+  padding: 0.7rem; font-size: 0.72rem; font-weight: 700;
+  color: var(--sky); cursor: pointer; letter-spacing: 0.04em;
+  transition: color 0.2s;
+  border-top: 1px solid var(--border-soft);
+}
+.pub-see-all:hover { color: var(--forest); }
+
 /* ============================================================
    SECTORS SECTION
    ============================================================ */
@@ -2030,6 +2100,81 @@ footer {
               <div class="sidebar-link" data-view="publications">📘 Qajeelcha Teknikaa</div>
             </div>
           </div>
+
+          <!-- LATEST PUBLICATIONS SIDEBAR -->
+          <div class="sidebar-card reveal rd4">
+            <div class="sidebar-head">📰 Maxxansaalee Haaraa</div>
+            <div class="sidebar-body" style="padding:0.8rem 0.8rem 0">
+
+              <!-- Publication 1 -->
+              <div class="pub-card">
+                <img class="pub-img" src="https://images.unsplash.com/photo-1481627834876-b7833e8f5570?w=400&q=80" alt="Annual Report 2025" onerror="this.outerHTML='<div class='pub-img-placeholder'>📄</div>'">
+                <div class="pub-body">
+                  <span class="pub-type">Gabaasa Waggaa</span>
+                  <div class="pub-title">Gabaasa Waggaa AFOLU Itoophiyaa 2025</div>
+                  <div class="pub-meta">AFOLU Itoophiyaa | Bitootessa 2026</div>
+                  <div class="pub-btns">
+                    <a class="pub-btn pub-btn-primary" href="mailto:afoluofethiopia@gmail.com">⬇ Buufadhu</a>
+                    <a class="pub-btn pub-btn-secondary" data-view="Reports" style="cursor:pointer">📋 Cuunfaa</a>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Publication 2 -->
+              <div class="pub-card">
+                <img class="pub-img" src="https://images.unsplash.com/photo-1448375240586-882707db888b?w=400&q=80" alt="Forestry Report" onerror="this.outerHTML='<div class='pub-img-placeholder'>🌳</div>'">
+                <div class="pub-body">
+                  <span class="pub-type">Barruu Qorannoo</span>
+                  <div class="pub-title">Bulchiinsa Bosona Hawaasaa fi REDD+ Itoophiyaa</div>
+                  <div class="pub-meta">AFOLU Itoophiyaa | Amajjii 2026</div>
+                  <div class="pub-btns">
+                    <a class="pub-btn pub-btn-primary" href="mailto:afoluofethiopia@gmail.com">🔗 DOI</a>
+                    <a class="pub-btn pub-btn-secondary" data-view="Reports" style="cursor:pointer">📋 Cuunfaa</a>
+                  </div>
+                  <div class="pub-btns" style="margin-top:0.4rem">
+                    <a class="pub-btn pub-btn-primary" href="mailto:afoluofethiopia@gmail.com">↗ Qoodi</a>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Publication 3 -->
+              <div class="pub-card">
+                <img class="pub-img" src="https://images.unsplash.com/photo-1500382017468-9049fed747ef?w=400&q=80" alt="NRM Paper" onerror="this.outerHTML='<div class='pub-img-placeholder'>🌍</div>'">
+                <div class="pub-body">
+                  <span class="pub-type">Barruulee Imaammataa</span>
+                  <div class="pub-title">Sirna Bulchiinsa Bishaanii Walitti Hidhamaa Itoophiyaa</div>
+                  <div class="pub-meta">AFOLU Itoophiyaa | Sadaasa 2025</div>
+                  <div class="pub-btns">
+                    <a class="pub-btn pub-btn-primary" href="mailto:afoluofethiopia@gmail.com">🔗 DOI</a>
+                    <a class="pub-btn pub-btn-secondary" data-view="Reports" style="cursor:pointer">📋 Cuunfaa</a>
+                  </div>
+                  <div class="pub-btns" style="margin-top:0.4rem">
+                    <a class="pub-btn pub-btn-primary" href="mailto:afoluofethiopia@gmail.com">↗ Qoodi</a>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Publication 4 -->
+              <div class="pub-card">
+                <img class="pub-img" src="https://images.unsplash.com/photo-1464226184884-fa280b87c399?w=400&q=80" alt="Agroforestry" onerror="this.outerHTML='<div class='pub-img-placeholder'>🌿</div>'">
+                <div class="pub-body">
+                  <span class="pub-type">Qajeelcha Teknikaa</span>
+                  <div class="pub-title">Agroforestirii Naannoolee Ikoo-Loojii Adda Addaa Itoophiyaatiif</div>
+                  <div class="pub-meta">AFOLU Itoophiyaa | Onkoloolessa 2025</div>
+                  <div class="pub-btns">
+                    <a class="pub-btn pub-btn-primary" href="mailto:afoluofethiopia@gmail.com">⬇ Buufadhu</a>
+                    <a class="pub-btn pub-btn-secondary" data-view="publications" style="cursor:pointer">📋 Cuunfaa</a>
+                  </div>
+                  <div class="pub-btns" style="margin-top:0.4rem">
+                    <a class="pub-btn pub-btn-primary" href="mailto:afoluofethiopia@gmail.com">↗ Qoodi</a>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+            <div class="pub-see-all" data-view="Reports">Maxxansaalee Hunda Ilaalaa →</div>
+          </div>
+
         </div>
       </div>
     </div>
@@ -3839,6 +3984,7 @@ async function loadHomeEvents() {
   closeBtn.addEventListener('click', closeSitemap);
 
   overlay.addEventListener('click', function(e) {
+    if (!panel.contains(e.target)) closeSitemap();
     if (!panel.contains(e.target)) closeSitemap();
   });
 
