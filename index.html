@@ -1268,6 +1268,92 @@ footer {
 .ncard-goto:hover { color: var(--forest); }
 
 
+
+/* ============================================================
+   DOCUMENT LIBRARY
+   ============================================================ */
+.doc-library { margin-top: 2rem; }
+.doc-library-header {
+  display: flex; align-items: center; justify-content: space-between;
+  margin-bottom: 1.2rem; padding-bottom: 0.8rem;
+  border-bottom: 2px solid var(--border);
+}
+.doc-library-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.1rem; font-weight: 700; color: var(--forest);
+}
+.doc-search {
+  font-family: 'DM Sans', sans-serif; font-size: 0.82rem;
+  padding: 0.45rem 0.9rem; border: 1.5px solid var(--border);
+  border-radius: 5px; outline: none; color: var(--ink);
+  background: var(--ivory); width: 220px;
+}
+.doc-search:focus { border-color: var(--forest-light); }
+.doc-grid {
+  display: grid; grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+@media(max-width:700px) { .doc-grid { grid-template-columns: 1fr; } }
+.doc-card {
+  background: var(--white); border: 1px solid var(--border);
+  border-radius: 8px; padding: 1.1rem 1.2rem;
+  display: flex; gap: 1rem; align-items: flex-start;
+  transition: box-shadow 0.2s, transform 0.2s;
+  position: relative;
+}
+.doc-card:hover { box-shadow: 0 6px 20px rgba(0,0,0,0.08); transform: translateY(-2px); }
+.doc-icon {
+  width: 46px; height: 46px; border-radius: 8px; flex-shrink: 0;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 1.4rem; font-weight: 700;
+}
+.doc-icon.pdf  { background: #fde8e8; color: #c0392b; }
+.doc-icon.docx { background: #e8f0fd; color: #2b6cb0; }
+.doc-icon.xlsx { background: #e8fdf0; color: #276749; }
+.doc-icon.pptx { background: #fdf3e8; color: #c05621; }
+.doc-icon.other { background: var(--ivory); color: var(--muted); }
+.doc-info { flex: 1; min-width: 0; }
+.doc-title {
+  font-size: 0.88rem; font-weight: 700; color: var(--sky);
+  line-height: 1.35; margin-bottom: 0.25rem;
+  white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+}
+.doc-meta { font-size: 0.7rem; color: var(--muted); margin-bottom: 0.5rem; }
+.doc-tags { display: flex; flex-wrap: wrap; gap: 0.3rem; margin-bottom: 0.5rem; }
+.doc-tag {
+  font-size: 0.58rem; font-weight: 700; letter-spacing: 0.06em;
+  text-transform: uppercase; padding: 0.15rem 0.5rem;
+  border-radius: 3px; background: var(--earth-pale); color: var(--earth);
+}
+.doc-btns { display: flex; gap: 0.4rem; flex-wrap: wrap; }
+.doc-btn {
+  display: inline-flex; align-items: center; gap: 0.3rem;
+  font-size: 0.65rem; font-weight: 700; letter-spacing: 0.04em;
+  padding: 0.28rem 0.65rem; border-radius: 4px;
+  cursor: pointer; transition: all 0.18s; text-decoration: none;
+  border: none;
+}
+.doc-btn-dl   { background: var(--forest); color: var(--white); }
+.doc-btn-dl:hover { background: var(--forest-light); color: var(--white); }
+.doc-btn-view { background: var(--ivory); color: var(--sky); border: 1px solid var(--border); }
+.doc-btn-view:hover { background: var(--sky); color: var(--white); }
+.doc-btn-share { background: var(--ivory); color: var(--muted); border: 1px solid var(--border); }
+.doc-btn-share:hover { background: var(--earth-pale); color: var(--earth); }
+.doc-size { font-size: 0.62rem; color: var(--muted); }
+.doc-new {
+  position: absolute; top: 0.6rem; right: 0.7rem;
+  font-size: 0.55rem; font-weight: 700; letter-spacing: 0.08em;
+  text-transform: uppercase; background: var(--red); color: var(--white);
+  padding: 0.12rem 0.45rem; border-radius: 3px;
+}
+.doc-upload-note {
+  margin-top: 1.5rem; padding: 1.2rem 1.5rem;
+  background: var(--ivory); border: 1px dashed var(--border);
+  border-radius: 8px; font-size: 0.82rem; color: var(--muted); line-height: 1.7;
+}
+.doc-upload-note strong { color: var(--forest); }
+.doc-empty { text-align:center; padding:2rem; color:var(--muted); font-size:0.88rem; }
+
 /* ============================================================
    DETAIL POPUP MODAL
    ============================================================ */
@@ -3106,17 +3192,123 @@ footer {
   </div>
   <div class="view-body-wrap"><div class="view-content">
     <div class="view-body">
-      <p>AFOLU Ethiopia produces a range of knowledge products to share evidence, lessons, and recommendations with stakeholders across Ethiopia and internationally. Our publications include annual reports, technical research papers, program evaluation reports, policy briefs, and sector-specific knowledge products covering all eight technical sectors.</p>
-      <div class="view-h3">Publication Categories</div>
-      <ul class="view-list">
-        <li>Annual Reports — institutional performance and financial reporting</li>
-        <li>Program Reports — flagship program implementation documentation</li>
-        <li>Technical Research Papers — sector-specific scientific publications</li>
-        <li>Policy Briefs — evidence-based policy recommendations</li>
-        <li>Training Manuals — extension and capacity building materials</li>
-        <li>Case Studies — community and landscape success stories</li>
-      </ul>
-      <p style="margin-top:1.5rem">For the latest publications, contact us at <a href="mailto:afoluofethiopia@gmail.com">afoluofethiopia@gmail.com</a></p>
+      <p>AFOLU Itoophiyaa gabaasaalee fi maxxansaalee bal'aa — gabaasaalee waggaa, barruulee qorannoo, barruulee imaammataa, qajeelcha teknikaa, fi seenaalee milkaa'inaa — ni baasa. Hunda kana armaan gaditti buufachuu ni dandeessu.</p>
+
+      <!-- DOCUMENT LIBRARY -->
+      <div class="doc-library">
+        <div class="doc-library-header">
+          <span class="doc-library-title">📂 Mana Maxxansaalee</span>
+          <input class="doc-search" type="text" placeholder="Barbaadi…" id="reportsSearch" oninput="filterDocs('reportsDocs',this.value)">
+        </div>
+        <div class="doc-grid" id="reportsDocs">
+
+          <!-- ── ADD YOUR DOCUMENTS HERE ── -->
+          <!-- Copy one doc-card block for each document you want to add -->
+          <!-- Replace the href in doc-btn-dl with your Google Drive / Dropbox / OneDrive share link -->
+
+          <div class="doc-card" data-title="gabaasa waggaa 2025 annual report">
+            <div class="doc-icon pdf">PDF</div>
+            <div class="doc-info">
+              <div class="doc-new">Haaraa</div>
+              <div class="doc-title">Gabaasa Waggaa AFOLU Itoophiyaa 2025</div>
+              <div class="doc-meta">AFOLU Itoophiyaa · Bitootessa 2026 · PDF</div>
+              <div class="doc-tags">
+                <span class="doc-tag">Gabaasa</span>
+                <span class="doc-tag">2025</span>
+              </div>
+              <div class="doc-btns">
+                <a class="doc-btn doc-btn-dl"   href="mailto:afoluofethiopia@gmail.com" title="Gabaasa kana argachuuf nu quunnamaa">⬇ Buufadhu</a>
+                <a class="doc-btn doc-btn-share" href="mailto:afoluofethiopia@gmail.com">↗ Qoodi</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="doc-card" data-title="redd+ community forest management report bosona">
+            <div class="doc-icon pdf">PDF</div>
+            <div class="doc-info">
+              <div class="doc-title">Bulchiinsa Bosona Hawaasaa fi REDD+ Itoophiyaa</div>
+              <div class="doc-meta">AFOLU Itoophiyaa · Amajjii 2026 · PDF</div>
+              <div class="doc-tags">
+                <span class="doc-tag">Bosona</span>
+                <span class="doc-tag">REDD+</span>
+              </div>
+              <div class="doc-btns">
+                <a class="doc-btn doc-btn-dl"   href="mailto:afoluofethiopia@gmail.com">⬇ Buufadhu</a>
+                <a class="doc-btn doc-btn-view" href="mailto:afoluofethiopia@gmail.com">👁 Ilaalaa</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="doc-card" data-title="nrm watershed bulchiinsa bishaanii policy brief">
+            <div class="doc-icon docx">DOC</div>
+            <div class="doc-info">
+              <div class="doc-title">Barruulee Imaammataa: Bulchiinsa Bishaanii Walitti Hidhamaa</div>
+              <div class="doc-meta">AFOLU Itoophiyaa · Sadaasa 2025 · Word</div>
+              <div class="doc-tags">
+                <span class="doc-tag">Imaammataa</span>
+                <span class="doc-tag">NRM</span>
+              </div>
+              <div class="doc-btns">
+                <a class="doc-btn doc-btn-dl"   href="mailto:afoluofethiopia@gmail.com">⬇ Buufadhu</a>
+                <a class="doc-btn doc-btn-share" href="mailto:afoluofethiopia@gmail.com">↗ Qoodi</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="doc-card" data-title="climate resilience crge presentation slides">
+            <div class="doc-icon pptx">PPT</div>
+            <div class="doc-info">
+              <div class="doc-title">Dandamachuu Qilleensaa — Dhiyeessii Konfaransii 2026</div>
+              <div class="doc-meta">AFOLU Itoophiyaa · Ebla 2026 · PowerPoint</div>
+              <div class="doc-tags">
+                <span class="doc-tag">Qilleensa</span>
+                <span class="doc-tag">CRGE</span>
+              </div>
+              <div class="doc-btns">
+                <a class="doc-btn doc-btn-dl"   href="mailto:afoluofethiopia@gmail.com">⬇ Buufadhu</a>
+                <a class="doc-btn doc-btn-view" href="mailto:afoluofethiopia@gmail.com">👁 Ilaalaa</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="doc-card" data-title="green legacy data statistics excel spreadsheet">
+            <div class="doc-icon xlsx">XLS</div>
+            <div class="doc-info">
+              <div class="doc-title">Daataa Sagantaa Ashaaraa Magariisaa 2019–2025</div>
+              <div class="doc-meta">AFOLU Itoophiyaa · 2025 · Excel</div>
+              <div class="doc-tags">
+                <span class="doc-tag">Daataa</span>
+                <span class="doc-tag">Ashaaraa</span>
+              </div>
+              <div class="doc-btns">
+                <a class="doc-btn doc-btn-dl"   href="mailto:afoluofethiopia@gmail.com">⬇ Buufadhu</a>
+                <a class="doc-btn doc-btn-share" href="mailto:afoluofethiopia@gmail.com">↗ Qoodi</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="doc-card" data-title="food security nageenya nyaataa program report">
+            <div class="doc-icon pdf">PDF</div>
+            <div class="doc-info">
+              <div class="doc-title">Gabaasa Sagantaa Nageenya Nyaataa 2025</div>
+              <div class="doc-meta">AFOLU Itoophiyaa · Onkoloolessa 2025 · PDF</div>
+              <div class="doc-tags">
+                <span class="doc-tag">Nyaata</span>
+                <span class="doc-tag">Gabaasa</span>
+              </div>
+              <div class="doc-btns">
+                <a class="doc-btn doc-btn-dl"   href="mailto:afoluofethiopia@gmail.com">⬇ Buufadhu</a>
+                <a class="doc-btn doc-btn-view" href="mailto:afoluofethiopia@gmail.com">👁 Ilaalaa</a>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+        <div class="doc-upload-note">
+          <strong>📎 Maxxansaa Haaraa Dabaluu:</strong> Faayilii kee (PDF, Word, Excel, PowerPoint) Google Drive, Dropbox, ykn OneDrive irratti olkaa'i. Ergasii link buufannaa kana keessa HTML keessaa <code>href="..."</code> bakka buusi. Gaaffii kamifuu: <a href="mailto:afoluofethiopia@gmail.com" style="color:var(--forest)">afoluofethiopia@gmail.com</a>
+        </div>
+      </div>
     </div>
     <div class="view-nav">
       <button class="view-nav-btn" data-view="home">↑ Home</button>
@@ -3165,17 +3357,100 @@ footer {
   </div>
   <div class="view-body-wrap"><div class="view-content">
     <div class="view-body">
-      <p>AFOLU Ethiopia develops practical technical manuals and training materials to support extension workers, community facilitators, and field practitioners across its technical sectors. These manuals translate research findings and international best practices into accessible, locally adapted guidance for Ethiopian contexts.</p>
-      <div class="view-h3">Manual Categories</div>
-      <ul class="view-list">
-        <li>Agroforestry Practice Guides for Different Agroecological Zones</li>
-        <li>Community Watershed Management Facilitation Manuals</li>
-        <li>Livestock Management and Rangeland Health Guides</li>
-        <li>Farmer Training Center Operations Manuals</li>
-        <li>GIS and Geospatial Field Data Collection Guides</li>
-        <li>REDD+ Community Forest Management Facilitation Manuals</li>
-      </ul>
-      <p style="margin-top:1.5rem">To request specific technical manuals, contact <a href="mailto:afoluofethiopia@gmail.com">afoluofethiopia@gmail.com</a></p>
+      <p>AFOLU Itoophiyaa qajeelcha teknikaa fi meeshaalee leenjii hojjattootaa dirree, qindeessitootaa hawaasaa, fi dhaabbileef qopheessa. Qajeelchi kun armaan gaditti buufachuu ni dandeessu.</p>
+
+      <div class="doc-library">
+        <div class="doc-library-header">
+          <span class="doc-library-title">📘 Mana Qajeelcha Teknikaa</span>
+          <input class="doc-search" type="text" placeholder="Barbaadi…" id="manualsSearch" oninput="filterDocs('manualsDocs',this.value)">
+        </div>
+        <div class="doc-grid" id="manualsDocs">
+
+          <div class="doc-card" data-title="agroforestry manual guide qajeelcha agroforestirii">
+            <div class="doc-icon pdf">PDF</div>
+            <div class="doc-info">
+              <div class="doc-new">Haaraa</div>
+              <div class="doc-title">Qajeelcha Agroforestirii — Naannoolee Ikoo-Loojii Adda Addaa</div>
+              <div class="doc-meta">AFOLU Itoophiyaa · Onkoloolessa 2025 · PDF</div>
+              <div class="doc-tags"><span class="doc-tag">Agroforestirii</span><span class="doc-tag">Qajeelcha</span></div>
+              <div class="doc-btns">
+                <a class="doc-btn doc-btn-dl"   href="mailto:afoluofethiopia@gmail.com">⬇ Buufadhu</a>
+                <a class="doc-btn doc-btn-view" href="mailto:afoluofethiopia@gmail.com">👁 Ilaalaa</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="doc-card" data-title="watershed management facilitation community bishaanii">
+            <div class="doc-icon pdf">PDF</div>
+            <div class="doc-info">
+              <div class="doc-title">Qajeelcha Bulchiinsa Bishaanii Hawaasaa</div>
+              <div class="doc-meta">AFOLU Itoophiyaa · 2025 · PDF</div>
+              <div class="doc-tags"><span class="doc-tag">Bishaanii</span><span class="doc-tag">NRM</span></div>
+              <div class="doc-btns">
+                <a class="doc-btn doc-btn-dl"   href="mailto:afoluofethiopia@gmail.com">⬇ Buufadhu</a>
+                <a class="doc-btn doc-btn-share" href="mailto:afoluofethiopia@gmail.com">↗ Qoodi</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="doc-card" data-title="livestock rangeland management animal science horsiisee">
+            <div class="doc-icon docx">DOC</div>
+            <div class="doc-info">
+              <div class="doc-title">Bulchiinsa Horsiisee Bulee fi Dirree — Qajeelcha</div>
+              <div class="doc-meta">AFOLU Itoophiyaa · 2024 · Word</div>
+              <div class="doc-tags"><span class="doc-tag">Horsiisee</span><span class="doc-tag">Dirree</span></div>
+              <div class="doc-btns">
+                <a class="doc-btn doc-btn-dl"   href="mailto:afoluofethiopia@gmail.com">⬇ Buufadhu</a>
+                <a class="doc-btn doc-btn-view" href="mailto:afoluofethiopia@gmail.com">👁 Ilaalaa</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="doc-card" data-title="redd+ community forest management facilitation manual">
+            <div class="doc-icon pdf">PDF</div>
+            <div class="doc-info">
+              <div class="doc-title">Qajeelcha Bulchiinsa Bosona Hawaasaa — REDD+</div>
+              <div class="doc-meta">AFOLU Itoophiyaa · 2025 · PDF</div>
+              <div class="doc-tags"><span class="doc-tag">REDD+</span><span class="doc-tag">Bosona</span></div>
+              <div class="doc-btns">
+                <a class="doc-btn doc-btn-dl"   href="mailto:afoluofethiopia@gmail.com">⬇ Buufadhu</a>
+                <a class="doc-btn doc-btn-view" href="mailto:afoluofethiopia@gmail.com">👁 Ilaalaa</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="doc-card" data-title="gis field data collection geospatial training">
+            <div class="doc-icon xlsx">XLS</div>
+            <div class="doc-info">
+              <div class="doc-title">Meeshaa GIS fi Walitti Qabannaa Daataa Dirree</div>
+              <div class="doc-meta">AFOLU Itoophiyaa · 2025 · Excel</div>
+              <div class="doc-tags"><span class="doc-tag">GIS</span><span class="doc-tag">Daataa</span></div>
+              <div class="doc-btns">
+                <a class="doc-btn doc-btn-dl"   href="mailto:afoluofethiopia@gmail.com">⬇ Buufadhu</a>
+                <a class="doc-btn doc-btn-share" href="mailto:afoluofethiopia@gmail.com">↗ Qoodi</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="doc-card" data-title="farmer training center operations manual qonnaa">
+            <div class="doc-icon pptx">PPT</div>
+            <div class="doc-info">
+              <div class="doc-title">Mana Barumsaa Qonnaa — Qajeelcha Hojiirra Oolmaa</div>
+              <div class="doc-meta">AFOLU Itoophiyaa · 2024 · PowerPoint</div>
+              <div class="doc-tags"><span class="doc-tag">Leenjii</span><span class="doc-tag">Qonnaa</span></div>
+              <div class="doc-btns">
+                <a class="doc-btn doc-btn-dl"   href="mailto:afoluofethiopia@gmail.com">⬇ Buufadhu</a>
+                <a class="doc-btn doc-btn-view" href="mailto:afoluofethiopia@gmail.com">👁 Ilaalaa</a>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+        <div class="doc-upload-note">
+          <strong>📎 Qajeelcha Haaraa Dabaluu:</strong> Faayilii kee Google Drive, Dropbox ykn OneDrive irratti olkaa'i. Ergasii link HTML keessaa <code>href="..."</code> bakka buusi. Gaaffii kamifuu: <a href="mailto:afoluofethiopia@gmail.com" style="color:var(--forest)">afoluofethiopia@gmail.com</a>
+        </div>
+      </div>
     </div>
     <div class="view-nav">
       <button class="view-nav-btn" data-view="Geospatial">← Geospatial</button>
@@ -3587,16 +3862,18 @@ footer {
    HERO SLIDER
    ============================================================ */
 (function() {
-  const slides = document.querySelectorAll('.hero-slide');
-  const dots   = document.querySelectorAll('.sdot');
-  let cur = 0, timer;
+  var slides = document.querySelectorAll('.hero-slide');
+  var dots   = document.querySelectorAll('.sdot');
+  var cur = 0, timer;
   function goTo(n) {
     slides[cur].classList.remove('active'); dots[cur].classList.remove('active');
     cur = (n + slides.length) % slides.length;
     slides[cur].classList.add('active'); dots[cur].classList.add('active');
   }
-  document.getElementById('sNext').addEventListener('click', function(){ goTo(cur+1); reset(); });
-  document.getElementById('sPrev').addEventListener('click', function(){ goTo(cur-1); reset(); });
+  var sNext = document.getElementById('sNext');
+  var sPrev = document.getElementById('sPrev');
+  if (sNext) sNext.addEventListener('click', function(){ goTo(cur+1); reset(); });
+  if (sPrev) sPrev.addEventListener('click', function(){ goTo(cur-1); reset(); });
   dots.forEach(function(d){ d.addEventListener('click', function(){ goTo(+d.dataset.s); reset(); }); });
   function reset(){ clearInterval(timer); timer = setInterval(function(){ goTo(cur+1); }, 6000); }
   reset();
@@ -3605,8 +3882,8 @@ footer {
 /* ============================================================
    HAMBURGER
    ============================================================ */
-const hbg      = document.getElementById('hamburger');
-const navLinks = document.getElementById('navLinks');
+var hbg      = document.getElementById('hamburger');
+var navLinks = document.getElementById('navLinks');
 hbg.addEventListener('click', function(){
   hbg.classList.toggle('open');
   navLinks.classList.toggle('open');
@@ -3618,8 +3895,8 @@ hbg.addEventListener('click', function(){
 document.querySelectorAll('.has-drop > a').forEach(function(trigger){
   trigger.addEventListener('click', function(e){
     e.preventDefault(); e.stopPropagation();
-    const li = this.parentElement;
-    const wasOpen = li.classList.contains('open');
+    var li = this.parentElement;
+    var wasOpen = li.classList.contains('open');
     document.querySelectorAll('.has-drop').forEach(function(x){ x.classList.remove('open'); });
     if (!wasOpen) li.classList.add('open');
   });
@@ -3629,9 +3906,9 @@ document.addEventListener('click', function(){
 });
 
 /* ============================================================
-   HASH-BASED URL ROUTING
+   HASH ROUTING
    ============================================================ */
-const VIEW_SLUG = {
+var VIEW_SLUG = {
   'home':'home','About':'about','Mission':'mission','Leadership':'leadership',
   'Organizational':'org-structure','plant-science':'plant-science',
   'Natural-Resource-Mgmt':'natural-resource-management','agroforestry':'agroforestry',
@@ -3642,24 +3919,22 @@ const VIEW_SLUG = {
   'Reports':'reports-publications','Geospatial':'geospatial-gis',
   'publications':'technical-manuals','Projects':'current-projects',
   'Completed':'completed-projects','Regional':'regional-projects',
-  'News':'news','events':'events','Gallery':'gallery',
-  'Testimonials':'testimonials','contact-section':'contact',
+  'News':'news','events':'events','Gallery':'gallery','Testimonials':'testimonials'
 };
-const SLUG_VIEW = {};
-Object.entries(VIEW_SLUG).forEach(function(kv){ SLUG_VIEW[kv[1]] = kv[0]; });
+var SLUG_VIEW = {};
+Object.keys(VIEW_SLUG).forEach(function(k){ SLUG_VIEW[VIEW_SLUG[k]] = k; });
 
 function setHash(slug){
-  const newHash = (slug === 'home' || !slug) ? '' : '#' + slug;
-  const url = window.location.pathname + window.location.search + newHash;
-  try { history.pushState({view:slug}, '', url); } catch(e){}
+  var newHash = (!slug || slug==='home') ? '' : '#'+slug;
+  try { history.pushState({view:slug}, '', window.location.pathname + window.location.search + newHash); } catch(e){}
 }
 
 function showView(id, pushHistory){
   if (pushHistory === undefined) pushHistory = true;
-  const homeDiv = document.getElementById('view-home');
-  const footer  = document.querySelector('footer');
+  var homeDiv = document.getElementById('view-home');
+  var footer  = document.querySelector('footer');
   document.querySelectorAll('.content-view').forEach(function(v){ v.classList.remove('active'); });
-  const slug = VIEW_SLUG[id] || id;
+  var slug = VIEW_SLUG[id] || id;
   if (!id || id === 'home') {
     homeDiv.style.display = '';
     footer.style.display  = '';
@@ -3667,13 +3942,13 @@ function showView(id, pushHistory){
       a.classList.toggle('active', a.getAttribute('data-view') === 'home');
     });
     if (pushHistory) setHash('home');
-    updateBreadcrumbBar('home', slug);
+    updateBreadcrumbBar('home', 'home');
     document.querySelectorAll('#view-home .reveal').forEach(function(el){ el.classList.add('visible'); });
     return;
   }
   homeDiv.style.display = 'none';
   footer.style.display  = 'block';
-  const el = document.getElementById('view-' + id);
+  var el = document.getElementById('view-' + id);
   if (el) el.classList.add('active');
   window.scrollTo({top:0, behavior:'smooth'});
   hbg.classList.remove('open');
@@ -3685,148 +3960,137 @@ function showView(id, pushHistory){
 }
 
 function updateBreadcrumbBar(viewId, slug){
-  const bar = document.getElementById('url-bar');
+  var bar = document.getElementById('url-bar');
   if (!bar) return;
-  const base = window.location.origin + window.location.pathname;
-  const hash = (viewId === 'home') ? '' : '#' + slug;
+  var base = window.location.origin + window.location.pathname;
+  var hash = (!viewId || viewId==='home') ? '' : '#'+slug;
   document.getElementById('url-bar-path').textContent = base + hash;
-  bar.setAttribute('data-slug', slug);
-  const segEl = document.getElementById('url-bar-segment');
-  if (!viewId || viewId === 'home') {
-    segEl.textContent = ''; segEl.style.display = 'none';
-  } else {
-    segEl.textContent = '#' + slug; segEl.style.display = 'inline-flex';
-  }
-  const copyBtn = document.getElementById('url-bar-copy');
-  if (copyBtn) { copyBtn.textContent = '⎘ Garagalfadhu'; copyBtn.classList.remove('copied'); }
+  bar.setAttribute('data-slug', slug || 'home');
+  var segEl = document.getElementById('url-bar-segment');
+  if (!viewId || viewId==='home') { segEl.textContent=''; segEl.style.display='none'; }
+  else { segEl.textContent='#'+slug; segEl.style.display='inline-flex'; }
+  var copyBtn = document.getElementById('url-bar-copy');
+  if (copyBtn) { copyBtn.textContent='⎘ Garagalfadhu'; copyBtn.classList.remove('copied'); }
 }
 
-/* Global click handler for [data-view] elements */
+/* Global data-view click handler */
 document.addEventListener('click', function(e){
-  const el = e.target.closest('[data-view]');
+  var el = e.target.closest('[data-view]');
   if (!el) return;
   if (el.closest('.has-drop') && el === el.closest('.has-drop').querySelector(':scope > a')) return;
   if (el.hasAttribute('data-sm')) return;
   e.preventDefault();
-  const view = el.getAttribute('data-view');
-  if (view) { showView(view); if (view === 'News') loadNews(); }
+  var view = el.getAttribute('data-view');
+  if (view) { showView(view); if (view==='News') loadNews(); }
 });
 
 window.addEventListener('popstate', function(){
-  const hash = window.location.hash.replace('#','');
-  const viewId = hash ? (SLUG_VIEW[hash] || hash) : 'home';
+  var hash = window.location.hash.replace('#','');
+  var viewId = hash ? (SLUG_VIEW[hash]||hash) : 'home';
   showView(viewId, false);
-  if (viewId === 'News') loadNews();
+  if (viewId==='News') loadNews();
 });
 
 (function initFromHash(){
-  const hash = window.location.hash.replace('#','').trim();
-  if (hash) {
-    const viewId = SLUG_VIEW[hash] || hash;
-    showView(viewId, false);
-    if (viewId === 'News') loadNews();
-  } else {
-    showView('home', false);
-  }
+  var hash = window.location.hash.replace('#','').trim();
+  if (hash) { var v = SLUG_VIEW[hash]||hash; showView(v,false); if(v==='News') loadNews(); }
+  else { showView('home', false); }
 })();
 
 /* ============================================================
-   DETAIL POPUP MODAL
+   DETAIL POPUP
    ============================================================ */
 (function(){
-  const overlay  = document.getElementById('detailOverlay');
-  const modal    = document.getElementById('detailModal');
-  const closeBtn = document.getElementById('detailClose');
+  var overlay  = document.getElementById('detailOverlay');
+  var modal    = document.getElementById('detailModal');
+  var closeBtn = document.getElementById('detailClose');
 
-  const SECTION_ICONS = {
+  var ICONS = {
     'Sagantaa Dhaalota Magariisa':'🌱','REDD+':'🌳','Dandamachuu Qilleensaa':'🌡',
     'Nageenya Nyaataa':'🌾','Natural Resource Management':'🌍','Plant Science':'🌾',
     'Agroforestry':'🌿','Animal Science':'🐄','Rural Development':'🏘',
     'Agro-Economics':'📊','Forestry':'🌳','Wildlife & Ecotourism':'🦁',
     'Geospatial & GIS':'🛰','Technical Manuals':'📘','Latest News':'📰',
-    'Gabaasaalee fi Maxxansaalee':'📄','Taateewwan':'📅',
+    'Gabaasaalee fi Maxxansaalee':'📄','Taateewwan':'📅'
   };
 
-  function openDetailPopup(post) {
+  function openDetailPopup(post){
     if (!post) return;
-    const d = new Date(post.date);
-    const dateStr = d.toLocaleDateString('en-GB', {day:'numeric', month:'long', year:'numeric'});
-    const icon = SECTION_ICONS[post.section] || '📄';
+    var d = new Date(post.date);
+    var dateStr = d.toLocaleDateString('en-GB',{day:'numeric',month:'long',year:'numeric'});
+    var icon = ICONS[post.section] || '📄';
 
     /* Image */
-    const imgWrap = document.getElementById('detailImgWrap');
+    var imgWrap = document.getElementById('detailImgWrap');
+    imgWrap.innerHTML = '';
     if (post.image) {
-      const img = document.createElement('div');
-      img.className = 'detail-img-wrap';
-      const imgEl = document.createElement('img');
-      imgEl.src = post.image;
-      imgEl.alt = post.title || '';
-      imgEl.onerror = function(){ img.style.display = 'none'; };
-      img.appendChild(imgEl);
-      imgWrap.innerHTML = '';
-      imgWrap.appendChild(img);
+      var wrap = document.createElement('div');
+      wrap.className = 'detail-img-wrap';
+      var img = document.createElement('img');
+      img.src = post.image; img.alt = '';
+      img.onerror = function(){ wrap.style.display='none'; };
+      wrap.appendChild(img); imgWrap.appendChild(wrap);
     } else {
-      imgWrap.innerHTML = '<div class="detail-img-placeholder">' + icon + '</div>';
+      var ph = document.createElement('div');
+      ph.className = 'detail-img-placeholder';
+      ph.textContent = icon;
+      imgWrap.appendChild(ph);
     }
 
     /* Meta */
     document.getElementById('detailMetaRow').innerHTML =
-      (post.type    ? '<span class="detail-type-tag">'    + post.type    + '</span>' : '') +
-      (post.section ? '<span class="detail-section-tag">' + post.section + '</span>' : '') +
-      '<span class="detail-date-tag">📅 ' + dateStr + '</span>';
+      (post.type    ? '<span class="detail-type-tag">'+post.type+'</span>' : '') +
+      (post.section ? '<span class="detail-section-tag">'+post.section+'</span>' : '') +
+      '<span class="detail-date-tag">📅 '+dateStr+'</span>';
 
     document.getElementById('detailTitle').textContent  = post.title  || '';
-    document.getElementById('detailAuthor').textContent = post.author ? '— ' + post.author : '';
+    document.getElementById('detailAuthor').textContent = post.author ? '— '+post.author : '';
 
     /* Summary */
-    const sumEl = document.getElementById('detailSummary');
-    if (post.body) { sumEl.textContent = post.body; sumEl.style.display = ''; }
-    else { sumEl.style.display = 'none'; }
+    var sumEl = document.getElementById('detailSummary');
+    if (post.body) { sumEl.textContent=post.body; sumEl.style.display=''; }
+    else { sumEl.style.display='none'; }
 
     /* Full detail */
-    const fullEl = document.getElementById('detailFull');
+    var fullEl = document.getElementById('detailFull');
     if (post.detail) {
-      const paras = post.detail.split('\n\n').filter(function(p){ return p.trim(); });
-      fullEl.innerHTML = paras.map(function(p){ return '<p>' + p.trim() + '</p>'; }).join('');
-      fullEl.style.display = '';
+      var paras = post.detail.split('\n\n').filter(function(p){ return p.trim(); });
+      fullEl.innerHTML = paras.map(function(p){ return '<p>'+p.trim()+'</p>'; }).join('');
     } else {
       fullEl.innerHTML = '<div class="detail-no-detail">Odeeffannoo bal\'aa hin jiru. "detail" field news.json keessatti guutaa.</div>';
-      fullEl.style.display = '';
     }
+    fullEl.style.display = '';
 
     /* Location */
-    const locEl = document.getElementById('detailLocation');
-    if (post.location) {
-      locEl.innerHTML = '<div class="detail-location">📍 ' + post.location + '</div>';
-      locEl.style.display = '';
-    } else { locEl.style.display = 'none'; }
+    var locEl = document.getElementById('detailLocation');
+    if (post.location) { locEl.innerHTML='<div class="detail-location">📍 '+post.location+'</div>'; locEl.style.display=''; }
+    else { locEl.style.display='none'; }
 
     /* Tags */
-    const tagsEl = document.getElementById('detailTags');
-    if (post.tags && post.tags.length) {
-      var tagArr = Array.isArray(post.tags) ? post.tags : [];
-      tagsEl.innerHTML = tagArr.map(function(t){ return '<span class="detail-tag">' + t + '</span>'; }).join('');
+    var tagsEl = document.getElementById('detailTags');
+    var tagArr = Array.isArray(post.tags) ? post.tags : [];
+    if (tagArr.length) {
+      tagsEl.innerHTML = tagArr.map(function(t){ return '<span class="detail-tag">'+t+'</span>'; }).join('');
       tagsEl.style.display = '';
-    } else { tagsEl.style.display = 'none'; }
+    } else { tagsEl.style.display='none'; }
 
-    /* Footer buttons */
-    const vt = SECTION_VIEW_MAP[post.section] || '';
-    const footerEl = document.getElementById('detailFooter');
+    /* Footer */
+    var vt = SECTION_VIEW_MAP[post.section] || '';
+    var footerEl = document.getElementById('detailFooter');
     footerEl.innerHTML = '';
     if (vt) {
-      const goBtn = document.createElement('button');
+      var goBtn = document.createElement('button');
       goBtn.className = 'detail-btn detail-btn-primary';
-      goBtn.textContent = 'Fuula ' + (post.section || '') + ' Ilaalaa →';
+      goBtn.textContent = 'Fuula '+(post.section||'')+' Ilaalaa →';
       goBtn.addEventListener('click', function(){ closeDetailPopup(); showView(vt); });
       footerEl.appendChild(goBtn);
     }
-    const closeFooterBtn = document.createElement('button');
+    var closeFooterBtn = document.createElement('button');
     closeFooterBtn.className = 'detail-btn detail-btn-secondary';
     closeFooterBtn.textContent = '✕ Cufaa';
     closeFooterBtn.addEventListener('click', closeDetailPopup);
     footerEl.appendChild(closeFooterBtn);
 
-    /* Open modal */
     overlay.classList.add('open');
     document.body.style.overflow = 'hidden';
     modal.scrollTop = 0;
@@ -3839,33 +4103,27 @@ window.addEventListener('popstate', function(){
 
   window.openDetailPopup  = openDetailPopup;
   window.closeDetailPopup = closeDetailPopup;
-
   closeBtn.addEventListener('click', closeDetailPopup);
-  overlay.addEventListener('click', function(e){
-    if (!modal.contains(e.target)) closeDetailPopup();
-  });
-  document.addEventListener('keydown', function(e){
-    if (e.key === 'Escape') closeDetailPopup();
-  });
+  overlay.addEventListener('click', function(e){ if(!modal.contains(e.target)) closeDetailPopup(); });
+  document.addEventListener('keydown', function(e){ if(e.key==='Escape') closeDetailPopup(); });
 })();
 
 /* ============================================================
-   NEWS + EVENTS DATA & SECTION MAP
+   SECTION MAP + IMAGE MAP
    ============================================================ */
-const SECTION_VIEW_MAP = {
+var SECTION_VIEW_MAP = {
   'Plant Science':'plant-science','Natural Resource Management':'Natural-Resource-Mgmt',
   'Agroforestry':'agroforestry','Animal Science':'animal-science',
   'Rural Development':'Extension','Agro-Economics':'Agro-Economics',
   'Forestry':'forestry','Wildlife & Ecotourism':'Wildlife',
   'Sagantaa Dhaalota Magariisa':'Legacy','Nageenya Nyaataa':'Food',
   'Dandamachuu Qilleensaa':'Climate','REDD+':'REDD',
-  'Reports & Publications':'Reports','Geospatial & GIS':'Geospatial',
-  'Technical Manuals':'publications','Latest News':'News',
-  'Events':'events','Taateewwan':'events','Photo Gallery':'Gallery',
-  'Testimonials':'Testimonials','Gabaasaalee fi Maxxansaalee':'Reports',
+  'Geospatial & GIS':'Geospatial','Technical Manuals':'publications',
+  'Latest News':'News','Events':'events','Taateewwan':'events',
+  'Gabaasaalee fi Maxxansaalee':'Reports'
 };
 
-const HOME_NEWS_IMAGES = {
+var HOME_NEWS_IMAGES = {
   'Sagantaa Dhaalota Magariisa':'https://i.imgur.com/36K6kb7.png',
   'REDD+':'https://i.imgur.com/ksFd2DK.png',
   'Dandamachuu Qilleensaa':'https://i.imgur.com/ksFd2DK.png',
@@ -3882,273 +4140,278 @@ const HOME_NEWS_IMAGES = {
   'Gabaasaalee fi Maxxansaalee':'https://images.unsplash.com/photo-1481627834876-b7833e8f5570?w=600&q=80',
   'Technical Manuals':'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=600&q=80',
   'Latest News':'https://i.imgur.com/TOLgCdy.png',
-  'Taateewwan':'https://images.unsplash.com/photo-1515187029135-18ee286d815b?w=600&q=80',
+  'Taateewwan':'https://images.unsplash.com/photo-1515187029135-18ee286d815b?w=600&q=80'
 };
 
-/* ── HOME NEWS CAROUSEL ── */
-let homeNewsData = [], homeNewsPage = 0, homeNewsTimer = null;
-const HOME_NEWS_PER_PAGE = 4;
+/* ============================================================
+   HOME NEWS CAROUSEL
+   ============================================================ */
+var homeNewsData=[], homeNewsPage=0, homeNewsTimer=null;
+var HOME_NEWS_PER_PAGE=4;
 
-function buildHomeNewsCard(post) {
-  const d = new Date(post.date);
-  const dateStr = d.toLocaleDateString('en-GB', {day:'numeric', month:'short', year:'numeric'});
-  const icon = HOME_NEWS_IMAGES[post.section] ? '' : '📰';
-  const imgUrl = post.image || HOME_NEWS_IMAGES[post.section] || '';
-  const card = document.createElement('div');
-  card.className = 'news-item';
-  card.style.cursor = 'pointer';
-  const imgHtml = imgUrl
-    ? '<img class="news-img" src="' + imgUrl + '" alt="" loading="lazy">'
+function buildHomeNewsCard(post){
+  var d = new Date(post.date);
+  var dateStr = d.toLocaleDateString('en-GB',{day:'numeric',month:'short',year:'numeric'});
+  var imgUrl = post.image || HOME_NEWS_IMAGES[post.section] || '';
+  var card = document.createElement('div');
+  card.className = 'news-item'; card.style.cursor='pointer';
+  var imgHtml = imgUrl
+    ? '<img class="news-img" src="'+imgUrl+'" alt="" loading="lazy">'
     : '<div class="news-img-placeholder">📰</div>';
   card.innerHTML = imgHtml +
-    '<div class="news-body">' +
-      '<div class="news-meta-row">' +
-        '<span class="news-date-str">' + dateStr + '</span>' +
-        (post.section ? '<span class="news-tag">' + post.section + '</span>' : '') +
-      '</div>' +
-      '<div class="news-title">' + (post.title||'') + '</div>' +
-      '<div class="news-excerpt">' + (post.body||'') + '</div>' +
-      '<div class="news-card-footer">' +
-        '<span style="font-size:0.72rem;color:var(--muted)">' + (post.author||'') + '</span>' +
-        '<span class="news-discover">📁 Odeeffannoo Haaraa Argadhu →</span>' +
-      '</div>' +
+    '<div class="news-body">'+
+      '<div class="news-meta-row">'+
+        '<span class="news-date-str">'+dateStr+'</span>'+
+        (post.section?'<span class="news-tag">'+post.section+'</span>':'')+
+      '</div>'+
+      '<div class="news-title">'+(post.title||'')+'</div>'+
+      '<div class="news-excerpt">'+(post.body||'')+'</div>'+
+      '<div class="news-card-footer">'+
+        '<span style="font-size:0.72rem;color:var(--muted)">'+(post.author||'')+'</span>'+
+        '<span class="news-discover">📁 Odeeffannoo Haaraa Argadhu →</span>'+
+      '</div>'+
     '</div>';
   card.addEventListener('click', function(){ openDetailPopup(post); });
   return card;
 }
 
-function renderHomeNewsPage(page) {
-  const grid   = document.getElementById('homeNewsGrid');
-  const dotsEl = document.getElementById('homeNewsDots');
-  const label  = document.getElementById('homeNewsPageLabel');
-  if (!grid || !homeNewsData.length) return;
-  const total = Math.ceil(homeNewsData.length / HOME_NEWS_PER_PAGE);
-  const slice = homeNewsData.slice(page * HOME_NEWS_PER_PAGE, (page+1) * HOME_NEWS_PER_PAGE);
-  grid.innerHTML = '';
-  slice.forEach(function(post){ grid.appendChild(buildHomeNewsCard(post)); });
-  if (dotsEl) dotsEl.innerHTML = Array.from({length:total},function(_,i){
-    return '<button class="nc-dot' + (i===page?' active':'') + '" onclick="goHomeNewsPage(' + i + ')"></button>';
+function renderHomeNewsPage(page){
+  var grid=document.getElementById('homeNewsGrid');
+  var dotsEl=document.getElementById('homeNewsDots');
+  var label=document.getElementById('homeNewsPageLabel');
+  if(!grid||!homeNewsData.length) return;
+  var total=Math.ceil(homeNewsData.length/HOME_NEWS_PER_PAGE);
+  var slice=homeNewsData.slice(page*HOME_NEWS_PER_PAGE,(page+1)*HOME_NEWS_PER_PAGE);
+  grid.innerHTML=''; slice.forEach(function(p){ grid.appendChild(buildHomeNewsCard(p)); });
+  if(dotsEl) dotsEl.innerHTML=Array.from({length:total},function(_,i){
+    return '<button class="nc-dot'+(i===page?' active':'')+'" onclick="goHomeNewsPage('+i+')"></button>';
   }).join('');
-  if (label) label.textContent = (page+1) + ' / ' + total;
-  homeNewsPage = page;
+  if(label) label.textContent=(page+1)+' / '+total;
+  homeNewsPage=page;
 }
 function goHomeNewsPage(page){ clearInterval(homeNewsTimer); renderHomeNewsPage(page); startHomeNewsTimer(); }
 function startHomeNewsTimer(){
-  homeNewsTimer = setInterval(function(){
-    goHomeNewsPage((homeNewsPage+1) % Math.ceil(homeNewsData.length/HOME_NEWS_PER_PAGE));
-  }, 6000);
+  homeNewsTimer=setInterval(function(){ goHomeNewsPage((homeNewsPage+1)%Math.ceil(homeNewsData.length/HOME_NEWS_PER_PAGE)); },6000);
 }
-document.getElementById('homeNewsPrev') && document.getElementById('homeNewsPrev').addEventListener('click',function(){
-  goHomeNewsPage((homeNewsPage-1+Math.ceil(homeNewsData.length/HOME_NEWS_PER_PAGE))%Math.ceil(homeNewsData.length/HOME_NEWS_PER_PAGE));
-});
-document.getElementById('homeNewsNext') && document.getElementById('homeNewsNext').addEventListener('click',function(){
-  goHomeNewsPage((homeNewsPage+1)%Math.ceil(homeNewsData.length/HOME_NEWS_PER_PAGE));
-});
+var hnPrev=document.getElementById('homeNewsPrev');
+var hnNext=document.getElementById('homeNewsNext');
+if(hnPrev) hnPrev.addEventListener('click',function(){ goHomeNewsPage((homeNewsPage-1+Math.ceil(homeNewsData.length/HOME_NEWS_PER_PAGE))%Math.ceil(homeNewsData.length/HOME_NEWS_PER_PAGE)); });
+if(hnNext) hnNext.addEventListener('click',function(){ goHomeNewsPage((homeNewsPage+1)%Math.ceil(homeNewsData.length/HOME_NEWS_PER_PAGE)); });
 
-async function loadHomeNews() {
-  try {
-    const res  = await fetch('news.json?v=' + Date.now());
-    if (!res.ok) throw new Error('not found');
-    const data = await res.json();
-    homeNewsData = (data.posts||[]).sort(function(a,b){ return new Date(b.date)-new Date(a.date); });
+async function loadHomeNews(){
+  try{
+    var res=await fetch('news.json?v='+Date.now());
+    if(!res.ok) throw new Error('not found');
+    var data=await res.json();
+    homeNewsData=(data.posts||[]).sort(function(a,b){ return new Date(b.date)-new Date(a.date); });
     renderHomeNewsPage(0);
-    if (homeNewsData.length > HOME_NEWS_PER_PAGE) startHomeNewsTimer();
-  } catch(e) {
-    const grid = document.getElementById('homeNewsGrid');
-    if (grid) grid.innerHTML = '<div style="grid-column:1/-1;padding:1.5rem;background:var(--ivory);border-radius:8px;border-left:4px solid var(--earth)"><strong>⚠ Odeeffannoo Hin Argamne</strong><p style="font-size:0.85rem;color:var(--muted);margin-top:0.4rem">news.json faayilii HTML wajjin tokkoo ol kaa\'i.</p></div>';
+    if(homeNewsData.length>HOME_NEWS_PER_PAGE) startHomeNewsTimer();
+  }catch(e){
+    var grid=document.getElementById('homeNewsGrid');
+    if(grid) grid.innerHTML='<div style="grid-column:1/-1;padding:1.5rem;background:var(--ivory);border-radius:8px;border-left:4px solid var(--earth)"><strong>⚠ Odeeffannoo Hin Argamne</strong><p style="font-size:0.85rem;color:var(--muted);margin-top:0.4rem">news.json faayilii HTML wajjin tokkoo ol kaa\'i.</p></div>';
   }
 }
 
-/* ── HOME EVENTS CAROUSEL ── */
-let homeEventsData = [], homeEventsPage = 0, homeEventsTimer = null;
-const HOME_EVENTS_PER_PAGE = 9;
+/* ============================================================
+   HOME EVENTS CAROUSEL
+   ============================================================ */
+var homeEventsData=[], homeEventsPage=0, homeEventsTimer=null;
+var HOME_EVENTS_PER_PAGE=9;
 
-function buildHomeEventCard(post) {
-  const d = new Date(post.date);
-  const dateStr = d.toLocaleDateString('en-GB', {day:'numeric', month:'short', year:'numeric'});
-  const imgUrl = post.image || HOME_NEWS_IMAGES[post.section] || '';
-  const card = document.createElement('div');
-  card.className = 'event-card';
-  card.style.cursor = 'pointer';
-  const imgHtml = imgUrl
-    ? '<img class="event-img" src="' + imgUrl + '" alt="" loading="lazy">'
-    : '<div class="event-img-placeholder">📅</div>';
-  card.innerHTML = imgHtml +
-    '<div class="event-body">' +
-      '<div class="event-meta-row">' +
-        '<span class="event-date-str">' + dateStr + '</span>' +
-        (post.type ? '<span class="event-type-tag">' + post.type + '</span>' : '') +
-      '</div>' +
-      '<div class="event-title">' + (post.title||'') + '</div>' +
-      '<div class="event-excerpt">' + (post.body||'') + '</div>' +
-      '<div class="event-card-footer">' +
-        '<span style="font-size:0.72rem;color:var(--muted)">' + (post.section||'') + '</span>' +
-        '<span class="event-discover">📅 Taatee Hunda Ilaalaa →</span>' +
-      '</div>' +
+function buildHomeEventCard(post){
+  var d=new Date(post.date);
+  var dateStr=d.toLocaleDateString('en-GB',{day:'numeric',month:'short',year:'numeric'});
+  var imgUrl=post.image||HOME_NEWS_IMAGES[post.section]||'';
+  var card=document.createElement('div');
+  card.className='event-card'; card.style.cursor='pointer';
+  var imgHtml=imgUrl
+    ?'<img class="event-img" src="'+imgUrl+'" alt="" loading="lazy">'
+    :'<div class="event-img-placeholder">📅</div>';
+  card.innerHTML=imgHtml+
+    '<div class="event-body">'+
+      '<div class="event-meta-row">'+
+        '<span class="event-date-str">'+dateStr+'</span>'+
+        (post.type?'<span class="event-type-tag">'+post.type+'</span>':'')+
+      '</div>'+
+      '<div class="event-title">'+(post.title||'')+'</div>'+
+      '<div class="event-excerpt">'+(post.body||'')+'</div>'+
+      '<div class="event-card-footer">'+
+        '<span style="font-size:0.72rem;color:var(--muted)">'+(post.section||'')+'</span>'+
+        '<span class="event-discover">📅 Taatee Hunda Ilaalaa →</span>'+
+      '</div>'+
     '</div>';
-  card.addEventListener('click', function(){ openDetailPopup(post); });
+  card.addEventListener('click',function(){ openDetailPopup(post); });
   return card;
 }
 
-function renderHomeEventsPage(page) {
-  const grid   = document.getElementById('homeEventsGrid');
-  const dotsEl = document.getElementById('homeEventsDots');
-  const label  = document.getElementById('homeEventsPageLabel');
-  if (!grid || !homeEventsData.length) return;
-  const total = Math.ceil(homeEventsData.length / HOME_EVENTS_PER_PAGE);
-  const slice = homeEventsData.slice(page*HOME_EVENTS_PER_PAGE, (page+1)*HOME_EVENTS_PER_PAGE);
-  grid.innerHTML = '';
-  slice.forEach(function(post){ grid.appendChild(buildHomeEventCard(post)); });
-  if (dotsEl) dotsEl.innerHTML = Array.from({length:total},function(_,i){
-    return '<button class="ec-dot' + (i===page?' active':'') + '" onclick="goHomeEventsPage(' + i + ')"></button>';
+function renderHomeEventsPage(page){
+  var grid=document.getElementById('homeEventsGrid');
+  var dotsEl=document.getElementById('homeEventsDots');
+  var label=document.getElementById('homeEventsPageLabel');
+  if(!grid||!homeEventsData.length) return;
+  var total=Math.ceil(homeEventsData.length/HOME_EVENTS_PER_PAGE);
+  var slice=homeEventsData.slice(page*HOME_EVENTS_PER_PAGE,(page+1)*HOME_EVENTS_PER_PAGE);
+  grid.innerHTML=''; slice.forEach(function(p){ grid.appendChild(buildHomeEventCard(p)); });
+  if(dotsEl) dotsEl.innerHTML=Array.from({length:total},function(_,i){
+    return '<button class="ec-dot'+(i===page?' active':'')+'" onclick="goHomeEventsPage('+i+')"></button>';
   }).join('');
-  if (label) label.textContent = (page+1) + ' / ' + total;
-  homeEventsPage = page;
+  if(label) label.textContent=(page+1)+' / '+total;
+  homeEventsPage=page;
 }
 function goHomeEventsPage(page){ clearInterval(homeEventsTimer); renderHomeEventsPage(page); startHomeEventsTimer(); }
 function startHomeEventsTimer(){
-  homeEventsTimer = setInterval(function(){
-    goHomeEventsPage((homeEventsPage+1)%Math.ceil(homeEventsData.length/HOME_EVENTS_PER_PAGE));
-  }, 6000);
+  homeEventsTimer=setInterval(function(){ goHomeEventsPage((homeEventsPage+1)%Math.ceil(homeEventsData.length/HOME_EVENTS_PER_PAGE)); },6000);
 }
-document.addEventListener('DOMContentLoaded', function(){
-  var prev = document.getElementById('homeEventsPrev');
-  var next = document.getElementById('homeEventsNext');
-  if (prev) prev.addEventListener('click', function(){
-    goHomeEventsPage((homeEventsPage-1+Math.ceil(homeEventsData.length/HOME_EVENTS_PER_PAGE))%Math.ceil(homeEventsData.length/HOME_EVENTS_PER_PAGE));
-  });
-  if (next) next.addEventListener('click', function(){
-    goHomeEventsPage((homeEventsPage+1)%Math.ceil(homeEventsData.length/HOME_EVENTS_PER_PAGE));
-  });
+document.addEventListener('DOMContentLoaded',function(){
+  var hePrev=document.getElementById('homeEventsPrev');
+  var heNext=document.getElementById('homeEventsNext');
+  if(hePrev) hePrev.addEventListener('click',function(){ goHomeEventsPage((homeEventsPage-1+Math.ceil(homeEventsData.length/HOME_EVENTS_PER_PAGE))%Math.ceil(homeEventsData.length/HOME_EVENTS_PER_PAGE)); });
+  if(heNext) heNext.addEventListener('click',function(){ goHomeEventsPage((homeEventsPage+1)%Math.ceil(homeEventsData.length/HOME_EVENTS_PER_PAGE)); });
 });
 
-async function loadHomeEvents() {
-  try {
-    const res  = await fetch('news.json?v=' + Date.now());
-    if (!res.ok) throw new Error('not found');
-    const data = await res.json();
-    homeEventsData = (data.posts||[])
-      .filter(function(p){ return p.type === 'Event' || p.type === 'Announcement'; })
+async function loadHomeEvents(){
+  try{
+    var res=await fetch('news.json?v='+Date.now());
+    if(!res.ok) throw new Error('not found');
+    var data=await res.json();
+    homeEventsData=(data.posts||[])
+      .filter(function(p){ return p.type==='Event'||p.type==='Announcement'; })
       .sort(function(a,b){ return new Date(b.date)-new Date(a.date); });
-    if (!homeEventsData.length) homeEventsData = (data.posts||[]).sort(function(a,b){ return new Date(b.date)-new Date(a.date); });
+    if(!homeEventsData.length) homeEventsData=(data.posts||[]).sort(function(a,b){ return new Date(b.date)-new Date(a.date); });
     renderHomeEventsPage(0);
-    if (homeEventsData.length > HOME_EVENTS_PER_PAGE) startHomeEventsTimer();
-  } catch(e) {
-    const grid = document.getElementById('homeEventsGrid');
-    if (grid) grid.innerHTML = '<div style="grid-column:1/-1;padding:1.5rem;background:var(--ivory);border-radius:8px;border-left:4px solid var(--earth)"><strong>⚠ Taateewwan Hin Argamne</strong></div>';
+    if(homeEventsData.length>HOME_EVENTS_PER_PAGE) startHomeEventsTimer();
+  }catch(e){
+    var grid=document.getElementById('homeEventsGrid');
+    if(grid) grid.innerHTML='<div style="grid-column:1/-1;padding:1.5rem;background:var(--ivory);border-radius:8px;border-left:4px solid var(--earth)"><strong>⚠ Taateewwan Hin Argamne</strong></div>';
   }
 }
 
-/* Load carousels on startup */
 loadHomeNews();
 loadHomeEvents();
 
-/* ── NEWS SECTION (full list view) ── */
-let allNews = [];
+/* ============================================================
+   NEWS SECTION (full list)
+   ============================================================ */
+var allNews=[];
 
-async function loadNews() {
-  const feed    = document.getElementById('news-feed');
-  const loading = document.getElementById('news-loading');
-  const empty   = document.getElementById('news-empty');
-  const countEl = document.getElementById('news-count');
-  feed.innerHTML = '';
-  loading.style.display = 'block';
-  empty.style.display = 'none';
-  countEl.textContent = '';
-  try {
-    const res  = await fetch('news.json?v=' + Date.now());
-    if (!res.ok) throw new Error('not found');
-    const data = await res.json();
-    allNews = (data.posts||[]).sort(function(a,b){ return new Date(b.date)-new Date(a.date); });
-    if (homeNewsData.length === 0) {
-      homeNewsData = allNews; renderHomeNewsPage(0);
-      if (homeNewsData.length > HOME_NEWS_PER_PAGE) startHomeNewsTimer();
-    }
-    loading.style.display = 'none';
+async function loadNews(){
+  var feed=document.getElementById('news-feed');
+  var loading=document.getElementById('news-loading');
+  var empty=document.getElementById('news-empty');
+  var countEl=document.getElementById('news-count');
+  feed.innerHTML=''; loading.style.display='block'; empty.style.display='none'; countEl.textContent='';
+  try{
+    var res=await fetch('news.json?v='+Date.now());
+    if(!res.ok) throw new Error('not found');
+    var data=await res.json();
+    allNews=(data.posts||[]).sort(function(a,b){ return new Date(b.date)-new Date(a.date); });
+    if(homeNewsData.length===0){ homeNewsData=allNews; renderHomeNewsPage(0); if(homeNewsData.length>HOME_NEWS_PER_PAGE) startHomeNewsTimer(); }
+    loading.style.display='none';
     renderNews(allNews);
-  } catch(e) {
-    loading.style.display = 'none';
-    feed.innerHTML = '<div style="background:var(--ivory);border:1px solid var(--border);border-left:4px solid var(--earth);border-radius:6px;padding:1.6rem 2rem"><strong style="color:var(--forest)">⚠ Updates Unavailable</strong><p style="font-size:0.85rem;color:var(--muted);margin-top:0.4rem">Make sure news.json is in the same folder. Contact: afoluofethiopia@gmail.com</p></div>';
+  }catch(e){
+    loading.style.display='none';
+    feed.innerHTML='<div style="background:var(--ivory);border:1px solid var(--border);border-left:4px solid var(--earth);border-radius:6px;padding:1.6rem 2rem"><strong style="color:var(--forest)">⚠ Updates Unavailable</strong><p style="font-size:0.85rem;color:var(--muted);margin-top:0.4rem">Make sure news.json is in the same folder. Contact: afoluofethiopia@gmail.com</p></div>';
   }
 }
 
-function renderNews(items) {
-  const feed    = document.getElementById('news-feed');
-  const empty   = document.getElementById('news-empty');
-  const countEl = document.getElementById('news-count');
-  feed.innerHTML = '';
-  if (!items.length) { empty.style.display = 'block'; countEl.textContent = '0 updates'; return; }
-  empty.style.display = 'none';
-  countEl.textContent = items.length + ' update' + (items.length !== 1 ? 's' : '');
-  items.forEach(function(post, i) {
-    const d = new Date(post.date);
-    const dateStr = d.toLocaleDateString('en-GB', {day:'numeric', month:'long', year:'numeric'});
-    const vt = SECTION_VIEW_MAP[post.section] || '';
-    const card = document.createElement('div');
-    card.className = 'ncard';
-    card.style.cursor = 'pointer';
-    card.innerHTML =
-      '<div class="ncard-meta">' +
-        '<span class="ncard-date">' + dateStr + '</span>' +
-        (i === 0 ? '<span class="ncard-latest">Latest</span>' : '') +
-        (post.section ? '<span class="ncard-section">' + post.section + '</span>' : '') +
-        (post.type    ? '<span class="ncard-type">'    + post.type    + '</span>' : '') +
-      '</div>' +
-      '<div class="ncard-title">' + (post.title||'') + '</div>' +
-      '<div class="ncard-body">'  + (post.body||'')  + '</div>' +
-      '<div class="ncard-footer">' +
-        '<span class="ncard-author">' + (post.author ? '— ' + post.author : '') + '</span>' +
-        (vt ? '<button class="ncard-goto" data-goto="' + vt + '">Fuula ' + (post.section||'') + ' Ilaalaa →</button>' : '') +
+function renderNews(items){
+  var feed=document.getElementById('news-feed');
+  var empty=document.getElementById('news-empty');
+  var countEl=document.getElementById('news-count');
+  feed.innerHTML='';
+  if(!items.length){ empty.style.display='block'; countEl.textContent='0 updates'; return; }
+  empty.style.display='none';
+  countEl.textContent=items.length+' update'+(items.length!==1?'s':'');
+  items.forEach(function(post,i){
+    var d=new Date(post.date);
+    var dateStr=d.toLocaleDateString('en-GB',{day:'numeric',month:'long',year:'numeric'});
+    var vt=SECTION_VIEW_MAP[post.section]||'';
+    var card=document.createElement('div');
+    card.className='ncard'; card.style.cursor='pointer';
+    card.innerHTML=
+      '<div class="ncard-meta">'+
+        '<span class="ncard-date">'+dateStr+'</span>'+
+        (i===0?'<span class="ncard-latest">Latest</span>':'')+
+        (post.section?'<span class="ncard-section">'+post.section+'</span>':'')+
+        (post.type?'<span class="ncard-type">'+post.type+'</span>':'')+
+      '</div>'+
+      '<div class="ncard-title">'+(post.title||'')+'</div>'+
+      '<div class="ncard-body">'+(post.body||'')+'</div>'+
+      '<div class="ncard-footer">'+
+        '<span class="ncard-author">'+(post.author?'— '+post.author:'')+'</span>'+
+        (vt?'<button class="ncard-goto" data-goto="'+vt+'">Fuula '+(post.section||'')+' Ilaalaa →</button>':'')+
       '</div>';
-    /* Click on card → popup; click on goto button → navigate */
-    card.addEventListener('click', function(e) {
-      if (e.target.classList.contains('ncard-goto')) {
-        showView(e.target.getAttribute('data-goto'));
-      } else {
-        openDetailPopup(post);
-      }
+    card.addEventListener('click',function(e){
+      if(e.target.classList.contains('ncard-goto')) showView(e.target.getAttribute('data-goto'));
+      else openDetailPopup(post);
     });
     feed.appendChild(card);
   });
 }
 
-function filterNews() {
-  const q   = document.getElementById('news-search').value.toLowerCase().trim();
-  const sec = document.getElementById('news-section-filter').value;
-  const typ = document.getElementById('news-type-filter').value;
-  const filtered = allNews.filter(function(p){
-    return (!sec || p.section === sec) && (!typ || p.type === typ) &&
-      (!q || [p.title, p.body, p.section, p.author].some(function(x){ return (x||'').toLowerCase().includes(q); }));
-  });
-  renderNews(filtered);
+function filterNews(){
+  var q=document.getElementById('news-search').value.toLowerCase().trim();
+  var sec=document.getElementById('news-section-filter').value;
+  var typ=document.getElementById('news-type-filter').value;
+  renderNews(allNews.filter(function(p){
+    return(!sec||p.section===sec)&&(!typ||p.type===typ)&&
+      (!q||[p.title,p.body,p.section,p.author].some(function(x){ return(x||'').toLowerCase().includes(q); }));
+  }));
 }
 
-function clearNewsFilters() {
-  document.getElementById('news-search').value = '';
-  document.getElementById('news-section-filter').value = '';
-  document.getElementById('news-type-filter').value = '';
+function clearNewsFilters(){
+  document.getElementById('news-search').value='';
+  document.getElementById('news-section-filter').value='';
+  document.getElementById('news-type-filter').value='';
   renderNews(allNews);
+}
+
+/* ============================================================
+   DOCUMENT LIBRARY SEARCH
+   ============================================================ */
+function filterDocs(gridId, query){
+  var grid=document.getElementById(gridId);
+  if(!grid) return;
+  var q=query.toLowerCase().trim();
+  var cards=grid.querySelectorAll('.doc-card');
+  var visible=0;
+  cards.forEach(function(card){
+    var text=(card.getAttribute('data-title')||'')+' '+
+             (card.querySelector('.doc-title')?card.querySelector('.doc-title').textContent:'')+' '+
+             (card.querySelector('.doc-meta')?card.querySelector('.doc-meta').textContent:'');
+    var show=!q||text.toLowerCase().includes(q);
+    card.style.display=show?'':'none';
+    if(show) visible++;
+  });
+  var next=grid.nextElementSibling;
+  if(next&&next.classList.contains('doc-empty')) next.remove();
+  if(visible===0&&q){
+    var msg=document.createElement('div');
+    msg.className='doc-empty';
+    msg.textContent='"'+query+'" hin argamne.';
+    grid.after(msg);
+  }
 }
 
 /* ============================================================
    SITE MAP PANEL
    ============================================================ */
 (function(){
-  const fab      = document.getElementById('sitemapFab');
-  const overlay  = document.getElementById('sitemapOverlay');
-  const panel    = document.getElementById('sitemapPanel');
-  const closeBtn = document.getElementById('sitemapClose');
-  function openSitemap()  { overlay.classList.add('open');    document.body.style.overflow = 'hidden'; }
-  function closeSitemap() { overlay.classList.remove('open'); document.body.style.overflow = ''; }
-  fab.addEventListener('click', openSitemap);
-  closeBtn.addEventListener('click', closeSitemap);
-  overlay.addEventListener('click', function(e){ if (!panel.contains(e.target)) closeSitemap(); });
-  document.addEventListener('keydown', function(e){ if (e.key === 'Escape') closeSitemap(); });
+  var fab=document.getElementById('sitemapFab');
+  var overlay=document.getElementById('sitemapOverlay');
+  var panel=document.getElementById('sitemapPanel');
+  var closeBtn=document.getElementById('sitemapClose');
+  function openSitemap(){ overlay.classList.add('open'); document.body.style.overflow='hidden'; }
+  function closeSitemap(){ overlay.classList.remove('open'); document.body.style.overflow=''; }
+  fab.addEventListener('click',openSitemap);
+  closeBtn.addEventListener('click',closeSitemap);
+  overlay.addEventListener('click',function(e){ if(!panel.contains(e.target)) closeSitemap(); });
+  document.addEventListener('keydown',function(e){ if(e.key==='Escape') closeSitemap(); });
   document.querySelectorAll('[data-sm]').forEach(function(item){
-    item.addEventListener('click', function(e){
+    item.addEventListener('click',function(e){
       e.stopPropagation();
-      const view = item.getAttribute('data-view');
-      if (view) { closeSitemap(); setTimeout(function(){ showView(view); if(view==='News') loadNews(); }, 180); }
+      var view=item.getAttribute('data-view');
+      if(view){ closeSitemap(); setTimeout(function(){ showView(view); if(view==='News') loadNews(); },180); }
     });
   });
 })();
@@ -4156,17 +4419,17 @@ function clearNewsFilters() {
 /* ============================================================
    URL BAR COPY
    ============================================================ */
-function copyUrlBar() {
-  const bar  = document.getElementById('url-bar');
-  const slug = bar.getAttribute('data-slug') || 'home';
-  const base = window.location.origin + window.location.pathname;
-  const hash = (slug === 'home') ? '' : '#' + slug;
-  navigator.clipboard.writeText(base + hash).then(function(){
-    const btn = document.getElementById('url-bar-copy');
-    if (btn) { btn.textContent = '✓ Copied'; btn.classList.add('copied'); setTimeout(function(){ btn.textContent='⎘ Garagalfadhu'; btn.classList.remove('copied'); }, 2000); }
+function copyUrlBar(){
+  var bar=document.getElementById('url-bar');
+  var slug=bar.getAttribute('data-slug')||'home';
+  var base=window.location.origin+window.location.pathname;
+  var hash=(slug==='home')?'':'#'+slug;
+  navigator.clipboard.writeText(base+hash).then(function(){
+    var btn=document.getElementById('url-bar-copy');
+    if(btn){ btn.textContent='✓ Copied'; btn.classList.add('copied'); setTimeout(function(){ btn.textContent='⎘ Garagalfadhu'; btn.classList.remove('copied'); },2000); }
   }).catch(function(){
-    const btn = document.getElementById('url-bar-copy');
-    if (btn) btn.textContent = 'Error';
+    var btn=document.getElementById('url-bar-copy');
+    if(btn) btn.textContent='Error';
   });
 }
 
