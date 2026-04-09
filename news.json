@@ -1,84 +1,257 @@
 {
   "posts": [
+
     {
-      "title": "Ethiopia Signs USD 75 Million REDD+ Agreement with Norway",
-      "date": "2025-03-01",
+      "title": "Sagantaan Ashaaraa Magariisaa Lakkoofsa Biqiltuu Biliyoona 28 Caale",
+      "body": "Sagantaan haaromsa naannoo Itoophiyaa bakka bu'u seenaa haaraas gahee, miliyoonota lammiilee sagantaa dhaabuu muka naannoolee hundatti bosorse. Kaayyoon sagantaa kanaa naannoo badaa haaromsuu, hanqina bishaanii xiqqeessuu, fi jireenya hawaasaa baadiyyaa fooyyessuu dha.",
+      "date": "2026-04-15",
+      "section": "Sagantaa Dhaalota Magariisa",
+      "type": "Announcement",
+      "author": "AFOLU Itoophiyaa"
+    },
+
+    {
+      "title": "AFOLU Sagantaa Bulchiinsa Bosona Hawaasa REDD+ Haaraa Jalqabe",
+      "body": "Sagantaan shoora haaraan kunuunsa kaarbonii fi fooyya'ina jireenya hawaasa bosona sadarkaa dursa qabaniitti naannolee sadii Itoophiyaa keessatti walitti hidha. Sagantaan kun dhaabbilee mootummaa, hawaasa naannoo, fi hirmaattoota misoomaa gidduutti hojii gamtaa jabeessa.",
+      "date": "2026-04-08",
       "section": "REDD+",
       "type": "Announcement",
-      "author": "AFOLU Communications Office",
-      "body": "Ethiopia has signed a landmark USD 75 million agreement with Norway to continue investing in the management and conservation of standing forests and the restoration of degraded landscapes. Combined with an earlier USD 40 million commitment from Norway and Denmark for the 2022–2026 period, Ethiopia is on track to transition to the results-based payment phase from 2026. Under the established benefit-sharing plan, forest communities will receive 75 per cent of future carbon credit payments, directly rewarding those who protect Ethiopia's forests."
+      "author": "AFOLU Itoophiyaa"
     },
+
     {
-      "title": "REDD+ Programme Brings Over 1.5 Million Hectares Under Protection",
-      "date": "2026-01-15",
-      "section": "REDD+",
-      "type": "News",
-      "author": "REDD+ National Programme Secretariat",
-      "body": "Ethiopia's REDD+ Investment Programme has made significant strides in forest restoration and community livelihood improvement. Over 1.5 million hectares of land have been preserved across more than 200 districts, particularly in Oromia, Southwest Ethiopia, and Gambella. In Oromia alone, more than 593,000 hectares of natural forest have been brought under Participatory Forest Management (PFM) arrangements, while approximately 30,000 hectares have been afforested and reforested. Nearly two billion birr is invested annually through REDD+ to support forest protection and restoration, and over 100,000 households — many led by women and youth — have benefited from the programme."
+      "title": "Haaromsa Bishaanii Heektaarii Miliyoona 15 ol Biyyoolessaan Hammata",
+      "body": "Sagantaan bulchiinsa bishaanii walitti hidhamaa AFOLU bal'ataa itti fufa, kunuunsa lafa qaamaa fi sirna bulchiinsa hawaasaa walitti hidha. Sagantaan kun naannoolee Oromiyaa, Amaaraa, fi SNNPR keessatti hojii dirree bal'aa gaggeessa.",
+      "date": "2026-04-01",
+      "section": "Natural Resource Management",
+      "type": "Report",
+      "author": "AFOLU Itoophiyaa"
     },
+
     {
-      "title": "Green Legacy Initiative Plants Over 40 Billion Trees Since 2019",
-      "date": "2025-08-01",
-      "section": "Green Legacy Initiative",
-      "type": "News",
-      "author": "Green Legacy Secretariat",
-      "body": "Ethiopia's Green Legacy Initiative, launched in 2019 under Prime Minister Abiy Ahmed, has surpassed 40 billion trees planted nationwide, with over 34 billion surviving plants growing across degraded landscapes as of 2024. The initiative has helped increase Ethiopia's forest cover to approximately 23.6 per cent — up from 15 per cent at the start of the programme — and has generated over 767,000 jobs, with significant benefits for women and youth. On 31 July 2025 alone, a record 714.7 million seedlings were planted in a single day by 27 million citizens across the country, under the campaign theme 'Renewal Through Planting'."
+      "title": "Meeshaalee Xiinxala Jiyoospeeshalii Haaraa Hordoffii Fayyadama Lafaatiif Qophaa'e",
+      "body": "Teknoolojii sensing fagoo fi GIS ammayyaa amma hordoffii sadarkaa naannoo godinaalee dursa qabaniitti deggera. Meeshaaleen haaraan kun hordoffii bosona, jijjiirama itti fayyadama lafa, fi gabaasa REDD+ ni fooyyessu.",
+      "date": "2026-03-22",
+      "section": "Geospatial & GIS",
+      "type": "Report",
+      "author": "AFOLU Itoophiyaa"
     },
+
     {
-      "title": "Record 714.7 Million Seedlings Planted in a Single Day",
-      "date": "2025-07-31",
-      "section": "Green Legacy Initiative",
+      "title": "Warshaa Qonnaa Qilleensa-Ogummaa — Galmaawwii Banaa",
+      "body": "AFOLU Itoophiyaa warshaa guddaa qonnaa qilleensa-ogummaa Addis Ababaatti ni qopheessa. Hirmaattoota hundi — qorattootaa, ogeeyyii dirree, hojjattootaa mootummaa, fi barattoota — baga nagaan simatan. Galmaawwiin torban lama dura cuufama. Nu quunnamuuf: afoluofethiopia@gmail.com",
+      "date": "2026-04-10",
+      "section": "Dandamachuu Qilleensaa",
+      "type": "Event",
+      "author": "AFOLU Itoophiyaa"
+    },
+
+    {
+      "title": "Waamicha Iyyannoo: Sagantaa Hordoffii AFOLU 2026",
+      "body": "AFOLU Itoophiyaa barattoota sadarkaa mast'arii fi PhD, akkasumas qorattootaa haarawaa dameelee qonnaa, bosonaa, NRM, agroforestirii, fi wal-qabatanitti sagantaa hordoffii 2026 tti ni affeeruuf baga nagaan simata. Iyyannoon kallattii imeelii afoluofethiopia@gmail.com ergamuun danda'ama.",
+      "date": "2026-04-10",
+      "section": "Latest News",
       "type": "Announcement",
-      "author": "Government Communication Service",
-      "body": "Ethiopia set a new national record on 31 July 2025, planting 714.7 million tree seedlings in a single 12-hour campaign. The feat, confirmed by Agriculture Minister Girma Amente, saw 27 million citizens mobilised nationwide under the seventh round of the Green Legacy Initiative's mass planting campaign. The achievement forms part of Ethiopia's commitment to plant approximately 8 billion seedlings during the current rainy season to restore degraded lands, enhance biodiversity, and combat climate change. The African Union Staff Association hailed the initiative as a shining example of continental climate action."
+      "author": "AFOLU Itoophiyaa"
     },
+
     {
-      "title": "World Bank's BioCarbon Fund Commits USD 40 Million for AFOLU Sector",
-      "date": "2023-12-01",
-      "section": "Climate Resilience",
-      "type": "Announcement",
-      "author": "AFOLU Communications Office",
-      "body": "The Government of Ethiopia has secured a USD 40 million results-based grant from the World Bank's BioCarbon Fund Initiative for Sustainable Forest Landscapes (ISFL). The project aims to sequester and reduce approximately 4 million tonnes of CO2 equivalent by 2030 through sustainable practices across Ethiopia's AFOLU sector, with implementation focused on a three million hectare area within the Oromia region. As of 2024, the programme has established 51 forest tree nurseries in deforestation hotspots and trained over 22,800 forest users in sustainable land management practices."
-    },
-    {
-      "title": "Climate-Smart Agriculture Practices Show Strong Uptake Across Ethiopia",
-      "date": "2025-03-12",
-      "section": "Climate Resilience",
-      "type": "News",
-      "author": "Ministry of Agriculture — Climate Unit",
-      "body": "Recent research confirms that climate-smart agriculture (CSA) practices are being adopted at scale across Ethiopia. Soil and water conservation is the most widely practised approach at 61.5 per cent of surveyed farmers, followed by integrated soil fertility management at 56.5 per cent and agroforestry at 48 per cent. Studies in Humbo Woreda, Wolaita Zone, found that 85 per cent of farmers who adopted CSA practices reported improved income, while 80 per cent noted increased food consumption. Agroforestry alone has been shown to raise technical efficiency by 54 per cent and reduce the yield gap by 1.16 tonnes per hectare in maize-based systems."
-    },
-    {
-      "title": "National Policy Dialogue Advances Multi-Sector REDD+ Implementation",
-      "date": "2024-11-06",
+      "title": "Ilaallata Hojiirra Oolmaa Pirojektii REDD+ — Wa'ee Hirmaattoota",
+      "body": "Marii hirmaattoota pirojektii REDD+ ilaallatu ni qophaa'a. Hirmaattoota hawaasa naannoo, dhaabbilee mootummaa, fi hirmaattoota misoomaa of keessatti qabata. Marii kana keessatti fooyya'iinsa hojiirra oolmaa sagantichaa fi karoora fuulduraa ni mariyatama.",
+      "date": "2026-04-05",
       "section": "REDD+",
       "type": "Event",
-      "author": "African Forestry Forum / UN-REDD Programme",
-      "body": "Ethiopia recently hosted a National Policy Dialogue in Bishoftu bringing together 25 delegates from sectors including agriculture, energy, water, biodiversity, finance, livestock, mining, and wildlife. The dialogue, supported by the African Forestry Forum (AFF) and the UN-REDD Programme, confirmed that a multi-sector approach is central to REDD+ success — ensuring all actors are involved at every level of the process. Key issues addressed included enforcement mechanisms against illegal logging and the alignment of REDD+ with Ethiopia's broader Climate Resilient Green Economy strategy."
+      "author": "AFOLU Itoophiyaa"
     },
+
     {
-      "title": "Agroforestry Integration Boosts Farm Yields and Carbon Sequestration",
-      "date": "2025-01-26",
-      "section": "Agroforestry",
-      "type": "News",
-      "author": "Research & Documentation Unit",
-      "body": "New research published in 2024–2025 confirms that integrating trees into Ethiopia's farming systems delivers measurable gains for both food security and climate mitigation. Agroforestry systems have been shown to reduce soil erosion and nutrient loss by 20 to 82 per cent, while increasing technical efficiency by up to 54 per cent in maize-based systems. In regions like Oromia and the Southern Nations, increased tree cover has led to higher yields and better quality of fruit crops. Participatory forest governance under agroforestry schemes has also produced a 143 per cent average increase in household income for forest-dependent communities, highlighting the strong economic case for expanding these practices."
-    },
-    {
-      "title": "Ethiopia Submits Forest Reference Emissions Level — REDD+ MRV System Strengthened",
-      "date": "2024-06-01",
-      "section": "Geospatial & GIS",
-      "type": "News",
-      "author": "Ministry of Environment, Forest and Climate Change",
-      "body": "With technical support from the FAO, Ethiopia has developed a National Forest Inventory to monitor changes in forest cover — a critical component of its REDD+ Measurement, Reporting and Verification (MRV) system. A key milestone was the adoption of a revised definition of forest cover that now includes dense woodlands, dryland forests, and bamboo forests. GIS and remote sensing technologies are being used to analyse land use and land cover change across Ethiopia's 14 agro-climatic areas, supporting evidence-based decision-making on reforestation, carbon accounting, and land restoration."
-    },
-    {
-      "title": "Ethiopia's Food System Pathway Targets Net Carbon Sink from AFOLU by 2050",
-      "date": "2026-01-26",
-      "section": "Food Security",
+      "title": "Gabaasa Waggaa 2025 Amma Buufachuuf Jira",
+      "body": "Gabaasni waggaa AFOLU Itoophiyaa 2025 amma argachuu ni danda'ama. Gabaasni kun hojiiwwan dhaabbatichaa, bu'aawwan sagantaalee guguddoo, fi karoora waggaa 2026 ilaalchisee odeeffannoo bal'aa ni kenna. Gabaasa argachuuf kallattiin nu quunnamaa: afoluofethiopia@gmail.com",
+      "date": "2026-03-30",
+      "section": "Gabaasaalee fi Maxxansaalee",
       "type": "Publication",
-      "author": "Alliance Bioversity International – CIAT / SDSN",
-      "body": "A new study using the FABLE (Food, Agriculture, Biodiversity, Land, and Energy) framework finds that only Ethiopia's Long-Term Low Emissions Development Strategy pathway enables achievement of a net carbon sink from the AFOLU sector — driven by forest cover expansion and moderated cropland growth. The research, aligned with Ethiopia's 10-year development plan and its Food System Transformation goals, concludes that improved crop productivity, adoption of climate-smart practices, accelerated afforestation, and more efficient livestock management are the key enablers for achieving both food security and climate commitments simultaneously."
+      "author": "AFOLU Itoophiyaa"
+    },
+
+    {
+      "title": "Simpooziyeemii Biyyoolessaa Bulchiinsa Lafa Itti Fufiinsa Qabu — Waamicha Barreeffamaa",
+      "body": "AFOLU Itoophiyaa simpooziyeemii biyyoolessaa qopheessuuf waamicha barreeffamaa ni baasa. Qorattootaa fi ogeeyyii qonnaa, bosonaa, NRM, jijjiirama qilleensaa, fi bulchiinsa qabeenya uumamaa irratti hojjatan cuunfaa qorannoo isaanii akka erganiif ni affeeramu. Cuunfaan yeroo dhumaa: Ebla 30, 2026.",
+      "date": "2026-04-05",
+      "section": "Latest News",
+      "type": "Event",
+      "author": "AFOLU Itoophiyaa"
+    },
+
+    {
+      "title": "Saayinsii Biqiltuu: Sanyii Fooyyaa'aa Naannoolee Adda Addaatiif Qophaa'e",
+      "body": "AFOLU Itoophiyaa qorannoo sanyii fi midhaan fooyyaa'aa naannoolee ikoo-loojii garaagaraatiif madaqfaman irratti bal'inaan hojjechaa jira. Sanyiin fooyyaa'aan kun hanqina bishaanii fi jijjiirama qilleensaatiif danda'amaa ta'uu qaba. Bu'aan qorannoo kanaa qonnaatotaaf babal'ifama.",
+      "date": "2026-03-15",
+      "section": "Plant Science",
+      "type": "Report",
+      "author": "AFOLU Itoophiyaa"
+    },
+
+    {
+      "title": "Agroforestirii: Sirna Mukaa-Qonnaa-Horsiisee Bulee Naannoo Oromiyaatti Bal'ate",
+      "body": "Hojiiwwan agroforestirii Oromiyaa keessatti milkaa'inaan itti fufaa jiru. Qonnatooti xiqqaa sirna muka-qonnaa-horsiisee bulee fayyadamuu eegaluun galii isaanii dabalachuu fi naannoon isaanii akka fooyya'u taasisaa jiru. Muuxannoon kun naannolee biroo keessattis ni babal'ata.",
+      "date": "2026-03-10",
+      "section": "Agroforestry",
+      "type": "Report",
+      "author": "AFOLU Itoophiyaa"
+    },
+
+    {
+      "title": "Saayinsii Bineeldota: Fooyya'iinsa Horsiisee Buleetiin Horiin Ni Baay'ata",
+      "body": "Sagantaan fooyya'iinsa horsiisee bulee AFOLU Itoophiyaa naannoolee Oromiyaa fi Somaalee keessatti raawwatame bu'aa gaarii argisiise. Horiin qonnaatota hirmaatan akka 30% dabalatee, tajaajilli veterinaaraa ni cime, fi bulchiinsi dirree fooyyaa'e.",
+      "date": "2026-02-28",
+      "section": "Animal Science",
+      "type": "Report",
+      "author": "AFOLU Itoophiyaa"
+    },
+
+    {
+      "title": "Misooma Baadiyyaa: Mana Barumsaa Qonnaa fi Buufata Mul'ina Haaraan Banaman",
+      "body": "Mana barumsaa qonnaa haaraa 12 fi buufata mul'ina 25 naannoolee adda addaa keessatti banaman. Qonnatooti kuma hedduun tajaajila baabal'ina qonnaa fayyadamaa jiru. Dubartootaa fi dargaggoo gabbisuu sagantaan addaan baafame itti fufa.",
+      "date": "2026-02-20",
+      "section": "Rural Development",
+      "type": "Announcement",
+      "author": "AFOLU Itoophiyaa"
+    },
+
+    {
+      "title": "Agiroo-Ekonomiksii: Sarara Gatii Qonnaa Fooyyessuuf Xiinxalli Bahe",
+      "body": "AFOLU Itoophiyaa xiinxala sarara gatii qonnaa naannoolee Itoophiyaa adda addaa keessaa baasee maxxanse. Xiinxalli kun hanqinaalee gurguddoo adda baasee, karooraa fi tarkaanfii fooyyessuu ni kenna. Garee pirojektii mootummaa fi dhaabbilee misoomaa waliin ni hojjeta.",
+      "date": "2026-02-10",
+      "section": "Agro-Economics",
+      "type": "Publication",
+      "author": "AFOLU Itoophiyaa"
+    },
+
+    {
+      "title": "Marga: Sagantaan Bulchiinsa Bosona Hawaasaa Naannolee Sadii Keessatti Jalqabe",
+      "body": "Sagantaan bulchiinsa bosona hawaasaa haaraan naannolee Oromiyaa, Amaaraa, fi Benishangul-Gumuz keessatti jalqabame. Sagantaan kun hawaasni bosona isaanii bulchuu fi bu'aa argachuu akka danda'u ni taasisa. REDD+ waliin walitti qabamee hojjetama.",
+      "date": "2026-01-25",
+      "section": "Forestry",
+      "type": "Announcement",
+      "author": "AFOLU Itoophiyaa"
+    },
+
+    {
+      "title": "Bineensota Bosonaa fi Tuuriizimii: Naannolee Eegumsa Bineensotaa Cimsan",
+      "body": "AFOLU Itoophiyaa dhaabbilee eegumsa naannoo waliin ta'uudhaan sagantaa eegumsa bineensotaa fi guddina tuuriizimii ekoo irratti hojii gamtaa jalqabe. Hawaasni naannoo naannoolee eegumsa bineensotaa dhiyoo jiran bu'aa tuuriizimii argachuuf carraa ni argatuu.",
+      "date": "2026-01-15",
+      "section": "Wildlife & Ecotourism",
+      "type": "Announcement",
+      "author": "AFOLU Itoophiyaa"
+    },
+
+    {
+      "title": "Nageenya Nyaataa: Hojii Gamtaa Haaraan Naannoolee Saaxilamoo Keessatti Jalqabe",
+      "body": "Sagantaan nageenya nyaataa haaraan hawaasota naannoolee jijjiirama qilleensaaf saaxilamoo ta'an keessatti hojiirra oola. Sagantaan kun midhaan fooyya'aa, sirna eegumsaa bishaanii, fi dhiyeessii gabaa fiduuf qonnaa itti fufiinsa qabu ni deeggara.",
+      "date": "2025-12-20",
+      "section": "Nageenya Nyaataa",
+      "type": "Announcement",
+      "author": "AFOLU Itoophiyaa"
+    },
+
+    {
+      "title": "Dandamachuu Qilleensaa: CRGE Tarkaanfii Hojiirra Oolmaa Itoophiyaa Deeggara",
+      "body": "AFOLU Itoophiyaa sagantaa CRGE hojiirra oolmaa keessatti gahee guddaa taphataa jira. Dhaabbatichi qonnaa qilleensa-ogummaa, adapteeshn ekosistemii hundaa'e, fi sirna beeksisa waqtii gabaabaatiif karoora hawaasaa deeggara. Bu'aa sagantichaa gabaasa haaraa keessatti ni argatu.",
+      "date": "2025-12-10",
+      "section": "Dandamachuu Qilleensaa",
+      "type": "Report",
+      "author": "AFOLU Itoophiyaa"
+    },
+
+    {
+      "title": "Pirojektii Amma: Haaromsa Bishaanii Oromiyaa fi Amaaraa Keessatti Itti Fufa",
+      "body": "Pirojektiin haaromsa bishaanii walitti hidhamaa Oromiyaa fi Amaaraa godinaalee gaaraa keessatti hojiirra oolaa jira. Pirojektiin kun 2024–2026 hojjetamee, bu'uraalee qabatamaa kunuunsa biyyoo fi bishaanii ijaaruu, sirna bulchiinsa hawaasaa qindeessuu, fi hordoffii yeroo dheeraa ni deeggaraa.",
+      "date": "2025-11-30",
+      "section": "Natural Resource Management",
+      "type": "Report",
+      "author": "AFOLU Itoophiyaa"
+    },
+
+    {
+      "title": "Pirojektii Xumurame: Manneen Barumsaa Qonnaa fi Sanyii Biqiltuu Naannoo Oromiyaa",
+      "body": "Pirojektiin manneen barumsaa qonnaa fi oomisha sanyii biqiltuu hawaasaa Oromiyaa keessatti milkaa'inaan xumurameera. Pirojektiin kun 2019–2021 hojjatamee, qonnaatoota kuma hedduuf leenjii kenne, buufataalee sanyii hawaasaa 80 ol ijaaruuf gargaare.",
+      "date": "2025-11-15",
+      "section": "Rural Development",
+      "type": "Report",
+      "author": "AFOLU Itoophiyaa"
+    },
+
+    {
+      "title": "Pirojektii Naannoo: Pirojektii Agroforestirii Dirree Gogaa Hundeeffame",
+      "body": "AFOLU Itoophiyaa pirojektii agroforestirii dirree gogaa naannoolee Somaalee fi Afaar keessatti hojiirra oolche. Qonnaatotni fi horsiisee buleen dachee gogaa irratti muka agroforestirii dhaabuu fi bulchuudhaan bu'aa argachaa jiru.",
+      "date": "2025-10-30",
+      "section": "Agroforestry",
+      "type": "Report",
+      "author": "AFOLU Itoophiyaa"
+    },
+
+    {
+      "title": "Gabaasaalee: Maxxansa Haaraan Qorannoo Saayinsii Biqiltuu Irratti Bahe",
+      "body": "AFOLU Itoophiyaa maxxansa haaraa qorannoo saayinsii biqiltuu naannoolee ikoo-loojii garaagaraa Itoophiyaa keessaa xumurame maxxanse. Maxxansichi sanyii midhaan adda addaa, sirna qonnaa madaqfamaa, fi dandeettii sanyii haadhoo fooyyaa'aa irratti xiyyeeffata.",
+      "date": "2025-10-15",
+      "section": "Gabaasaalee fi Maxxansaalee",
+      "type": "Publication",
+      "author": "AFOLU Itoophiyaa"
+    },
+
+    {
+      "title": "GIS fi Kaartaalee: Sirni Hordoffii Bosona Haaraan Jalqabame",
+      "body": "Sirni hordoffii bosona haaraan satellite-based fi GIS-powered AFOLU Itoophiyaatiin jalqabame. Sirni kun jijjiirama itti fayyadama lafa, hir'ina bosona, fi milkaa'ina sagantaa Ashaaraa Magariisaa hordofuu keessatti gargaara. Odeeffannoon sirna kanarraa mootummaaf ni kennama.",
+      "date": "2025-10-01",
+      "section": "Geospatial & GIS",
+      "type": "Announcement",
+      "author": "AFOLU Itoophiyaa"
+    },
+
+    {
+      "title": "Qajeelcha Teknikaa: Galmee Haaraa Bulchiinsa Bosona Hawaasaa fi REDD+ Bahe",
+      "body": "AFOLU Itoophiyaa galmee haaraa qophii sagantaa bulchiinsa bosona hawaasaa fi hojiirra oolmaa REDD+ irratti mariyate baase. Galmeen kun hojjattootaa dirree, qindeessitootaa hawaasaa, fi dhaabbilee mootummaa bulchiinsa bosona irratti hojjataniif kan qophaa'edha.",
+      "date": "2025-09-15",
+      "section": "Technical Manuals",
+      "type": "Publication",
+      "author": "AFOLU Itoophiyaa"
+    },
+
+    {
+      "title": "AFOLU Itoophiyaa Hirmaattoota Haaraa 50 ol Simate",
+      "body": "AFOLU Itoophiyaa bara 2025–2026 hirmaattoota haaraa 50 ol — dhaabbilee mootummaa, yunivarsiitiiwwan, dhaabbilee misoomaa, fi ogeeyyii dhuunfaa of keessatti qabate — simateera. Hirmaannaan haaraan kun dandeettii dhaabbatichaa fi giddugaleessa beekumsa biyyoolessaa cimsa.",
+      "date": "2025-09-01",
+      "section": "Latest News",
+      "type": "Announcement",
+      "author": "AFOLU Itoophiyaa"
+    },
+
+    {
+      "title": "Guyyaa Dhaabuu Muka Biyyoolessaa 2026 Qopheessuu Jalqabame",
+      "body": "AFOLU Itoophiyaa sagantaa dhaabuu muka biyyoolessaa 2026 qopheessuu keessatti gahee guddaa taphatuu beeksise. Sagantaan kun Ji'a Waxabajjii 2026 gaggeeffamuuf qophii ni taasifama. Dhaabbilee, mootummaawwan naannoo, fi dargaggoo affeeramu.",
+      "date": "2026-04-05",
+      "section": "Sagantaa Dhaalota Magariisa",
+      "type": "Event",
+      "author": "AFOLU Itoophiyaa"
+    },
+
+    {
+      "title": "Qonnaatotni Oromiyaa Sirna Agroforestirii Irraa Bu'aa Gurguddaa Argatan",
+      "body": "Qonnaatotni kuma hedduun naannoo Oromiyaa sirna agroforestirii hojii gamtaa AFOLU Itoophiyaa fi dhaabbilee biraatiin hojiirra oolchu fayyadamuun galii fi haala naannoo isaanii fooyyessan. Muuxannoowwan jijjiiramaa kanneen sagantaa babal'isuu keessatti fayyadamu.",
+      "date": "2025-08-20",
+      "section": "Agroforestry",
+      "type": "Report",
+      "author": "AFOLU Itoophiyaa"
+    },
+
+    {
+      "title": "Sagantaa Hordoffii AFOLU 2025: Barattoota fi Qorattootni Haaraa Simataman",
+      "body": "Sagantaan hordoffii AFOLU 2025 barattoota sadarkaa mast'arii fi PhD 20 simateera. Sagantaan kun dameelee qonnaa, bosonaa, NRM, agroforestirii, fi wal-qabatanitti hordoffiiwwan hojii dirree fi qorannoo ni kenna. Sagantaan 2026 amma banaa dha — iyyannoo ergaa: afoluofethiopia@gmail.com",
+      "date": "2025-08-01",
+      "section": "Latest News",
+      "type": "Announcement",
+      "author": "AFOLU Itoophiyaa"
     }
+
   ]
 }
