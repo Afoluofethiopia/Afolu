@@ -222,7 +222,7 @@ img { display: block; max-width: 100%; }
   display: flex; flex-direction: column;
   align-items: flex-start; justify-content: center;
 }
-.hero-slide.active { opacity: 1; position: relative; }
+.hero-slide.active { opacity: 1; position: relative; min-height: unset; }
 .hero-bg {
   position: absolute; inset: 0;
   background-size: cover; background-position: center;
@@ -243,7 +243,7 @@ img { display: block; max-width: 100%; }
   position: relative; z-index: 2;
   max-width: 1360px; margin: 0 auto; width: 100%;
   padding: 7rem 2.5rem 8rem;
-  min-height: 540px;
+  min-height: unset;
   display: flex; flex-direction: column; justify-content: center;
 }
 .hero-eyebrow {
@@ -311,12 +311,12 @@ img { display: block; max-width: 100%; }
 .sarrow-next { right: 2rem; }
 
 .hero-slide {
-  min-height: 540px;
+  min-height: unset;
 }
 
 .hero-slide.active {
   position: relative;
-  min-height: 540px;
+  min-height: unset;
 }
 /* ============================================================
    BUTTONS
@@ -1267,6 +1267,154 @@ footer {
 .ncard-goto { font-size: 0.73rem; font-weight: 700; color: var(--sky-bright); background: none; border: none; cursor: pointer; transition: color 0.2s; }
 .ncard-goto:hover { color: var(--forest); }
 
+
+/* ============================================================
+   DETAIL POPUP MODAL
+   ============================================================ */
+.detail-overlay {
+  display: none;
+  position: fixed; inset: 0; z-index: 3000;
+  background: rgba(10,20,14,0.75);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  align-items: center; justify-content: center;
+  padding: 1.5rem;
+  animation: smFadeIn 0.2s ease;
+}
+.detail-overlay.open { display: flex; }
+
+.detail-modal {
+  background: var(--white);
+  border-radius: 14px;
+  width: 100%; max-width: 740px;
+  max-height: 88vh;
+  overflow-y: auto;
+  box-shadow: 0 32px 80px rgba(0,0,0,0.35);
+  animation: smSlideUp 0.25s ease;
+  scrollbar-width: thin;
+  scrollbar-color: var(--forest-light) var(--cream);
+  display: flex; flex-direction: column;
+}
+.detail-modal::-webkit-scrollbar { width: 4px; }
+.detail-modal::-webkit-scrollbar-thumb { background: var(--forest-light); border-radius: 2px; }
+
+.detail-img-wrap {
+  width: 100%; max-height: 280px; overflow: hidden;
+  border-radius: 14px 14px 0 0; flex-shrink: 0; position: relative;
+}
+.detail-img-wrap img {
+  width: 100%; height: 280px; object-fit: contain;
+  background: linear-gradient(135deg, var(--forest) 0%, var(--sky-mid) 100%);
+  display: block;
+}
+.detail-img-placeholder {
+  width: 100%; height: 200px;
+  background: linear-gradient(135deg, var(--forest) 0%, var(--sky-mid) 100%);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 4rem; border-radius: 14px 14px 0 0;
+}
+
+.detail-header {
+  background: linear-gradient(135deg, var(--forest) 0%, var(--sky) 100%);
+  padding: 1.6rem 2rem 1.4rem;
+  position: relative;
+}
+.detail-close {
+  position: absolute; top: 1rem; right: 1rem;
+  background: rgba(255,255,255,0.15); border: 1px solid rgba(255,255,255,0.25);
+  color: var(--white); border-radius: 8px;
+  width: 36px; height: 36px;
+  display: flex; align-items: center; justify-content: center;
+  cursor: pointer; font-size: 1.1rem; transition: all 0.2s;
+}
+.detail-close:hover { background: rgba(255,255,255,0.28); }
+
+.detail-meta-row {
+  display: flex; align-items: center; gap: 0.5rem; flex-wrap: wrap;
+  margin-bottom: 0.8rem;
+}
+.detail-type-tag {
+  font-size: 0.62rem; font-weight: 700; letter-spacing: 0.1em;
+  text-transform: uppercase; padding: 0.25rem 0.7rem; border-radius: 20px;
+  background: rgba(200,150,62,0.2); color: var(--earth-light);
+}
+.detail-section-tag {
+  font-size: 0.62rem; font-weight: 700; letter-spacing: 0.08em;
+  text-transform: uppercase; padding: 0.25rem 0.7rem; border-radius: 20px;
+  background: rgba(255,255,255,0.12); color: rgba(255,255,255,0.75);
+}
+.detail-date-tag {
+  font-size: 0.68rem; color: rgba(255,255,255,0.55);
+}
+.detail-title {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(1.2rem, 3vw, 1.7rem); font-weight: 700;
+  color: var(--white); line-height: 1.3; margin-bottom: 0.4rem;
+}
+.detail-author {
+  font-size: 0.78rem; color: rgba(255,255,255,0.55);
+  font-style: italic;
+}
+
+.detail-body {
+  padding: 1.8rem 2rem;
+  flex: 1;
+}
+.detail-summary {
+  font-size: 1rem; color: var(--ink-soft); line-height: 1.85;
+  font-weight: 300; margin-bottom: 1.4rem;
+  padding-bottom: 1.4rem;
+  border-bottom: 1px solid var(--border-soft);
+}
+.detail-full {
+  font-size: 0.93rem; color: var(--ink-soft); line-height: 1.9;
+  font-weight: 300; white-space: pre-line;
+}
+.detail-full p { margin-bottom: 1rem; }
+.detail-location {
+  display: flex; align-items: center; gap: 0.5rem;
+  font-size: 0.8rem; color: var(--muted);
+  margin-top: 1.2rem; padding-top: 1.2rem;
+  border-top: 1px solid var(--border-soft);
+}
+.detail-tags {
+  display: flex; flex-wrap: wrap; gap: 0.4rem;
+  margin-top: 1rem;
+}
+.detail-tag {
+  font-size: 0.68rem; font-weight: 600; letter-spacing: 0.04em;
+  color: var(--forest-mid); background: var(--cream);
+  border: 1px solid var(--border); padding: 0.3rem 0.7rem;
+  border-radius: 20px;
+}
+
+.detail-footer {
+  padding: 1rem 2rem 1.5rem;
+  display: flex; gap: 0.7rem; flex-wrap: wrap;
+  border-top: 1px solid var(--border-soft);
+}
+.detail-btn {
+  display: inline-flex; align-items: center; gap: 0.4rem;
+  font-size: 0.75rem; font-weight: 700; letter-spacing: 0.04em;
+  padding: 0.55rem 1.2rem; border-radius: 5px;
+  cursor: pointer; transition: all 0.2s; border: none; text-decoration: none;
+}
+.detail-btn-primary { background: var(--earth); color: var(--forest); }
+.detail-btn-primary:hover { background: var(--earth-light); }
+.detail-btn-secondary { background: var(--ivory); color: var(--sky); border: 1.5px solid var(--border); }
+.detail-btn-secondary:hover { background: var(--sky); color: var(--white); border-color: var(--sky); }
+.detail-no-detail {
+  font-size: 0.88rem; color: var(--muted); font-style: italic;
+  padding: 1rem; background: var(--ivory); border-radius: 6px;
+  border-left: 3px solid var(--border);
+}
+@media(max-width:600px) {
+  .detail-header { padding: 1.2rem 1.2rem 1rem; }
+  .detail-body { padding: 1.2rem 1.2rem; }
+  .detail-footer { padding: 0.8rem 1.2rem 1.2rem; }
+  .detail-title { font-size: 1.15rem; }
+}
+
 /* ============================================================
    REVEAL ANIMATIONS
    ============================================================ */
@@ -1652,10 +1800,10 @@ footer {
     src="https://i.imgur.com/TOLgCdy.png"
     alt="AFOLU of Ethiopia"
     style="
-      position: absolute;
-      top: 0; left: 0;
-      width: 100%; height: 100%;
-      object-fit: cover;
+      position: relative;
+      width: 100%; height: auto;
+      max-height: 85vh;
+      object-fit: contain;
       display: block;
       z-index: 1;
     "
@@ -1664,8 +1812,7 @@ footer {
   <!-- Dark overlay so text is readable -->
   <div style="
     position: absolute;
-    top: 0; left: 0;
-    width: 100%; height: 100%;
+    inset: 0;
     background: linear-gradient(to top, rgba(0,0,0,0.80) 0%, rgba(0,0,0,0.25) 100%);
     z-index: 2;
   "></div>
@@ -1704,10 +1851,10 @@ footer {
     src="https://i.imgur.com/36K6kb7.png"
     alt="Sagantaa Dhaalota Magariisa"
     style="
-      position: absolute;
-      top: 0; left: 0;
-      width: 100%; height: 100%;
-      object-fit: cover;
+      position: relative;
+      width: 100%; height: auto;
+      max-height: 85vh;
+      object-fit: contain;
       display: block;
       z-index: 1;
     "
@@ -1716,8 +1863,7 @@ footer {
   <!-- Dark overlay so text is readable -->
   <div style="
     position: absolute;
-    top: 0; left: 0;
-    width: 100%; height: 100%;
+    inset: 0;
     background: linear-gradient(to top, rgba(0,0,0,0.80) 0%, rgba(0,0,0,0.25) 100%);
     z-index: 2;
   "></div>
@@ -1756,10 +1902,10 @@ footer {
     src="https://i.imgur.com/ksFd2DK.png"
     alt="Building Dandamachuu Qilleensaa"
     style="
-      position: absolute;
-      top: 0; left: 0;
-      width: 100%; height: 100%;
-      object-fit: cover;
+      position: relative;
+      width: 100%; height: auto;
+      max-height: 85vh;
+      object-fit: contain;
       display: block;
       z-index: 1;
     "
@@ -1768,8 +1914,7 @@ footer {
   <!-- Dark overlay so text is readable -->
   <div style="
     position: absolute;
-    top: 0; left: 0;
-    width: 100%; height: 100%;
+    inset: 0;
     background: linear-gradient(to top, rgba(0,0,0,0.80) 0%, rgba(0,0,0,0.25) 100%);
     z-index: 2;
   "></div>
@@ -2106,64 +2251,70 @@ footer {
             <div class="sidebar-head">📰 Maxxansaalee Haaraa</div>
             <div class="sidebar-body" style="padding:0.8rem 0.8rem 0">
 
-              <!-- Publication 1 -->
+              <!-- Publication 1: Annual Report → Reports & Publications -->
               <div class="pub-card">
-                <img class="pub-img" src="https://images.unsplash.com/photo-1481627834876-b7833e8f5570?w=400&q=80" alt="Annual Report 2025" onerror="this.outerHTML='<div class='pub-img-placeholder'>📄</div>'">
+                <img class="pub-img" src="https://images.unsplash.com/photo-1481627834876-b7833e8f5570?w=400&q=80" alt="Annual Report 2025" onerror="this.outerHTML='<div class=&quot;pub-img-placeholder&quot;>📄</div>'">
                 <div class="pub-body">
-                  <span class="pub-type">Gabaasa Waggaa</span>
-                  <div class="pub-title">Gabaasa Waggaa AFOLU Itoophiyaa 2025</div>
+                  <span class="pub-type" style="cursor:pointer" data-view="Reports">📄 Gabaasaalee fi Maxxansaalee</span>
+                  <div class="pub-title" data-view="Reports" style="cursor:pointer">Gabaasa Waggaa AFOLU Itoophiyaa 2025</div>
                   <div class="pub-meta">AFOLU Itoophiyaa | Bitootessa 2026</div>
                   <div class="pub-btns">
                     <a class="pub-btn pub-btn-primary" href="mailto:afoluofethiopia@gmail.com">⬇ Buufadhu</a>
-                    <a class="pub-btn pub-btn-secondary" data-view="Reports" style="cursor:pointer">📋 Cuunfaa</a>
+                    <button class="pub-btn pub-btn-secondary" data-view="Reports">📋 Cuunfaa</button>
+                    <button class="pub-btn pub-btn-secondary" data-view="Projects">🔬 Pirojektii</button>
                   </div>
                 </div>
               </div>
 
-              <!-- Publication 2 -->
+              <!-- Publication 2: Forestry/REDD+ Research → Reports + Forestry sector + Projects -->
               <div class="pub-card">
-                <img class="pub-img" src="https://images.unsplash.com/photo-1448375240586-882707db888b?w=400&q=80" alt="Forestry Report" onerror="this.outerHTML='<div class='pub-img-placeholder'>🌳</div>'">
+                <img class="pub-img" src="https://images.unsplash.com/photo-1448375240586-882707db888b?w=400&q=80" alt="Forestry Report" onerror="this.outerHTML='<div class=&quot;pub-img-placeholder&quot;>🌳</div>'">
                 <div class="pub-body">
-                  <span class="pub-type">Barruu Qorannoo</span>
-                  <div class="pub-title">Bulchiinsa Bosona Hawaasaa fi REDD+ Itoophiyaa</div>
+                  <span class="pub-type" style="cursor:pointer" data-view="forestry">🌳 Marga (Forestry)</span>
+                  <div class="pub-title" data-view="forestry" style="cursor:pointer">Bulchiinsa Bosona Hawaasaa fi REDD+ Itoophiyaa</div>
                   <div class="pub-meta">AFOLU Itoophiyaa | Amajjii 2026</div>
                   <div class="pub-btns">
                     <a class="pub-btn pub-btn-primary" href="mailto:afoluofethiopia@gmail.com">🔗 DOI</a>
-                    <a class="pub-btn pub-btn-secondary" data-view="Reports" style="cursor:pointer">📋 Cuunfaa</a>
+                    <button class="pub-btn pub-btn-secondary" data-view="Reports">📋 Gabaasaalee</button>
+                    <button class="pub-btn pub-btn-secondary" data-view="REDD">🌿 REDD+</button>
                   </div>
                   <div class="pub-btns" style="margin-top:0.4rem">
+                    <button class="pub-btn pub-btn-secondary" data-view="Projects">🔬 Pirojektii</button>
                     <a class="pub-btn pub-btn-primary" href="mailto:afoluofethiopia@gmail.com">↗ Qoodi</a>
                   </div>
                 </div>
               </div>
 
-              <!-- Publication 3 -->
+              <!-- Publication 3: NRM Policy Brief → Reports + NRM sector + Regional Projects -->
               <div class="pub-card">
-                <img class="pub-img" src="https://images.unsplash.com/photo-1500382017468-9049fed747ef?w=400&q=80" alt="NRM Paper" onerror="this.outerHTML='<div class='pub-img-placeholder'>🌍</div>'">
+                <img class="pub-img" src="https://images.unsplash.com/photo-1500382017468-9049fed747ef?w=400&q=80" alt="NRM Paper" onerror="this.outerHTML='<div class=&quot;pub-img-placeholder&quot;>🌍</div>'">
                 <div class="pub-body">
-                  <span class="pub-type">Barruulee Imaammataa</span>
-                  <div class="pub-title">Sirna Bulchiinsa Bishaanii Walitti Hidhamaa Itoophiyaa</div>
+                  <span class="pub-type" style="cursor:pointer" data-view="Natural-Resource-Mgmt">🌍 Bulchiinsa Qabeenya Uumamaa</span>
+                  <div class="pub-title" data-view="Natural-Resource-Mgmt" style="cursor:pointer">Sirna Bulchiinsa Bishaanii Walitti Hidhamaa Itoophiyaa</div>
                   <div class="pub-meta">AFOLU Itoophiyaa | Sadaasa 2025</div>
                   <div class="pub-btns">
                     <a class="pub-btn pub-btn-primary" href="mailto:afoluofethiopia@gmail.com">🔗 DOI</a>
-                    <a class="pub-btn pub-btn-secondary" data-view="Reports" style="cursor:pointer">📋 Cuunfaa</a>
+                    <button class="pub-btn pub-btn-secondary" data-view="Reports">📋 Gabaasaalee</button>
+                    <button class="pub-btn pub-btn-secondary" data-view="Geospatial">🛰 GIS</button>
                   </div>
                   <div class="pub-btns" style="margin-top:0.4rem">
+                    <button class="pub-btn pub-btn-secondary" data-view="Regional">🗺 Pirojektii Naannoo</button>
                     <a class="pub-btn pub-btn-primary" href="mailto:afoluofethiopia@gmail.com">↗ Qoodi</a>
                   </div>
                 </div>
               </div>
 
-              <!-- Publication 4 -->
+              <!-- Publication 4: Technical Manual Agroforestry → Technical Manuals + Agroforestry + Completed Projects -->
               <div class="pub-card">
-                <img class="pub-img" src="https://images.unsplash.com/photo-1464226184884-fa280b87c399?w=400&q=80" alt="Agroforestry" onerror="this.outerHTML='<div class='pub-img-placeholder'>🌿</div>'">
+                <img class="pub-img" src="https://images.unsplash.com/photo-1464226184884-fa280b87c399?w=400&q=80" alt="Agroforestry" onerror="this.outerHTML='<div class=&quot;pub-img-placeholder&quot;>🌿</div>'">
                 <div class="pub-body">
-                  <span class="pub-type">Qajeelcha Teknikaa</span>
-                  <div class="pub-title">Agroforestirii Naannoolee Ikoo-Loojii Adda Addaa Itoophiyaatiif</div>
+                  <span class="pub-type" style="cursor:pointer" data-view="agroforestry">🌿 Agroforestirii</span>
+                  <div class="pub-title" data-view="agroforestry" style="cursor:pointer">Agroforestirii Naannoolee Ikoo-Loojii Adda Addaa Itoophiyaatiif</div>
                   <div class="pub-meta">AFOLU Itoophiyaa | Onkoloolessa 2025</div>
                   <div class="pub-btns">
                     <a class="pub-btn pub-btn-primary" href="mailto:afoluofethiopia@gmail.com">⬇ Buufadhu</a>
-                    <a class="pub-btn pub-btn-secondary" data-view="publications" style="cursor:pointer">📋 Cuunfaa</a>
+                    <button class="pub-btn pub-btn-secondary" data-view="publications">📘 Qajeelcha</button>
+                    <button class="pub-btn pub-btn-secondary" data-view="Completed">✅ Xumurame</button>
                   </div>
                   <div class="pub-btns" style="margin-top:0.4rem">
                     <a class="pub-btn pub-btn-primary" href="mailto:afoluofethiopia@gmail.com">↗ Qoodi</a>
@@ -3293,6 +3444,30 @@ footer {
   </div>
 </footer>
 
+
+<!-- ============================================================
+     DETAIL POPUP MODAL
+     Opens when any news/event/publication card is clicked
+     ============================================================ -->
+<div class="detail-overlay" id="detailOverlay">
+  <div class="detail-modal" id="detailModal">
+    <div id="detailImgWrap"></div>
+    <div class="detail-header">
+      <button class="detail-close" id="detailClose" aria-label="Close">✕</button>
+      <div class="detail-meta-row" id="detailMetaRow"></div>
+      <div class="detail-title" id="detailTitle"></div>
+      <div class="detail-author" id="detailAuthor"></div>
+    </div>
+    <div class="detail-body">
+      <div class="detail-summary" id="detailSummary"></div>
+      <div class="detail-full" id="detailFull"></div>
+      <div id="detailLocation"></div>
+      <div class="detail-tags" id="detailTags"></div>
+    </div>
+    <div class="detail-footer" id="detailFooter"></div>
+  </div>
+</div>
+
 <!-- ============================================================
      SITE MAP FLOATING BUTTON
      ============================================================ -->
@@ -3520,16 +3695,13 @@ function showView(id, pushHistory) {
   if (!id || id === 'home') {
     homeDiv.style.display = '';
     footer.style.display  = '';
-    window.scrollTo({ top: 0, behavior: 'smooth' });
     document.querySelectorAll('.nav-links > li > a').forEach(a =>
       a.classList.toggle('active', a.getAttribute('data-view') === 'home')
     );
     if (pushHistory) setHash('home');
     updateBreadcrumbBar('home', slug);
-    /* Make sure all home reveals are visible */
-    setTimeout(function() {
-      document.querySelectorAll('#view-home .reveal').forEach(el => el.classList.add('visible'));
-    }, 50);
+    /* Make all home reveals immediately visible — no scroll needed */
+    document.querySelectorAll('#view-home .reveal').forEach(el => el.classList.add('visible'));
     return;
   }
 
@@ -3605,7 +3777,8 @@ window.addEventListener('popstate', function(e) {
     showView(viewId, false);
     if (viewId === 'News') loadNews();
   } else {
-    updateBreadcrumbBar('home', 'home');
+    /* No hash — show home page immediately with all content visible */
+    showView('home', false);
   }
 })();
 
@@ -3675,7 +3848,7 @@ function buildHomeNewsCard(post) {
     ? `<img class="news-img" src="${imgUrl}" alt="${post.title}" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">`
       + `<div class="news-img-placeholder" style="display:none">${icon}</div>`
     : `<div class="news-img-placeholder">${icon}</div>`;
-  return `<div class="news-item" onclick="showView('${vt}')">
+  return `<div class="news-item" onclick="openDetailPopup(${JSON.stringify(post).replace(/`/g,'\\`')})" style="cursor:pointer">
     ${imgHtml}
     <div class="news-body">
       <div class="news-meta-row">
@@ -3802,7 +3975,7 @@ function renderNews(items) {
     const dateStr = d.toLocaleDateString('en-GB', { day:'numeric', month:'long', year:'numeric' });
     const vt = SECTION_VIEW_MAP[post.section] || '';
     const card = document.createElement('div');
-    card.className = 'ncard';
+    card.className = 'ncard'; card.style.cursor='pointer'; card.addEventListener('click', function(e){ if(!e.target.classList.contains('ncard-goto')) openDetailPopup(post); });
     card.innerHTML = `
       <div class="ncard-meta">
         <span class="ncard-date">${dateStr}</span>
@@ -3870,7 +4043,7 @@ function buildHomeEventCard(post) {
     ? `<img class="event-img" src="${imgUrl}" alt="${post.title}" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">`
       + `<div class="event-img-placeholder" style="display:none">${icon}</div>`
     : `<div class="event-img-placeholder">${icon}</div>`;
-  return `<div class="event-card" onclick="showView('${vt}')">
+  return `<div class="event-card" onclick="openDetailPopup(${JSON.stringify(post).replace(/`/g,'\\`')})" style="cursor:pointer">
     ${imgHtml}
     <div class="event-body">
       <div class="event-meta-row">
@@ -3962,13 +4135,118 @@ async function loadHomeEvents() {
   }
 }
 
+
+
+/* ============================================================
+   DETAIL POPUP MODAL JS
+   ============================================================ */
+(function() {
+  const overlay   = document.getElementById('detailOverlay');
+  const modal     = document.getElementById('detailModal');
+  const closeBtn  = document.getElementById('detailClose');
+
+  function openDetailPopup(post) {
+    if (!post) return;
+    const d = new Date(post.date);
+    const dateStr = d.toLocaleDateString('en-GB', { day:'numeric', month:'long', year:'numeric' });
+
+    /* Image */
+    const imgWrap = document.getElementById('detailImgWrap');
+    if (post.image) {
+      imgWrap.innerHTML = '<div class="detail-img-wrap"><img src="' + post.image + '" alt="" onerror="this.parentElement.style.display=\u0027none\u0027"></div>';
+    } else {
+      const icons = {'Sagantaa Dhaalota Magariisa':'🌱','REDD+':'🌳','Dandamachuu Qilleensaa':'🌡','Nageenya Nyaataa':'🌾','Natural Resource Management':'🌍','Plant Science':'🌾','Agroforestry':'🌿','Animal Science':'🐄','Rural Development':'🏘','Agro-Economics':'📊','Forestry':'🌳','Wildlife & Ecotourism':'🦁','Geospatial & GIS':'🛰','Technical Manuals':'📘','Latest News':'📰','Taateewwan':'📅'};
+      const icon = icons[post.section] || '📄';
+      imgWrap.innerHTML = '<div class="detail-img-placeholder">' + icon + '</div>';
+    }
+
+    /* Meta row */
+    const metaRow = document.getElementById('detailMetaRow');
+    metaRow.innerHTML =
+      (post.type ? '<span class="detail-type-tag">' + post.type + '</span>' : '') +
+      (post.section ? '<span class="detail-section-tag">' + post.section + '</span>' : '') +
+      '<span class="detail-date-tag">📅 ' + dateStr + '</span>';
+
+    /* Title & Author */
+    document.getElementById('detailTitle').textContent = post.title || '';
+    document.getElementById('detailAuthor').textContent = post.author ? '— ' + post.author : '';
+
+    /* Summary (body) */
+    const sumEl = document.getElementById('detailSummary');
+    sumEl.textContent = post.body || '';
+    sumEl.style.display = post.body ? '' : 'none';
+
+    /* Full detail */
+    const fullEl = document.getElementById('detailFull');
+    if (post.detail) {
+      /* Split by 
+
+ for paragraphs */
+      fullEl.innerHTML = post.detail.split('\n\n').filter(function(p){return p.trim();}).map(function(p) {
+        return '<p>' + p.trim() + '</p>';
+      }).join('');
+      fullEl.style.display = '';
+    } else {
+      fullEl.innerHTML = '<div class="detail-no-detail">Odeeffannoo bal\'aa hin jiru. "detail" field <strong>news.json</strong> keessatti guutaa.</div>';
+      fullEl.style.display = '';
+    }
+
+    /* Location */
+    const locEl = document.getElementById('detailLocation');
+    if (post.location) {
+      locEl.innerHTML = '<div class="detail-location">📍 ' + post.location + '</div>';
+      locEl.style.display = '';
+    } else {
+      locEl.style.display = 'none';
+    }
+
+    /* Tags */
+    const tagsEl = document.getElementById('detailTags');
+    if (post.tags && post.tags.length) {
+      tagsEl.innerHTML = post.tags.map(function(t) { return '<span class="detail-tag">' + t + '</span>'; }).join('');
+      tagsEl.style.display = '';
+    } else {
+      tagsEl.style.display = 'none';
+    }
+
+    /* Footer buttons */
+    const footerEl = document.getElementById('detailFooter');
+    const vt = SECTION_VIEW_MAP[post.section] || '';
+    footerEl.innerHTML =
+      (vt ? '<button class="detail-btn detail-btn-primary" data-goto="' + vt + '" onclick="closeDetailPopup();showView(this.dataset.goto)">Fuula ' + (post.section||'') + ' Ilaalaa →</button>' : '') +
+      '<button class="detail-btn detail-btn-secondary" onclick="closeDetailPopup()">✕ Cufaa</button>';
+
+    /* Open */
+    overlay.classList.add('open');
+    document.body.style.overflow = 'hidden';
+    modal.scrollTop = 0;
+  }
+
+  function closeDetailPopup() {
+    overlay.classList.remove('open');
+    document.body.style.overflow = '';
+  }
+
+  /* Expose globally */
+  window.openDetailPopup  = openDetailPopup;
+  window.closeDetailPopup = closeDetailPopup;
+
+  closeBtn.addEventListener('click', closeDetailPopup);
+  overlay.addEventListener('click', function(e) {
+    if (!modal.contains(e.target)) closeDetailPopup();
+  });
+  document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape') closeDetailPopup();
+  });
+})();
+
 /* ============================================================
    SITE MAP PANEL JS
    ============================================================ */
 (function() {
-  const fab = document.getElementById('sitemapFab');
-  const overlay = document.getElementById('sitemapOverlay');
-  const panel = document.getElementById('sitemapPanel');
+  const fab      = document.getElementById('sitemapFab');
+  const overlay  = document.getElementById('sitemapOverlay');
+  const panel    = document.getElementById('sitemapPanel');
   const closeBtn = document.getElementById('sitemapClose');
 
   function openSitemap() {
@@ -3982,32 +4260,21 @@ async function loadHomeEvents() {
 
   fab.addEventListener('click', openSitemap);
   closeBtn.addEventListener('click', closeSitemap);
-
   overlay.addEventListener('click', function(e) {
     if (!panel.contains(e.target)) closeSitemap();
-    if (!panel.contains(e.target)) closeSitemap();
   });
-
   document.addEventListener('keydown', function(e) {
     if (e.key === 'Escape') closeSitemap();
   });
-
   document.querySelectorAll('[data-sm]').forEach(function(item) {
     item.addEventListener('click', function(e) {
       e.stopPropagation();
-      const view = this.getAttribute('data-view');
-      if (view) {
-        closeSitemap();
-        setTimeout(function() {
-          showView(view);
-          if (view === 'News') loadNews();
-        }, 180);
-      }
+      const view = item.getAttribute('data-view');
+      if (view) { closeSitemap(); setTimeout(function(){ showView(view); if(view==='News') loadNews(); }, 180); }
     });
   });
 })();
 
-/* ── URL BAR COPY ── */
 function copyUrlBar() {
   const bar = document.getElementById('url-bar');
   const slug = bar.getAttribute('data-slug') || 'home';
@@ -4017,12 +4284,11 @@ function copyUrlBar() {
   navigator.clipboard.writeText(fullUrl).then(function() {
     const btn = document.getElementById('url-bar-copy');
     if (btn) { btn.textContent = '✓ Copied'; btn.classList.add('copied'); setTimeout(()=>{ btn.textContent='⎘ Garagalfadhu'; btn.classList.remove('copied'); }, 2000); }
-  }).catch(() => {
+  }).catch(function() {
     const btn = document.getElementById('url-bar-copy');
     if (btn) btn.textContent = 'Error';
   });
 }
-
 </script>
 </body>
 </html>
