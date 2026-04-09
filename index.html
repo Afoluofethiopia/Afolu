@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="om">
 <head>
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>AFOLU of Ethiopia</title>
+<title>AFOLU Itoophiyaa</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="icon" type="image/png" href="https://i.imgur.com/TOLgCdy.png">
@@ -175,27 +175,9 @@ img { display: block; max-width: 100%; }
 .lang-item.active .lang-native { color: var(--earth); }
 
 /* Hide Google's default translate bar completely */
-body > .skiptranslate { display: none !important; }
 body { top: 0 !important; }
 
-/* Translate loading indicator */
-.translate-loading {
-  position: fixed; top: calc(var(--top-h) + var(--nav-h) + 8px); right: 1.5rem;
-  background: var(--forest); color: var(--white);
-  padding: 0.5rem 1rem; border-radius: 6px;
-  font-size: 0.72rem; font-weight: 600; letter-spacing: 0.04em;
-  display: none; align-items: center; gap: 0.5rem;
-  z-index: 9999; box-shadow: 0 4px 16px rgba(0,0,0,0.25);
-  animation: tlFade 0.2s ease;
-}
-.translate-loading.show { display: flex; }
-@keyframes tlFade { from { opacity: 0; transform: translateY(-6px); } to { opacity: 1; transform: none; } }
-.translate-spinner {
-  width: 12px; height: 12px; border: 2px solid rgba(255,255,255,0.3);
-  border-top-color: var(--earth-light); border-radius: 50%;
-  animation: spin 0.7s linear infinite;
-}
-@keyframes spin { to { transform: rotate(360deg); } }
+
 
 /* ============================================================
    NAVIGATION
@@ -1449,7 +1431,7 @@ footer {
   <div class="topbar-left">
     <span>
       <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
-      Finfinnee / Addis Ababa, Ethiopia
+      Finfinnee / Addis Ababa, Itoophiyaa
     </span>
     <div class="topbar-divider"></div>
     <span>
@@ -1472,8 +1454,8 @@ footer {
     <!-- Language Selector -->
     <div class="lang-selector" id="langSelector">
       <button class="lang-btn" id="langBtn" onclick="toggleLangDropdown(event)">
-        <span class="lang-globe" id="currentFlag">🇺🇸</span>
-        <span id="currentLangCode">EN</span>
+        <span class="lang-globe" id="currentFlag">🇪🇹</span>
+        <span id="currentLangCode">Oromo</span>
         <span class="lang-chevron">▼</span>
       </button>
       <div class="lang-dropdown" id="langDropdown">
@@ -1489,9 +1471,7 @@ footer {
   </div>
 </div>
 
-<!-- Translate loading indicator -->
-<div class="translate-loading" id="translateLoading">
-  <div class="translate-spinner"></div>
+
   <span id="translateLoadingText">Translating…</span>
 </div>
 
@@ -1504,71 +1484,71 @@ footer {
       </div>
       <div class="brand-text">
         <div class="brand-name">AFOLU of Ethiopia</div>
-        <div class="brand-sub">Agriculture · Forestry · Land Use</div>
+        <div class="brand-sub">Qonnaa · Bosonaa · Fayyadama Lafa</div>
       </div>
     </div>
 
     <ul class="nav-links" id="navLinks">
-      <li><a data-view="home" class="active">Home</a></li>
+      <li><a data-view="home" class="active">Mana</a></li>
       <li class="has-drop">
         <a>About <span class="chevron"></span></a>
         <div class="dropdown">
-          <a data-view="About"><span class="di">🌱</span>About AFOLU</a>
-          <a data-view="Mission"><span class="di">🎯</span>Mission &amp; Vision</a>
-          <a data-view="Leadership"><span class="di">👥</span>Leadership</a>
-          <a data-view="Organizational"><span class="di">🏛</span>Org. Structure</a>
+          <a data-view="About"><span class="di">🌱</span>Waa'ee AFOLU</a>
+          <a data-view="Mission"><span class="di">🎯</span>Ergama fi Mul'ata</a>
+          <a data-view="Leadership"><span class="di">👥</span>Hoggansi</a>
+          <a data-view="Organizational"><span class="di">🏛</span>Caasaa Dhaabbata</a>
         </div>
       </li>
       <li class="has-drop">
         <a>Sectors <span class="chevron"></span></a>
         <div class="dropdown">
-          <a data-view="plant-science"><span class="di">🌾</span>Plant Science</a>
-          <a data-view="Natural-Resource-Mgmt"><span class="di">🌍</span>Natural Resource Mgmt</a>
-          <a data-view="agroforestry"><span class="di">🌿</span>Agroforestry</a>
-          <a data-view="animal-science"><span class="di">🐄</span>Animal Science</a>
-          <a data-view="Extension"><span class="di">🏘</span>Rural Development</a>
-          <a data-view="Agro-Economics"><span class="di">📊</span>Agro-Economics</a>
-          <a data-view="forestry"><span class="di">🌳</span>Forestry</a>
-          <a data-view="Wildlife"><span class="di">🦁</span>Wildlife &amp; Ecotourism</a>
+          <a data-view="plant-science"><span class="di">🌾</span>Saayinsii Biqiltuu</a>
+          <a data-view="Natural-Resource-Mgmt"><span class="di">🌍</span>Bulchiinsa Qabeenya Uumamaa</a>
+          <a data-view="agroforestry"><span class="di">🌿</span>Agroforestirii</a>
+          <a data-view="animal-science"><span class="di">🐄</span>Saayinsii Bineeldota</a>
+          <a data-view="Extension"><span class="di">🏘</span>Misoomaa Baadiyyaa</a>
+          <a data-view="Agro-Economics"><span class="di">📊</span>Agiroo-Ekonomiksii</a>
+          <a data-view="forestry"><span class="di">🌳</span>Marga</a>
+          <a data-view="Wildlife"><span class="di">🦁</span>Bineensota Bosonaa fi Tuuriizimii</a>
         </div>
       </li>
       <li class="has-drop">
         <a>Programs <span class="chevron"></span></a>
         <div class="dropdown">
-          <a data-view="Legacy"><span class="di">🌱</span>Green Legacy</a>
-          <a data-view="Food"><span class="di">🌾</span>Food Security</a>
-          <a data-view="Climate"><span class="di">🌡</span>Climate Resilience</a>
+          <a data-view="Legacy"><span class="di">🌱</span>Dhaalota Magariisa</a>
+          <a data-view="Food"><span class="di">🌾</span>Nageenya Nyaataa</a>
+          <a data-view="Climate"><span class="di">🌡</span>Dandamachuu Qilleensaa</a>
           <a data-view="REDD"><span class="di">🌳</span>REDD+</a>
         </div>
       </li>
       <li class="has-drop">
         <a>Resources <span class="chevron"></span></a>
         <div class="dropdown">
-          <a data-view="Reports"><span class="di">📄</span>Reports &amp; Publications</a>
-          <a data-view="Geospatial"><span class="di">🛰</span>Geospatial &amp; GIS</a>
-          <a data-view="publications"><span class="di">📘</span>Technical Manuals</a>
+          <a data-view="Reports"><span class="di">📄</span>Gabaasaalee fi Maxxansaalee</a>
+          <a data-view="Geospatial"><span class="di">🛰</span>Jiyoospeeshalii fi GIS</a>
+          <a data-view="publications"><span class="di">📘</span>Qajeelcha Teknikaa</a>
         </div>
       </li>
       <li class="has-drop">
         <a>Projects <span class="chevron"></span></a>
         <div class="dropdown">
-          <a data-view="Projects"><span class="di">🔬</span>Current Projects</a>
-          <a data-view="Completed"><span class="di">✅</span>Completed Projects</a>
-          <a data-view="Regional"><span class="di">🗺</span>Regional Projects</a>
+          <a data-view="Projects"><span class="di">🔬</span>Pirojektii Amma</a>
+          <a data-view="Completed"><span class="di">✅</span>Pirojektii Xumurame</a>
+          <a data-view="Regional"><span class="di">🗺</span>Pirojektii Naannoo</a>
         </div>
       </li>
       <li class="has-drop">
         <a>News <span class="chevron"></span></a>
         <div class="dropdown">
-          <a data-view="News"><span class="di">📰</span>Latest News</a>
-          <a data-view="events"><span class="di">📅</span>Events</a>
-          <a data-view="Gallery"><span class="di">🖼</span>Photo Gallery</a>
-          <a data-view="Testimonials"><span class="di">💬</span>Testimonials</a>
+          <a data-view="News"><span class="di">📰</span>Oduu Haaraa</a>
+          <a data-view="events"><span class="di">📅</span>Taateewwan</a>
+          <a data-view="Gallery"><span class="di">🖼</span>Galarii Suuraa</a>
+          <a data-view="Testimonials"><span class="di">💬</span>Ragaalee</a>
         </div>
       </li>
     </ul>
 
-    <button class="nav-cta" data-view="contact-section">Contact Us</button>
+    <button class="nav-cta" data-view="contact-section">Nu Quunnamaa</button>
     <button class="hamburger" id="hamburger" aria-label="Menu"><span></span><span></span><span></span></button>
   </div>
 </nav>
@@ -1589,7 +1569,7 @@ footer {
   <span id="url-bar-path"></span>
   <span id="url-bar-segment"></span>
   <span class="url-bar-divider"></span>
-  <button id="url-bar-copy" onclick="copyUrlBar()">⎘ Copy</button>
+  <button id="url-bar-copy" onclick="copyUrlBar()">⎘ Garagalfadhu</button>
 </div>
      ============================================================ -->
 <div id="view-home">
@@ -1638,13 +1618,13 @@ footer {
     <div class="hero-eyebrow">
       <span class="hero-eyebrow-dot"></span>
       <span class="hero-eyebrow-line"></span>
-      Finfinnee · Ethiopia
+      Finfinnee · Itoophiyaa
     </div>
-    <h1 class="hero-title">AFOLU <em>of Ethiopia</em></h1>
-    <p class="hero-desc">Agriculture, Forestry &amp; Other Land Use — advancing sustainable landscapes, climate resilience, and rural livelihoods across Ethiopia's diverse ecosystems.</p>
+    <h1 class="hero-title">AFOLU <em>Itoophiyaa</em></h1>
+    <p class="hero-desc">Qonnaa, Bosonaa fi Fayyadama Lafa — naannoolee itti fufiinsa qabu, dandamachuu qilleensaa, fi jireenya baadiyyaa guddisuuf ecosystemootaa Itoophiyaa gara garaatti.</p>
     <div class="hero-btns">
-      <button class="btn-forest" data-view="About">Explore Our Work →</button>
-      <button class="btn-ghost" data-view="Legacy">Green Legacy Initiative</button>
+      <button class="btn-forest" data-view="About">Hojii Keenya Ilaalaa →</button>
+      <button class="btn-ghost" data-view="Legacy">Sagantaa Dhaalota Magariisa</button>
     </div>
   </div>
 
@@ -1656,7 +1636,7 @@ footer {
   <!-- Full Background Image -->
   <img
     src="https://i.imgur.com/36K6kb7.png"
-    alt="Green Legacy Initiative"
+    alt="Sagantaa Dhaalota Magariisa"
     style="
       position: absolute;
       top: 0; left: 0;
@@ -1690,13 +1670,13 @@ footer {
     <div class="hero-eyebrow">
       <span class="hero-eyebrow-dot"></span>
       <span class="hero-eyebrow-line"></span>
-      Flagship Program
+      Sagantaa Guddaa
     </div>
-    <h1 class="hero-title">Green Legacy <em>Initiative</em></h1>
-    <p class="hero-desc">Ethiopia's largest community-driven environmental restoration campaign — over 28 billion seedlings planted since 2019, making it one of the largest in recorded history.</p>
+    <h1 class="hero-title">Dhaalota <em>Magariisa</em></h1>
+    <p class="hero-desc">Sagantaa haaromsa naannoo hawaasni durfatu guddinaan Itoophiyaa keessatti — loon biqiltuu biliyoona 28 ol 2019 irraa kaasee dhaabame, kan seenaa galmeeffameen tokko guddaa ta'e.</p>
     <div class="hero-btns">
-      <button class="btn-forest" data-view="Legacy">Learn More →</button>
-      <button class="btn-ghost" data-view="About">About AFOLU</button>
+      <button class="btn-forest" data-view="Legacy">Dabalata Baradhu →</button>
+      <button class="btn-ghost" data-view="About">Waa'ee AFOLU</button>
     </div>
   </div>
 
@@ -1708,7 +1688,7 @@ footer {
   <!-- Full Background Image -->
   <img
     src="https://i.imgur.com/ksFd2DK.png"
-    alt="Building Climate Resilience"
+    alt="Building Dandamachuu Qilleensaa"
     style="
       position: absolute;
       top: 0; left: 0;
@@ -1742,13 +1722,13 @@ footer {
     <div class="hero-eyebrow">
       <span class="hero-eyebrow-dot"></span>
       <span class="hero-eyebrow-line"></span>
-      Climate Action
+      Tarkaanfii Qilleensaa
     </div>
-    <h1 class="hero-title">Building <em>Climate Resilience</em></h1>
-    <p class="hero-desc">Integrated land use interventions supporting food security, biodiversity conservation, and climate adaptation across Ethiopia's highlands, wetlands, and drylands.</p>
+    <h1 class="hero-title">Building <em>Dandamachuu Qilleensaa</em></h1>
+    <p class="hero-desc">Fayyadama lafa walitti hidhamaa naannoolee Itoophiyaa keessatti nageenya nyaataa, eegumsa biodiversity, fi adapteeshn qilleensaa deggeruuf.</p>
     <div class="hero-btns">
-      <button class="btn-forest" data-view="Climate">Climate Resilience →</button>
-      <button class="btn-ghost" data-view="REDD">REDD+ Program</button>
+      <button class="btn-forest" data-view="Climate">Dandamachuu Qilleensaa →</button>
+      <button class="btn-ghost" data-view="REDD">Sagantaa REDD+</button>
     </div>
   </div>
 
@@ -1766,14 +1746,14 @@ footer {
   <!-- QUICK LINKS BAR -->
   <div class="quickbar">
     <div class="quickbar-inner">
-      <div class="qlink" data-view="About"><span class="qlink-icon">🌱</span>About AFOLU</div>
-      <div class="qlink" data-view="Reports"><span class="qlink-icon">📄</span>Publications</div>
-      <div class="qlink" data-view="Geospatial"><span class="qlink-icon">🛰</span>GIS &amp; Maps</div>
-      <div class="qlink" data-view="News"><span class="qlink-icon">📰</span>News</div>
-      <div class="qlink" data-view="Projects"><span class="qlink-icon">🔬</span>Projects</div>
-      <div class="qlink" data-view="events"><span class="qlink-icon">📅</span>Events</div>
-      <div class="qlink" data-view="Legacy"><span class="qlink-icon">🌳</span>Green Legacy</div>
-      <div class="qlink" data-view="Gallery"><span class="qlink-icon">🖼</span>Gallery</div>
+      <div class="qlink" data-view="About"><span class="qlink-icon">🌱</span>Waa'ee AFOLU</div>
+      <div class="qlink" data-view="Reports"><span class="qlink-icon">📄</span>Maxxansaalee</div>
+      <div class="qlink" data-view="Geospatial"><span class="qlink-icon">🛰</span>GIS fi Kaartaalee</div>
+      <div class="qlink" data-view="News"><span class="qlink-icon">📰</span>Oduu</div>
+      <div class="qlink" data-view="Projects"><span class="qlink-icon">🔬</span>Pirojektii</div>
+      <div class="qlink" data-view="events"><span class="qlink-icon">📅</span>Taateewwan</div>
+      <div class="qlink" data-view="Legacy"><span class="qlink-icon">🌳</span>Dhaalota Magariisa</div>
+      <div class="qlink" data-view="Gallery"><span class="qlink-icon">🖼</span>Galarii</div>
     </div>
   </div>
 
@@ -1784,32 +1764,32 @@ footer {
       <div class="stat-num">
         <span class="count" data-target="28" data-suffix="B+">0</span>
       </div>
-      <div class="stat-label">Seedlings Planted</div>
-      <div class="stat-sub">Green Legacy Initiative</div>
+      <div class="stat-label">Loon Biqiltuu Dhaabame</div>
+      <div class="stat-sub">Sagantaa Dhaalota Magariisa</div>
     </div>
 
     <div class="stat-block">
       <div class="stat-num">
         <span class="count" data-target="15" data-suffix="M+">0</span>
       </div>
-      <div class="stat-label">Hectares Restored</div>
-      <div class="stat-sub">Nationwide</div>
+      <div class="stat-label">Heektaarii Haaromfame</div>
+      <div class="stat-sub">Biyyoolessaan</div>
     </div>
 
     <div class="stat-block">
       <div class="stat-num">
         <span class="count" data-target="8" data-suffix="">0</span>
       </div>
-      <div class="stat-label">Technical Sectors</div>
-      <div class="stat-sub">Integrated approach</div>
+      <div class="stat-label">Dameelee Teknikaa</div>
+      <div class="stat-sub">Haala Walitti Hidhamaa</div>
     </div>
 
     <div class="stat-block">
       <div class="stat-num">
         <span class="count" data-target="2019" data-suffix="">1900</span>
       </div>
-      <div class="stat-label">Year Established</div>
-      <div class="stat-sub">CRGE aligned</div>
+      <div class="stat-label">Wagga Hundeeffame</div>
+      <div class="stat-sub">CRGE wajjin walsimu</div>
     </div>
 
   </div>
@@ -1932,9 +1912,9 @@ footer {
 
       </div>
         <div class="about-content reveal rd2">
-          <div class="section-eyebrow">About AFOLU Ethiopia</div>
+          <div class="section-eyebrow">Waa'ee AFOLU Itoophiyaa</div>
           
-          <p>AFOLU of Ethiopia operates as a national knowledge-sharing platform dedicated to strengthening the transmission, exchange, and practical application of knowledge among stakeholders working 
+          <p>AFOLU Itoophiyaa madda qoodinsa beekumsa biyyoolessaa ta'ee hojjeta dedicated to strengthening the transmission, exchange, and practical application of knowledge among stakeholders working 
             across agriculture, forestry, and broader natural resource management sectors. Established in 2019, the initiative was created to serve as a collaborative bridge connecting researchers, 
             universities, government institutions, development organizations, practitioners, students, and local communities in order to support evidence-informed decision-making and promote sustainable 
             land-use practices across Ethiopia’s diverse ecological landscapes. Recognizing that effective management of agricultural systems and natural resources depends not only on technical innovation 
@@ -1951,14 +1931,14 @@ footer {
             of informed engagement in agriculture and natural resource management, ensuring that knowledge generated in research centers, universities, development programs, and community landscapes can be 
             translated into practical solutions that support resilient ecosystems, productive agricultural systems, and sustainable livelihoods for present and future generations across Ethiopia.</p>
           <div class="pillars">
-            <span class="pillar">🌾 Sustainable Agriculture</span>
-            <span class="pillar">🌳 Forest Conservation</span>
-            <span class="pillar">💧 Watershed Restoration</span>
-            <span class="pillar">🌡 Climate Adaptation</span>
-            <span class="pillar">🦋 Biodiversity Protection</span>
-            <span class="pillar">🏘 Rural Livelihoods</span>
+            <span class="pillar">🌾 Qonnaa Itti Fufiinsa Qabu</span>
+            <span class="pillar">🌳 Eegumsa Bosona</span>
+            <span class="pillar">💧 Haaromsa Bishaani</span>
+            <span class="pillar">🌡 Adapteeshn Qilleensaa</span>
+            <span class="pillar">🦋 Eegumsa Biodiversity</span>
+            <span class="pillar">🏘 Jireenya Baadiyyaa</span>
           </div>
-          <button class="btn-outline" data-view="About">Read More →</button>
+          <button class="btn-outline" data-view="About">Dabalata Dubbisi →</button>
         </div>
       </div>
     </div>
@@ -1972,87 +1952,87 @@ footer {
         <div>
           <div class="section-header reveal">
             <div>
-              <div class="section-eyebrow">Updates</div>
-              <h2 class="section-title">Latest <em>News</em></h2>
+              <div class="section-eyebrow">Haaromsaalee</div>
+              <h2 class="section-title">Latest <em>Oduu</em></h2>
             </div>
-            <span class="see-all" data-view="News">See All News →</span>
+            <span class="see-all" data-view="News">Oduu Hunda Ilaalaa →</span>
           </div>
           <div class="news-grid reveal rd1">
             <div class="news-item" data-view="News">
               <div class="news-date"><div class="news-date-day">15</div><div class="news-date-mon">Apr</div></div>
               <div class="news-body">
-                <span class="news-tag">Programs</span>
-                <div class="news-title">Green Legacy Initiative Surpasses 28 Billion Seedlings Milestone</div>
-                <div class="news-excerpt">Ethiopia's flagship environmental restoration campaign has reached a historic milestone, mobilizing millions of citizens in nationwide tree planting drives across all regions.</div>
+                <span class="news-tag">Sagantaalee</span>
+                <div class="news-title">Sagantaan Dhaalota Magariisa Lakkoofsa Biqiltuu Biliyoona 28 Caale</div>
+                <div class="news-excerpt">Sagantaan haaromsa naannoo Itoophiyaa bakka bu'u seenaa haaraas gahee, miliyoonota lammiilee sagantaa dhaabuu muka naannoolee hundatti bosore.</div>
               </div>
             </div>
             <div class="news-item" data-view="News">
               <div class="news-date"><div class="news-date-day">08</div><div class="news-date-mon">Apr</div></div>
               <div class="news-body">
-                <span class="news-tag">Climate</span>
-                <div class="news-title">AFOLU Launches New REDD+ Community Forest Management Program</div>
-                <div class="news-excerpt">New pilot program links carbon conservation with community livelihood improvement across priority forest landscapes in three regions of Ethiopia.</div>
+                <span class="news-tag">Qilleensa</span>
+                <div class="news-title">AFOLU Sagantaa Bulchiinsa Bosona Hawaasa REDD+ Haaraa Jalqabe</div>
+                <div class="news-excerpt">Sagantaan shoora haaraan kunuunsa kaarbonii fi fooyya'ina jireenya hawaasa bosona sadarkaa dursa qabaniitti naannolee sadii Itoophiyaa keessatti walitti hidha.</div>
               </div>
             </div>
             <div class="news-item" data-view="News">
               <div class="news-date"><div class="news-date-day">01</div><div class="news-date-mon">Apr</div></div>
               <div class="news-body">
-                <span class="news-tag">Sectors</span>
-                <div class="news-title">Watershed Restoration Initiative Covers 15 Million+ Hectares Nationwide</div>
-                <div class="news-excerpt">AFOLU's integrated watershed management program continues expanding, combining physical soil conservation with community governance systems at scale.</div>
+                <span class="news-tag">Dameelee</span>
+                <div class="news-title">Watershed Restoration Initiative Covers 15 Million+ Hectares Biyyoolessaan</div>
+                <div class="news-excerpt">Sagantaan bulchiinsa bishaanii walitti hidhamaa AFOLU bal'ataa itti fufa, kunuunsa lafa qaamaa fi sirna bulchiinsa hawaasaa walitti hidha.</div>
               </div>
             </div>
             <div class="news-item" data-view="News">
               <div class="news-date"><div class="news-date-day">22</div><div class="news-date-mon">Mar</div></div>
               <div class="news-body">
-                <span class="news-tag">Research</span>
-                <div class="news-title">New Geospatial Analysis Tools Deployed for Land Use Monitoring</div>
-                <div class="news-excerpt">Advanced remote sensing and GIS technologies now support landscape-level monitoring across Ethiopia's priority intervention zones.</div>
+                <span class="news-tag">Qorannoo</span>
+                <div class="news-title">Meeshaalee Xiinxala Jiyoospeeshalii Haaraa Hordoffii Fayyadama Lafaatiif Qophaa'e</div>
+                <div class="news-excerpt">Teknoolojii sensing fagoo fi GIS ammayyaa amma hordoffii sadarkaa naannoo godinaalee dursa qabaniitti deggera.</div>
               </div>
             </div>
           </div>
 
           <div class="section-header reveal" style="margin-top:3rem">
             <div>
-              <div class="section-eyebrow">Upcoming</div>
-              <h2 class="section-title"><em>Announcements</em></h2>
+              <div class="section-eyebrow">Dhufaatii</div>
+              <h2 class="section-title"><em>Beeksisaalee</em></h2>
             </div>
-            <span class="see-all" data-view="events">See All →</span>
+            <span class="see-all" data-view="events">Hunda Ilaalaa →</span>
           </div>
           <div class="ann-list reveal rd1">
             <div class="ann-item" data-view="events">
               <div class="ann-dot">📢</div>
               <div>
-                <div class="ann-title">Workshop on Climate-Smart Agriculture — Registration Open</div>
-                <div class="ann-meta">April 25, 2026 · Addis Ababa</div>
+                <div class="ann-title">Warshaa Qonnaa Qilleensa-Ogummaa — Galmaawwii Banaa</div>
+                <div class="ann-meta">Ebla 25, 2026 · Addis Ababa</div>
               </div>
             </div>
             <div class="ann-item" data-view="events">
               <div class="ann-dot">📋</div>
               <div>
-                <div class="ann-title">Call for Applications: AFOLU Fellowship Program 2026</div>
-                <div class="ann-meta">Deadline: May 10, 2026</div>
+                <div class="ann-title">Waamicha Iyyannoo: Sagantaa Hordoffii AFOLU 2026</div>
+                <div class="ann-meta">Yeroo Dhumaa: Caamsaa 10, 2026</div>
               </div>
             </div>
             <div class="ann-item" data-view="Projects">
               <div class="ann-dot">🔬</div>
               <div>
-                <div class="ann-title">REDD+ Project Implementation Review — Stakeholder Meeting</div>
-                <div class="ann-meta">May 3, 2026 · Virtual &amp; In-Person</div>
+                <div class="ann-title">Ilaallata Hojiirra Oolmaa Pirojektii REDD+ — Wa'ee Hirmaattoota</div>
+                <div class="ann-meta">Caamsaa 3, 2026 · Virtuwaalii fi Dhihoo</div>
               </div>
             </div>
             <div class="ann-item" data-view="Reports">
               <div class="ann-dot">📄</div>
               <div>
-                <div class="ann-title">Annual Report 2025 Now Available for Download</div>
-                <div class="ann-meta">Released: March 30, 2026</div>
+                <div class="ann-title">Gabaasa Waggaa 2025 Amma Buufachuuf Jira</div>
+                <div class="ann-meta">Bahe: Bitootessa 30, 2026</div>
               </div>
             </div>
             <div class="ann-item" data-view="events">
               <div class="ann-dot">🎓</div>
               <div>
-                <div class="ann-title">National Symposium on Sustainable Land Management — Call for Papers</div>
-                <div class="ann-meta">Abstract Deadline: April 30, 2026</div>
+                <div class="ann-title">Simpooziyeemii Biyyoolessaa Bulchiinsa Lafa Itti Fufiinsa Qabu — Waamicha Barreeffamaa</div>
+                <div class="ann-meta">Yeroo Dhumaa Cuunfaa: Ebla 30, 2026</div>
               </div>
             </div>
           </div>
@@ -2061,48 +2041,48 @@ footer {
         <!-- Sidebar -->
         <div>
           <div class="sidebar-card reveal">
-            <div class="sidebar-head">👤 Leadership</div>
+            <div class="sidebar-head">👤 Hoggansi</div>
             <div class="sidebar-body" style="padding:1.2rem">
               <div class="leader-card" style="padding:0">
                 <div class="leader-icon">🌿</div>
-                <div class="leader-role">Director General</div>
-                <div class="leader-name">AFOLU Ethiopia Leadership</div>
-                <div class="leader-quote">"Sustainable land management is both an environmental imperative and a social justice issue. We remain committed to restoring Ethiopia's landscapes for future generations."</div>
-                <span class="see-all" data-view="Leadership" style="justify-content:center">Read More →</span>
+                <div class="leader-role">Hogganaa Waliigalaa</div>
+                <div class="leader-name">Hoggansi AFOLU Itoophiyaa</div>
+                <div class="leader-quote">"Bulchiinsi lafa itti fufiinsa qabu dirqama naannoo fi dhimma haqa hawaasaa lamaan. Naannolee Itoophiyaa dhaloota dhufuuf haaromsuu gochaan amantii keenya qabaanna."</div>
+                <span class="see-all" data-view="Leadership" style="justify-content:center">Dabalata Dubbisi →</span>
               </div>
             </div>
           </div>
 
           <div class="sidebar-card reveal rd1">
-            <div class="sidebar-head">🌿 Our Sectors</div>
+            <div class="sidebar-head">🌿 Dameelee Keenya</div>
             <div class="sidebar-body">
-              <div class="sidebar-link" data-view="plant-science">🌾 Plant Science</div>
-              <div class="sidebar-link" data-view="Natural-Resource-Mgmt">🌍 Natural Resource Management</div>
-              <div class="sidebar-link" data-view="agroforestry">🌿 Agroforestry</div>
-              <div class="sidebar-link" data-view="animal-science">🐄 Animal Science</div>
-              <div class="sidebar-link" data-view="Extension">🏘 Rural Development</div>
-              <div class="sidebar-link" data-view="Agro-Economics">📊 Agro-Economics</div>
-              <div class="sidebar-link" data-view="forestry">🌳 Forestry</div>
-              <div class="sidebar-link" data-view="Wildlife">🦁 Wildlife &amp; Ecotourism</div>
+              <div class="sidebar-link" data-view="plant-science">🌾 Saayinsii Biqiltuu</div>
+              <div class="sidebar-link" data-view="Natural-Resource-Mgmt">🌍 Bulchiinsa Qabeenya Uumamaa</div>
+              <div class="sidebar-link" data-view="agroforestry">🌿 Agroforestirii</div>
+              <div class="sidebar-link" data-view="animal-science">🐄 Saayinsii Bineeldota</div>
+              <div class="sidebar-link" data-view="Extension">🏘 Misoomaa Baadiyyaa</div>
+              <div class="sidebar-link" data-view="Agro-Economics">📊 Agiroo-Ekonomiksii</div>
+              <div class="sidebar-link" data-view="forestry">🌳 Marga</div>
+              <div class="sidebar-link" data-view="Wildlife">🦁 Bineensota Bosonaa fi Tuuriizimii</div>
             </div>
           </div>
 
           <div class="sidebar-card reveal rd2">
-            <div class="sidebar-head">🏆 Key Programs</div>
+            <div class="sidebar-head">🏆 Sagantaalee Guguddoo</div>
             <div class="sidebar-body">
-              <div class="sidebar-link" data-view="Legacy">🌱 Green Legacy Initiative</div>
-              <div class="sidebar-link" data-view="REDD">🌿 REDD+ Program</div>
-              <div class="sidebar-link" data-view="Climate">🌡 Climate Resilience</div>
-              <div class="sidebar-link" data-view="Food">🌾 Food Security</div>
+              <div class="sidebar-link" data-view="Legacy">🌱 Sagantaa Dhaalota Magariisa</div>
+              <div class="sidebar-link" data-view="REDD">🌿 Sagantaa REDD+</div>
+              <div class="sidebar-link" data-view="Climate">🌡 Dandamachuu Qilleensaa</div>
+              <div class="sidebar-link" data-view="Food">🌾 Nageenya Nyaataa</div>
             </div>
           </div>
 
           <div class="sidebar-card reveal rd3">
-            <div class="sidebar-head">📚 Resources</div>
+            <div class="sidebar-head">📚 Qabeenya</div>
             <div class="sidebar-body">
-              <div class="sidebar-link" data-view="Reports">📄 Reports &amp; Publications</div>
-              <div class="sidebar-link" data-view="Geospatial">🛰 Geospatial &amp; GIS</div>
-              <div class="sidebar-link" data-view="publications">📘 Technical Manuals</div>
+              <div class="sidebar-link" data-view="Reports">📄 Gabaasaalee fi Maxxansaalee</div>
+              <div class="sidebar-link" data-view="Geospatial">🛰 Jiyoospeeshalii fi GIS</div>
+              <div class="sidebar-link" data-view="publications">📘 Qajeelcha Teknikaa</div>
             </div>
           </div>
         </div>
@@ -2115,59 +2095,59 @@ footer {
     <div class="container">
       <div class="section-header reveal">
         <div>
-          <div class="section-eyebrow">Technical Expertise</div>
-          <h2 class="section-title">Eight Pillars of <em>Knowledge</em></h2>
+          <div class="section-eyebrow">Ogummaa Teknikaa</div>
+          <h2 class="section-title">Garaagarummaa Saddeetii <em>Beekumsaa</em></h2>
         </div>
-        <span class="see-all" data-view="plant-science">Explore Sectors →</span>
+        <span class="see-all" data-view="plant-science">Dameelee Qoradhu →</span>
       </div>
       <div class="sectors-grid">
         <div class="sector-card reveal" data-view="plant-science">
           <span class="sector-icon">🌾</span>
-          <div class="sector-name">Plant Science</div>
-          <div class="sector-desc">Crop improvement, seed systems, and agronomic research for food security.</div>
-          <span class="sector-arrow">Explore →</span>
+          <div class="sector-name">Saayinsii Biqiltuu</div>
+          <div class="sector-desc">Fooyyessuu midhaanii, sirna sanyii, fi qorannoo agronoomii nageenya nyaataatiif.</div>
+          <span class="sector-arrow">Qoradhu →</span>
         </div>
         <div class="sector-card reveal rd1" data-view="Natural-Resource-Mgmt">
           <span class="sector-icon">🌍</span>
-          <div class="sector-name">Natural Resource Mgmt</div>
-          <div class="sector-desc">Watershed restoration, soil conservation, and sustainable ecosystem management.</div>
-          <span class="sector-arrow">Explore →</span>
+          <div class="sector-name">Bulchiinsa Qabeenya Uumamaa</div>
+          <div class="sector-desc">Haaromsa bishaanii, kunuunsa lafa, fi bulchiinsa ekosistemii itti fufiinsa qabu.</div>
+          <span class="sector-arrow">Qoradhu →</span>
         </div>
         <div class="sector-card reveal rd2" data-view="agroforestry">
           <span class="sector-icon">🌿</span>
-          <div class="sector-name">Agroforestry</div>
-          <div class="sector-desc">Integrated tree-crop-livestock systems for sustainable smallholder farming.</div>
-          <span class="sector-arrow">Explore →</span>
+          <div class="sector-name">Agroforestirii</div>
+          <div class="sector-desc">Sirna mukaa-midhaanii-horii walitti hidhamaa qonnaa xiqqaa itti fufiinsa qabuuf.</div>
+          <span class="sector-arrow">Qoradhu →</span>
         </div>
         <div class="sector-card reveal rd3" data-view="animal-science">
           <span class="sector-icon">🐄</span>
-          <div class="sector-name">Animal Science</div>
-          <div class="sector-desc">Livestock productivity, veterinary services, and rangeland management.</div>
-          <span class="sector-arrow">Explore →</span>
+          <div class="sector-name">Saayinsii Bineeldota</div>
+          <div class="sector-desc">Oomishummaa horsiise bulee, tajaajila veterinaaraa, fi bulchiinsa dirree.</div>
+          <span class="sector-arrow">Qoradhu →</span>
         </div>
         <div class="sector-card reveal" data-view="Extension">
           <span class="sector-icon">🏘</span>
-          <div class="sector-name">Rural Development</div>
-          <div class="sector-desc">Agricultural extension services and rural community empowerment programs.</div>
-          <span class="sector-arrow">Explore →</span>
+          <div class="sector-name">Misoomaa Baadiyyaa</div>
+          <div class="sector-desc">Tajaajila babal'ina qonnaa fi sagantaalee gabbisaa hawaasa baadiyyaa.</div>
+          <span class="sector-arrow">Qoradhu →</span>
         </div>
         <div class="sector-card reveal rd1" data-view="Agro-Economics">
           <span class="sector-icon">📊</span>
-          <div class="sector-name">Agro-Economics</div>
-          <div class="sector-desc">Value chain development, market systems, and agricultural finance solutions.</div>
-          <span class="sector-arrow">Explore →</span>
+          <div class="sector-name">Agiroo-Ekonomiksii</div>
+          <div class="sector-desc">Guddina sarara gatii, sirna gabaa, fi furmaata maallaqaa qonnaa.</div>
+          <span class="sector-arrow">Qoradhu →</span>
         </div>
         <div class="sector-card reveal rd2" data-view="forestry">
           <span class="sector-icon">🌳</span>
-          <div class="sector-name">Forestry</div>
-          <div class="sector-desc">Forest management, REDD+ implementation, and timber value chain development.</div>
-          <span class="sector-arrow">Explore →</span>
+          <div class="sector-name">Marga</div>
+          <div class="sector-desc">Bulchiinsa bosona, hojiirra oolmaa REDD+, fi guddina sarara gatii mukaa.</div>
+          <span class="sector-arrow">Qoradhu →</span>
         </div>
         <div class="sector-card reveal rd3" data-view="Wildlife">
           <span class="sector-icon">🦁</span>
-          <div class="sector-name">Wildlife &amp; Ecotourism</div>
-          <div class="sector-desc">Biodiversity conservation, protected area management, and ecotourism development.</div>
-          <span class="sector-arrow">Explore →</span>
+          <div class="sector-name">Bineensota Bosonaa fi Tuuriizimii</div>
+          <div class="sector-desc">Kunuunsa biodiversity, bulchiinsa naannoo eegumsa, fi guddina tuuriizimii ekoo.</div>
+          <span class="sector-arrow">Qoradhu →</span>
         </div>
       </div>
     </div>
@@ -2178,43 +2158,43 @@ footer {
     <div class="container">
       <div class="section-header reveal">
         <div>
-          <div class="section-eyebrow">Initiatives</div>
-          <h2 class="section-title">Flagship <em>Programs</em></h2>
+          <div class="section-eyebrow">Karoora</div>
+          <h2 class="section-title">Flagship <em>Sagantaalee</em></h2>
         </div>
-        <span class="see-all" data-view="Legacy">View All →</span>
+        <span class="see-all" data-view="Legacy">Hunda Ilaalaa →</span>
       </div>
       <div class="programs-grid">
         <div class="program-card featured reveal" data-view="Legacy">
           <div>
-            <span class="prog-tag gold">🌱 Flagship Program</span>
-            <div class="prog-title">Green Legacy Initiative</div>
-            <div class="prog-body">Ethiopia's largest community-driven environmental restoration campaign, mobilizing millions of citizens to plant trees and restore degraded landscapes. Since 2019, the initiative has planted over 28 billion seedlings — making it one of the largest tree planting campaigns ever recorded globally.</div>
+            <span class="prog-tag gold">🌱 Sagantaa Guddaa</span>
+            <div class="prog-title">Sagantaa Dhaalota Magariisa</div>
+            <div class="prog-body">Sagantaa haaromsa naannoo hawaasni durfatu guddinaan Itoophiyaa keessatti, miliyoonota lammiilee muka dhaabuu fi naannoolee badaa haaromsuu bosorse. 2019 irraa kaasee, sagantaan biqiltuu biliyoona 28 ol dhaabee — sagantaalee dhaabuu muka guddaa seenaa addunyaatti galmeeffamaa tokko taasifame.</div>
             <ul class="prog-list">
-              <li>28 billion+ seedlings planted since 2019</li>
-              <li>Community mobilization at national scale</li>
-              <li>Aligned with CRGE climate strategy</li>
-              <li>Restoring watershed and highland ecosystems</li>
+              <li>Biqiltuu biliyoona 28+ 2019 irraa kaasee dhaabame</li>
+              <li>Bosorsaa hawaasaa sadarkaa biyyoolessaa</li>
+              <li>Siraataa qilleensaa CRGE wajjin walsimu</li>
+              <li>Haaromsa ekosistemii bishaanii fi bokkaan</li>
             </ul>
           </div>
           <div class="prog-big">
             <div class="prog-big-num">28B+</div>
-            <div class="prog-big-label">Seedlings Planted</div>
+            <div class="prog-big-label">Loon Biqiltuu Dhaabame</div>
           </div>
         </div>
         <div class="program-card reveal rd1" data-view="REDD">
-          <span class="prog-tag green">🌿 Climate Finance</span>
-          <div class="prog-title">REDD+ Program</div>
-          <div class="prog-body">Reducing emissions from deforestation and forest degradation while strengthening community-based forest management across priority landscapes. AFOLU links carbon conservation, biodiversity protection, and community livelihood improvement through Ethiopia's REDD+ strategy.</div>
+          <span class="prog-tag green">🌿 Maallaqaa Qilleensaa</span>
+          <div class="prog-title">Sagantaa REDD+</div>
+          <div class="prog-body">Hir'isuu dhaandhama irraa manca'ina bosona fi kufaatii bosona yeroo bulchiinsa bosona hawaas-hundaa naannoolee dursa qabaniitti jabeessu. AFOLU kunuunsa kaarbonii, eegumsa biodiversity, fi fooyya'ina jireenya hawaasaa sagantaa REDD+ Itoophiyaa walitti hidha.</div>
         </div>
         <div class="program-card reveal rd2" data-view="Climate">
-          <span class="prog-tag sky">🌡 Climate Action</span>
-          <div class="prog-title">Climate Resilience</div>
-          <div class="prog-body">Building adaptive capacity through CRGE strategy implementation, climate-smart agriculture, and landscape restoration across vulnerable regions. AFOLU invests in ecosystem-based adaptation and community-level capacity building to meet Ethiopia's national climate commitments.</div>
+          <span class="prog-tag sky">🌡 Tarkaanfii Qilleensaa</span>
+          <div class="prog-title">Dandamachuu Qilleensaa</div>
+          <div class="prog-body">Dandeettii adaptaataa ijaaruuf hojiirra oolmaa sagantaa CRGE, qonnaa qilleensa-ogummaa, fi haaromsa naannoo godinaalee saaxilamaniitti. AFOLU adapteeshnii ekosistemii hundaa'e fi ijaarsa dandeettii sadarkaa hawaasaatti maallaqeessa.</div>
         </div>
         <div class="program-card reveal rd3" data-view="Food">
-          <span class="prog-tag earth">🌾 Food Systems</span>
-          <div class="prog-title">Food Security</div>
-          <div class="prog-body">Integrated AFOLU interventions supporting food availability, access, utilization, and stability for smallholder farming communities across Ethiopia. Combining improved agricultural production with natural resource management and agroforestry expansion builds resilient food systems.</div>
+          <span class="prog-tag earth">🌾 Sirna Nyaataa</span>
+          <div class="prog-title">Nageenya Nyaataa</div>
+          <div class="prog-body">Fayyadama lafa AFOLU walitti hidhamaa qulqullina nyaataa, seeqqachuu, fayyadamuu, fi tasgabbii hawaasa qonnaa xiqqaa Itoophiyaa keessaatti deggera. Oomishaa qonnaa fooyya'aa fi bulchiinsa qabeenya uumamaa fi babal'ina agroforestirii walitti hidhuun sirna nyaataa dandamachuu ijaara.</div>
         </div>
       </div>
     </div>
@@ -2225,17 +2205,17 @@ footer {
     <div class="container">
       <div class="section-header reveal">
         <div>
-          <div class="section-eyebrow">Leadership</div>
-          <h2 class="section-title">Leaders at <em>AFOLU Ethiopia</em></h2>
+          <div class="section-eyebrow">Hoggansi</div>
+          <h2 class="section-title">Hooggantootni <em>AFOLU Itoophiyaa</em></h2>
         </div>
-        <span class="see-all" data-view="Leadership">View All →</span>
+        <span class="see-all" data-view="Leadership">Hunda Ilaalaa →</span>
       </div>
       <div class="leaders-grid">
         <div class="leader-profile reveal" data-view="Leadership">
           <div class="lp-img" style="background:linear-gradient(135deg,#0d2818,#1a4a2e)">🌿</div>
           <div class="lp-body">
-            <div class="lp-role">Director General</div>
-            <div class="lp-name">AFOLU Ethiopia Leadership</div>
+            <div class="lp-role">Hogganaa Waliigalaa</div>
+            <div class="lp-name">Hoggansi AFOLU Itoophiyaa</div>
             <div class="lp-desc">Strategic oversight and institutional direction for all AFOLU programs and partnerships across Ethiopia's diverse landscapes.</div>
             <span class="lp-link" data-view="Leadership">Read more →</span>
           </div>
@@ -2243,27 +2223,27 @@ footer {
         <div class="leader-profile reveal rd1" data-view="Organizational">
           <div class="lp-img" style="background:linear-gradient(135deg,#1a4a20,#2a7042)">🌾</div>
           <div class="lp-body">
-            <div class="lp-role">Sectors Coordination</div>
-            <div class="lp-name">Technical Directorate</div>
-            <div class="lp-desc">Coordinating eight specialized technical sectors delivering comprehensive land use solutions and field-level implementation nationwide.</div>
+            <div class="lp-role">Walqabsiisa Dameelee</div>
+            <div class="lp-name">Daayirektooreettii Teknikaa</div>
+            <div class="lp-desc">Walqabsiisuu dameelee teknikaa adda addaa saddeet furmaata fayyadama lafa bal'aa fi hojiirra oolmaa sadarkaa dirree biyyoolessaan kennuuf.</div>
             <span class="lp-link" data-view="Organizational">Read more →</span>
           </div>
         </div>
         <div class="leader-profile reveal rd2" data-view="Legacy">
           <div class="lp-img" style="background:linear-gradient(135deg,#1a3060,#2d6ea8)">📊</div>
           <div class="lp-body">
-            <div class="lp-role">Programs &amp; Finance</div>
-            <div class="lp-name">Programs Directorate</div>
-            <div class="lp-desc">Managing flagship programs including Green Legacy Initiative, REDD+, and climate resilience initiatives with full accountability.</div>
+            <div class="lp-role">Sagantaalee fi Maallaqaa</div>
+            <div class="lp-name">Daayirektooreettii Sagantaalee</div>
+            <div class="lp-desc">Bulchiinsa sagantaalee guguddoo Sagantaa Dhaalota Magariisa, REDD+, fi sagantaalee dandamachuu qilleensaa of keessatti qabata.</div>
             <span class="lp-link" data-view="Legacy">Read more →</span>
           </div>
         </div>
         <div class="leader-profile reveal rd3" data-view="Projects">
           <div class="lp-img" style="background:linear-gradient(135deg,#4a1a00,#8a4000)">🤝</div>
           <div class="lp-body">
-            <div class="lp-role">Research &amp; Partnerships</div>
-            <div class="lp-name">Partnerships Office</div>
-            <div class="lp-desc">Building and sustaining strategic partnerships with international development partners, research institutions, and government agencies.</div>
+            <div class="lp-role">Qorannoo fi Hirmaannaa</div>
+            <div class="lp-name">Biiroo Hirmaannaa</div>
+            <div class="lp-desc">Ijaaruu fi deeggarsuu hirmaannaa maxxannee mooraa misoomaa addunyaa, dhaabbilee qorannoo, fi ejensiileen mootummaa.</div>
             <span class="lp-link" data-view="Projects">Read more →</span>
           </div>
         </div>
@@ -2274,9 +2254,9 @@ footer {
   <!-- QUOTE BAND -->
   <div class="quote-section reveal">
     <div class="quote-inner">
-      <div class="quote-oromo">Aadaa Oromoo — Oromo Tradition</div>
-      <p class="quote-text">"Protection of the land where we were born, the water we drank, and the forest where we grew is the duty of today's and tomorrow's generations."</p>
-      <div class="quote-source">— Lafa itti dhalanne, bishaan itti dhugnee guddanne</div>
+      <div class="quote-oromo">Aadaa Oromoo</div>
+      <p class="quote-text">"Lafa itti dhalanne, bishaanii itti dhugnee fi bosona itti guddanne eeguun dirqama dhaloota har'aa fi bor'aa."</p>
+      <div class="quote-source">— Aadaa Oromoo irraa</div>
     </div>
   </div>
 
@@ -2285,82 +2265,82 @@ footer {
     <div class="container">
       <div class="section-header reveal">
         <div>
-          <div class="section-eyebrow">Get in Touch</div>
-          <h2 class="section-title">Connect with <em>AFOLU Ethiopia</em></h2>
+          <div class="section-eyebrow">Nu Quunnamaa</div>
+          <h2 class="section-title">AFOLU Itoophiyaa wajjin <em>Walqunnamaa</em></h2>
         </div>
       </div>
       <div class="contact-grid">
         <div class="reveal">
-          <p style="font-size:0.92rem;color:var(--muted);line-height:1.8;margin-bottom:2rem;font-weight:300">AFOLU Ethiopia welcomes inquiries from researchers, government partners, development organizations, journalists, and community members. Our team is committed to responding to all messages within three business days.</p>
+          <p style="font-size:0.92rem;color:var(--muted);line-height:1.8;margin-bottom:2rem;font-weight:300">AFOLU Itoophiyaa gaaffii qorattootaa, hirmaattoota mootummaa, dhaabbilee misoomaa, gaazexeessitootaa, fi miseensota hawaasaa simata. Garee keenya ergaalee hunda keessatti guyyaa daldalaa sadii deebisuuf waadaa seenee jira.</p>
           <div class="contact-info-list">
             <div class="ci-item">
               <div class="ci-icon">📍</div>
               <div>
-                <div class="ci-label">Location</div>
-                <div class="ci-value">Finfinnee / Addis Ababa, Ethiopia</div>
+                <div class="ci-label">Bakka</div>
+                <div class="ci-value">Finfinnee / Addis Ababa, Itoophiyaa</div>
               </div>
             </div>
             <div class="ci-item">
               <div class="ci-icon">📞</div>
               <div>
-                <div class="ci-label">Phone</div>
+                <div class="ci-label">Bilbila</div>
                 <div class="ci-value"><a href="tel:+251911946101">+251 911 946 101</a></div>
               </div>
             </div>
             <div class="ci-item">
               <div class="ci-icon">✉</div>
               <div>
-                <div class="ci-label">Email</div>
+                <div class="ci-label">Imeelii</div>
                 <div class="ci-value"><a href="/cdn-cgi/l/email-protection#4021262f2c352f26253428292f30292100272d21292c6e232f2d"><span class="__cf_email__" data-cfemail="a5c4c3cac9d0cac3c0d1cdcccad5ccc4e5c2c8c4ccc98bc6cac8">[email&#160;protected]</span></a></div>
               </div>
             </div>
             <div class="ci-item">
               <div class="ci-icon">🌐</div>
               <div>
-                <div class="ci-label">Follow Us</div>
+                <div class="ci-label">Nu Hordofaa</div>
                 <div class="ci-value"><a href="https://www.facebook.com/afoluethiopia" target="_blank">facebook.com/afoluethiopia</a></div>
               </div>
             </div>
           </div>
         </div>
         <div class="contact-form-card reveal rd2">
-          <div class="contact-form-title">Send a Message</div>
-          <div class="contact-form-sub">Reach our team directly with your inquiry or partnership request.</div>
+          <div class="contact-form-title">Ergaa Ergi</div>
+          <div class="contact-form-sub">Garee keenya gaaffii kee ykn kadhaa hirmaannaa keetiin kallattiin quunnamaa.</div>
           <form action="https://formsubmit.co/afoluofethiopia@gmail.com" method="POST">
             <input type="hidden" name="_autoresponse" value="Thank you for contacting AFOLU Ethiopia. Your message has been received. Our team will respond soon.">
-            <input type="hidden" name="_subject" value="New Message from AFOLU Ethiopia Website">
+            <input type="hidden" name="_subject" value="New Ergaa from AFOLU Ethiopia Website">
             <input type="text" name="_honey" style="display:none">
             <div class="form-row">
               <div class="form-group">
-                <label class="form-label">First Name</label>
-                <input class="form-input" type="text" name="First Name" placeholder="Your first name" required>
+                <label class="form-label">Maqaa Jalqabaa</label>
+                <input class="form-input" type="text" name="Maqaa Jalqabaa" placeholder="Maqaa jalqabaa kee" required>
               </div>
               <div class="form-group">
-                <label class="form-label">Last Name</label>
-                <input class="form-input" type="text" name="Last Name" placeholder="Your last name" required>
+                <label class="form-label">Maqaa Maatii</label>
+                <input class="form-input" type="text" name="Maqaa Maatii" placeholder="Maqaa maatii kee" required>
               </div>
             </div>
             <div class="form-group">
-              <label class="form-label">Email Address</label>
-              <input class="form-input" type="email" name="Email" placeholder="you@example.com" required>
+              <label class="form-label">Imeelii Address</label>
+              <input class="form-input" type="email" name="Imeelii" placeholder="ati@fakkeessaa.com" required>
             </div>
             <div class="form-group">
-              <label class="form-label">Subject</label>
-              <select class="form-select" name="Subject" required>
-                <option value="">Select a topic</option>
-                <option>Partnership Inquiry</option>
-                <option>Research Collaboration</option>
-                <option>Program Information</option>
-                <option>Student Training Request</option>
-                <option>Media &amp; Press</option>
-                <option>Other</option>
+              <label class="form-label">Mata-duree</label>
+              <select class="form-select" name="Mata-duree" required>
+                <option value="">Mata-duree filadhu</option>
+                <option>Gaaffii Hirmaannaa</option>
+                <option>Waliin Hojii Qorannoo</option>
+                <option>Odeeffannoo Sagantaa</option>
+                <option>Kadhaa Leenjii Barataa</option>
+                <option>Miidiyaa fi Pireesii</option>
+                <option>Kan Biroo</option>
               </select>
             </div>
             <div class="form-group">
-              <label class="form-label">Message</label>
-              <textarea class="form-textarea" name="Message" placeholder="How can we help you?" required></textarea>
+              <label class="form-label">Ergaa</label>
+              <textarea class="form-textarea" name="Ergaa" placeholder="Akkamitti si gargaaruu dandeenya?" required></textarea>
             </div>
-            <button type="submit" class="btn-forest">Send Message →</button>
+            <button type="submit" class="btn-forest">Send Ergaa →</button>
           </form>
         </div>
       </div>
@@ -2377,7 +2357,7 @@ footer {
 <div id="view-About" class="content-view">
   <div class="view-header">
     <div class="view-header-inner">
-      <div class="view-crumb"><a data-view="home">Home</a><span class="view-crumb-sep"> › </span><span class="view-crumb-cur">About AFOLU</span></div>
+      <div class="view-crumb"><a data-view="home">Mana</a><span class="view-crumb-sep"> › </span><span class="view-crumb-cur">Waa'ee AFOLU</span></div>
       <div class="view-badge">🌱 About</div>
       <h1 class="view-h1">About <em>AFOLU Ethiopia</em></h1>
     </div>
@@ -2424,7 +2404,7 @@ footer {
     </div>
     <div class="view-nav">
       <button class="view-nav-btn" data-view="home">↑ Home</button>
-      <button class="view-nav-btn" data-view="Mission">Mission &amp; Vision →</button>
+      <button class="view-nav-btn" data-view="Mission">Ergama fi Mul'ata →</button>
     </div>
   </div></div>
 </div>
@@ -2433,7 +2413,7 @@ footer {
 <div id="view-Mission" class="content-view">
   <div class="view-header">
     <div class="view-header-inner">
-      <div class="view-crumb"><a data-view="home">Home</a><span class="view-crumb-sep"> › </span><a data-view="About">About</a><span class="view-crumb-sep"> › </span><span class="view-crumb-cur">Mission &amp; Vision</span></div>
+      <div class="view-crumb"><a data-view="home">Mana</a><span class="view-crumb-sep"> › </span><a data-view="About">Waa'ee Keenya</a><span class="view-crumb-sep"> › </span><span class="view-crumb-cur">Ergama fi Mul'ata</span></div>
       <div class="view-badge">🎯 About</div>
       <h1 class="view-h1">Mission <em>&amp; Vision</em></h1>
     </div>
@@ -2464,20 +2444,20 @@ footer {
 <div id="view-Leadership" class="content-view">
   <div class="view-header">
     <div class="view-header-inner">
-      <div class="view-crumb"><a data-view="home">Home</a><span class="view-crumb-sep"> › </span><a data-view="About">About</a><span class="view-crumb-sep"> › </span><span class="view-crumb-cur">Leadership</span></div>
+      <div class="view-crumb"><a data-view="home">Mana</a><span class="view-crumb-sep"> › </span><a data-view="About">Waa'ee Keenya</a><span class="view-crumb-sep"> › </span><span class="view-crumb-cur">Hoggansi</span></div>
       <div class="view-badge">👥 About</div>
-      <h1 class="view-h1"><em>Leadership</em></h1>
+      <h1 class="view-h1"><em>Hoggansi</em></h1>
     </div>
   </div>
   <div class="view-body-wrap"><div class="view-content">
     <div class="view-body">
       <p>AFOLU Ethiopia is guided by experienced and dedicated leadership committed to advancing sustainable land use across Ethiopia. The leadership team brings together expertise in agricultural science, forestry, environmental policy, and development economics — creating a diverse and capable foundation for the organization's work.</p>
-      <p>The Director General provides strategic oversight and institutional direction, working closely with technical directorate heads to ensure that AFOLU's programs are grounded in both scientific excellence and community relevance. The Programs Directorate manages flagship initiatives while the Partnerships Office cultivates the relationships that extend AFOLU's reach and impact.</p>
+      <p>The Hogganaa Waliigalaa provides strategic oversight and institutional direction, working closely with technical directorate heads to ensure that AFOLU's programs are grounded in both scientific excellence and community relevance. The Daayirektooreettii Sagantaalee manages flagship initiatives while the Biiroo Hirmaannaa cultivates the relationships that extend AFOLU's reach and impact.</p>
       <div class="view-h3">Leadership Structure</div>
       <ul class="view-list">
-        <li>Director General — Strategic leadership and institutional oversight</li>
-        <li>Technical Directorate — Coordination of eight specialized technical sectors</li>
-        <li>Programs Directorate — Flagship program management and reporting</li>
+        <li>Hogganaa Waliigalaa — Strategic leadership and institutional oversight</li>
+        <li>Daayirektooreettii Teknikaa — Coordination of eight specialized technical sectors</li>
+        <li>Daayirektooreettii Sagantaalee — Flagship program management and reporting</li>
         <li>Partnerships &amp; Research Office — International and domestic partnerships</li>
         <li>Finance &amp; Administration — Institutional governance and accountability</li>
       </ul>
@@ -2493,7 +2473,7 @@ footer {
 <div id="view-Organizational" class="content-view">
   <div class="view-header">
     <div class="view-header-inner">
-      <div class="view-crumb"><a data-view="home">Home</a><span class="view-crumb-sep"> › </span><a data-view="About">About</a><span class="view-crumb-sep"> › </span><span class="view-crumb-cur">Org. Structure</span></div>
+      <div class="view-crumb"><a data-view="home">Mana</a><span class="view-crumb-sep"> › </span><a data-view="About">Waa'ee Keenya</a><span class="view-crumb-sep"> › </span><span class="view-crumb-cur">Caasaa Dhaabbata</span></div>
       <div class="view-badge">🏛 About</div>
       <h1 class="view-h1">Organizational <em>Structure</em></h1>
     </div>
@@ -2503,10 +2483,10 @@ footer {
       <p>AFOLU Ethiopia's organizational structure is designed to integrate technical expertise with program delivery and institutional accountability. The structure supports a matrix of technical and programmatic functions that enable responsive, evidence-based programming across Ethiopia's diverse regions.</p>
       <div class="view-h3">Directorates</div>
       <ul class="view-list">
-        <li>Office of the Director General</li>
-        <li>Technical Directorate (Plant Science, Forestry, Animal Science, NRM, Agroforestry, Extension, Agro-Economics, Wildlife)</li>
-        <li>Programs Directorate (Green Legacy, REDD+, Climate Resilience, Food Security)</li>
-        <li>Research and Partnerships Office</li>
+        <li>Office of the Hogganaa Waliigalaa</li>
+        <li>Daayirektooreettii Teknikaa (Plant Science, Forestry, Animal Science, NRM, Agroforestry, Extension, Agro-Economics, Wildlife)</li>
+        <li>Daayirektooreettii Sagantaalee (Green Legacy, REDD+, Dandamachuu Qilleensaa, Nageenya Nyaataa)</li>
+        <li>Research and Biiroo Hirmaannaa</li>
         <li>Geospatial and Information Management Unit</li>
         <li>Finance, Administration and Human Resources</li>
       </ul>
@@ -2522,7 +2502,7 @@ footer {
 <div id="view-plant-science" class="content-view">
   <div class="view-header">
     <div class="view-header-inner">
-      <div class="view-crumb"><a data-view="home">Home</a><span class="view-crumb-sep"> › </span>Sectors<span class="view-crumb-sep"> › </span><span class="view-crumb-cur">Plant Science</span></div>
+      <div class="view-crumb"><a data-view="home">Mana</a><span class="view-crumb-sep"> › </span>Dameelee<span class="view-crumb-sep"> › </span><span class="view-crumb-cur">Saayinsii Biqiltuu</span></div>
       <div class="view-badge">🌾 Sector 01</div>
       <h1 class="view-h1">Plant <em>Science</em></h1>
     </div>
@@ -2551,7 +2531,7 @@ footer {
 <div id="view-Natural-Resource-Mgmt" class="content-view">
   <div class="view-header">
     <div class="view-header-inner">
-      <div class="view-crumb"><a data-view="home">Home</a><span class="view-crumb-sep"> › </span>Sectors<span class="view-crumb-sep"> › </span><span class="view-crumb-cur">Natural Resource Management</span></div>
+      <div class="view-crumb"><a data-view="home">Mana</a><span class="view-crumb-sep"> › </span>Dameelee<span class="view-crumb-sep"> › </span><span class="view-crumb-cur">Natural Resource Management</span></div>
       <div class="view-badge">🌍 Sector 02</div>
       <h1 class="view-h1">Natural Resource <em>Management</em></h1>
     </div>
@@ -2580,9 +2560,9 @@ footer {
 <div id="view-agroforestry" class="content-view">
   <div class="view-header">
     <div class="view-header-inner">
-      <div class="view-crumb"><a data-view="home">Home</a><span class="view-crumb-sep"> › </span>Sectors<span class="view-crumb-sep"> › </span><span class="view-crumb-cur">Agroforestry</span></div>
+      <div class="view-crumb"><a data-view="home">Mana</a><span class="view-crumb-sep"> › </span>Dameelee<span class="view-crumb-sep"> › </span><span class="view-crumb-cur">Agroforestirii</span></div>
       <div class="view-badge">🌿 Sector 03</div>
-      <h1 class="view-h1"><em>Agroforestry</em></h1>
+      <h1 class="view-h1"><em>Agroforestirii</em></h1>
     </div>
   </div>
   <div class="view-body-wrap"><div class="view-content">
@@ -2609,7 +2589,7 @@ footer {
 <div id="view-animal-science" class="content-view">
   <div class="view-header">
     <div class="view-header-inner">
-      <div class="view-crumb"><a data-view="home">Home</a><span class="view-crumb-sep"> › </span>Sectors<span class="view-crumb-sep"> › </span><span class="view-crumb-cur">Animal Science</span></div>
+      <div class="view-crumb"><a data-view="home">Mana</a><span class="view-crumb-sep"> › </span>Dameelee<span class="view-crumb-sep"> › </span><span class="view-crumb-cur">Saayinsii Bineeldota</span></div>
       <div class="view-badge">🐄 Sector 04</div>
       <h1 class="view-h1">Animal <em>Science</em></h1>
     </div>
@@ -2638,7 +2618,7 @@ footer {
 <div id="view-Extension" class="content-view">
   <div class="view-header">
     <div class="view-header-inner">
-      <div class="view-crumb"><a data-view="home">Home</a><span class="view-crumb-sep"> › </span>Sectors<span class="view-crumb-sep"> › </span><span class="view-crumb-cur">Rural Development</span></div>
+      <div class="view-crumb"><a data-view="home">Mana</a><span class="view-crumb-sep"> › </span>Dameelee<span class="view-crumb-sep"> › </span><span class="view-crumb-cur">Misoomaa Baadiyyaa</span></div>
       <div class="view-badge">🏘 Sector 05</div>
       <h1 class="view-h1">Rural <em>Development</em></h1>
     </div>
@@ -2667,7 +2647,7 @@ footer {
 <div id="view-Agro-Economics" class="content-view">
   <div class="view-header">
     <div class="view-header-inner">
-      <div class="view-crumb"><a data-view="home">Home</a><span class="view-crumb-sep"> › </span>Sectors<span class="view-crumb-sep"> › </span><span class="view-crumb-cur">Agro-Economics</span></div>
+      <div class="view-crumb"><a data-view="home">Mana</a><span class="view-crumb-sep"> › </span>Dameelee<span class="view-crumb-sep"> › </span><span class="view-crumb-cur">Agiroo-Ekonomiksii</span></div>
       <div class="view-badge">📊 Sector 06</div>
       <h1 class="view-h1">Agro-<em>Economics</em></h1>
     </div>
@@ -2696,9 +2676,9 @@ footer {
 <div id="view-forestry" class="content-view">
   <div class="view-header">
     <div class="view-header-inner">
-      <div class="view-crumb"><a data-view="home">Home</a><span class="view-crumb-sep"> › </span>Sectors<span class="view-crumb-sep"> › </span><span class="view-crumb-cur">Forestry</span></div>
+      <div class="view-crumb"><a data-view="home">Mana</a><span class="view-crumb-sep"> › </span>Dameelee<span class="view-crumb-sep"> › </span><span class="view-crumb-cur">Marga</span></div>
       <div class="view-badge">🌳 Sector 07</div>
-      <h1 class="view-h1"><em>Forestry</em></h1>
+      <h1 class="view-h1"><em>Marga</em></h1>
     </div>
   </div>
   <div class="view-body-wrap"><div class="view-content">
@@ -2716,7 +2696,7 @@ footer {
     </div>
     <div class="view-nav">
       <button class="view-nav-btn" data-view="Agro-Economics">← Agro-Economics</button>
-      <button class="view-nav-btn" data-view="Wildlife">Wildlife &amp; Ecotourism →</button>
+      <button class="view-nav-btn" data-view="Wildlife">Bineensota Bosonaa fi Tuuriizimii →</button>
     </div>
   </div></div>
 </div>
@@ -2725,7 +2705,7 @@ footer {
 <div id="view-Wildlife" class="content-view">
   <div class="view-header">
     <div class="view-header-inner">
-      <div class="view-crumb"><a data-view="home">Home</a><span class="view-crumb-sep"> › </span>Sectors<span class="view-crumb-sep"> › </span><span class="view-crumb-cur">Wildlife &amp; Ecotourism</span></div>
+      <div class="view-crumb"><a data-view="home">Mana</a><span class="view-crumb-sep"> › </span>Dameelee<span class="view-crumb-sep"> › </span><span class="view-crumb-cur">Bineensota Bosonaa fi Tuuriizimii</span></div>
       <div class="view-badge">🦁 Sector 08</div>
       <h1 class="view-h1">Wildlife <em>&amp; Ecotourism</em></h1>
     </div>
@@ -2754,20 +2734,20 @@ footer {
 <div id="view-Legacy" class="content-view">
   <div class="view-header">
     <div class="view-header-inner">
-      <div class="view-crumb"><a data-view="home">Home</a><span class="view-crumb-sep"> › </span>Programs<span class="view-crumb-sep"> › </span><span class="view-crumb-cur">Green Legacy Initiative</span></div>
-      <div class="view-badge">🌱 Flagship Program</div>
-      <h1 class="view-h1">Green Legacy <em>Initiative</em></h1>
+      <div class="view-crumb"><a data-view="home">Mana</a><span class="view-crumb-sep"> › </span>Sagantaalee<span class="view-crumb-sep"> › </span><span class="view-crumb-cur">Sagantaa Dhaalota Magariisa</span></div>
+      <div class="view-badge">🌱 Sagantaa Guddaa</div>
+      <h1 class="view-h1">Dhaalota <em>Magariisa</em></h1>
     </div>
   </div>
   <div class="view-body-wrap"><div class="view-content">
     <div class="view-stats">
-      <div class="vstat"><div class="vstat-num">28B+</div><div class="vstat-label">Seedlings Planted</div></div>
+      <div class="vstat"><div class="vstat-num">28B+</div><div class="vstat-label">Loon Biqiltuu Dhaabame</div></div>
       <div class="vstat"><div class="vstat-num">2019</div><div class="vstat-label">Year Launched</div></div>
       <div class="vstat"><div class="vstat-num">11+</div><div class="vstat-label">Regions Covered</div></div>
       <div class="vstat"><div class="vstat-num">100M+</div><div class="vstat-label">Citizens Mobilized</div></div>
     </div>
     <div class="view-body">
-      <p>The Green Legacy Initiative is Ethiopia's most ambitious and high-profile environmental restoration program. Launched in 2019, the initiative set out to plant billions of seedlings across Ethiopia to restore degraded landscapes, reverse deforestation, and contribute to the global fight against climate change. In its first year alone, Ethiopia planted over 350 million trees in a single day — setting a world record.</p>
+      <p>The Sagantaa Dhaalota Magariisa is Ethiopia's most ambitious and high-profile environmental restoration program. Launched in 2019, the initiative set out to plant billions of seedlings across Ethiopia to restore degraded landscapes, reverse deforestation, and contribute to the global fight against climate change. In its first year alone, Ethiopia planted over 350 million trees in a single day — setting a world record.</p>
       <p>Since then, the initiative has continued expanding, reaching over 28 billion seedlings planted across all of Ethiopia's regions. The program is uniquely community-driven, mobilizing millions of Ethiopians — from schoolchildren and farmers to government officials — in large-scale planting events that combine ecological restoration with national civic engagement.</p>
       <div class="view-h3">Core Objectives</div>
       <ul class="view-list">
@@ -2777,7 +2757,7 @@ footer {
         <li>Mobilize communities as active stewards of their natural environments</li>
         <li>Support biodiversity recovery across restored landscapes</li>
       </ul>
-      <div class="view-highlight">The Green Legacy Initiative stands as proof that large-scale ecological transformation is possible when governments, communities, and citizens unite around a shared vision for sustainable landscapes.</div>
+      <div class="view-highlight">The Sagantaa Dhaalota Magariisa stands as proof that large-scale ecological transformation is possible when governments, communities, and citizens unite around a shared vision for sustainable landscapes.</div>
     </div>
     <div class="view-nav">
       <button class="view-nav-btn" data-view="home">↑ Home</button>
@@ -2790,7 +2770,7 @@ footer {
 <div id="view-Food" class="content-view">
   <div class="view-header">
     <div class="view-header-inner">
-      <div class="view-crumb"><a data-view="home">Home</a><span class="view-crumb-sep"> › </span>Programs<span class="view-crumb-sep"> › </span><span class="view-crumb-cur">Food Security</span></div>
+      <div class="view-crumb"><a data-view="home">Mana</a><span class="view-crumb-sep"> › </span>Sagantaalee<span class="view-crumb-sep"> › </span><span class="view-crumb-cur">Nageenya Nyaataa</span></div>
       <div class="view-badge">🌾 Program</div>
       <h1 class="view-h1">Food <em>Security</em></h1>
     </div>
@@ -2809,7 +2789,7 @@ footer {
       </ul>
     </div>
     <div class="view-nav">
-      <button class="view-nav-btn" data-view="Climate">← Climate Resilience</button>
+      <button class="view-nav-btn" data-view="Climate">← Dandamachuu Qilleensaa</button>
       <button class="view-nav-btn" data-view="REDD">REDD+ →</button>
     </div>
   </div></div>
@@ -2819,7 +2799,7 @@ footer {
 <div id="view-Climate" class="content-view">
   <div class="view-header">
     <div class="view-header-inner">
-      <div class="view-crumb"><a data-view="home">Home</a><span class="view-crumb-sep"> › </span>Programs<span class="view-crumb-sep"> › </span><span class="view-crumb-cur">Climate Resilience</span></div>
+      <div class="view-crumb"><a data-view="home">Mana</a><span class="view-crumb-sep"> › </span>Sagantaalee<span class="view-crumb-sep"> › </span><span class="view-crumb-cur">Dandamachuu Qilleensaa</span></div>
       <div class="view-badge">🌡 Program</div>
       <h1 class="view-h1">Climate <em>Resilience</em></h1>
     </div>
@@ -2839,7 +2819,7 @@ footer {
       <div class="view-highlight">Resilience is not simply the capacity to survive shocks — it is the capacity to transform challenges into opportunities for regeneration. That is the vision animating AFOLU's climate resilience work.</div>
     </div>
     <div class="view-nav">
-      <button class="view-nav-btn" data-view="Food">← Food Security</button>
+      <button class="view-nav-btn" data-view="Food">← Nageenya Nyaataa</button>
       <button class="view-nav-btn" data-view="REDD">REDD+ →</button>
     </div>
   </div></div>
@@ -2849,7 +2829,7 @@ footer {
 <div id="view-REDD" class="content-view">
   <div class="view-header">
     <div class="view-header-inner">
-      <div class="view-crumb"><a data-view="home">Home</a><span class="view-crumb-sep"> › </span>Programs<span class="view-crumb-sep"> › </span><span class="view-crumb-cur">REDD+</span></div>
+      <div class="view-crumb"><a data-view="home">Mana</a><span class="view-crumb-sep"> › </span>Sagantaalee<span class="view-crumb-sep"> › </span><span class="view-crumb-cur">REDD+</span></div>
       <div class="view-badge">🌳 Program</div>
       <h1 class="view-h1">REDD+ <em>Program</em></h1>
     </div>
@@ -2868,7 +2848,7 @@ footer {
       </ul>
     </div>
     <div class="view-nav">
-      <button class="view-nav-btn" data-view="Climate">← Climate Resilience</button>
+      <button class="view-nav-btn" data-view="Climate">← Dandamachuu Qilleensaa</button>
       <button class="view-nav-btn" data-view="Reports">Resources →</button>
     </div>
   </div></div>
@@ -2878,7 +2858,7 @@ footer {
 <div id="view-Reports" class="content-view">
   <div class="view-header">
     <div class="view-header-inner">
-      <div class="view-crumb"><a data-view="home">Home</a><span class="view-crumb-sep"> › </span>Resources<span class="view-crumb-sep"> › </span><span class="view-crumb-cur">Reports &amp; Publications</span></div>
+      <div class="view-crumb"><a data-view="home">Mana</a><span class="view-crumb-sep"> › </span>Qabeenya<span class="view-crumb-sep"> › </span><span class="view-crumb-cur">Gabaasaalee fi Maxxansaalee</span></div>
       <div class="view-badge">📄 Resources</div>
       <h1 class="view-h1">Reports <em>&amp; Publications</em></h1>
     </div>
@@ -2908,7 +2888,7 @@ footer {
 <div id="view-Geospatial" class="content-view">
   <div class="view-header">
     <div class="view-header-inner">
-      <div class="view-crumb"><a data-view="home">Home</a><span class="view-crumb-sep"> › </span>Resources<span class="view-crumb-sep"> › </span><span class="view-crumb-cur">Geospatial &amp; GIS</span></div>
+      <div class="view-crumb"><a data-view="home">Mana</a><span class="view-crumb-sep"> › </span>Qabeenya<span class="view-crumb-sep"> › </span><span class="view-crumb-cur">Jiyoospeeshalii fi GIS</span></div>
       <div class="view-badge">🛰 Resources</div>
       <h1 class="view-h1">Geospatial <em>&amp; GIS</em></h1>
     </div>
@@ -2937,7 +2917,7 @@ footer {
 <div id="view-publications" class="content-view">
   <div class="view-header">
     <div class="view-header-inner">
-      <div class="view-crumb"><a data-view="home">Home</a><span class="view-crumb-sep"> › </span>Resources<span class="view-crumb-sep"> › </span><span class="view-crumb-cur">Technical Manuals</span></div>
+      <div class="view-crumb"><a data-view="home">Mana</a><span class="view-crumb-sep"> › </span>Qabeenya<span class="view-crumb-sep"> › </span><span class="view-crumb-cur">Qajeelcha Teknikaa</span></div>
       <div class="view-badge">📘 Resources</div>
       <h1 class="view-h1">Technical <em>Manuals</em></h1>
     </div>
@@ -2967,9 +2947,9 @@ footer {
 <div id="view-Projects" class="content-view">
   <div class="view-header">
     <div class="view-header-inner">
-      <div class="view-crumb"><a data-view="home">Home</a><span class="view-crumb-sep"> › </span>Projects<span class="view-crumb-sep"> › </span><span class="view-crumb-cur">Current Projects</span></div>
+      <div class="view-crumb"><a data-view="home">Mana</a><span class="view-crumb-sep"> › </span>Pirojektii<span class="view-crumb-sep"> › </span><span class="view-crumb-cur">Pirojektii Amma</span></div>
       <div class="view-badge">🔬 Projects</div>
-      <h1 class="view-h1">Current <em>Projects</em></h1>
+      <h1 class="view-h1">Current <em>Pirojektii</em></h1>
     </div>
   </div>
   <div class="view-body-wrap"><div class="view-content">
@@ -2977,7 +2957,7 @@ footer {
       <p>AFOLU Ethiopia currently implements a portfolio of projects across its technical sectors and programs, each contributing to the organization's broader mission of sustainable land use and ecological resilience. Projects range from community-level extension and restoration programs to national-scale policy and monitoring initiatives.</p>
       <div class="view-h3">Active Project Portfolio</div>
       <ul class="view-list">
-        <li>Green Legacy Initiative Implementation and Monitoring (2024–2026)</li>
+        <li>Sagantaa Dhaalota Magariisa Implementation and Monitoring (2024–2026)</li>
         <li>Integrated Watershed Management in Oromia and Amhara Highlands</li>
         <li>REDD+ Community Forest Management Pilot — Three Regions</li>
         <li>Climate-Smart Agriculture Scale-Up Program</li>
@@ -2997,9 +2977,9 @@ footer {
 <div id="view-Completed" class="content-view">
   <div class="view-header">
     <div class="view-header-inner">
-      <div class="view-crumb"><a data-view="home">Home</a><span class="view-crumb-sep"> › </span>Projects<span class="view-crumb-sep"> › </span><span class="view-crumb-cur">Completed Projects</span></div>
+      <div class="view-crumb"><a data-view="home">Mana</a><span class="view-crumb-sep"> › </span>Pirojektii<span class="view-crumb-sep"> › </span><span class="view-crumb-cur">Pirojektii Xumurame</span></div>
       <div class="view-badge">✅ Projects</div>
-      <h1 class="view-h1">Completed <em>Projects</em></h1>
+      <h1 class="view-h1">Completed <em>Pirojektii</em></h1>
     </div>
   </div>
   <div class="view-body-wrap"><div class="view-content">
@@ -3025,9 +3005,9 @@ footer {
 <div id="view-Regional" class="content-view">
   <div class="view-header">
     <div class="view-header-inner">
-      <div class="view-crumb"><a data-view="home">Home</a><span class="view-crumb-sep"> › </span>Projects<span class="view-crumb-sep"> › </span><span class="view-crumb-cur">Regional Projects</span></div>
+      <div class="view-crumb"><a data-view="home">Mana</a><span class="view-crumb-sep"> › </span>Pirojektii<span class="view-crumb-sep"> › </span><span class="view-crumb-cur">Pirojektii Naannoo</span></div>
       <div class="view-badge">🗺 Projects</div>
-      <h1 class="view-h1">Regional <em>Projects</em></h1>
+      <h1 class="view-h1">Regional <em>Pirojektii</em></h1>
     </div>
   </div>
   <div class="view-body-wrap"><div class="view-content">
@@ -3054,9 +3034,9 @@ footer {
 <div id="view-News" class="content-view">
   <div class="view-header">
     <div class="view-header-inner">
-      <div class="view-crumb"><a data-view="home">Home</a><span class="view-crumb-sep"> › </span><span class="view-crumb-cur">Latest News</span></div>
+      <div class="view-crumb"><a data-view="home">Mana</a><span class="view-crumb-sep"> › </span><span class="view-crumb-cur">Oduu Haaraa</span></div>
       <div class="view-badge">📰 News</div>
-      <h1 class="view-h1">Latest <em>News</em></h1>
+      <h1 class="view-h1">Latest <em>Oduu</em></h1>
     </div>
   </div>
   <div class="view-body-wrap"><div class="view-content">
@@ -3064,15 +3044,15 @@ footer {
       <input class="nf-input" id="news-search" type="text" placeholder="Search news…" oninput="filterNews()">
       <select class="nf-select" id="news-section-filter" onchange="filterNews()">
         <option value="">All Sections</option>
-        <option>Plant Science</option><option>Natural Resource Management</option>
-        <option>Agroforestry</option><option>Animal Science</option>
-        <option>Rural Development</option><option>Agro-Economics</option>
-        <option>Forestry</option><option>Wildlife &amp; Ecotourism</option>
-        <option>Green Legacy Initiative</option><option>Food Security</option>
-        <option>Climate Resilience</option><option>REDD+</option>
-        <option>Reports &amp; Publications</option><option>Geospatial &amp; GIS</option>
-        <option>Technical Manuals</option><option>Latest News</option>
-        <option>Events</option>
+        <option>Saayinsii Biqiltuu</option><option>Natural Resource Management</option>
+        <option>Agroforestirii</option><option>Saayinsii Bineeldota</option>
+        <option>Misoomaa Baadiyyaa</option><option>Agiroo-Ekonomiksii</option>
+        <option>Marga</option><option>Bineensota Bosonaa fi Tuuriizimii</option>
+        <option>Sagantaa Dhaalota Magariisa</option><option>Nageenya Nyaataa</option>
+        <option>Dandamachuu Qilleensaa</option><option>REDD+</option>
+        <option>Gabaasaalee fi Maxxansaalee</option><option>Jiyoospeeshalii fi GIS</option>
+        <option>Qajeelcha Teknikaa</option><option>Oduu Haaraa</option>
+        <option>Taateewwan</option>
       </select>
       <select class="nf-select" id="news-type-filter" onchange="filterNews()">
         <option value="">All Types</option>
@@ -3095,9 +3075,9 @@ footer {
 <div id="view-events" class="content-view">
   <div class="view-header">
     <div class="view-header-inner">
-      <div class="view-crumb"><a data-view="home">Home</a><span class="view-crumb-sep"> › </span>News<span class="view-crumb-sep"> › </span><span class="view-crumb-cur">Events</span></div>
+      <div class="view-crumb"><a data-view="home">Mana</a><span class="view-crumb-sep"> › </span>Oduu<span class="view-crumb-sep"> › </span><span class="view-crumb-cur">Taateewwan</span></div>
       <div class="view-badge">📅 Events</div>
-      <h1 class="view-h1">Upcoming <em>Events</em></h1>
+      <h1 class="view-h1">Upcoming <em>Taateewwan</em></h1>
     </div>
   </div>
   <div class="view-body-wrap"><div class="view-content">
@@ -3109,7 +3089,7 @@ footer {
         <li><strong>May 3, 2026</strong> — REDD+ Project Implementation Review, Virtual &amp; In-Person</li>
         <li><strong>May 10, 2026</strong> — AFOLU Fellowship Program 2026 Application Deadline</li>
         <li><strong>April 30, 2026</strong> — National Symposium on Sustainable Land Management Abstract Deadline</li>
-        <li><strong>June 2026</strong> — Annual Green Legacy Community Planting Days (Nationwide)</li>
+        <li><strong>June 2026</strong> — Annual Green Legacy Community Planting Days (Biyyoolessaan)</li>
       </ul>
       <p style="margin-top:1.5rem">To register for events or submit abstracts, contact <a href="/cdn-cgi/l/email-protection#f495929b98819b9291809c9d9b849d95b49399959d98da979b99"><span class="__cf_email__" data-cfemail="1b7a7d74776e747d7e6f7372746b727a5b7c767a727735787476">[email&#160;protected]</span></a></p>
     </div>
@@ -3124,9 +3104,9 @@ footer {
 <div id="view-Gallery" class="content-view">
   <div class="view-header">
     <div class="view-header-inner">
-      <div class="view-crumb"><a data-view="home">Home</a><span class="view-crumb-sep"> › </span>News<span class="view-crumb-sep"> › </span><span class="view-crumb-cur">Photo Gallery</span></div>
+      <div class="view-crumb"><a data-view="home">Mana</a><span class="view-crumb-sep"> › </span>Oduu<span class="view-crumb-sep"> › </span><span class="view-crumb-cur">Galarii Suuraa</span></div>
       <div class="view-badge">🖼 Gallery</div>
-      <h1 class="view-h1">Photo <em>Gallery</em></h1>
+      <h1 class="view-h1">Photo <em>Galarii</em></h1>
     </div>
   </div>
   <div class="view-body-wrap"><div class="view-content">
@@ -3150,9 +3130,9 @@ footer {
 <div id="view-Testimonials" class="content-view">
   <div class="view-header">
     <div class="view-header-inner">
-      <div class="view-crumb"><a data-view="home">Home</a><span class="view-crumb-sep"> › </span>News<span class="view-crumb-sep"> › </span><span class="view-crumb-cur">Testimonials</span></div>
+      <div class="view-crumb"><a data-view="home">Mana</a><span class="view-crumb-sep"> › </span>Oduu<span class="view-crumb-sep"> › </span><span class="view-crumb-cur">Ragaalee</span></div>
       <div class="view-badge">💬 Community</div>
-      <h1 class="view-h1"><em>Testimonials</em></h1>
+      <h1 class="view-h1"><em>Ragaalee</em></h1>
     </div>
   </div>
   <div class="view-body-wrap"><div class="view-content">
@@ -3176,7 +3156,7 @@ footer {
   <div class="footer-top">
     <div class="footer-brand">
       <div class="footer-brand-name">AFOLU of Ethiopia</div>
-      <div class="footer-brand-sub">Agriculture · Forestry · Land Use</div>
+      <div class="footer-brand-sub">Qonnaa · Bosonaa · Fayyadama Lafa</div>
       <div class="footer-brand-desc">Advancing sustainable land management, climate resilience, and rural livelihoods across Ethiopia's diverse landscapes since 2019. Aligned with Ethiopia's Climate Resilient Green Economy (CRGE) Strategy.</div>
       <div class="footer-social">
         <a class="fsoc" href="https://www.facebook.com/afoluethiopia" target="_blank">fb</a>
@@ -3186,25 +3166,25 @@ footer {
       </div>
     </div>
     <div>
-      <div class="footer-col-title">Quick Links</div>
+      <div class="footer-col-title">Linkii Hatattamaa</div>
       <ul class="footer-col-links">
-        <li><span data-view="About">About AFOLU</span></li>
-        <li><span data-view="Mission">Mission &amp; Vision</span></li>
-        <li><span data-view="Leadership">Leadership</span></li>
-        <li><span data-view="Legacy">Green Legacy</span></li>
-        <li><span data-view="REDD">REDD+ Program</span></li>
-        <li><span data-view="Climate">Climate Resilience</span></li>
+        <li><span data-view="About">Waa'ee AFOLU</span></li>
+        <li><span data-view="Mission">Ergama fi Mul'ata</span></li>
+        <li><span data-view="Leadership">Hoggansi</span></li>
+        <li><span data-view="Legacy">Dhaalota Magariisa</span></li>
+        <li><span data-view="REDD">Sagantaa REDD+</span></li>
+        <li><span data-view="Climate">Dandamachuu Qilleensaa</span></li>
       </ul>
     </div>
     <div>
-      <div class="footer-col-title">Sectors</div>
+      <div class="footer-col-title">Dameelee</div>
       <ul class="footer-col-links">
-        <li><span data-view="plant-science">Plant Science</span></li>
+        <li><span data-view="plant-science">Saayinsii Biqiltuu</span></li>
         <li><span data-view="Natural-Resource-Mgmt">NRM</span></li>
-        <li><span data-view="agroforestry">Agroforestry</span></li>
-        <li><span data-view="animal-science">Animal Science</span></li>
-        <li><span data-view="Extension">Rural Development</span></li>
-        <li><span data-view="forestry">Forestry</span></li>
+        <li><span data-view="agroforestry">Agroforestirii</span></li>
+        <li><span data-view="animal-science">Saayinsii Bineeldota</span></li>
+        <li><span data-view="Extension">Misoomaa Baadiyyaa</span></li>
+        <li><span data-view="forestry">Marga</span></li>
       </ul>
     </div>
     <div>
@@ -3219,7 +3199,7 @@ footer {
   </div>
   <div class="footer-bottom">
     <span>© 2026 AFOLU of Ethiopia. All rights reserved.</span>
-    <span>Agriculture · Forestry · Other Land Use · Finfinnee, Ethiopia</span>
+    <span>Agriculture · Forestry · Kan Biroo Land Use · Finfinnee, Ethiopia</span>
   </div>
 </footer>
 
@@ -3260,58 +3240,58 @@ footer {
 
       <!-- About -->
       <div class="sm-group">
-        <div class="sm-group-head"><span>🌱</span><div class="sm-group-accent"></div>About</div>
+        <div class="sm-group-head"><span>🌱</span><div class="sm-group-accent"></div>Waa'ee Keenya</div>
         <div class="sm-items">
-          <div class="sm-item" data-view="About" data-sm><span class="sm-item-icon">🌱</span><span class="sm-item-label">About AFOLU</span><span class="sm-item-arrow">→</span></div>
-          <div class="sm-item" data-view="Mission" data-sm><span class="sm-item-icon">🎯</span><span class="sm-item-label">Mission &amp; Vision</span><span class="sm-item-arrow">→</span></div>
-          <div class="sm-item" data-view="Leadership" data-sm><span class="sm-item-icon">👥</span><span class="sm-item-label">Leadership</span><span class="sm-item-arrow">→</span></div>
+          <div class="sm-item" data-view="About" data-sm><span class="sm-item-icon">🌱</span><span class="sm-item-label">Waa'ee AFOLU</span><span class="sm-item-arrow">→</span></div>
+          <div class="sm-item" data-view="Mission" data-sm><span class="sm-item-icon">🎯</span><span class="sm-item-label">Ergama fi Mul'ata</span><span class="sm-item-arrow">→</span></div>
+          <div class="sm-item" data-view="Leadership" data-sm><span class="sm-item-icon">👥</span><span class="sm-item-label">Hoggansi</span><span class="sm-item-arrow">→</span></div>
           <div class="sm-item" data-view="Organizational" data-sm><span class="sm-item-icon">🏛</span><span class="sm-item-label">Organizational Structure</span><span class="sm-item-arrow">→</span></div>
         </div>
       </div>
 
       <!-- Sectors -->
       <div class="sm-group">
-        <div class="sm-group-head"><span>🌿</span><div class="sm-group-accent"></div>Technical Sectors</div>
+        <div class="sm-group-head"><span>🌿</span><div class="sm-group-accent"></div>Dameelee Teknikaa</div>
         <div class="sm-items">
-          <div class="sm-item" data-view="plant-science" data-sm><span class="sm-item-icon">🌾</span><span class="sm-item-label">Plant Science</span><span class="sm-item-arrow">→</span></div>
+          <div class="sm-item" data-view="plant-science" data-sm><span class="sm-item-icon">🌾</span><span class="sm-item-label">Saayinsii Biqiltuu</span><span class="sm-item-arrow">→</span></div>
           <div class="sm-item" data-view="Natural-Resource-Mgmt" data-sm><span class="sm-item-icon">🌍</span><span class="sm-item-label">Natural Resource Management</span><span class="sm-item-arrow">→</span></div>
-          <div class="sm-item" data-view="agroforestry" data-sm><span class="sm-item-icon">🌿</span><span class="sm-item-label">Agroforestry</span><span class="sm-item-arrow">→</span></div>
-          <div class="sm-item" data-view="animal-science" data-sm><span class="sm-item-icon">🐄</span><span class="sm-item-label">Animal Science</span><span class="sm-item-arrow">→</span></div>
-          <div class="sm-item" data-view="Extension" data-sm><span class="sm-item-icon">🏘</span><span class="sm-item-label">Rural Development</span><span class="sm-item-arrow">→</span></div>
-          <div class="sm-item" data-view="Agro-Economics" data-sm><span class="sm-item-icon">📊</span><span class="sm-item-label">Agro-Economics</span><span class="sm-item-arrow">→</span></div>
-          <div class="sm-item" data-view="forestry" data-sm><span class="sm-item-icon">🌳</span><span class="sm-item-label">Forestry</span><span class="sm-item-arrow">→</span></div>
-          <div class="sm-item" data-view="Wildlife" data-sm><span class="sm-item-icon">🦁</span><span class="sm-item-label">Wildlife &amp; Ecotourism</span><span class="sm-item-arrow">→</span></div>
+          <div class="sm-item" data-view="agroforestry" data-sm><span class="sm-item-icon">🌿</span><span class="sm-item-label">Agroforestirii</span><span class="sm-item-arrow">→</span></div>
+          <div class="sm-item" data-view="animal-science" data-sm><span class="sm-item-icon">🐄</span><span class="sm-item-label">Saayinsii Bineeldota</span><span class="sm-item-arrow">→</span></div>
+          <div class="sm-item" data-view="Extension" data-sm><span class="sm-item-icon">🏘</span><span class="sm-item-label">Misoomaa Baadiyyaa</span><span class="sm-item-arrow">→</span></div>
+          <div class="sm-item" data-view="Agro-Economics" data-sm><span class="sm-item-icon">📊</span><span class="sm-item-label">Agiroo-Ekonomiksii</span><span class="sm-item-arrow">→</span></div>
+          <div class="sm-item" data-view="forestry" data-sm><span class="sm-item-icon">🌳</span><span class="sm-item-label">Marga</span><span class="sm-item-arrow">→</span></div>
+          <div class="sm-item" data-view="Wildlife" data-sm><span class="sm-item-icon">🦁</span><span class="sm-item-label">Bineensota Bosonaa fi Tuuriizimii</span><span class="sm-item-arrow">→</span></div>
         </div>
       </div>
 
       <!-- Programs -->
       <div class="sm-group">
-        <div class="sm-group-head"><span>🚀</span><div class="sm-group-accent"></div>Programs</div>
+        <div class="sm-group-head"><span>🚀</span><div class="sm-group-accent"></div>Sagantaalee</div>
         <div class="sm-items">
-          <div class="sm-item" data-view="Legacy" data-sm><span class="sm-item-icon">🌱</span><span class="sm-item-label">Green Legacy Initiative</span><span class="sm-item-arrow">→</span></div>
-          <div class="sm-item" data-view="REDD" data-sm><span class="sm-item-icon">🌳</span><span class="sm-item-label">REDD+ Program</span><span class="sm-item-arrow">→</span></div>
-          <div class="sm-item" data-view="Climate" data-sm><span class="sm-item-icon">🌡</span><span class="sm-item-label">Climate Resilience</span><span class="sm-item-arrow">→</span></div>
-          <div class="sm-item" data-view="Food" data-sm><span class="sm-item-icon">🌾</span><span class="sm-item-label">Food Security</span><span class="sm-item-arrow">→</span></div>
+          <div class="sm-item" data-view="Legacy" data-sm><span class="sm-item-icon">🌱</span><span class="sm-item-label">Sagantaa Dhaalota Magariisa</span><span class="sm-item-arrow">→</span></div>
+          <div class="sm-item" data-view="REDD" data-sm><span class="sm-item-icon">🌳</span><span class="sm-item-label">Sagantaa REDD+</span><span class="sm-item-arrow">→</span></div>
+          <div class="sm-item" data-view="Climate" data-sm><span class="sm-item-icon">🌡</span><span class="sm-item-label">Dandamachuu Qilleensaa</span><span class="sm-item-arrow">→</span></div>
+          <div class="sm-item" data-view="Food" data-sm><span class="sm-item-icon">🌾</span><span class="sm-item-label">Nageenya Nyaataa</span><span class="sm-item-arrow">→</span></div>
         </div>
       </div>
 
       <!-- Resources -->
       <div class="sm-group">
-        <div class="sm-group-head"><span>📚</span><div class="sm-group-accent"></div>Resources</div>
+        <div class="sm-group-head"><span>📚</span><div class="sm-group-accent"></div>Qabeenya</div>
         <div class="sm-items">
-          <div class="sm-item" data-view="Reports" data-sm><span class="sm-item-icon">📄</span><span class="sm-item-label">Reports &amp; Publications</span><span class="sm-item-arrow">→</span></div>
-          <div class="sm-item" data-view="Geospatial" data-sm><span class="sm-item-icon">🛰</span><span class="sm-item-label">Geospatial &amp; GIS</span><span class="sm-item-arrow">→</span></div>
-          <div class="sm-item" data-view="publications" data-sm><span class="sm-item-icon">📘</span><span class="sm-item-label">Technical Manuals</span><span class="sm-item-arrow">→</span></div>
+          <div class="sm-item" data-view="Reports" data-sm><span class="sm-item-icon">📄</span><span class="sm-item-label">Gabaasaalee fi Maxxansaalee</span><span class="sm-item-arrow">→</span></div>
+          <div class="sm-item" data-view="Geospatial" data-sm><span class="sm-item-icon">🛰</span><span class="sm-item-label">Jiyoospeeshalii fi GIS</span><span class="sm-item-arrow">→</span></div>
+          <div class="sm-item" data-view="publications" data-sm><span class="sm-item-icon">📘</span><span class="sm-item-label">Qajeelcha Teknikaa</span><span class="sm-item-arrow">→</span></div>
         </div>
       </div>
 
       <!-- Projects -->
       <div class="sm-group">
-        <div class="sm-group-head"><span>🔬</span><div class="sm-group-accent"></div>Projects</div>
+        <div class="sm-group-head"><span>🔬</span><div class="sm-group-accent"></div>Pirojektii</div>
         <div class="sm-items">
-          <div class="sm-item" data-view="Projects" data-sm><span class="sm-item-icon">🔬</span><span class="sm-item-label">Current Projects</span><span class="sm-item-arrow">→</span></div>
-          <div class="sm-item" data-view="Completed" data-sm><span class="sm-item-icon">✅</span><span class="sm-item-label">Completed Projects</span><span class="sm-item-arrow">→</span></div>
-          <div class="sm-item" data-view="Regional" data-sm><span class="sm-item-icon">🗺</span><span class="sm-item-label">Regional Projects</span><span class="sm-item-arrow">→</span></div>
+          <div class="sm-item" data-view="Projects" data-sm><span class="sm-item-icon">🔬</span><span class="sm-item-label">Pirojektii Amma</span><span class="sm-item-arrow">→</span></div>
+          <div class="sm-item" data-view="Completed" data-sm><span class="sm-item-icon">✅</span><span class="sm-item-label">Pirojektii Xumurame</span><span class="sm-item-arrow">→</span></div>
+          <div class="sm-item" data-view="Regional" data-sm><span class="sm-item-icon">🗺</span><span class="sm-item-label">Pirojektii Naannoo</span><span class="sm-item-arrow">→</span></div>
         </div>
       </div>
 
@@ -3319,10 +3299,10 @@ footer {
       <div class="sm-group">
         <div class="sm-group-head"><span>📰</span><div class="sm-group-accent"></div>News &amp; Media</div>
         <div class="sm-items">
-          <div class="sm-item" data-view="News" data-sm><span class="sm-item-icon">📰</span><span class="sm-item-label">Latest News</span><span class="sm-item-arrow">→</span></div>
+          <div class="sm-item" data-view="News" data-sm><span class="sm-item-icon">📰</span><span class="sm-item-label">Oduu Haaraa</span><span class="sm-item-arrow">→</span></div>
           <div class="sm-item" data-view="events" data-sm><span class="sm-item-icon">📅</span><span class="sm-item-label">Events &amp; Announcements</span><span class="sm-item-arrow">→</span></div>
-          <div class="sm-item" data-view="Gallery" data-sm><span class="sm-item-icon">🖼</span><span class="sm-item-label">Photo Gallery</span><span class="sm-item-arrow">→</span></div>
-          <div class="sm-item" data-view="Testimonials" data-sm><span class="sm-item-icon">💬</span><span class="sm-item-label">Testimonials</span><span class="sm-item-arrow">→</span></div>
+          <div class="sm-item" data-view="Gallery" data-sm><span class="sm-item-icon">🖼</span><span class="sm-item-label">Galarii Suuraa</span><span class="sm-item-arrow">→</span></div>
+          <div class="sm-item" data-view="Testimonials" data-sm><span class="sm-item-icon">💬</span><span class="sm-item-label">Ragaalee</span><span class="sm-item-arrow">→</span></div>
         </div>
       </div>
 
@@ -3330,7 +3310,7 @@ footer {
 
     <!-- Footer -->
     <div class="sitemap-footer">
-      <span class="sitemap-footer-note">AFOLU of Ethiopia — Agriculture · Forestry · Land Use · Finfinnee</span>
+      <span class="sitemap-footer-note">AFOLU of Ethiopia — Qonnaa · Bosonaa · Fayyadama Lafa · Finfinnee</span>
       <span class="sitemap-footer-count">28 Sections</span>
     </div>
 
@@ -3547,8 +3527,8 @@ const SECTION_VIEW_MAP = {
   'Agroforestry':'agroforestry','Animal Science':'animal-science',
   'Rural Development':'Extension','Agro-Economics':'Agro-Economics',
   'Forestry':'forestry','Wildlife & Ecotourism':'Wildlife',
-  'Green Legacy Initiative':'Legacy','Food Security':'Food',
-  'Climate Resilience':'Climate','REDD+':'REDD',
+  'Sagantaa Dhaalota Magariisa':'Legacy','Nageenya Nyaataa':'Food',
+  'Dandamachuu Qilleensaa':'Climate','REDD+':'REDD',
   'Reports & Publications':'Reports','Geospatial & GIS':'Geospatial',
   'Technical Manuals':'publications','Latest News':'News',
   'Events':'events','Photo Gallery':'Gallery','Testimonials':'Testimonials',
@@ -3688,178 +3668,54 @@ function copyUrlBar() {
   });
 }
 /* ============================================================
-   GOOGLE TRANSLATE — FULL AUTO TRANSLATION
-   ============================================================ */
-
-/* ============================================================
-   LANGUAGE SYSTEM — MyMemory API (free, no key needed)
-   Translates every visible text node on the entire page
+   LANGUAGE SELECTOR — triggers browser's built-in translation
+   The page is in Afaan Oromo (lang="om"), so Chrome/Edge/Safari
+   will automatically offer to translate it, just like any
+   foreign-language website. The dropdown below lets users
+   explicitly request a language using the browser translate API.
    ============================================================ */
 
 const LANGUAGES = [
-  { code:'en',    flag:'🇺🇸', name:'English',               native:'English' },
-  { code:'am',    flag:'🇪🇹', name:'Amharic',               native:'አማርኛ' },
-  { code:'om',    flag:'🇪🇹', name:'Oromo',                 native:'Afaan Oromoo' },
-  { code:'ti',    flag:'🇪🇹', name:'Tigrinya',              native:'ትግርኛ' },
-  { code:'so',    flag:'🇸🇴', name:'Somali',                native:'Soomaali' },
-  { code:'ar',    flag:'🇸🇦', name:'Arabic',                native:'العربية' },
-  { code:'fr',    flag:'🇫🇷', name:'French',                native:'Français' },
-  { code:'es',    flag:'🇪🇸', name:'Spanish',               native:'Español' },
-  { code:'pt',    flag:'🇵🇹', name:'Portuguese',            native:'Português' },
-  { code:'de',    flag:'🇩🇪', name:'German',                native:'Deutsch' },
-  { code:'it',    flag:'🇮🇹', name:'Italian',               native:'Italiano' },
-  { code:'nl',    flag:'🇳🇱', name:'Dutch',                 native:'Nederlands' },
-  { code:'ru',    flag:'🇷🇺', name:'Russian',               native:'Русский' },
-  { code:'zh',    flag:'🇨🇳', name:'Chinese',               native:'中文' },
-  { code:'ja',    flag:'🇯🇵', name:'Japanese',              native:'日本語' },
-  { code:'ko',    flag:'🇰🇷', name:'Korean',                native:'한국어' },
-  { code:'hi',    flag:'🇮🇳', name:'Hindi',                 native:'हिन्दी' },
-  { code:'sw',    flag:'🇰🇪', name:'Swahili',               native:'Kiswahili' },
-  { code:'tr',    flag:'🇹🇷', name:'Turkish',               native:'Türkçe' },
-  { code:'id',    flag:'🇮🇩', name:'Indonesian',            native:'Bahasa Indonesia' },
-  { code:'vi',    flag:'🇻🇳', name:'Vietnamese',            native:'Tiếng Việt' },
-  { code:'th',    flag:'🇹🇭', name:'Thai',                  native:'ภาษาไทย' },
-  { code:'ms',    flag:'🇲🇾', name:'Malay',                 native:'Bahasa Melayu' },
-  { code:'pl',    flag:'🇵🇱', name:'Polish',                native:'Polski' },
-  { code:'uk',    flag:'🇺🇦', name:'Ukrainian',             native:'Українська' },
-  { code:'ha',    flag:'🇳🇬', name:'Hausa',                 native:'Hausa' },
-  { code:'yo',    flag:'🇳🇬', name:'Yoruba',                native:'Yorùbá' },
+  { code:'en',    flag:'🇺🇸', name:'English',                native:'English' },
+  { code:'am',    flag:'🇪🇹', name:'Amharic',                native:'አማርኛ' },
+  { code:'om',    flag:'🇪🇹', name:'Afaan Oromo',            native:'Afaan Oromoo' },
+  { code:'ti',    flag:'🇪🇹', name:'Tigrinya',               native:'ትግርኛ' },
+  { code:'so',    flag:'🇸🇴', name:'Somali',                 native:'Soomaali' },
+  { code:'ar',    flag:'🇸🇦', name:'Arabic',                 native:'العربية' },
+  { code:'fr',    flag:'🇫🇷', name:'French',                 native:'Français' },
+  { code:'es',    flag:'🇪🇸', name:'Spanish',                native:'Español' },
+  { code:'pt',    flag:'🇵🇹', name:'Portuguese',             native:'Português' },
+  { code:'de',    flag:'🇩🇪', name:'German',                 native:'Deutsch' },
+  { code:'it',    flag:'🇮🇹', name:'Italian',                native:'Italiano' },
+  { code:'nl',    flag:'🇳🇱', name:'Dutch',                  native:'Nederlands' },
+  { code:'ru',    flag:'🇷🇺', name:'Russian',                native:'Русский' },
+  { code:'zh-CN', flag:'🇨🇳', name:'Chinese (Simplified)',   native:'中文(简体)' },
+  { code:'zh-TW', flag:'🇹🇼', name:'Chinese (Traditional)', native:'中文(繁體)' },
+  { code:'ja',    flag:'🇯🇵', name:'Japanese',               native:'日本語' },
+  { code:'ko',    flag:'🇰🇷', name:'Korean',                 native:'한국어' },
+  { code:'hi',    flag:'🇮🇳', name:'Hindi',                  native:'हिन्दी' },
+  { code:'sw',    flag:'🇰🇪', name:'Swahili',                native:'Kiswahili' },
+  { code:'tr',    flag:'🇹🇷', name:'Turkish',                native:'Türkçe' },
+  { code:'id',    flag:'🇮🇩', name:'Indonesian',             native:'Bahasa Indonesia' },
+  { code:'vi',    flag:'🇻🇳', name:'Vietnamese',             native:'Tiếng Việt' },
+  { code:'th',    flag:'🇹🇭', name:'Thai',                   native:'ภาษาไทย' },
+  { code:'ms',    flag:'🇲🇾', name:'Malay',                  native:'Bahasa Melayu' },
+  { code:'pl',    flag:'🇵🇱', name:'Polish',                 native:'Polski' },
+  { code:'uk',    flag:'🇺🇦', name:'Ukrainian',              native:'Українська' },
+  { code:'ha',    flag:'🇳🇬', name:'Hausa',                  native:'Hausa' },
+  { code:'yo',    flag:'🇳🇬', name:'Yoruba',                 native:'Yorùbá' },
 ];
 
-let currentLangCode = 'en';
-/* Store original text of every translated node so we can restore English */
-const originalTexts = new WeakMap();
-/* Cache translations to avoid re-fetching */
-const translationCache = {};   /* key: "text||lang" → translated string */
+let currentLangCode = 'om';
 
-/* ── Collect all translatable text nodes ── */
-function getTextNodes(root) {
-  const walker = document.createTreeWalker(
-    root || document.body,
-    NodeFilter.SHOW_TEXT,
-    {
-      acceptNode: function(node) {
-        const p = node.parentElement;
-        if (!p) return NodeFilter.FILTER_REJECT;
-        /* Skip script, style, invisible, and GT elements */
-        const tag = p.tagName;
-        if (tag === 'SCRIPT' || tag === 'STYLE' || tag === 'NOSCRIPT') return NodeFilter.FILTER_REJECT;
-        const text = node.nodeValue.trim();
-        if (!text || text.length < 2) return NodeFilter.FILTER_REJECT;
-        /* Skip pure numbers/symbols */
-        if (/^[\d\s\+\-\.\,\%\$\#\@\!\?\:\;\(\)\[\]\{\}\/\\]+$/.test(text)) return NodeFilter.FILTER_REJECT;
-        return NodeFilter.FILTER_ACCEPT;
-      }
-    }
-  );
-  const nodes = [];
-  let n;
-  while ((n = walker.nextNode())) nodes.push(n);
-  return nodes;
-}
-
-/* ── Save original English text ── */
-function saveOriginals() {
-  getTextNodes().forEach(function(node) {
-    if (!originalTexts.has(node)) {
-      originalTexts.set(node, node.nodeValue);
-    }
-  });
-}
-
-/* ── Restore original English ── */
-function restoreEnglish() {
-  getTextNodes().forEach(function(node) {
-    if (originalTexts.has(node)) {
-      node.nodeValue = originalTexts.get(node);
-    }
-  });
-}
-
-/* ── Translate a batch of strings via MyMemory API ── */
-async function translateBatch(texts, targetLang) {
-  const results = [];
-  /* MyMemory supports up to 500 chars per request, batch by joining */
-  /* We translate individually but use cache to speed up repeat calls */
-  for (let i = 0; i < texts.length; i++) {
-    const text = texts[i];
-    const cacheKey = text + '||' + targetLang;
-    if (translationCache[cacheKey]) {
-      results.push(translationCache[cacheKey]);
-      continue;
-    }
-    try {
-      const url = 'https://api.mymemory.translated.net/get?q='
-        + encodeURIComponent(text)
-        + '&langpair=en|' + targetLang
-        + '&de=afoluofethiopia@gmail.com';
-      const res = await fetch(url);
-      const data = await res.json();
-      const translated = (data.responseStatus === 200 && data.responseData)
-        ? data.responseData.translatedText
-        : text;
-      translationCache[cacheKey] = translated;
-      results.push(translated);
-    } catch(e) {
-      results.push(text);
-    }
-    /* Small delay to avoid rate limiting */
-    if (i < texts.length - 1) await new Promise(r => setTimeout(r, 30));
-  }
-  return results;
-}
-
-/* ── Main translate function ── */
-async function translatePage(langCode) {
-  const loader    = document.getElementById('translateLoading');
-  const loaderTxt = document.getElementById('translateLoadingText');
-
-  if (langCode === 'en') {
-    restoreEnglish();
-    document.documentElement.lang = 'en';
-    document.documentElement.dir  = 'ltr';
-    if (loader) loader.classList.remove('show');
-    return;
-  }
-
-  /* Show loader */
-  if (loader)    { loaderTxt.textContent = 'Translating…'; loader.classList.add('show'); }
-
-  document.documentElement.lang = langCode;
-  document.documentElement.dir  = (langCode === 'ar') ? 'rtl' : 'ltr';
-
-  /* Make sure originals are saved */
-  saveOriginals();
-
-  const nodes = getTextNodes();
-  const texts = nodes.map(n => originalTexts.get(n) || n.nodeValue);
-
-  /* Translate in chunks of 40 to keep requests manageable */
-  const CHUNK = 40;
-  let done = 0;
-  for (let i = 0; i < texts.length; i += CHUNK) {
-    const chunk      = texts.slice(i, i + CHUNK);
-    const chunkNodes = nodes.slice(i, i + CHUNK);
-    try {
-      const translated = await translateBatch(chunk, langCode);
-      translated.forEach(function(t, j) {
-        chunkNodes[j].nodeValue = t;
-      });
-    } catch(e) { /* keep original on error */ }
-    done += chunk.length;
-    if (loaderTxt) loaderTxt.textContent = 'Translating… ' + Math.min(Math.round(done/texts.length*100),99) + '%';
-  }
-
-  if (loader) { loaderTxt.textContent = 'Done ✓'; setTimeout(function(){ loader.classList.remove('show'); }, 1200); }
-}
-
-/* ── Render language dropdown ── */
 function renderLangList(query) {
   const list = document.getElementById('langList');
   if (!list) return;
-  const q = (query||'').toLowerCase().trim();
+  const q = (query || '').toLowerCase().trim();
   const filtered = q ? LANGUAGES.filter(l =>
-    l.name.toLowerCase().includes(q) || l.native.toLowerCase().includes(q) || l.code.toLowerCase().includes(q)
+    l.name.toLowerCase().includes(q) ||
+    l.native.toLowerCase().includes(q) ||
+    l.code.toLowerCase().includes(q)
   ) : LANGUAGES;
   list.innerHTML = '';
   filtered.forEach(function(lang) {
@@ -3876,7 +3732,6 @@ function renderLangList(query) {
 
 function filterLangs(q) { renderLangList(q); }
 
-/* ── Select a language ── */
 function selectLanguage(lang) {
   currentLangCode = lang.code;
 
@@ -3886,6 +3741,10 @@ function selectLanguage(lang) {
   if (flagEl) flagEl.textContent = lang.flag;
   if (codeEl) codeEl.textContent = lang.name;
 
+  /* Close dropdown */
+  document.getElementById('langSelector').classList.remove('open');
+  renderLangList('');
+
   /* Save preference */
   try {
     localStorage.setItem('afolu-lang-code', lang.code);
@@ -3893,15 +3752,51 @@ function selectLanguage(lang) {
     localStorage.setItem('afolu-lang-flag', lang.flag);
   } catch(e) {}
 
-  /* Close dropdown */
-  document.getElementById('langSelector').classList.remove('open');
-  renderLangList('');
-
-  /* Translate */
-  translatePage(lang.code);
+  /* Trigger browser translation via Google Translate widget */
+  triggerBrowserTranslate(lang.code);
 }
 
-/* ── Toggle dropdown ── */
+function triggerBrowserTranslate(targetCode) {
+  /* If Oromo selected — restore original */
+  if (targetCode === 'om') {
+    var restore = document.querySelector('.goog-te-menu-value span') ||
+                  document.querySelector('#\:1\.container');
+    /* Try clicking "Show original" button if present */
+    var showOrig = document.querySelector('.goog-te-gadget-icon + span a') ||
+                   document.querySelector('a.goog-te-menu-value');
+    /* Use the GT combo select */
+    var select = document.querySelector('select.goog-te-combo');
+    if (select) { select.value = ''; select.dispatchEvent(new Event('change')); }
+    return;
+  }
+
+  /* Use Google Translate Element to translate to target */
+  var select = document.querySelector('select.goog-te-combo');
+  if (select) {
+    select.value = targetCode;
+    select.dispatchEvent(new Event('change'));
+  } else {
+    /* GT not loaded yet — load it now */
+    if (!window._gtLoading) {
+      window._gtLoading = true;
+      window.googleTranslateElementInit = function() {
+        new google.translate.TranslateElement({
+          pageLanguage: 'om',
+          autoDisplay: false
+        }, 'google_translate_element');
+        /* After init, try again */
+        setTimeout(function() {
+          var s = document.querySelector('select.goog-te-combo');
+          if (s) { s.value = targetCode; s.dispatchEvent(new Event('change')); }
+        }, 800);
+      };
+      var script = document.createElement('script');
+      script.src = 'https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit';
+      document.head.appendChild(script);
+    }
+  }
+}
+
 function toggleLangDropdown(e) {
   e.stopPropagation();
   var sel = document.getElementById('langSelector');
@@ -3914,40 +3809,35 @@ function toggleLangDropdown(e) {
   }
 }
 
-/* Close on outside click */
 document.addEventListener('click', function(e) {
   var sel = document.getElementById('langSelector');
   if (sel && !sel.contains(e.target)) sel.classList.remove('open');
 });
 
-/* ── Init ── */
-(function init() {
-  /* Save originals as early as possible */
-  if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', saveOriginals);
-  } else {
-    saveOriginals();
-  }
-
+/* Init */
+(function() {
   renderLangList('');
-
-  /* Restore saved language */
   try {
     var savedCode = localStorage.getItem('afolu-lang-code');
     var savedName = localStorage.getItem('afolu-lang-name');
     var savedFlag = localStorage.getItem('afolu-lang-flag');
-    if (savedCode && savedCode !== 'en' && savedName) {
+    if (savedCode && savedCode !== 'om' && savedName) {
       var flagEl = document.getElementById('currentFlag');
       var codeEl = document.getElementById('currentLangCode');
       if (flagEl) flagEl.textContent = savedFlag || '🌐';
       if (codeEl) codeEl.textContent = savedName;
       currentLangCode = savedCode;
-      /* Delay so page fully renders first */
-      setTimeout(function() { translatePage(savedCode); }, 800);
+      setTimeout(function() { triggerBrowserTranslate(savedCode); }, 600);
     }
   } catch(e) {}
 })();
 
+/* Hidden GT element for programmatic translation */
+
 </script>
+
+<!-- Google Translate Element (hidden, used programmatically) -->
+<div id="google_translate_element" style="display:none;visibility:hidden;height:0;overflow:hidden;"></div>
+
 </body>
 </html>
