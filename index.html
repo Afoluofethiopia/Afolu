@@ -644,25 +644,88 @@ img { display: block; max-width: 100%; }
 .news-item:hover .news-discover { gap: 0.55rem; color: var(--forest); }
 
 /* Announcements */
-.ann-list { display: flex; flex-direction: column; gap: 0; }
-.ann-item {
-  display: flex; align-items: flex-start; gap: 1rem;
-  padding: 1rem 0;
-  border-bottom: 1px solid var(--border-soft);
-  cursor: pointer; transition: all 0.2s;
+/* ── Events Card Carousel (same layout as news) ── */
+.events-carousel-wrap { position: relative; overflow: hidden; margin-bottom: 0; }
+.events-carousel-nav {
+  display: flex; justify-content: flex-end; align-items: center; gap: 0.5rem; margin-bottom: 0.8rem;
 }
-.ann-item:hover { padding-left: 0.5rem; }
-.ann-dot {
-  width: 36px; height: 36px; border-radius: 8px;
-  background: var(--ivory);
-  border: 1px solid var(--border);
+.ec-btn {
+  width: 32px; height: 32px; border-radius: 50%;
+  border: 1.5px solid var(--border); background: var(--white);
+  color: var(--ink-soft); font-size: 0.95rem; cursor: pointer;
   display: flex; align-items: center; justify-content: center;
-  font-size: 1rem; flex-shrink: 0;
   transition: all 0.2s;
 }
-.ann-item:hover .ann-dot { background: var(--earth); border-color: var(--earth); }
-.ann-title { font-size: 0.88rem; font-weight: 600; color: var(--ink-soft); margin-bottom: 0.2rem; line-height: 1.4; }
-.ann-meta { font-size: 0.72rem; color: var(--muted); }
+.ec-btn:hover { background: var(--forest); color: var(--white); border-color: var(--forest); }
+.ec-page-label { font-size: 0.72rem; color: var(--muted); margin: 0 0.3rem; }
+.events-grid {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem;
+  animation: newsFadeIn 0.45s ease;
+}
+@media(max-width:680px) { .events-grid { grid-template-columns: 1fr; } }
+.events-carousel-dots {
+  display: flex; justify-content: center; gap: 0.5rem; margin: 1rem 0 0;
+}
+.ec-dot {
+  width: 8px; height: 8px; border-radius: 50%;
+  background: var(--border); border: none; cursor: pointer;
+  transition: all 0.25s; padding: 0;
+}
+.ec-dot.active { background: var(--earth); transform: scale(1.3); }
+.event-card {
+  background: var(--white); border: 1px solid var(--border); border-radius: 10px;
+  overflow: hidden; cursor: pointer;
+  transition: transform 0.25s, box-shadow 0.25s;
+  display: flex; flex-direction: column;
+}
+.event-card:hover { transform: translateY(-4px); box-shadow: 0 12px 36px rgba(0,0,0,0.1); }
+.event-card:hover .event-title { color: var(--forest); }
+.event-img {
+  width: 100%; height: 200px; object-fit: cover; display: block; flex-shrink: 0;
+}
+.event-img-placeholder {
+  width: 100%; height: 200px; flex-shrink: 0;
+  display: flex; flex-direction: column; align-items: center; justify-content: center;
+  font-size: 2.8rem; gap: 0.5rem;
+  background: linear-gradient(135deg, var(--sky) 0%, var(--forest-mid) 100%);
+  color: rgba(255,255,255,0.85); position: relative; overflow: hidden;
+}
+.event-img-placeholder::after {
+  content: '';
+  position: absolute; inset: 0;
+  background: radial-gradient(circle at 70% 30%, rgba(200,150,62,0.18), transparent 60%);
+}
+.event-body {
+  padding: 1.1rem 1.2rem 1.3rem; flex: 1;
+  display: flex; flex-direction: column; gap: 0.35rem;
+}
+.event-meta-row {
+  display: flex; align-items: center; justify-content: space-between; margin-bottom: 0.1rem;
+}
+.event-date-str { font-size: 0.72rem; color: var(--muted); font-weight: 500; }
+.event-type-tag {
+  display: inline-block; font-size: 0.58rem; font-weight: 700;
+  letter-spacing: 0.1em; text-transform: uppercase;
+  color: var(--sky); background: rgba(26,58,92,0.08);
+  padding: 0.18rem 0.55rem; border-radius: 3px;
+}
+.event-title {
+  font-family: 'Playfair Display', serif; font-size: 1rem; font-weight: 700;
+  color: var(--sky); line-height: 1.4; transition: color 0.2s;
+}
+.event-excerpt {
+  font-size: 0.82rem; color: var(--muted); line-height: 1.65;
+  display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden;
+}
+.event-card-footer {
+  display: flex; align-items: center; justify-content: space-between;
+  margin-top: auto; padding-top: 0.7rem; border-top: 1px solid var(--border-soft);
+}
+.event-discover {
+  font-size: 0.72rem; font-weight: 700; color: var(--sky-bright);
+  display: flex; align-items: center; gap: 0.3rem; transition: gap 0.2s;
+}
+.event-card:hover .event-discover { gap: 0.55rem; color: var(--forest); }
 
 /* Sidebar */
 .sidebar-card {
@@ -1905,42 +1968,15 @@ footer {
             </div>
             <span class="see-all" data-view="events">Hunda Ilaalaa →</span>
           </div>
-          <div class="ann-list reveal rd1">
-            <div class="ann-item" data-view="events">
-              <div class="ann-dot">📢</div>
-              <div>
-                <div class="ann-title">Warshaa Qonnaa Qilleensa-Ogummaa — Galmaawwii Banaa</div>
-                <div class="ann-meta">Ebla 25, 2026 · Addis Ababa</div>
-              </div>
+          <!-- Events Carousel - loaded from news.json (type=Event) -->
+          <div class="events-carousel-wrap reveal rd1">
+            <div class="events-carousel-nav">
+              <span class="ec-page-label" id="homeEventsPageLabel">1 / 1</span>
+              <button class="ec-btn" id="homeEventsPrev" aria-label="Previous">&#8249;</button>
+              <button class="ec-btn" id="homeEventsNext" aria-label="Next">&#8250;</button>
             </div>
-            <div class="ann-item" data-view="events">
-              <div class="ann-dot">📋</div>
-              <div>
-                <div class="ann-title">Waamicha Iyyannoo: Sagantaa Hordoffii AFOLU 2026</div>
-                <div class="ann-meta">Yeroo Dhumaa: Caamsaa 10, 2026</div>
-              </div>
-            </div>
-            <div class="ann-item" data-view="Projects">
-              <div class="ann-dot">🔬</div>
-              <div>
-                <div class="ann-title">Ilaallata Hojiirra Oolmaa Pirojektii REDD+ — Wa'ee Hirmaattoota</div>
-                <div class="ann-meta">Caamsaa 3, 2026 · Virtuwaalii fi Dhihoo</div>
-              </div>
-            </div>
-            <div class="ann-item" data-view="Reports">
-              <div class="ann-dot">📄</div>
-              <div>
-                <div class="ann-title">Gabaasa Waggaa 2025 Amma Buufachuuf Jira</div>
-                <div class="ann-meta">Bahe: Bitootessa 30, 2026</div>
-              </div>
-            </div>
-            <div class="ann-item" data-view="events">
-              <div class="ann-dot">🎓</div>
-              <div>
-                <div class="ann-title">Simpooziyeemii Biyyoolessaa Bulchiinsa Lafa Itti Fufiinsa Qabu — Waamicha Barreeffamaa</div>
-                <div class="ann-meta">Yeroo Dhumaa Cuunfaa: Ebla 30, 2026</div>
-              </div>
-            </div>
+            <div class="events-grid" id="homeEventsGrid"></div>
+            <div class="events-carousel-dots" id="homeEventsDots"></div>
           </div>
         </div>
 
@@ -3425,8 +3461,9 @@ window.addEventListener('popstate', function(e) {
   }
 })();
 
-/* Load home news carousel on startup */
+/* Load home news and events carousels on startup */
 loadHomeNews();
+loadHomeEvents();
 
 /* ============================================================
    NEWS SYSTEM
@@ -3647,6 +3684,134 @@ function filterNews() {
   const parts = [sec, type, q ? `"${q}"` : ''].filter(Boolean);
   console.log('Filters active:', parts);
   renderNews(filtered);
+}
+
+
+/* ============================================================
+   HOME EVENTS CAROUSEL
+   ============================================================ */
+const EVENT_IMAGES = {
+  'Taateewwan':                  'https://images.unsplash.com/photo-1515187029135-18ee286d815b?w=600&q=80',
+  'Dandamachuu Qilleensaa':      'https://images.unsplash.com/photo-1504711434969-e33886168f5c?w=600&q=80',
+  'REDD+':                       'https://i.imgur.com/ksFd2DK.png',
+  'Sagantaa Dhaalota Magariisa': 'https://i.imgur.com/36K6kb7.png',
+  'Latest News':                 'https://images.unsplash.com/photo-1540575467063-178a50c2df87?w=600&q=80',
+  'Natural Resource Management': 'https://images.unsplash.com/photo-1500382017468-9049fed747ef?w=600&q=80',
+  'Plant Science':               'https://images.unsplash.com/photo-1416879595882-3373a0480b5b?w=600&q=80',
+  'Rural Development':           'https://images.unsplash.com/photo-1625246333195-78d9c38ad449?w=600&q=80',
+  'Forestry':                    'https://images.unsplash.com/photo-1448375240586-882707db888b?w=600&q=80',
+};
+const EVENT_ICONS = {
+  'Taateewwan':'📅','Dandamachuu Qilleensaa':'🌡','REDD+':'🌳',
+  'Sagantaa Dhaalota Magariisa':'🌱','Latest News':'📢','Natural Resource Management':'🌍',
+  'Plant Science':'🌾','Rural Development':'🏘','Forestry':'🌳',
+};
+
+let homeEventsData = [];
+let homeEventsPage = 0;
+const HOME_EVENTS_PER_PAGE = 4;
+let homeEventsTimer = null;
+
+function buildHomeEventCard(post) {
+  const d = new Date(post.date);
+  const dateStr = d.toLocaleDateString('en-GB', { day:'numeric', month:'short', year:'numeric' });
+  const icon = EVENT_ICONS[post.section] || '📅';
+  const imgUrl = post.image || EVENT_IMAGES[post.section] || '';
+  const vt = SECTION_VIEW_MAP[post.section] || 'events';
+  const imgHtml = imgUrl
+    ? `<img class="event-img" src="${imgUrl}" alt="${post.title}" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">`
+      + `<div class="event-img-placeholder" style="display:none">${icon}</div>`
+    : `<div class="event-img-placeholder">${icon}</div>`;
+  return `<div class="event-card" onclick="showView('${vt}')">
+    ${imgHtml}
+    <div class="event-body">
+      <div class="event-meta-row">
+        <span class="event-date-str">${dateStr}</span>
+        ${post.type ? `<span class="event-type-tag">${post.type}</span>` : ''}
+      </div>
+      <div class="event-title">${post.title}</div>
+      <div class="event-excerpt">${post.body}</div>
+      <div class="event-card-footer">
+        <span style="font-size:0.72rem;color:var(--muted)">${post.section || ''}</span>
+        <span class="event-discover">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+          Taatee Hunda Ilaalaa →
+        </span>
+      </div>
+    </div>
+  </div>`;
+}
+
+function renderHomeEventsPage(page) {
+  const grid = document.getElementById('homeEventsGrid');
+  const dotsEl = document.getElementById('homeEventsDots');
+  const label = document.getElementById('homeEventsPageLabel');
+  if (!grid || !homeEventsData.length) return;
+  const totalPages = Math.ceil(homeEventsData.length / HOME_EVENTS_PER_PAGE);
+  const start = page * HOME_EVENTS_PER_PAGE;
+  const slice = homeEventsData.slice(start, start + HOME_EVENTS_PER_PAGE);
+  grid.style.animation = 'none';
+  grid.offsetHeight;
+  grid.style.animation = 'newsFadeIn 0.45s ease';
+  grid.innerHTML = slice.map(buildHomeEventCard).join('');
+  if (dotsEl) {
+    dotsEl.innerHTML = Array.from({length: totalPages}, (_, i) =>
+      `<button class="ec-dot${i===page?' active':''}" onclick="goHomeEventsPage(${i})"></button>`
+    ).join('');
+  }
+  if (label) label.textContent = (page+1) + ' / ' + totalPages;
+  homeEventsPage = page;
+}
+
+function goHomeEventsPage(page) {
+  clearInterval(homeEventsTimer);
+  renderHomeEventsPage(page);
+  startHomeEventsTimer();
+}
+
+function startHomeEventsTimer() {
+  homeEventsTimer = setInterval(function() {
+    const total = Math.ceil(homeEventsData.length / HOME_EVENTS_PER_PAGE);
+    renderHomeEventsPage((homeEventsPage + 1) % total);
+  }, 6000);
+}
+
+document.addEventListener('DOMContentLoaded', function() {
+  var prev = document.getElementById('homeEventsPrev');
+  var next = document.getElementById('homeEventsNext');
+  if (prev) prev.addEventListener('click', function() {
+    var total = Math.ceil(homeEventsData.length / HOME_EVENTS_PER_PAGE);
+    goHomeEventsPage((homeEventsPage - 1 + total) % total);
+  });
+  if (next) next.addEventListener('click', function() {
+    var total = Math.ceil(homeEventsData.length / HOME_EVENTS_PER_PAGE);
+    goHomeEventsPage((homeEventsPage + 1) % total);
+  });
+});
+
+async function loadHomeEvents() {
+  try {
+    const res = await fetch('news.json?v=' + Date.now());
+    if (!res.ok) throw new Error('not found');
+    const data = await res.json();
+    /* Show ALL posts as events (announcements + events) sorted by date */
+    homeEventsData = (data.posts || [])
+      .filter(p => p.type === 'Event' || p.type === 'Announcement')
+      .sort((a, b) => new Date(b.date) - new Date(a.date));
+    /* Fallback: if none match, show all posts */
+    if (!homeEventsData.length) {
+      homeEventsData = (data.posts || []).sort((a, b) => new Date(b.date) - new Date(a.date));
+    }
+    renderHomeEventsPage(0);
+    if (homeEventsData.length > HOME_EVENTS_PER_PAGE) startHomeEventsTimer();
+  } catch(e) {
+    const grid = document.getElementById('homeEventsGrid');
+    if (grid) grid.innerHTML = `
+      <div style="grid-column:1/-1;background:var(--ivory);border:1px solid var(--border);border-left:4px solid var(--earth);border-radius:8px;padding:1.5rem 2rem">
+        <div style="font-weight:700;color:var(--forest);margin-bottom:0.4rem">⚠ Taateewwan Hin Argamne</div>
+        <p style="font-size:0.85rem;color:var(--muted)">news.json faayilii HTML wajjin tokkoo ol kaa'i. Gaafii kamifuu: afoluofethiopia@gmail.com</p>
+      </div>`;
+  }
 }
 
 /* ============================================================
