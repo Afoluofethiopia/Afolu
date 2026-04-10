@@ -4011,678 +4011,174 @@ footer {
 </div>
 
 <script>
-/* ============================================================
-   HERO SLIDER
-   ============================================================ */
-(function() {
-  var slides = document.querySelectorAll('.hero-slide');
-  var dots   = document.querySelectorAll('.sdot');
-  var cur = 0, timer;
-  function goTo(n) {
-    slides[cur].classList.remove('active'); dots[cur].classList.remove('active');
-    cur = (n + slides.length) % slides.length;
-    slides[cur].classList.add('active'); dots[cur].classList.add('active');
-  }
-  var sNext = document.getElementById('sNext');
-  var sPrev = document.getElementById('sPrev');
-  if (sNext) sNext.addEventListener('click', function(){ goTo(cur+1); reset(); });
-  if (sPrev) sPrev.addEventListener('click', function(){ goTo(cur-1); reset(); });
-  dots.forEach(function(d){ d.addEventListener('click', function(){ goTo(+d.dataset.s); reset(); }); });
-  function reset(){ clearInterval(timer); timer = setInterval(function(){ goTo(cur+1); }, 6000); }
+/* HERO SLIDER */
+(function(){
+  var slides=document.querySelectorAll('.hero-slide'),dots=document.querySelectorAll('.sdot'),cur=0,timer;
+  function goTo(n){slides[cur].classList.remove('active');dots[cur].classList.remove('active');cur=(n+slides.length)%slides.length;slides[cur].classList.add('active');dots[cur].classList.add('active');}
+  var sn=document.getElementById('sNext'),sp=document.getElementById('sPrev');
+  if(sn)sn.addEventListener('click',function(){goTo(cur+1);reset();});
+  if(sp)sp.addEventListener('click',function(){goTo(cur-1);reset();});
+  dots.forEach(function(d){d.addEventListener('click',function(){goTo(+d.dataset.s);reset();});});
+  function reset(){clearInterval(timer);timer=setInterval(function(){goTo(cur+1);},6000);}
   reset();
 })();
 
-/* ============================================================
-   HAMBURGER
-   ============================================================ */
-var hbg      = document.getElementById('hamburger');
-var navLinks = document.getElementById('navLinks');
-hbg.addEventListener('click', function(){
-  hbg.classList.toggle('open');
-  navLinks.classList.toggle('open');
-});
+/* HAMBURGER */
+var hbg=document.getElementById('hamburger'),navLinks=document.getElementById('navLinks');
+hbg.addEventListener('click',function(){hbg.classList.toggle('open');navLinks.classList.toggle('open');});
 
-/* ============================================================
-   DROPDOWNS
-   ============================================================ */
-document.querySelectorAll('.has-drop > a').forEach(function(trigger){
-  trigger.addEventListener('click', function(e){
-    e.preventDefault(); e.stopPropagation();
-    var li = this.parentElement;
-    var wasOpen = li.classList.contains('open');
-    document.querySelectorAll('.has-drop').forEach(function(x){ x.classList.remove('open'); });
-    if (!wasOpen) li.classList.add('open');
-  });
+/* DROPDOWNS */
+document.querySelectorAll('.has-drop > a').forEach(function(t){
+  t.addEventListener('click',function(e){e.preventDefault();e.stopPropagation();var li=this.parentElement,was=li.classList.contains('open');document.querySelectorAll('.has-drop').forEach(function(x){x.classList.remove('open');});if(!was)li.classList.add('open');});
 });
-document.addEventListener('click', function(){
-  document.querySelectorAll('.has-drop').forEach(function(x){ x.classList.remove('open'); });
-});
+document.addEventListener('click',function(){document.querySelectorAll('.has-drop').forEach(function(x){x.classList.remove('open');});});
 
-/* ============================================================
-   HASH ROUTING
-   ============================================================ */
-var VIEW_SLUG = {
-  'home':'home','About':'about','Mission':'mission','Leadership':'leadership',
-  'Organizational':'org-structure','plant-science':'plant-science',
-  'Natural-Resource-Mgmt':'natural-resource-management','agroforestry':'agroforestry',
-  'animal-science':'animal-science','Extension':'rural-development',
-  'Agro-Economics':'agro-economics','forestry':'forestry',
-  'Wildlife':'wildlife-ecotourism','Legacy':'green-legacy','REDD':'redd-plus',
-  'Climate':'climate-resilience','Food':'food-security',
-  'Reports':'reports-publications','Geospatial':'geospatial-gis',
-  'publications':'technical-manuals','Projects':'current-projects',
-  'Completed':'completed-projects','Regional':'regional-projects',
-  'News':'news','events':'events','Gallery':'gallery','Testimonials':'testimonials'
-};
-var SLUG_VIEW = {};
-Object.keys(VIEW_SLUG).forEach(function(k){ SLUG_VIEW[VIEW_SLUG[k]] = k; });
-
-function setHash(slug){
-  var newHash = (!slug || slug==='home') ? '' : '#'+slug;
-  try { history.pushState({view:slug}, '', window.location.pathname + window.location.search + newHash); } catch(e){}
+/* ROUTING */
+var VIEW_SLUG={'home':'home','About':'about','Mission':'mission','Leadership':'leadership','Organizational':'org-structure','plant-science':'plant-science','Natural-Resource-Mgmt':'natural-resource-management','agroforestry':'agroforestry','animal-science':'animal-science','Extension':'rural-development','Agro-Economics':'agro-economics','forestry':'forestry','Wildlife':'wildlife-ecotourism','Legacy':'green-legacy','REDD':'redd-plus','Climate':'climate-resilience','Food':'food-security','Reports':'reports-publications','Geospatial':'geospatial-gis','publications':'technical-manuals','Projects':'current-projects','Completed':'completed-projects','Regional':'regional-projects','News':'news','events':'events','Gallery':'gallery','Testimonials':'testimonials'};
+var SLUG_VIEW={};Object.keys(VIEW_SLUG).forEach(function(k){SLUG_VIEW[VIEW_SLUG[k]]=k;});
+function setHash(s){var h=(!s||s==='home')?'':'#'+s;try{history.pushState({view:s},'',window.location.pathname+window.location.search+h);}catch(e){}}
+function showView(id,ph){
+  if(ph===undefined)ph=true;
+  var hd=document.getElementById('view-home'),ft=document.querySelector('footer');
+  document.querySelectorAll('.content-view').forEach(function(v){v.classList.remove('active');});
+  var slug=VIEW_SLUG[id]||id;
+  if(!id||id==='home'){hd.style.display='';ft.style.display='';document.querySelectorAll('.nav-links > li > a').forEach(function(a){a.classList.toggle('active',a.getAttribute('data-view')==='home');});if(ph)setHash('home');updateBreadcrumbBar('home','home');document.querySelectorAll('#view-home .reveal').forEach(function(el){el.classList.add('visible');});return;}
+  hd.style.display='none';ft.style.display='block';var el=document.getElementById('view-'+id);if(el)el.classList.add('active');window.scrollTo({top:0,behavior:'smooth'});hbg.classList.remove('open');navLinks.classList.remove('open');document.querySelectorAll('.has-drop').forEach(function(x){x.classList.remove('open');});document.querySelectorAll('.nav-links > li > a').forEach(function(a){a.classList.remove('active');});if(ph)setHash(slug);updateBreadcrumbBar(id,slug);
 }
+function updateBreadcrumbBar(vi,slug){var bar=document.getElementById('url-bar');if(!bar)return;var base=window.location.origin+window.location.pathname,hash=(!vi||vi==='home')?'':'#'+slug;document.getElementById('url-bar-path').textContent=base+hash;bar.setAttribute('data-slug',slug||'home');var seg=document.getElementById('url-bar-segment');if(!vi||vi==='home'){seg.textContent='';seg.style.display='none';}else{seg.textContent='#'+slug;seg.style.display='inline-flex';}var cb=document.getElementById('url-bar-copy');if(cb){cb.textContent='⎘ Garagalfadhu';cb.classList.remove('copied');}}
+document.addEventListener('click',function(e){var el=e.target.closest('[data-view]');if(!el)return;if(el.closest('.has-drop')&&el===el.closest('.has-drop').querySelector(':scope > a'))return;if(el.hasAttribute('data-sm'))return;e.preventDefault();var view=el.getAttribute('data-view');if(view){showView(view);if(view==='News')loadNews();}});
+window.addEventListener('popstate',function(){var hash=window.location.hash.replace('#','');var v=hash?(SLUG_VIEW[hash]||hash):'home';showView(v,false);if(v==='News')loadNews();});
+(function(){var hash=window.location.hash.replace('#','').trim();if(hash){var v=SLUG_VIEW[hash]||hash;showView(v,false);if(v==='News')loadNews();}else{showView('home',false);}})();
 
-function showView(id, pushHistory){
-  if (pushHistory === undefined) pushHistory = true;
-  var homeDiv = document.getElementById('view-home');
-  var footer  = document.querySelector('footer');
-  document.querySelectorAll('.content-view').forEach(function(v){ v.classList.remove('active'); });
-  var slug = VIEW_SLUG[id] || id;
-  if (!id || id === 'home') {
-    homeDiv.style.display = '';
-    footer.style.display  = '';
-    document.querySelectorAll('.nav-links > li > a').forEach(function(a){
-      a.classList.toggle('active', a.getAttribute('data-view') === 'home');
-    });
-    if (pushHistory) setHash('home');
-    updateBreadcrumbBar('home', 'home');
-    document.querySelectorAll('#view-home .reveal').forEach(function(el){ el.classList.add('visible'); });
-    return;
-  }
-  homeDiv.style.display = 'none';
-  footer.style.display  = 'block';
-  var el = document.getElementById('view-' + id);
-  if (el) el.classList.add('active');
-  window.scrollTo({top:0, behavior:'smooth'});
-  hbg.classList.remove('open');
-  navLinks.classList.remove('open');
-  document.querySelectorAll('.has-drop').forEach(function(x){ x.classList.remove('open'); });
-  document.querySelectorAll('.nav-links > li > a').forEach(function(a){ a.classList.remove('active'); });
-  if (pushHistory) setHash(slug);
-  updateBreadcrumbBar(id, slug);
-}
+/* SECTION/IMAGE MAPS */
+var SECTION_VIEW_MAP={'Plant Science':'plant-science','Natural Resource Management':'Natural-Resource-Mgmt','Agroforestry':'agroforestry','Animal Science':'animal-science','Rural Development':'Extension','Agro-Economics':'Agro-Economics','Forestry':'forestry','Wildlife & Ecotourism':'Wildlife','Sagantaa Dhaalota Magariisa':'Legacy','Nageenya Nyaataa':'Food','Dandamachuu Qilleensaa':'Climate','REDD+':'REDD','Geospatial & GIS':'Geospatial','Technical Manuals':'publications','Gabaasaalee fi Maxxansaalee':'Reports','Latest News':'News','Events':'events','Taateewwan':'events'};
+var SECTION_ICONS={'Sagantaa Dhaalota Magariisa':'🌱','REDD+':'🌳','Dandamachuu Qilleensaa':'🌡','Nageenya Nyaataa':'🌾','Natural Resource Management':'🌍','Plant Science':'🌾','Agroforestry':'🌿','Animal Science':'🐄','Rural Development':'🏘','Agro-Economics':'📊','Forestry':'🌳','Wildlife & Ecotourism':'🦁','Geospatial & GIS':'🛰','Technical Manuals':'📘','Latest News':'📰','Gabaasaalee fi Maxxansaalee':'📄','Taateewwan':'📅'};
+var IMG_MAP={'Sagantaa Dhaalota Magariisa':'https://i.imgur.com/36K6kb7.png','REDD+':'https://i.imgur.com/ksFd2DK.png','Dandamachuu Qilleensaa':'https://i.imgur.com/ksFd2DK.png','Natural Resource Management':'https://images.unsplash.com/photo-1500382017468-9049fed747ef?w=600&q=80','Plant Science':'https://images.unsplash.com/photo-1416879595882-3373a0480b5b?w=600&q=80','Agroforestry':'https://images.unsplash.com/photo-1464226184884-fa280b87c399?w=600&q=80','Animal Science':'https://images.unsplash.com/photo-1560493676-04071c5f467b?w=600&q=80','Rural Development':'https://images.unsplash.com/photo-1625246333195-78d9c38ad449?w=600&q=80','Agro-Economics':'https://images.unsplash.com/photo-1543286386-713bdd548da4?w=600&q=80','Forestry':'https://images.unsplash.com/photo-1448375240586-882707db888b?w=600&q=80','Wildlife & Ecotourism':'https://images.unsplash.com/photo-1474511320723-9a56873867b5?w=600&q=80','Geospatial & GIS':'https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=600&q=80','Nageenya Nyaataa':'https://images.unsplash.com/photo-1603048297172-c92544798d5a?w=600&q=80','Gabaasaalee fi Maxxansaalee':'https://images.unsplash.com/photo-1481627834876-b7833e8f5570?w=600&q=80','Technical Manuals':'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=600&q=80','Latest News':'https://i.imgur.com/TOLgCdy.png','Taateewwan':'https://images.unsplash.com/photo-1515187029135-18ee286d815b?w=600&q=80'};
 
-function updateBreadcrumbBar(viewId, slug){
-  var bar = document.getElementById('url-bar');
-  if (!bar) return;
-  var base = window.location.origin + window.location.pathname;
-  var hash = (!viewId || viewId==='home') ? '' : '#'+slug;
-  document.getElementById('url-bar-path').textContent = base + hash;
-  bar.setAttribute('data-slug', slug || 'home');
-  var segEl = document.getElementById('url-bar-segment');
-  if (!viewId || viewId==='home') { segEl.textContent=''; segEl.style.display='none'; }
-  else { segEl.textContent='#'+slug; segEl.style.display='inline-flex'; }
-  var copyBtn = document.getElementById('url-bar-copy');
-  if (copyBtn) { copyBtn.textContent='⎘ Garagalfadhu'; copyBtn.classList.remove('copied'); }
-}
-
-/* Global data-view click handler */
-document.addEventListener('click', function(e){
-  var el = e.target.closest('[data-view]');
-  if (!el) return;
-  if (el.closest('.has-drop') && el === el.closest('.has-drop').querySelector(':scope > a')) return;
-  if (el.hasAttribute('data-sm')) return;
-  e.preventDefault();
-  var view = el.getAttribute('data-view');
-  if (view) { showView(view); if (view==='News') loadNews(); }
-});
-
-window.addEventListener('popstate', function(){
-  var hash = window.location.hash.replace('#','');
-  var viewId = hash ? (SLUG_VIEW[hash]||hash) : 'home';
-  showView(viewId, false);
-  if (viewId==='News') loadNews();
-});
-
-(function initFromHash(){
-  var hash = window.location.hash.replace('#','').trim();
-  if (hash) { var v = SLUG_VIEW[hash]||hash; showView(v,false); if(v==='News') loadNews(); }
-  else { showView('home', false); }
-})();
-
-/* ============================================================
-   DETAIL POPUP
-   ============================================================ */
+/* DETAIL POPUP */
 (function(){
-  var overlay  = document.getElementById('detailOverlay');
-  var modal    = document.getElementById('detailModal');
-  var closeBtn = document.getElementById('detailClose');
-
-  var ICONS = {
-    'Sagantaa Dhaalota Magariisa':'🌱','REDD+':'🌳','Dandamachuu Qilleensaa':'🌡',
-    'Nageenya Nyaataa':'🌾','Natural Resource Management':'🌍','Plant Science':'🌾',
-    'Agroforestry':'🌿','Animal Science':'🐄','Rural Development':'🏘',
-    'Agro-Economics':'📊','Forestry':'🌳','Wildlife & Ecotourism':'🦁',
-    'Geospatial & GIS':'🛰','Technical Manuals':'📘','Latest News':'📰',
-    'Gabaasaalee fi Maxxansaalee':'📄','Taateewwan':'📅'
-  };
-
-  function openDetailPopup(post){
-    if (!post) return;
-    var d = new Date(post.date);
-    var dateStr = d.toLocaleDateString('en-GB',{day:'numeric',month:'long',year:'numeric'});
-    var icon = ICONS[post.section] || '📄';
-
-    /* Image */
-    var imgWrap = document.getElementById('detailImgWrap');
-    imgWrap.innerHTML = '';
-    if (post.image) {
-      var wrap = document.createElement('div');
-      wrap.className = 'detail-img-wrap';
-      var img = document.createElement('img');
-      img.src = post.image; img.alt = '';
-      img.onerror = function(){ wrap.style.display='none'; };
-      wrap.appendChild(img); imgWrap.appendChild(wrap);
-    } else {
-      var ph = document.createElement('div');
-      ph.className = 'detail-img-placeholder';
-      ph.textContent = icon;
-      imgWrap.appendChild(ph);
-    }
-
-    /* Meta */
-    document.getElementById('detailMetaRow').innerHTML =
-      (post.type    ? '<span class="detail-type-tag">'+post.type+'</span>' : '') +
-      (post.section ? '<span class="detail-section-tag">'+post.section+'</span>' : '') +
-      '<span class="detail-date-tag">📅 '+dateStr+'</span>';
-
-    document.getElementById('detailTitle').textContent  = post.title  || '';
-    document.getElementById('detailAuthor').textContent = post.author ? '— '+post.author : '';
-
-    /* Summary */
-    var sumEl = document.getElementById('detailSummary');
-    if (post.body) { sumEl.textContent=post.body; sumEl.style.display=''; }
-    else { sumEl.style.display='none'; }
-
-    /* Full detail */
-    var fullEl = document.getElementById('detailFull');
-    if (post.detail) {
-      var paras = post.detail.split('\n\n').filter(function(p){ return p.trim(); });
-      fullEl.innerHTML = paras.map(function(p){ return '<p>'+p.trim()+'</p>'; }).join('');
-    } else {
-      fullEl.innerHTML = '<div class="detail-no-detail">Odeeffannoo bal\'aa hin jiru. "detail" field news.json keessatti guutaa.</div>';
-    }
-    fullEl.style.display = '';
-
-    /* Location */
-    var locEl = document.getElementById('detailLocation');
-    if (post.location) { locEl.innerHTML='<div class="detail-location">📍 '+post.location+'</div>'; locEl.style.display=''; }
-    else { locEl.style.display='none'; }
-
-    /* Tags */
-    var tagsEl = document.getElementById('detailTags');
-    var tagArr = Array.isArray(post.tags) ? post.tags : [];
-    if (tagArr.length) {
-      tagsEl.innerHTML = tagArr.map(function(t){ return '<span class="detail-tag">'+t+'</span>'; }).join('');
-      tagsEl.style.display = '';
-    } else { tagsEl.style.display='none'; }
-
-    /* Footer */
-    var vt = SECTION_VIEW_MAP[post.section] || '';
-    var footerEl = document.getElementById('detailFooter');
-    footerEl.innerHTML = '';
-    if (vt) {
-      var goBtn = document.createElement('button');
-      goBtn.className = 'detail-btn detail-btn-primary';
-      goBtn.textContent = 'Fuula '+(post.section||'')+' Ilaalaa →';
-      goBtn.addEventListener('click', function(){ closeDetailPopup(); showView(vt); });
-      footerEl.appendChild(goBtn);
-    }
-    var closeFooterBtn = document.createElement('button');
-    closeFooterBtn.className = 'detail-btn detail-btn-secondary';
-    closeFooterBtn.textContent = '✕ Cufaa';
-    closeFooterBtn.addEventListener('click', closeDetailPopup);
-    footerEl.appendChild(closeFooterBtn);
-
-    overlay.classList.add('open');
-    document.body.style.overflow = 'hidden';
-    modal.scrollTop = 0;
+  var ov=document.getElementById('detailOverlay'),modal=document.getElementById('detailModal'),cb=document.getElementById('detailClose');
+  function open(post){
+    if(!post)return;
+    var d=new Date(post.date),ds=d.toLocaleDateString('en-GB',{day:'numeric',month:'long',year:'numeric'});
+    var iw=document.getElementById('detailImgWrap');iw.innerHTML='';
+    if(post.image){var w=document.createElement('div');w.className='detail-img-wrap';var img=document.createElement('img');img.src=post.image;img.alt='';img.onerror=function(){w.style.display='none';};w.appendChild(img);iw.appendChild(w);}
+    else{var ph=document.createElement('div');ph.className='detail-img-placeholder';ph.textContent=SECTION_ICONS[post.section]||'📄';iw.appendChild(ph);}
+    document.getElementById('detailMetaRow').innerHTML=(post.type?'<span class="detail-type-tag">'+post.type+'</span>':'')+(post.section?'<span class="detail-section-tag">'+post.section+'</span>':'')+'<span class="detail-date-tag">📅 '+ds+'</span>';
+    document.getElementById('detailTitle').textContent=post.title||'';
+    document.getElementById('detailAuthor').textContent=post.author?'— '+post.author:'';
+    var se=document.getElementById('detailSummary');if(post.body){se.textContent=post.body;se.style.display='';}else{se.style.display='none';}
+    var fe=document.getElementById('detailFull');
+    if(post.detail){fe.innerHTML=post.detail.split('\n\n').filter(function(p){return p.trim();}).map(function(p){return'<p>'+p.trim()+'</p>';}).join('');}
+    else{fe.innerHTML='<div class="detail-no-detail">Odeeffannoo bal\'aa hin jiru. "detail" field news.json keessatti guutaa.</div>';}
+    fe.style.display='';
+    var le=document.getElementById('detailLocation');if(post.location){le.innerHTML='<div class="detail-location">📍 '+post.location+'</div>';le.style.display='';}else{le.style.display='none';}
+    var te=document.getElementById('detailTags');var ta=Array.isArray(post.tags)?post.tags:[];if(ta.length){te.innerHTML=ta.map(function(t){return'<span class="detail-tag">'+t+'</span>';}).join('');te.style.display='';}else{te.style.display='none';}
+    var vt=SECTION_VIEW_MAP[post.section]||'';var fo=document.getElementById('detailFooter');fo.innerHTML='';
+    if(vt){var gb=document.createElement('button');gb.className='detail-btn detail-btn-primary';gb.textContent='Fuula '+(post.section||'')+' Ilaalaa →';gb.addEventListener('click',function(){close();showView(vt);});fo.appendChild(gb);}
+    if(post.fileUrl){var db=document.createElement('a');db.className='detail-btn detail-btn-primary';db.href=post.fileUrl;db.target='_blank';db.textContent='⬇ Faayilii Buufadhu';fo.appendChild(db);}
+    var xb=document.createElement('button');xb.className='detail-btn detail-btn-secondary';xb.textContent='✕ Cufaa';xb.addEventListener('click',close);fo.appendChild(xb);
+    ov.classList.add('open');document.body.style.overflow='hidden';modal.scrollTop=0;
   }
-
-  function closeDetailPopup(){
-    overlay.classList.remove('open');
-    document.body.style.overflow = '';
-  }
-
-  window.openDetailPopup  = openDetailPopup;
-  window.closeDetailPopup = closeDetailPopup;
-  closeBtn.addEventListener('click', closeDetailPopup);
-  overlay.addEventListener('click', function(e){ if(!modal.contains(e.target)) closeDetailPopup(); });
-  document.addEventListener('keydown', function(e){ if(e.key==='Escape') closeDetailPopup(); });
+  function close(){ov.classList.remove('open');document.body.style.overflow='';}
+  window.openDetailPopup=open;window.closeDetailPopup=close;
+  cb.addEventListener('click',close);
+  ov.addEventListener('click',function(e){if(!modal.contains(e.target))close();});
+  document.addEventListener('keydown',function(e){if(e.key==='Escape')close();});
 })();
 
-/* ============================================================
-   SECTION MAP + IMAGE MAP
-   ============================================================ */
-var SECTION_VIEW_MAP = {
-  'Plant Science':'plant-science','Natural Resource Management':'Natural-Resource-Mgmt',
-  'Agroforestry':'agroforestry','Animal Science':'animal-science',
-  'Rural Development':'Extension','Agro-Economics':'Agro-Economics',
-  'Forestry':'forestry','Wildlife & Ecotourism':'Wildlife',
-  'Sagantaa Dhaalota Magariisa':'Legacy','Nageenya Nyaataa':'Food',
-  'Dandamachuu Qilleensaa':'Climate','REDD+':'REDD',
-  'Geospatial & GIS':'Geospatial','Technical Manuals':'publications',
-  'Latest News':'News','Events':'events','Taateewwan':'events',
-  'Gabaasaalee fi Maxxansaalee':'Reports'
-};
+/* HOME NEWS CAROUSEL */
+var homeNewsData=[],homeNewsPage=0,homeNewsTimer=null,HOME_NEWS_PER_PAGE=4;
+function buildHomeNewsCard(post){var d=new Date(post.date),ds=d.toLocaleDateString('en-GB',{day:'numeric',month:'short',year:'numeric'}),img=post.image||IMG_MAP[post.section]||'';var c=document.createElement('div');c.className='news-item';c.style.cursor='pointer';c.innerHTML=(img?'<img class="news-img" src="'+img+'" alt="" loading="lazy">':'<div class="news-img-placeholder">📰</div>')+'<div class="news-body"><div class="news-meta-row"><span class="news-date-str">'+ds+'</span>'+(post.section?'<span class="news-tag">'+post.section+'</span>':'')+'</div><div class="news-title">'+(post.title||'')+'</div><div class="news-excerpt">'+(post.body||'')+'</div><div class="news-card-footer"><span style="font-size:0.72rem;color:var(--muted)">'+(post.author||'')+'</span><span class="news-discover">📁 Odeeffannoo Haaraa Argadhu →</span></div></div>';c.addEventListener('click',function(){openDetailPopup(post);});return c;}
+function renderHomeNewsPage(page){var g=document.getElementById('homeNewsGrid'),de=document.getElementById('homeNewsDots'),lb=document.getElementById('homeNewsPageLabel');if(!g||!homeNewsData.length)return;var tot=Math.ceil(homeNewsData.length/HOME_NEWS_PER_PAGE),sl=homeNewsData.slice(page*HOME_NEWS_PER_PAGE,(page+1)*HOME_NEWS_PER_PAGE);g.innerHTML='';sl.forEach(function(p){g.appendChild(buildHomeNewsCard(p));});if(de)de.innerHTML=Array.from({length:tot},function(_,i){return'<button class="nc-dot'+(i===page?' active':'')+'" onclick="goHomeNewsPage('+i+')"></button>';}).join('');if(lb)lb.textContent=(page+1)+' / '+tot;homeNewsPage=page;}
+function goHomeNewsPage(p){clearInterval(homeNewsTimer);renderHomeNewsPage(p);startHomeNewsTimer();}
+function startHomeNewsTimer(){homeNewsTimer=setInterval(function(){goHomeNewsPage((homeNewsPage+1)%Math.ceil(homeNewsData.length/HOME_NEWS_PER_PAGE));},6000);}
+var hn1=document.getElementById('homeNewsPrev'),hn2=document.getElementById('homeNewsNext');
+if(hn1)hn1.addEventListener('click',function(){goHomeNewsPage((homeNewsPage-1+Math.ceil(homeNewsData.length/HOME_NEWS_PER_PAGE))%Math.ceil(homeNewsData.length/HOME_NEWS_PER_PAGE));});
+if(hn2)hn2.addEventListener('click',function(){goHomeNewsPage((homeNewsPage+1)%Math.ceil(homeNewsData.length/HOME_NEWS_PER_PAGE));});
+async function loadHomeNews(){try{var r=await fetch('news.json?v='+Date.now());if(!r.ok)throw 0;var d=await r.json();homeNewsData=(d.posts||[]).sort(function(a,b){return new Date(b.date)-new Date(a.date);});renderHomeNewsPage(0);if(homeNewsData.length>HOME_NEWS_PER_PAGE)startHomeNewsTimer();}catch(e){var g=document.getElementById('homeNewsGrid');if(g)g.innerHTML='<div style="grid-column:1/-1;padding:1.5rem;background:var(--ivory);border-radius:8px;border-left:4px solid var(--earth)"><strong>⚠ Odeeffannoo Hin Argamne</strong></div>';}}
 
-var HOME_NEWS_IMAGES = {
-  'Sagantaa Dhaalota Magariisa':'https://i.imgur.com/36K6kb7.png',
-  'REDD+':'https://i.imgur.com/ksFd2DK.png',
-  'Dandamachuu Qilleensaa':'https://i.imgur.com/ksFd2DK.png',
-  'Natural Resource Management':'https://images.unsplash.com/photo-1500382017468-9049fed747ef?w=600&q=80',
-  'Plant Science':'https://images.unsplash.com/photo-1416879595882-3373a0480b5b?w=600&q=80',
-  'Agroforestry':'https://images.unsplash.com/photo-1464226184884-fa280b87c399?w=600&q=80',
-  'Animal Science':'https://images.unsplash.com/photo-1560493676-04071c5f467b?w=600&q=80',
-  'Rural Development':'https://images.unsplash.com/photo-1625246333195-78d9c38ad449?w=600&q=80',
-  'Agro-Economics':'https://images.unsplash.com/photo-1543286386-713bdd548da4?w=600&q=80',
-  'Forestry':'https://images.unsplash.com/photo-1448375240586-882707db888b?w=600&q=80',
-  'Wildlife & Ecotourism':'https://images.unsplash.com/photo-1474511320723-9a56873867b5?w=600&q=80',
-  'Geospatial & GIS':'https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=600&q=80',
-  'Nageenya Nyaataa':'https://images.unsplash.com/photo-1603048297172-c92544798d5a?w=600&q=80',
-  'Gabaasaalee fi Maxxansaalee':'https://images.unsplash.com/photo-1481627834876-b7833e8f5570?w=600&q=80',
-  'Technical Manuals':'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=600&q=80',
-  'Latest News':'https://i.imgur.com/TOLgCdy.png',
-  'Taateewwan':'https://images.unsplash.com/photo-1515187029135-18ee286d815b?w=600&q=80'
-};
+/* HOME EVENTS CAROUSEL */
+var homeEventsData=[],homeEventsPage=0,homeEventsTimer=null,HOME_EVENTS_PER_PAGE=9;
+function buildHomeEventCard(post){var d=new Date(post.date),ds=d.toLocaleDateString('en-GB',{day:'numeric',month:'short',year:'numeric'}),img=post.image||IMG_MAP[post.section]||'';var c=document.createElement('div');c.className='event-card';c.style.cursor='pointer';c.innerHTML=(img?'<img class="event-img" src="'+img+'" alt="" loading="lazy">':'<div class="event-img-placeholder">📅</div>')+'<div class="event-body"><div class="event-meta-row"><span class="event-date-str">'+ds+'</span>'+(post.type?'<span class="event-type-tag">'+post.type+'</span>':'')+'</div><div class="event-title">'+(post.title||'')+'</div><div class="event-excerpt">'+(post.body||'')+'</div><div class="event-card-footer"><span style="font-size:0.72rem;color:var(--muted)">'+(post.section||'')+'</span><span class="event-discover">📅 Taatee Hunda Ilaalaa →</span></div></div>';c.addEventListener('click',function(){openDetailPopup(post);});return c;}
+function renderHomeEventsPage(page){var g=document.getElementById('homeEventsGrid'),de=document.getElementById('homeEventsDots'),lb=document.getElementById('homeEventsPageLabel');if(!g||!homeEventsData.length)return;var tot=Math.ceil(homeEventsData.length/HOME_EVENTS_PER_PAGE),sl=homeEventsData.slice(page*HOME_EVENTS_PER_PAGE,(page+1)*HOME_EVENTS_PER_PAGE);g.innerHTML='';sl.forEach(function(p){g.appendChild(buildHomeEventCard(p));});if(de)de.innerHTML=Array.from({length:tot},function(_,i){return'<button class="ec-dot'+(i===page?' active':'')+'" onclick="goHomeEventsPage('+i+')"></button>';}).join('');if(lb)lb.textContent=(page+1)+' / '+tot;homeEventsPage=page;}
+function goHomeEventsPage(p){clearInterval(homeEventsTimer);renderHomeEventsPage(p);startHomeEventsTimer();}
+function startHomeEventsTimer(){homeEventsTimer=setInterval(function(){goHomeEventsPage((homeEventsPage+1)%Math.ceil(homeEventsData.length/HOME_EVENTS_PER_PAGE));},6000);}
+document.addEventListener('DOMContentLoaded',function(){var e1=document.getElementById('homeEventsPrev'),e2=document.getElementById('homeEventsNext');if(e1)e1.addEventListener('click',function(){goHomeEventsPage((homeEventsPage-1+Math.ceil(homeEventsData.length/HOME_EVENTS_PER_PAGE))%Math.ceil(homeEventsData.length/HOME_EVENTS_PER_PAGE));});if(e2)e2.addEventListener('click',function(){goHomeEventsPage((homeEventsPage+1)%Math.ceil(homeEventsData.length/HOME_EVENTS_PER_PAGE));});});
+async function loadHomeEvents(){try{var r=await fetch('news.json?v='+Date.now());if(!r.ok)throw 0;var d=await r.json();homeEventsData=(d.posts||[]).filter(function(p){return p.type==='Event'||p.type==='Announcement';}).sort(function(a,b){return new Date(b.date)-new Date(a.date);});if(!homeEventsData.length)homeEventsData=(d.posts||[]).sort(function(a,b){return new Date(b.date)-new Date(a.date);});renderHomeEventsPage(0);if(homeEventsData.length>HOME_EVENTS_PER_PAGE)startHomeEventsTimer();}catch(e){var g=document.getElementById('homeEventsGrid');if(g)g.innerHTML='<div style="grid-column:1/-1;padding:1.5rem;background:var(--ivory);border-radius:8px;border-left:4px solid var(--earth)"><strong>⚠ Taateewwan Hin Argamne</strong></div>';}}
+loadHomeNews();loadHomeEvents();
 
-/* ============================================================
-   HOME NEWS CAROUSEL
-   ============================================================ */
-var homeNewsData=[], homeNewsPage=0, homeNewsTimer=null;
-var HOME_NEWS_PER_PAGE=4;
-
-function buildHomeNewsCard(post){
-  var d = new Date(post.date);
-  var dateStr = d.toLocaleDateString('en-GB',{day:'numeric',month:'short',year:'numeric'});
-  var imgUrl = post.image || HOME_NEWS_IMAGES[post.section] || '';
-  var card = document.createElement('div');
-  card.className = 'news-item'; card.style.cursor='pointer';
-  var imgHtml = imgUrl
-    ? '<img class="news-img" src="'+imgUrl+'" alt="" loading="lazy">'
-    : '<div class="news-img-placeholder">📰</div>';
-  card.innerHTML = imgHtml +
-    '<div class="news-body">'+
-      '<div class="news-meta-row">'+
-        '<span class="news-date-str">'+dateStr+'</span>'+
-        (post.section?'<span class="news-tag">'+post.section+'</span>':'')+
-      '</div>'+
-      '<div class="news-title">'+(post.title||'')+'</div>'+
-      '<div class="news-excerpt">'+(post.body||'')+'</div>'+
-      '<div class="news-card-footer">'+
-        '<span style="font-size:0.72rem;color:var(--muted)">'+(post.author||'')+'</span>'+
-        '<span class="news-discover">📁 Odeeffannoo Haaraa Argadhu →</span>'+
-      '</div>'+
-    '</div>';
-  card.addEventListener('click', function(){ openDetailPopup(post); });
-  return card;
-}
-
-function renderHomeNewsPage(page){
-  var grid=document.getElementById('homeNewsGrid');
-  var dotsEl=document.getElementById('homeNewsDots');
-  var label=document.getElementById('homeNewsPageLabel');
-  if(!grid||!homeNewsData.length) return;
-  var total=Math.ceil(homeNewsData.length/HOME_NEWS_PER_PAGE);
-  var slice=homeNewsData.slice(page*HOME_NEWS_PER_PAGE,(page+1)*HOME_NEWS_PER_PAGE);
-  grid.innerHTML=''; slice.forEach(function(p){ grid.appendChild(buildHomeNewsCard(p)); });
-  if(dotsEl) dotsEl.innerHTML=Array.from({length:total},function(_,i){
-    return '<button class="nc-dot'+(i===page?' active':'')+'" onclick="goHomeNewsPage('+i+')"></button>';
-  }).join('');
-  if(label) label.textContent=(page+1)+' / '+total;
-  homeNewsPage=page;
-}
-function goHomeNewsPage(page){ clearInterval(homeNewsTimer); renderHomeNewsPage(page); startHomeNewsTimer(); }
-function startHomeNewsTimer(){
-  homeNewsTimer=setInterval(function(){ goHomeNewsPage((homeNewsPage+1)%Math.ceil(homeNewsData.length/HOME_NEWS_PER_PAGE)); },6000);
-}
-var hnPrev=document.getElementById('homeNewsPrev');
-var hnNext=document.getElementById('homeNewsNext');
-if(hnPrev) hnPrev.addEventListener('click',function(){ goHomeNewsPage((homeNewsPage-1+Math.ceil(homeNewsData.length/HOME_NEWS_PER_PAGE))%Math.ceil(homeNewsData.length/HOME_NEWS_PER_PAGE)); });
-if(hnNext) hnNext.addEventListener('click',function(){ goHomeNewsPage((homeNewsPage+1)%Math.ceil(homeNewsData.length/HOME_NEWS_PER_PAGE)); });
-
-async function loadHomeNews(){
-  try{
-    var res=await fetch('news.json?v='+Date.now());
-    if(!res.ok) throw new Error('not found');
-    var data=await res.json();
-    homeNewsData=(data.posts||[]).sort(function(a,b){ return new Date(b.date)-new Date(a.date); });
-    renderHomeNewsPage(0);
-    if(homeNewsData.length>HOME_NEWS_PER_PAGE) startHomeNewsTimer();
-  }catch(e){
-    var grid=document.getElementById('homeNewsGrid');
-    if(grid) grid.innerHTML='<div style="grid-column:1/-1;padding:1.5rem;background:var(--ivory);border-radius:8px;border-left:4px solid var(--earth)"><strong>⚠ Odeeffannoo Hin Argamne</strong><p style="font-size:0.85rem;color:var(--muted);margin-top:0.4rem">news.json faayilii HTML wajjin tokkoo ol kaa\'i.</p></div>';
-  }
-}
-
-/* ============================================================
-   HOME EVENTS CAROUSEL
-   ============================================================ */
-var homeEventsData=[], homeEventsPage=0, homeEventsTimer=null;
-var HOME_EVENTS_PER_PAGE=9;
-
-function buildHomeEventCard(post){
-  var d=new Date(post.date);
-  var dateStr=d.toLocaleDateString('en-GB',{day:'numeric',month:'short',year:'numeric'});
-  var imgUrl=post.image||HOME_NEWS_IMAGES[post.section]||'';
-  var card=document.createElement('div');
-  card.className='event-card'; card.style.cursor='pointer';
-  var imgHtml=imgUrl
-    ?'<img class="event-img" src="'+imgUrl+'" alt="" loading="lazy">'
-    :'<div class="event-img-placeholder">📅</div>';
-  card.innerHTML=imgHtml+
-    '<div class="event-body">'+
-      '<div class="event-meta-row">'+
-        '<span class="event-date-str">'+dateStr+'</span>'+
-        (post.type?'<span class="event-type-tag">'+post.type+'</span>':'')+
-      '</div>'+
-      '<div class="event-title">'+(post.title||'')+'</div>'+
-      '<div class="event-excerpt">'+(post.body||'')+'</div>'+
-      '<div class="event-card-footer">'+
-        '<span style="font-size:0.72rem;color:var(--muted)">'+(post.section||'')+'</span>'+
-        '<span class="event-discover">📅 Taatee Hunda Ilaalaa →</span>'+
-      '</div>'+
-    '</div>';
-  card.addEventListener('click',function(){ openDetailPopup(post); });
-  return card;
-}
-
-function renderHomeEventsPage(page){
-  var grid=document.getElementById('homeEventsGrid');
-  var dotsEl=document.getElementById('homeEventsDots');
-  var label=document.getElementById('homeEventsPageLabel');
-  if(!grid||!homeEventsData.length) return;
-  var total=Math.ceil(homeEventsData.length/HOME_EVENTS_PER_PAGE);
-  var slice=homeEventsData.slice(page*HOME_EVENTS_PER_PAGE,(page+1)*HOME_EVENTS_PER_PAGE);
-  grid.innerHTML=''; slice.forEach(function(p){ grid.appendChild(buildHomeEventCard(p)); });
-  if(dotsEl) dotsEl.innerHTML=Array.from({length:total},function(_,i){
-    return '<button class="ec-dot'+(i===page?' active':'')+'" onclick="goHomeEventsPage('+i+')"></button>';
-  }).join('');
-  if(label) label.textContent=(page+1)+' / '+total;
-  homeEventsPage=page;
-}
-function goHomeEventsPage(page){ clearInterval(homeEventsTimer); renderHomeEventsPage(page); startHomeEventsTimer(); }
-function startHomeEventsTimer(){
-  homeEventsTimer=setInterval(function(){ goHomeEventsPage((homeEventsPage+1)%Math.ceil(homeEventsData.length/HOME_EVENTS_PER_PAGE)); },6000);
-}
-document.addEventListener('DOMContentLoaded',function(){
-  var hePrev=document.getElementById('homeEventsPrev');
-  var heNext=document.getElementById('homeEventsNext');
-  if(hePrev) hePrev.addEventListener('click',function(){ goHomeEventsPage((homeEventsPage-1+Math.ceil(homeEventsData.length/HOME_EVENTS_PER_PAGE))%Math.ceil(homeEventsData.length/HOME_EVENTS_PER_PAGE)); });
-  if(heNext) heNext.addEventListener('click',function(){ goHomeEventsPage((homeEventsPage+1)%Math.ceil(homeEventsData.length/HOME_EVENTS_PER_PAGE)); });
-});
-
-async function loadHomeEvents(){
-  try{
-    var res=await fetch('news.json?v='+Date.now());
-    if(!res.ok) throw new Error('not found');
-    var data=await res.json();
-    homeEventsData=(data.posts||[])
-      .filter(function(p){ return p.type==='Event'||p.type==='Announcement'; })
-      .sort(function(a,b){ return new Date(b.date)-new Date(a.date); });
-    if(!homeEventsData.length) homeEventsData=(data.posts||[]).sort(function(a,b){ return new Date(b.date)-new Date(a.date); });
-    renderHomeEventsPage(0);
-    if(homeEventsData.length>HOME_EVENTS_PER_PAGE) startHomeEventsTimer();
-  }catch(e){
-    var grid=document.getElementById('homeEventsGrid');
-    if(grid) grid.innerHTML='<div style="grid-column:1/-1;padding:1.5rem;background:var(--ivory);border-radius:8px;border-left:4px solid var(--earth)"><strong>⚠ Taateewwan Hin Argamne</strong></div>';
-  }
-}
-
-loadHomeNews();
-loadHomeEvents();
-
-/* ============================================================
-   NEWS SECTION (full list)
-   ============================================================ */
+/* NEWS SECTION */
 var allNews=[];
+async function loadNews(){var feed=document.getElementById('news-feed'),ld=document.getElementById('news-loading'),em=document.getElementById('news-empty'),co=document.getElementById('news-count');feed.innerHTML='';ld.style.display='block';em.style.display='none';co.textContent='';try{var r=await fetch('news.json?v='+Date.now());if(!r.ok)throw 0;var d=await r.json();allNews=(d.posts||[]).sort(function(a,b){return new Date(b.date)-new Date(a.date);});if(homeNewsData.length===0){homeNewsData=allNews;renderHomeNewsPage(0);if(homeNewsData.length>HOME_NEWS_PER_PAGE)startHomeNewsTimer();}ld.style.display='none';renderNews(allNews);}catch(e){ld.style.display='none';feed.innerHTML='<div style="background:var(--ivory);border:1px solid var(--border);border-left:4px solid var(--earth);border-radius:6px;padding:1.6rem 2rem"><strong style="color:var(--forest)">⚠ Updates Unavailable</strong><p style="font-size:0.85rem;color:var(--muted);margin-top:0.4rem">Make sure news.json is in the same folder.</p></div>';}}
+function renderNews(items){var feed=document.getElementById('news-feed'),em=document.getElementById('news-empty'),co=document.getElementById('news-count');feed.innerHTML='';if(!items.length){em.style.display='block';co.textContent='0 updates';return;}em.style.display='none';co.textContent=items.length+' update'+(items.length!==1?'s':'');items.forEach(function(post,i){var d=new Date(post.date),ds=d.toLocaleDateString('en-GB',{day:'numeric',month:'long',year:'numeric'}),vt=SECTION_VIEW_MAP[post.section]||'';var c=document.createElement('div');c.className='ncard';c.style.cursor='pointer';c.innerHTML='<div class="ncard-meta"><span class="ncard-date">'+ds+'</span>'+(i===0?'<span class="ncard-latest">Latest</span>':'')+(post.section?'<span class="ncard-section">'+post.section+'</span>':'')+(post.type?'<span class="ncard-type">'+post.type+'</span>':'')+'</div><div class="ncard-title">'+(post.title||'')+'</div><div class="ncard-body">'+(post.body||'')+'</div><div class="ncard-footer"><span class="ncard-author">'+(post.author?'— '+post.author:'')+'</span>'+(vt?'<button class="ncard-goto" data-goto="'+vt+'">Fuula '+(post.section||'')+' Ilaalaa →</button>':'')+'</div>';c.addEventListener('click',function(e){if(e.target.classList.contains('ncard-goto'))showView(e.target.getAttribute('data-goto'));else openDetailPopup(post);});feed.appendChild(c);});}
+function filterNews(){var q=document.getElementById('news-search').value.toLowerCase().trim(),sec=document.getElementById('news-section-filter').value,typ=document.getElementById('news-type-filter').value;renderNews(allNews.filter(function(p){return(!sec||p.section===sec)&&(!typ||p.type===typ)&&(!q||[p.title,p.body,p.section,p.author].some(function(x){return(x||'').toLowerCase().includes(q);}));}));}
+function clearNewsFilters(){document.getElementById('news-search').value='';document.getElementById('news-section-filter').value='';document.getElementById('news-type-filter').value='';renderNews(allNews);}
 
-async function loadNews(){
-  var feed=document.getElementById('news-feed');
-  var loading=document.getElementById('news-loading');
-  var empty=document.getElementById('news-empty');
-  var countEl=document.getElementById('news-count');
-  feed.innerHTML=''; loading.style.display='block'; empty.style.display='none'; countEl.textContent='';
+/* DOC LIBRARY SEARCH */
+function filterDocs(gId,q){var g=document.getElementById(gId);if(!g)return;var qL=q.toLowerCase().trim(),cards=g.querySelectorAll('.doc-card'),vis=0;cards.forEach(function(c){var t=(c.getAttribute('data-title')||'')+' '+(c.querySelector('.doc-title')?c.querySelector('.doc-title').textContent:'')+' '+(c.querySelector('.doc-meta')?c.querySelector('.doc-meta').textContent:'');var show=!qL||t.toLowerCase().includes(qL);c.style.display=show?'':'none';if(show)vis++;});var nx=g.nextElementSibling;if(nx&&nx.classList.contains('doc-empty'))nx.remove();if(vis===0&&qL){var m=document.createElement('div');m.className='doc-empty';m.textContent='"'+q+'" hin argamne.';g.after(m);}}
+
+/* ============================================================
+   AUTO-POPULATE ALL SECTION PAGES — with popup on click
+   ============================================================ */
+async function populateAllSections(){
   try{
-    var res=await fetch('news.json?v='+Date.now());
-    if(!res.ok) throw new Error('not found');
-    var data=await res.json();
-    allNews=(data.posts||[]).sort(function(a,b){ return new Date(b.date)-new Date(a.date); });
-    if(homeNewsData.length===0){ homeNewsData=allNews; renderHomeNewsPage(0); if(homeNewsData.length>HOME_NEWS_PER_PAGE) startHomeNewsTimer(); }
-    loading.style.display='none';
-    renderNews(allNews);
-  }catch(e){
-    loading.style.display='none';
-    feed.innerHTML='<div style="background:var(--ivory);border:1px solid var(--border);border-left:4px solid var(--earth);border-radius:6px;padding:1.6rem 2rem"><strong style="color:var(--forest)">⚠ Updates Unavailable</strong><p style="font-size:0.85rem;color:var(--muted);margin-top:0.4rem">Make sure news.json is in the same folder. Contact: afoluofethiopia@gmail.com</p></div>';
-  }
-}
-
-function renderNews(items){
-  var feed=document.getElementById('news-feed');
-  var empty=document.getElementById('news-empty');
-  var countEl=document.getElementById('news-count');
-  feed.innerHTML='';
-  if(!items.length){ empty.style.display='block'; countEl.textContent='0 updates'; return; }
-  empty.style.display='none';
-  countEl.textContent=items.length+' update'+(items.length!==1?'s':'');
-  items.forEach(function(post,i){
-    var d=new Date(post.date);
-    var dateStr=d.toLocaleDateString('en-GB',{day:'numeric',month:'long',year:'numeric'});
-    var vt=SECTION_VIEW_MAP[post.section]||'';
-    var card=document.createElement('div');
-    card.className='ncard'; card.style.cursor='pointer';
-    card.innerHTML=
-      '<div class="ncard-meta">'+
-        '<span class="ncard-date">'+dateStr+'</span>'+
-        (i===0?'<span class="ncard-latest">Latest</span>':'')+
-        (post.section?'<span class="ncard-section">'+post.section+'</span>':'')+
-        (post.type?'<span class="ncard-type">'+post.type+'</span>':'')+
-      '</div>'+
-      '<div class="ncard-title">'+(post.title||'')+'</div>'+
-      '<div class="ncard-body">'+(post.body||'')+'</div>'+
-      '<div class="ncard-footer">'+
-        '<span class="ncard-author">'+(post.author?'— '+post.author:'')+'</span>'+
-        (vt?'<button class="ncard-goto" data-goto="'+vt+'">Fuula '+(post.section||'')+' Ilaalaa →</button>':'')+
-      '</div>';
-    card.addEventListener('click',function(e){
-      if(e.target.classList.contains('ncard-goto')) showView(e.target.getAttribute('data-goto'));
-      else openDetailPopup(post);
-    });
-    feed.appendChild(card);
-  });
-}
-
-function filterNews(){
-  var q=document.getElementById('news-search').value.toLowerCase().trim();
-  var sec=document.getElementById('news-section-filter').value;
-  var typ=document.getElementById('news-type-filter').value;
-  renderNews(allNews.filter(function(p){
-    return(!sec||p.section===sec)&&(!typ||p.type===typ)&&
-      (!q||[p.title,p.body,p.section,p.author].some(function(x){ return(x||'').toLowerCase().includes(q); }));
-  }));
-}
-
-function clearNewsFilters(){
-  document.getElementById('news-search').value='';
-  document.getElementById('news-section-filter').value='';
-  document.getElementById('news-type-filter').value='';
-  renderNews(allNews);
-}
-
-/* ============================================================
-   DOCUMENT LIBRARY SEARCH
-   ============================================================ */
-function filterDocs(gridId, query){
-  var grid=document.getElementById(gridId);
-  if(!grid) return;
-  var q=query.toLowerCase().trim();
-  var cards=grid.querySelectorAll('.doc-card');
-  var visible=0;
-  cards.forEach(function(card){
-    var text=(card.getAttribute('data-title')||'')+' '+
-             (card.querySelector('.doc-title')?card.querySelector('.doc-title').textContent:'')+' '+
-             (card.querySelector('.doc-meta')?card.querySelector('.doc-meta').textContent:'');
-    var show=!q||text.toLowerCase().includes(q);
-    card.style.display=show?'':'none';
-    if(show) visible++;
-  });
-  var next=grid.nextElementSibling;
-  if(next&&next.classList.contains('doc-empty')) next.remove();
-  if(visible===0&&q){
-    var msg=document.createElement('div');
-    msg.className='doc-empty';
-    msg.textContent='"'+query+'" hin argamne.';
-    grid.after(msg);
-  }
-}
-
-/* ============================================================
-   SITE MAP PANEL
-   ============================================================ */
-(function(){
-  var fab=document.getElementById('sitemapFab');
-  var overlay=document.getElementById('sitemapOverlay');
-  var panel=document.getElementById('sitemapPanel');
-  var closeBtn=document.getElementById('sitemapClose');
-  function openSitemap(){ overlay.classList.add('open'); document.body.style.overflow='hidden'; }
-  function closeSitemap(){ overlay.classList.remove('open'); document.body.style.overflow=''; }
-  fab.addEventListener('click',openSitemap);
-  closeBtn.addEventListener('click',closeSitemap);
-  overlay.addEventListener('click',function(e){ if(!panel.contains(e.target)) closeSitemap(); });
-  document.addEventListener('keydown',function(e){ if(e.key==='Escape') closeSitemap(); });
-  document.querySelectorAll('[data-sm]').forEach(function(item){
-    item.addEventListener('click',function(e){
-      e.stopPropagation();
-      var view=item.getAttribute('data-view');
-      if(view){ closeSitemap(); setTimeout(function(){ showView(view); if(view==='News') loadNews(); },180); }
-    });
-  });
-})();
-
-/* ============================================================
-   URL BAR COPY
-   ============================================================ */
-function copyUrlBar(){
-  var bar=document.getElementById('url-bar');
-  var slug=bar.getAttribute('data-slug')||'home';
-  var base=window.location.origin+window.location.pathname;
-  var hash=(slug==='home')?'':'#'+slug;
-  navigator.clipboard.writeText(base+hash).then(function(){
-    var btn=document.getElementById('url-bar-copy');
-    if(btn){ btn.textContent='✓ Copied'; btn.classList.add('copied'); setTimeout(function(){ btn.textContent='⎘ Garagalfadhu'; btn.classList.remove('copied'); },2000); }
-  }).catch(function(){
-    var btn=document.getElementById('url-bar-copy');
-    if(btn) btn.textContent='Error';
-  });
-}
-
-/* ============================================================
-   AUTO-POPULATE ALL SECTION PAGES FROM news.json
-   Reads news.json once and injects relevant posts into every
-   sector, program, and resource page automatically.
-   ============================================================ */
-async function populateAllSections() {
-  try {
-    var res  = await fetch('news.json?v=' + Date.now());
-    if (!res.ok) return;
-    var data = await res.json();
-    var posts = (data.posts || []).sort(function(a,b){ return new Date(b.date)-new Date(a.date); });
-
-    /* Group posts by their 'view' target */
-    var byView = {};
-    posts.forEach(function(post) {
-      var v = post.view || post.section || 'News';
-      if (!byView[v]) byView[v] = [];
+    var r=await fetch('news.json?v='+Date.now());if(!r.ok)return;
+    var data=await r.json();
+    var posts=(data.posts||[]).sort(function(a,b){return new Date(b.date)-new Date(a.date);});
+    var byView={};
+    posts.forEach(function(post){
+      var v=post.view||SECTION_VIEW_MAP[post.section]||'News';
+      if(!byView[v])byView[v]=[];
       byView[v].push(post);
     });
-
-    /* Render into each view that has a matching feed container */
-    Object.keys(byView).forEach(function(viewId) {
-      var feedEl = document.getElementById('feed-' + viewId);
-      if (!feedEl) return;
-      renderSectionFeed(feedEl, byView[viewId], viewId);
+    Object.keys(byView).forEach(function(viewId){
+      var feedEl=document.getElementById('feed-'+viewId);
+      if(!feedEl)return;
+      renderSectionFeed(feedEl,byView[viewId],viewId);
     });
-
-  } catch(e) {
-    console.warn('populateAllSections failed:', e);
-  }
+  }catch(e){console.warn('populateAllSections:',e);}
 }
 
-function renderSectionFeed(container, posts, viewId) {
-  if (!posts || !posts.length) {
-    container.style.display = 'none';
-    return;
-  }
-  container.style.display = '';
+function renderSectionFeed(container,posts,viewId){
+  if(!posts||!posts.length){container.style.display='none';return;}
+  container.style.display='';
+  container.innerHTML='';
+  var isDoc=(viewId==='Reports'||viewId==='publications'||viewId==='Geospatial');
 
-  var isDocView = (viewId === 'Reports' || viewId === 'publications' || viewId === 'Geospatial');
+  posts.forEach(function(post){
+    var d=new Date(post.date),ds=d.toLocaleDateString('en-GB',{day:'numeric',month:'short',year:'numeric'});
+    var card=document.createElement('div');
+    card.style.cursor='pointer';
 
-  var html = '';
+    if(isDoc){
+      var ext=(post.fileType||'PDF').toUpperCase();
+      var ic={PDF:'pdf',DOC:'docx',DOCX:'docx',XLS:'xlsx',XLSX:'xlsx',PPT:'pptx',PPTX:'pptx'};
+      var cls=ic[ext]||'pdf';
+      var tags=(Array.isArray(post.tags)?post.tags:[]).map(function(t){return'<span class="doc-tag">'+t+'</span>';}).join('');
+      card.className='doc-card';
+      card.innerHTML='<div class="doc-icon '+cls+'">'+ext+'</div><div class="doc-info">'+(post.isNew?'<div class="doc-new">Haaraa</div>':'')+'<div class="doc-title">'+(post.title||'')+'</div><div class="doc-meta">'+(post.author||'AFOLU Itoophiyaa')+' · '+ds+'</div>'+(tags?'<div class="doc-tags">'+tags+'</div>':'')+'<div class="doc-btns">'+(post.fileUrl?'<a class="doc-btn doc-btn-dl" href="'+post.fileUrl+'" target="_blank" onclick="event.stopPropagation()">⬇ Buufadhu</a>':'')+'<button class="doc-btn doc-btn-view">📋 Cuunfaa</button></div></div>';
+    } else {
+      var img=post.image||IMG_MAP[post.section]||'';
+      var icon=SECTION_ICONS[post.section]||'📰';
+      card.className='sfeed-card';
+      card.innerHTML=(img?'<img class="sfeed-img" src="'+img+'" alt="" loading="lazy" onerror="this.style.display=\'none\'">':'<div class="sfeed-img-ph">'+icon+'</div>')+'<div class="sfeed-body"><div class="sfeed-meta"><span class="sfeed-date">'+ds+'</span>'+(post.type?'<span class="sfeed-type">'+post.type+'</span>':'')+'</div><div class="sfeed-title">'+(post.title||'')+'</div><div class="sfeed-excerpt">'+(post.body||'')+'</div><div class="sfeed-footer"><span class="sfeed-author">'+(post.author||'')+'</span><span class="sfeed-read">Cuunfaa Guutuu Ilaalaa →</span></div></div>';
+    }
 
-  if (isDocView) {
-    /* Publication/Report/Doc style cards */
-    posts.forEach(function(post) {
-      var d = new Date(post.date);
-      var dateStr = d.toLocaleDateString('en-GB',{day:'numeric',month:'short',year:'numeric'});
-      var tags = (Array.isArray(post.tags) ? post.tags : []).map(function(t){
-        return '<span class="doc-tag">'+t+'</span>';
-      }).join('');
-      var ext = post.fileType || 'PDF';
-      var iconCls = {PDF:'pdf',DOC:'docx',DOCX:'docx',XLS:'xlsx',XLSX:'xlsx',PPT:'pptx',PPTX:'pptx'}[ext.toUpperCase()] || 'pdf';
-      html +=
-        '<div class="doc-card" style="cursor:pointer" onclick="openDetailPopup('+JSON.stringify(post).replace(/</g,'\u003c')+')">' +
-          '<div class="doc-icon '+iconCls+'">'+ext+'</div>' +
-          '<div class="doc-info">' +
-            (post.isNew ? '<div class="doc-new">Haaraa</div>' : '') +
-            '<div class="doc-title">'+(post.title||'')+'</div>' +
-            '<div class="doc-meta">'+(post.author||'AFOLU Itoophiyaa')+' · '+dateStr+'</div>' +
-            '<div class="doc-tags">'+tags+'</div>' +
-            '<div class="doc-btns">' +
-              (post.fileUrl ? '<a class="doc-btn doc-btn-dl" href="'+post.fileUrl+'" target="_blank">⬇ Buufadhu</a>' : '') +
-              '<button class="doc-btn doc-btn-view" onclick="event.stopPropagation();openDetailPopup('+JSON.stringify(post).replace(/</g,'\u003c')+')">📋 Cuunfaa</button>' +
-            '</div>' +
-          '</div>' +
-        '</div>';
-    });
-    container.className = 'doc-grid';
-  } else {
-    /* News/update cards for sector and program pages */
-    posts.forEach(function(post) {
-      var d = new Date(post.date);
-      var dateStr = d.toLocaleDateString('en-GB',{day:'numeric',month:'long',year:'numeric'});
-      html +=
-        '<div class="ncard" style="cursor:pointer" onclick="openDetailPopup('+JSON.stringify(post).replace(/</g,'\u003c')+')">' +
-          '<div class="ncard-meta">' +
-            '<span class="ncard-date">'+dateStr+'</span>' +
-            (post.type ? '<span class="ncard-type">'+post.type+'</span>' : '') +
-            (post.section ? '<span class="ncard-section">'+post.section+'</span>' : '') +
-          '</div>' +
-          '<div class="ncard-title">'+(post.title||'')+'</div>' +
-          '<div class="ncard-body">'+(post.body||'')+'</div>' +
-          '<div class="ncard-footer">' +
-            '<span class="ncard-author">'+(post.author?'— '+post.author:'')+'</span>' +
-            '<span class="ncard-goto" style="cursor:pointer;color:var(--sky-bright);font-size:0.73rem;font-weight:700">Cuunfaa Ilaalaa →</span>' +
-          '</div>' +
-        '</div>';
-    });
-    container.className = 'section-feed';
-  }
-  container.innerHTML = html;
+    card.addEventListener('click',function(e){if(e.target.tagName==='A')return;openDetailPopup(post);});
+    container.appendChild(card);
+  });
+
+  container.className=isDoc?'doc-grid':'sfeed-grid';
 }
 
-/* Call on page load — populates all sections silently */
 populateAllSections();
 
+/* SITE MAP */
+(function(){var fab=document.getElementById('sitemapFab'),ov=document.getElementById('sitemapOverlay'),pn=document.getElementById('sitemapPanel'),cb=document.getElementById('sitemapClose');function open(){ov.classList.add('open');document.body.style.overflow='hidden';}function close(){ov.classList.remove('open');document.body.style.overflow='';}fab.addEventListener('click',open);cb.addEventListener('click',close);ov.addEventListener('click',function(e){if(!pn.contains(e.target))close();});document.addEventListener('keydown',function(e){if(e.key==='Escape')close();});document.querySelectorAll('[data-sm]').forEach(function(item){item.addEventListener('click',function(e){e.stopPropagation();var v=item.getAttribute('data-view');if(v){close();setTimeout(function(){showView(v);if(v==='News')loadNews();},180);}});});})();
+
+/* URL BAR COPY */
+function copyUrlBar(){var bar=document.getElementById('url-bar'),slug=bar.getAttribute('data-slug')||'home',base=window.location.origin+window.location.pathname,hash=(slug==='home')?'':'#'+slug;navigator.clipboard.writeText(base+hash).then(function(){var btn=document.getElementById('url-bar-copy');if(btn){btn.textContent='✓ Copied';btn.classList.add('copied');setTimeout(function(){btn.textContent='⎘ Garagalfadhu';btn.classList.remove('copied');},2000);}}).catch(function(){var btn=document.getElementById('url-bar-copy');if(btn)btn.textContent='Error';});}
 
 </script>
 </body>
