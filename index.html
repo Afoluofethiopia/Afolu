@@ -2,6 +2,7 @@
 <html lang="om" xml:lang="om">
 <head>
 <meta charset="UTF-8"/>
+<meta name="google-site-verification" content="eHxDKfoOV8IEyCWmS6jutisjRZbC4D9eR7cAm4wH4cQ"/>
 <meta http-equiv="Content-Language" content="om"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 
@@ -39,19 +40,42 @@
   "@context": "https://schema.org",
   "@type": "Organization",
   "name": "AFOLU Itoophiyaa",
-  "alternateName": "AFOLU Ethiopia",
+  "alternateName": ["AFOLU Ethiopia","Agriculture Forestry Other Land Use Ethiopia"],
   "url": "https://afoluethiopia.cv",
-  "logo": "https://i.imgur.com/TOLgCdy.png",
-  "description": "Agriculture, Forestry and Other Land Use organization working for sustainable land management across Ethiopia.",
+  "logo": {
+    "@type": "ImageObject",
+    "url": "https://i.imgur.com/TOLgCdy.png",
+    "width": 512,
+    "height": 512
+  },
+  "image": "https://i.imgur.com/36K6kb7.png",
+  "description": "AFOLU Itoophiyaa — Agriculture, Forestry and Other Land Use. Working for sustainable land management, Green Legacy, REDD+, climate resilience and food security across Ethiopia.",
   "email": "afoluofethiopia@gmail.com",
+  "telephone": "+251911946101",
   "foundingDate": "2019",
-  "areaServed": "Ethiopia",
-  "sameAs": ["https://www.facebook.com/afoluethiopia"],
+  "areaServed": {
+    "@type": "Country",
+    "name": "Ethiopia"
+  },
+  "knowsAbout": [
+    "Agroforestry","Forestry","REDD+","Climate Resilience","Food Security",
+    "Natural Resource Management","Green Legacy Program","Geospatial GIS",
+    "Plant Science","Animal Science","Rural Development","Agro-Economics"
+  ],
+  "sameAs": [
+    "https://www.facebook.com/afoluethiopia"
+  ],
   "contactPoint": {
     "@type": "ContactPoint",
     "email": "afoluofethiopia@gmail.com",
+    "telephone": "+251911946101",
     "contactType": "General Enquiries",
-    "availableLanguage": ["Afaan Oromo", "English", "Amharic"]
+    "availableLanguage": ["Afaan Oromo","English","Amharic"]
+  },
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "Addis Ababa",
+    "addressCountry": "ET"
   }
 }
 </script>
@@ -2074,6 +2098,83 @@ footer {
 
 </style>
 </style>
+
+<!-- Google SiteLinks SearchBox — makes a search box appear under your Google result -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "name": "AFOLU Itoophiyaa",
+  "alternateName": "AFOLU Ethiopia",
+  "url": "https://afoluethiopia.cv",
+  "description": "Official website of AFOLU Itoophiyaa — Agriculture, Forestry and Other Land Use Ethiopia",
+  "inLanguage": ["om","en","am"],
+  "publisher": {
+    "@type": "Organization",
+    "name": "AFOLU Itoophiyaa",
+    "logo": "https://i.imgur.com/TOLgCdy.png"
+  },
+  "potentialAction": {
+    "@type": "SearchAction",
+    "target": {
+      "@type": "EntryPoint",
+      "urlTemplate": "https://afoluethiopia.cv/#news?q={search_term_string}"
+    },
+    "query-input": "required name=search_term_string"
+  }
+}
+</script>
+
+<!-- FAQ Schema — Google shows these as expandable Q&As in search results -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What is AFOLU Itoophiyaa?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "AFOLU Itoophiyaa (Agriculture, Forestry and Other Land Use Ethiopia) is an organization working for sustainable land management, ecosystem restoration, climate resilience and rural livelihoods across Ethiopia. Key programs include Green Legacy, REDD+, and Climate Resilient Green Economy (CRGE)."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is the Green Legacy Program in Ethiopia?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "The Green Legacy Program (Sagantaa Dhaalota Magariisa) is Ethiopia's national tree-planting initiative that has planted over 28 billion seedlings since 2019. AFOLU Itoophiyaa supports implementation across all Ethiopian regions."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is REDD+ in Ethiopia?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "REDD+ (Reducing Emissions from Deforestation and Forest Degradation) is a UN climate program implemented in Ethiopia by AFOLU Itoophiyaa, supporting community forest management and carbon finance across forest regions."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How to contact AFOLU Ethiopia?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Contact AFOLU Itoophiyaa at afoluofethiopia@gmail.com or call +251 911 946 101. Office located in Addis Ababa (Finfinnee), Ethiopia."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What sectors does AFOLU Ethiopia work in?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "AFOLU Itoophiyaa works in eight technical sectors: Plant Science, Natural Resource Management, Agroforestry, Animal Science, Rural Development, Agro-Economics, Forestry, and Wildlife & Ecotourism."
+      }
+    }
+  ]
+}
+</script>
+
 </head>
 <body>
 
@@ -4911,6 +5012,146 @@ function copyUrlBar(){var bar=document.getElementById('url-bar'),slug=bar.getAtt
   tick();
   setInterval(tick, 1000);
 })();
+
+/* ============================================================
+   DYNAMIC SEO — updates <title>, meta description, og: tags
+   every time a section or post is opened so Google can index
+   each page/post with its own unique title and description.
+   ============================================================ */
+var SEO_SECTIONS = {
+  'home':                 {title:'AFOLU Itoophiyaa — Agriculture, Forestry & Other Land Use Ethiopia', desc:'Official website of AFOLU Itoophiyaa. Working for sustainable land management, Green Legacy, REDD+, climate resilience and food security across Ethiopia.'},
+  'about':                {title:'About AFOLU Itoophiyaa — Our Mission & History', desc:'Learn about AFOLU Itoophiyaa, Ethiopia\'s leading organization for sustainable Agriculture, Forestry and Other Land Use management.'},
+  'plant-science':        {title:'Plant Science — AFOLU Itoophiyaa', desc:'Plant science research and crop improvement programs at AFOLU Ethiopia, focused on food security and agroecological zone adaptation.'},
+  'natural-resource-mgmt':{title:'Natural Resource Management — AFOLU Itoophiyaa', desc:'Watershed restoration, land management and ecosystem conservation programs across Ethiopia by AFOLU Itoophiyaa.'},
+  'agroforestry':         {title:'Agroforestry — AFOLU Itoophiyaa', desc:'Agroforestry programs integrating trees, crops and livestock for sustainable livelihoods in Ethiopia.'},
+  'animal-science':       {title:'Animal Science & Livestock — AFOLU Itoophiyaa', desc:'Livestock management, rangeland health and veterinary support programs across Ethiopian regions.'},
+  'rural-development':    {title:'Rural Development — AFOLU Itoophiyaa', desc:'Extension services and rural development programs supporting smallholder farmers across Ethiopia.'},
+  'agro-economics':       {title:'Agro-Economics — AFOLU Itoophiyaa', desc:'Agricultural market analysis, value chain development and policy research for Ethiopian farmers.'},
+  'forestry':             {title:'Forestry — AFOLU Itoophiyaa', desc:'Community forest management, REDD+ implementation and forest monitoring across Ethiopia.'},
+  'wildlife-ecotourism':  {title:'Wildlife & Ecotourism — AFOLU Itoophiyaa', desc:'Wildlife conservation and ecotourism development in Ethiopian protected areas.'},
+  'green-legacy':         {title:'Green Legacy Program — Sagantaa Dhaalota Magariisa', desc:'Ethiopia\'s Green Legacy Program — over 28 billion seedlings planted since 2019, supported by AFOLU Itoophiyaa.'},
+  'redd-plus':            {title:'REDD+ Program Ethiopia — AFOLU Itoophiyaa', desc:'REDD+ (Reducing Emissions from Deforestation) program implementation in Ethiopia by AFOLU Itoophiyaa.'},
+  'climate-resilience':   {title:'Climate Resilience — Dandamachuu Qilleensaa', desc:'Climate resilience and adaptation programs supporting Ethiopian communities under CRGE strategy.'},
+  'food-security':        {title:'Food Security — Nageenya Nyaataa', desc:'Food security programs improving nutrition and agricultural productivity for Ethiopian communities.'},
+  'reports-publications': {title:'Reports & Publications — AFOLU Itoophiyaa', desc:'Download annual reports, research papers, policy briefs and technical publications from AFOLU Itoophiyaa.'},
+  'technical-manuals':    {title:'Technical Manuals — AFOLU Itoophiyaa', desc:'Download field manuals, training guides and technical resources from AFOLU Itoophiyaa.'},
+  'geospatial-gis':       {title:'Geospatial & GIS — AFOLU Itoophiyaa', desc:'Satellite-based land monitoring, GIS analysis and spatial data products from AFOLU Itoophiyaa.'},
+  'current-projects':     {title:'Current Projects — AFOLU Itoophiyaa', desc:'Active projects in land management, forestry and climate resilience implemented by AFOLU Itoophiyaa across Ethiopia.'},
+  'news':                 {title:'News & Updates — AFOLU Itoophiyaa', desc:'Latest news, announcements and updates from AFOLU Itoophiyaa on forestry, agriculture and land use in Ethiopia.'},
+  'events':               {title:'Events & Announcements — AFOLU Itoophiyaa', desc:'Upcoming events, workshops, conferences and announcements from AFOLU Itoophiyaa Ethiopia.'},
+};
+
+function updateSEO(viewId, postTitle, postDesc, postUrl) {
+  var BASE = 'AFOLU Itoophiyaa';
+  var title, desc, url;
+
+  if (postTitle) {
+    /* Individual post — most specific */
+    title = postTitle + ' | ' + BASE;
+    desc  = postDesc  || postTitle + ' — ' + BASE;
+    url   = postUrl   || window.location.href;
+  } else if (viewId && SEO_SECTIONS[viewId]) {
+    title = SEO_SECTIONS[viewId].title;
+    desc  = SEO_SECTIONS[viewId].desc;
+    url   = window.location.origin + window.location.pathname + '#' + viewId;
+  } else {
+    title = SEO_SECTIONS['home'].title;
+    desc  = SEO_SECTIONS['home'].desc;
+    url   = window.location.origin + window.location.pathname;
+  }
+
+  /* Update <title> */
+  document.title = title;
+
+  /* Update meta description */
+  var md = document.querySelector('meta[name="description"]');
+  if (md) md.setAttribute('content', desc);
+
+  /* Update Open Graph */
+  var ogTitle = document.querySelector('meta[property="og:title"]');
+  var ogDesc  = document.querySelector('meta[property="og:description"]');
+  var ogUrl   = document.querySelector('meta[property="og:url"]');
+  if (ogTitle) ogTitle.setAttribute('content', title);
+  if (ogDesc)  ogDesc.setAttribute('content', desc);
+  if (ogUrl)   ogUrl.setAttribute('content', url);
+
+  /* Update Twitter */
+  var twTitle = document.querySelector('meta[name="twitter:title"]');
+  var twDesc  = document.querySelector('meta[name="twitter:description"]');
+  if (twTitle) twTitle.setAttribute('content', title);
+  if (twDesc)  twDesc.setAttribute('content', desc);
+
+  /* Update canonical */
+  var canon = document.querySelector('link[rel="canonical"]');
+  if (canon) canon.setAttribute('href', url);
+}
+
+/* Hook into showView — update SEO when any section opens */
+var _origShowView = showView;
+showView = function(id, pushHistory) {
+  _origShowView(id, pushHistory);
+  var slug = VIEW_SLUG[id] || id;
+  updateSEO(slug);
+};
+
+/* Hook into openDetailPopup — update SEO when any post opens */
+var _origOpenDetailPopup = window.openDetailPopup;
+window.openDetailPopup = function(post, updateUrl) {
+  _origOpenDetailPopup(post, updateUrl);
+  if (post) {
+    var postUrl = window.location.origin + window.location.pathname + '#' + makePostSlug(post);
+    updateSEO(null, post.title, post.body, postUrl);
+
+    /* Inject per-post Article schema dynamically */
+    injectPostSchema(post, postUrl);
+  }
+};
+
+/* Inject Article schema for each post when opened */
+function injectPostSchema(post, postUrl) {
+  /* Remove old post schema if any */
+  var old = document.getElementById('dynamicPostSchema');
+  if (old) old.remove();
+
+  var d = new Date(post.date);
+  var schema = {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": post.title || '',
+    "description": post.body || '',
+    "articleBody": post.detail || post.body || '',
+    "datePublished": post.date || '',
+    "dateModified": post.date || '',
+    "author": {
+      "@type": "Organization",
+      "name": post.author || "AFOLU Itoophiyaa",
+      "url": "https://afoluethiopia.cv"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "AFOLU Itoophiyaa",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://i.imgur.com/TOLgCdy.png"
+      }
+    },
+    "image": post.image || "https://i.imgur.com/36K6kb7.png",
+    "url": postUrl,
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": postUrl
+    },
+    "keywords": (Array.isArray(post.tags) ? post.tags : []).concat([post.section || '', post.type || '', 'AFOLU Ethiopia']).filter(Boolean).join(', '),
+    "articleSection": post.section || '',
+    "inLanguage": "om"
+  };
+
+  var script = document.createElement('script');
+  script.type = 'application/ld+json';
+  script.id = 'dynamicPostSchema';
+  script.textContent = JSON.stringify(schema);
+  document.head.appendChild(script);
+}
 
 </script>
 </body>
