@@ -15,7 +15,8 @@
         "Haaromsa",
         "Biqiltuu",
         "CRGE"
-      ]
+      ],
+      "view": "Legacy"
     },
     {
       "title": "Waltajjii Biyyoolessaa Qabeenya Uumamaa — Marii Ogeeyyii",
@@ -32,7 +33,8 @@
         "Lafa",
         "Ekosistemii",
         "Haaromsa"
-      ]
+      ],
+      "view": "Natural-Resource-Mgmt"
     },
     {
       "title": "Leenjii Agroforestirii — Qonnaatotaaf Carraa Barumsaa",
@@ -49,7 +51,8 @@
         "Qonnaa",
         "Horiif",
         "Itti Fufiinsa"
-      ]
+      ],
+      "view": "agroforestry"
     },
     {
       "title": "Sagantaa REDD+ — Konfaransii Hirmaattoota Naannoo",
@@ -66,7 +69,8 @@
         "Kaarbonii",
         "Bosona",
         "Maallaqaa Qilleensaa"
-      ]
+      ],
+      "view": "REDD"
     },
     {
       "title": "Waamicha Qorannoo: Saayinsii Biqiltuu fi Nageenya Nyaataa",
@@ -83,7 +87,8 @@
         "Midhaan",
         "Qonnaa",
         "Nageenya Nyaataa"
-      ]
+      ],
+      "view": "plant-science"
     },
     {
       "title": "Konfaransii Dandamachuu Qilleensaa — Karaa Furmaataa",
@@ -100,7 +105,8 @@
         "Adapteeshn",
         "Qilleensa",
         "Dandamachuu"
-      ]
+      ],
+      "view": "Climate"
     },
     {
       "title": "Sagantaa Hordoffii AFOLU 2026 — Iyyannoo Fudhachuu Itti Fufa",
@@ -116,7 +122,8 @@
         "AFOLU",
         "Beeksisa",
         "Odeeffannoo"
-      ]
+      ],
+      "view": "News"
     },
     {
       "title": "Sagantaan Ashaaraa Magariisaa Lakkoofsa Biqiltuu Biliyoona 28 Caale",
@@ -133,7 +140,8 @@
         "Haaromsa",
         "Biqiltuu",
         "CRGE"
-      ]
+      ],
+      "view": "Legacy"
     },
     {
       "title": "Simpooziyeemii Saayinsii Bineeldota fi Misoomaa Baadiyyaa",
@@ -149,7 +157,8 @@
         "Horiif",
         "Veterinaaraa",
         "Horsiisee Bulee"
-      ]
+      ],
+      "view": "animal-science"
     },
     {
       "title": "Warshaa Qonnaa Qilleensa-Ogummaa — Galmaawwii Banaa",
@@ -166,7 +175,8 @@
         "Adapteeshn",
         "Qilleensa",
         "Dandamachuu"
-      ]
+      ],
+      "view": "Climate"
     },
     {
       "title": "Waamicha Iyyannoo: Sagantaa Hordoffii AFOLU 2026",
@@ -182,7 +192,8 @@
         "AFOLU",
         "Beeksisa",
         "Odeeffannoo"
-      ]
+      ],
+      "view": "News"
     },
     {
       "title": "AFOLU Sagantaa Bulchiinsa Bosona Hawaasa REDD+ Haaraa Jalqabe",
@@ -199,7 +210,8 @@
         "Kaarbonii",
         "Bosona",
         "Maallaqaa Qilleensaa"
-      ]
+      ],
+      "view": "REDD"
     },
     {
       "title": "Ilaallata Hojiirra Oolmaa Pirojektii REDD+ — Wa'ee Hirmaattoota",
@@ -216,7 +228,8 @@
         "Kaarbonii",
         "Bosona",
         "Maallaqaa Qilleensaa"
-      ]
+      ],
+      "view": "REDD"
     },
     {
       "title": "Simpooziyeemii Biyyoolessaa Bulchiinsa Lafa Itti Fufiinsa Qabu — Waamicha Barreeffamaa",
@@ -232,7 +245,8 @@
         "AFOLU",
         "Beeksisa",
         "Odeeffannoo"
-      ]
+      ],
+      "view": "News"
     },
     {
       "title": "Guyyaa Dhaabuu Muka Biyyoolessaa 2026 Qopheessuu Jalqabame",
@@ -249,7 +263,8 @@
         "Haaromsa",
         "Biqiltuu",
         "CRGE"
-      ]
+      ],
+      "view": "Legacy"
     },
     {
       "title": "Haaromsa Bishaanii Heektaarii Miliyoona 15 ol Biyyoolessaan Hammata",
@@ -266,7 +281,8 @@
         "Lafa",
         "Ekosistemii",
         "Haaromsa"
-      ]
+      ],
+      "view": "Natural-Resource-Mgmt"
     },
     {
       "title": "Gabaasa Waggaa 2025 Amma Buufachuuf Jira",
@@ -283,7 +299,8 @@
         "Maxxansa",
         "Qorannoo",
         "Odeeffannoo"
-      ]
+      ],
+      "view": "Reports"
     },
     {
       "title": "Meeshaalee Xiinxala Jiyoospeeshalii Haaraa Hordoffii Fayyadama Lafaatiif Qophaa'e",
@@ -300,7 +317,8 @@
         "Satellite",
         "Kaartaa",
         "Hordoffii"
-      ]
+      ],
+      "view": "Geospatial"
     },
     {
       "title": "Saayinsii Biqiltuu: Sanyii Fooyyaa'aa Naannoolee Adda Addaatiif Qophaa'e",
@@ -317,7 +335,8 @@
         "Midhaan",
         "Qonnaa",
         "Nageenya Nyaataa"
-      ]
+      ],
+      "view": "plant-science"
     },
     {
       "title": "Agroforestirii: Sirna Mukaa-Qonnaa-Horsiisee Bulee Naannoo Oromiyaatti Bal'ate",
@@ -334,7 +353,8 @@
         "Qonnaa",
         "Horiif",
         "Itti Fufiinsa"
-      ]
+      ],
+      "view": "agroforestry"
     },
     {
       "title": "Saayinsii Bineeldota: Fooyya'iinsa Horsiisee Buleetiin Horiin Ni Baay'ata",
@@ -350,7 +370,8 @@
         "Horiif",
         "Veterinaaraa",
         "Horsiisee Bulee"
-      ]
+      ],
+      "view": "animal-science"
     },
     {
       "title": "Misooma Baadiyyaa: Mana Barumsaa Qonnaa fi Buufata Mul'ina Haaraan Banaman",
@@ -367,7 +388,8 @@
         "Hawaasa",
         "Dubartootaa",
         "Dargaggoo"
-      ]
+      ],
+      "view": "Extension"
     },
     {
       "title": "Agiroo-Ekonomiksii: Sarara Gatii Qonnaa Fooyyessuuf Xiinxalli Bahe",
@@ -384,7 +406,8 @@
         "Gabaa",
         "Maallaqaa",
         "Imaammataa"
-      ]
+      ],
+      "view": "Agro-Economics"
     },
     {
       "title": "Marga: Sagantaan Bulchiinsa Bosona Hawaasaa Naannolee Sadii Keessatti Jalqabe",
@@ -401,7 +424,8 @@
         "CFM",
         "REDD+",
         "Muka"
-      ]
+      ],
+      "view": "forestry"
     },
     {
       "title": "Bineensota Bosonaa fi Tuuriizimii: Naannolee Eegumsa Bineensotaa Cimsan",
@@ -418,7 +442,8 @@
         "Tuuriizimii",
         "Biodiversity",
         "Eegumsa"
-      ]
+      ],
+      "view": "Wildlife"
     },
     {
       "title": "Nageenya Nyaataa: Hojii Gamtaa Haaraan Naannoolee Saaxilamoo Keessatti Jalqabe",
@@ -435,7 +460,8 @@
         "Qonnaa",
         "Beekumsaa",
         "Hawaasa"
-      ]
+      ],
+      "view": "Food"
     },
     {
       "title": "Dandamachuu Qilleensaa: CRGE Tarkaanfii Hojiirra Oolmaa Itoophiyaa Deeggara",
@@ -452,7 +478,8 @@
         "Adapteeshn",
         "Qilleensa",
         "Dandamachuu"
-      ]
+      ],
+      "view": "Climate"
     },
     {
       "title": "Pirojektii Amma: Haaromsa Bishaanii Oromiyaa fi Amaaraa Keessatti Itti Fufa",
@@ -469,7 +496,8 @@
         "Lafa",
         "Ekosistemii",
         "Haaromsa"
-      ]
+      ],
+      "view": "Natural-Resource-Mgmt"
     },
     {
       "title": "Pirojektii Xumurame: Manneen Barumsaa Qonnaa fi Sanyii Biqiltuu Naannoo Oromiyaa",
@@ -486,7 +514,8 @@
         "Hawaasa",
         "Dubartootaa",
         "Dargaggoo"
-      ]
+      ],
+      "view": "Extension"
     },
     {
       "title": "Pirojektii Naannoo: Pirojektii Agroforestirii Dirree Gogaa Hundeeffame",
@@ -503,7 +532,8 @@
         "Qonnaa",
         "Horiif",
         "Itti Fufiinsa"
-      ]
+      ],
+      "view": "agroforestry"
     },
     {
       "title": "Gabaasaalee: Maxxansa Haaraan Qorannoo Saayinsii Biqiltuu Irratti Bahe",
@@ -520,7 +550,8 @@
         "Maxxansa",
         "Qorannoo",
         "Odeeffannoo"
-      ]
+      ],
+      "view": "Reports"
     },
     {
       "title": "GIS fi Kaartaalee: Sirni Hordoffii Bosona Haaraan Jalqabame",
@@ -537,7 +568,8 @@
         "Satellite",
         "Kaartaa",
         "Hordoffii"
-      ]
+      ],
+      "view": "Geospatial"
     },
     {
       "title": "Qajeelcha Teknikaa: Galmee Haaraa Bulchiinsa Bosona Hawaasaa fi REDD+ Bahe",
@@ -554,7 +586,8 @@
         "Leenjii",
         "Dirree",
         "Ogummaa"
-      ]
+      ],
+      "view": "publications"
     },
     {
       "title": "AFOLU Itoophiyaa Hirmaattoota Haaraa 50 ol Simate",
@@ -570,7 +603,8 @@
         "AFOLU",
         "Beeksisa",
         "Odeeffannoo"
-      ]
+      ],
+      "view": "News"
     },
     {
       "title": "Qonnaatotni Oromiyaa Sirna Agroforestirii Irraa Bu'aa Gurguddaa Argatan",
@@ -587,7 +621,8 @@
         "Qonnaa",
         "Horiif",
         "Itti Fufiinsa"
-      ]
+      ],
+      "view": "agroforestry"
     },
     {
       "title": "Sagantaa Hordoffii AFOLU 2025: Barattoota fi Qorattootni Haaraa Simataman",
@@ -603,7 +638,8 @@
         "AFOLU",
         "Beeksisa",
         "Odeeffannoo"
-      ]
+      ],
+      "view": "News"
     }
   ]
 }
