@@ -1952,6 +1952,126 @@ footer {
 }
 .doc-btn-pending:hover::after { opacity: 1; }
 
+
+/* ============================================================
+   LIVE CLOCK — Topbar + Home Banner
+   ============================================================ */
+
+/* Topbar mini clock */
+.topbar-clock {
+  display: flex; align-items: center; gap: 0.45rem;
+  font-size: 0.72rem; color: rgba(255,255,255,0.75);
+  font-family: 'DM Mono', monospace; letter-spacing: 0.03em;
+}
+.topbar-clock svg { opacity: 0.55; flex-shrink: 0; }
+#topbarTime { color: var(--earth-light); font-weight: 500; }
+#topbarDate { opacity: 0.7; }
+
+/* Home page clock banner */
+.clock-banner {
+  background: var(--forest);
+  border-bottom: 1px solid rgba(255,255,255,0.06);
+  padding: 0.9rem 0;
+}
+.clock-banner-inner {
+  max-width: 1360px; margin: 0 auto; padding: 0 2.5rem;
+  display: flex; align-items: center; justify-content: space-between;
+  flex-wrap: wrap; gap: 0.8rem;
+}
+.clock-main {
+  display: flex; align-items: center; gap: 1.8rem; flex-wrap: wrap;
+}
+.clock-time-block { text-align: center; }
+.clock-time {
+  font-family: 'DM Mono', monospace;
+  font-size: clamp(1.6rem, 3.5vw, 2.4rem);
+  font-weight: 500; color: var(--white);
+  letter-spacing: 0.04em; line-height: 1;
+}
+.clock-seconds {
+  font-size: 0.65em; color: var(--earth-light);
+  opacity: 0.9;
+}
+.clock-ampm {
+  font-size: 0.5em; color: rgba(255,255,255,0.5);
+  margin-left: 0.3em; letter-spacing: 0.1em;
+}
+.clock-date-block { border-left: 1px solid rgba(255,255,255,0.12); padding-left: 1.8rem; }
+.clock-day {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(0.9rem, 2vw, 1.1rem);
+  color: var(--earth-light); font-weight: 600; line-height: 1.2;
+}
+.clock-full-date {
+  font-size: 0.78rem; color: rgba(255,255,255,0.55);
+  margin-top: 0.15rem; letter-spacing: 0.02em;
+}
+.clock-calendar-block {
+  border-left: 1px solid rgba(255,255,255,0.12); padding-left: 1.8rem;
+}
+.clock-week-label {
+  font-size: 0.62rem; color: rgba(255,255,255,0.4);
+  text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 0.35rem;
+}
+.clock-weekdays {
+  display: flex; gap: 0.3rem;
+}
+.clock-wd {
+  width: 22px; height: 22px; border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 0.6rem; font-weight: 600; letter-spacing: 0;
+  color: rgba(255,255,255,0.4);
+  transition: background 0.3s, color 0.3s;
+}
+.clock-wd.today {
+  background: var(--earth); color: var(--forest); font-weight: 700;
+}
+.clock-wd.past { color: rgba(255,255,255,0.2); }
+
+.clock-right {
+  display: flex; align-items: center; gap: 1.5rem;
+}
+.clock-timezone {
+  text-align: right;
+}
+.clock-tz-label {
+  font-size: 0.6rem; color: rgba(255,255,255,0.35);
+  text-transform: uppercase; letter-spacing: 0.1em;
+}
+.clock-tz-name {
+  font-size: 0.78rem; color: rgba(255,255,255,0.6);
+  font-family: 'DM Mono', monospace;
+}
+.clock-uptime {
+  text-align: right;
+}
+.clock-uptime-label {
+  font-size: 0.6rem; color: rgba(255,255,255,0.35);
+  text-transform: uppercase; letter-spacing: 0.1em;
+}
+.clock-uptime-val {
+  font-size: 0.78rem; color: var(--earth-light);
+  font-family: 'DM Mono', monospace;
+}
+/* Pulse dot */
+.clock-pulse {
+  width: 7px; height: 7px; border-radius: 50%;
+  background: var(--earth-light);
+  display: inline-block; margin: 0 0.15em;
+  animation: clockPulse 1s ease infinite;
+}
+@keyframes clockPulse {
+  0%,100%{opacity:1;transform:scale(1)}
+  50%{opacity:0.3;transform:scale(0.7)}
+}
+@media(max-width:768px){
+  .clock-calendar-block,.clock-right{display:none}
+  .clock-banner-inner{justify-content:center}
+}
+@media(max-width:480px){
+  .clock-date-block{display:none}
+}
+
 </style>
 </style>
 </head>
@@ -1972,7 +2092,15 @@ footer {
     <div class="topbar-divider"></div>
     <span><a href="mailto:afoluofethiopia@gmail.com">afoluofethiopia@gmail.com</a></span>
   </div>
+  <!-- Mini live clock in topbar -->
   <div class="topbar-right">
+    <div class="topbar-clock">
+      <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+      <span id="topbarTime">00:00:00</span>
+      <span class="topbar-divider" style="margin:0 0.2rem"></span>
+      <span id="topbarDate">--- -- ----</span>
+    </div>
+    <div class="topbar-divider"></div>
     <a href="https://www.facebook.com/afoluethiopia" target="_blank">
       <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
       Facebook
@@ -1983,6 +2111,61 @@ footer {
     <a href="#">YouTube</a>
   </div>
 </div>
+
+<!-- ============================================================
+     LIVE CLOCK BANNER — Auto-updates every second
+     Shows: time, date, day of week, timezone, visit duration
+     ============================================================ -->
+<div class="clock-banner" id="clockBanner">
+  <div class="clock-banner-inner">
+
+    <!-- Left: Time + Date + Weekday calendar -->
+    <div class="clock-main">
+
+      <!-- Time display -->
+      <div class="clock-time-block">
+        <div class="clock-time">
+          <span id="clockHH">00</span><span class="clock-pulse" id="clockColon">:</span><span id="clockMM">00</span><span class="clock-seconds"><span id="clockSS">00</span></span><span class="clock-ampm" id="clockAMPM">AM</span>
+        </div>
+      </div>
+
+      <!-- Date display -->
+      <div class="clock-date-block">
+        <div class="clock-day" id="clockDayName">Wiixata</div>
+        <div class="clock-full-date" id="clockFullDate">-- --- ----</div>
+      </div>
+
+      <!-- Weekday pills -->
+      <div class="clock-calendar-block">
+        <div class="clock-week-label">Torban kana</div>
+        <div class="clock-weekdays" id="clockWeekdays">
+          <div class="clock-wd" id="wd0">Dil</div>
+          <div class="clock-wd" id="wd1">Wix</div>
+          <div class="clock-wd" id="wd2">Qib</div>
+          <div class="clock-wd" id="wd3">Rob</div>
+          <div class="clock-wd" id="wd4">Kam</div>
+          <div class="clock-wd" id="wd5">Jim</div>
+          <div class="clock-wd" id="wd6">San</div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Right: Timezone + Visit duration -->
+    <div class="clock-right">
+      <div class="clock-timezone">
+        <div class="clock-tz-label">Timezone</div>
+        <div class="clock-tz-name" id="clockTZ">EAT UTC+3</div>
+      </div>
+      <div class="clock-uptime">
+        <div class="clock-uptime-label">Gara Fuula Kanaatti Dhufee</div>
+        <div class="clock-uptime-val" id="clockUptime">00:00</div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
 
 <!-- NAVIGATION -->
 <nav class="nav-wrapper" id="mainNav">
@@ -4640,6 +4823,93 @@ function copyUrlBar(){var bar=document.getElementById('url-bar'),slug=bar.getAtt
       });
     });
   });
+})();
+
+/* ============================================================
+   LIVE CLOCK — updates every second
+   ============================================================ */
+(function(){
+  var DAY_NAMES_OM  = ['Dilbata','Wiixata','Qibxata','Roobii','Kamisa','Jimaata','Sanbata'];
+  var DAY_SHORT_OM  = ['Dil','Wix','Qib','Rob','Kam','Jim','San'];
+  var MON_NAMES_EN  = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+  var MON_FULL_EN   = ['January','February','March','April','May','June','July','August','September','October','November','December'];
+  var visitStart    = Date.now();
+
+  function pad(n){ return n < 10 ? '0'+n : ''+n; }
+
+  function tick(){
+    var now  = new Date();
+    var hrs  = now.getHours();
+    var min  = now.getMinutes();
+    var sec  = now.getSeconds();
+    var day  = now.getDay();       /* 0=Sun */
+    var date = now.getDate();
+    var mon  = now.getMonth();
+    var yr   = now.getFullYear();
+    var ampm = hrs >= 12 ? 'PM' : 'AM';
+    var hrs12 = hrs % 12 || 12;
+
+    /* ── Topbar mini clock ── */
+    var tt = document.getElementById('topbarTime');
+    var td = document.getElementById('topbarDate');
+    if(tt) tt.textContent = pad(hrs12)+':'+pad(min)+':'+pad(sec)+' '+ampm;
+    if(td) td.textContent = DAY_SHORT_OM[day]+', '+date+' '+MON_NAMES_EN[mon]+' '+yr;
+
+    /* ── Main clock banner ── */
+    var hh = document.getElementById('clockHH');
+    var mm = document.getElementById('clockMM');
+    var ss = document.getElementById('clockSS');
+    var ap = document.getElementById('clockAMPM');
+    var dn = document.getElementById('clockDayName');
+    var fd = document.getElementById('clockFullDate');
+    var tz = document.getElementById('clockTZ');
+
+    if(hh) hh.textContent = pad(hrs12);
+    if(mm) mm.textContent = pad(min);
+    if(ss) ss.textContent = pad(sec);
+    if(ap) ap.textContent = ampm;
+    if(dn) dn.textContent = DAY_NAMES_OM[day];
+    if(fd) fd.textContent = date+' '+MON_FULL_EN[mon]+' '+yr;
+
+    /* Timezone */
+    if(tz){
+      try{
+        var tzStr = Intl.DateTimeFormat().resolvedOptions().timeZone || 'Africa/Addis_Ababa';
+        var offset = -now.getTimezoneOffset();
+        var sign = offset >= 0 ? '+' : '-';
+        var offH = pad(Math.floor(Math.abs(offset)/60));
+        var offM = pad(Math.abs(offset)%60);
+        tz.textContent = tzStr.split('/').pop().replace(/_/g,' ')+' UTC'+sign+offH+':'+offM;
+      }catch(e){ tz.textContent = 'EAT UTC+3'; }
+    }
+
+    /* Highlight weekday pills */
+    for(var i=0;i<7;i++){
+      var wd = document.getElementById('wd'+i);
+      if(!wd) continue;
+      wd.classList.remove('today','past');
+      if(i === day) wd.classList.add('today');
+      else if(i < day) wd.classList.add('past');
+    }
+
+    /* Visit duration */
+    var up = document.getElementById('clockUptime');
+    if(up){
+      var elapsed = Math.floor((Date.now() - visitStart) / 1000);
+      var um = Math.floor(elapsed/60);
+      var us = elapsed % 60;
+      var uh = Math.floor(um/60);
+      um = um % 60;
+      up.textContent = uh > 0 ? pad(uh)+':'+pad(um)+':'+pad(us) : pad(um)+':'+pad(us);
+    }
+
+    /* Colon blink */
+    var colon = document.getElementById('clockColon');
+    if(colon) colon.style.opacity = sec % 2 === 0 ? '1' : '0.3';
+  }
+
+  tick();
+  setInterval(tick, 1000);
 })();
 
 </script>
