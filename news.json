@@ -1,6 +1,23 @@
 {
   "posts": [
     {
+  "title": "Increase incomes",
+  "body": "When farmers increase their incomes, they can reinvest in their family and their farming. They can grow and eat healthier food, pay for their children’s education and build resilience to climate change.",
+  "date": "2026-04-11",
+  "section": "Rural Development",
+  "type": "Announcement",
+  "author": "Mulugeta B.",
+  "image": "https://i.imgur.com/JBvGpYD.png",
+  "detail": "SunCulture, co-founded in <strong>2013</strong> by Ibrahim and Nichols, works at the intersection of technology and agriculture to improve crop yields, conserve water, and above all, help <em>East African</em> farmers increase their annual income. In this case, the latter correlates significantly with education.\n\n“When we surveyed our farmers, 61 percent of them say the first thing they spend their money on is school fees,” says Ibrahim. “If a farmer can’t afford to hire workers, their kids will work. If they can hire workers, then their kids go to school.”\n\nAt the time, he knew hardly anything about agronomy. He was not irrigating his land, even though erratic weather and frequent droughts in the region make consistent crop yields difficult. Irrigation brings more consistency, but traditional methods cause the global agricultural sector to consume about 70 percent of the world’s freshwater, much of which goes to waste.",
+  "location": "Oromia, Ethiopia",
+  "tags": [
+    "Food Securty",
+    "Income"
+  ],
+  "view": "Extension",
+  "isNew": true
+},
+    {
       "title": "Guyyaa Dhaabuu Muka Biyyoolessaa 2026 — Hirmaannaa Lammiilee",
       "body": "AFOLU Itoophiyaa guyyaa dhaabuu muka biyyoolessaa 2026 qopheessuu keessatti hogganaa ta'ee hojjeta. Ji'a Waxabajjii 2026 naannoolee Itoophiyaa hunda keessatti miliyoonota lammiilee hirmaachifama.",
       "date": "2026-06-01",
