@@ -1921,406 +1921,388 @@ footer {
   <img src="your-image.png" alt="your description" />
 </div>
 
-/* =========================================
-   AFOLU ETHIOPIA – LEADERSHIP (STANDALONE)
-========================================= */
 
-.leadership-intro p{
-font-size:.95rem;
-line-height:1.9;
-color:var(--ink-soft);
-margin-bottom:1.1rem
+/* ─── LEADERSHIP STYLES ─── */
+.lorg-lead-intro {
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-left: 5px solid var(--forest);
+  border-radius: 0 10px 10px 0;
+  padding: 1.6rem 2rem;
+  margin-bottom: 2rem;
+}
+.lorg-lead-intro p {
+  font-size: 0.93rem; color: var(--ink-soft);
+  line-height: 1.9; margin-bottom: 0.8rem;
+}
+.lorg-lead-intro p:last-child { margin-bottom: 0; }
+
+/* Director cards */
+.lorg-directors-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.6rem;
+  margin-bottom: 2.5rem;
+}
+@media(max-width: 820px) { .lorg-directors-grid { grid-template-columns: 1fr; } }
+
+.lorg-director-card {
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 1.8rem 1.9rem;
+  box-shadow: 0 6px 24px rgba(0,0,0,0.06);
+  position: relative;
+  transition: transform 0.22s, box-shadow 0.22s;
+}
+.lorg-director-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 14px 40px rgba(13,40,24,0.12);
+}
+.lorg-director-card::before {
+  content: '';
+  position: absolute; top: 0; left: 0; right: 0;
+  height: 4px; border-radius: 14px 14px 0 0;
+  background: var(--forest);
+}
+.lorg-director-card.sky-bar::before   { background: var(--sky); }
+.lorg-director-card.earth-bar::before { background: var(--earth); }
+.lorg-director-card.green-bar::before { background: var(--forest-light); }
+
+.lorg-dir-icon-wrap {
+  width: 56px; height: 56px; border-radius: 50%;
+  background: linear-gradient(135deg, var(--forest) 0%, var(--forest-mid) 100%);
+  border: 3px solid var(--earth-pale);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 1.5rem; margin-bottom: 1rem;
+}
+.lorg-dir-badge {
+  font-size: 0.6rem; font-weight: 700; letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--earth); background: var(--earth-pale);
+  border: 1px solid rgba(200,150,62,0.3);
+  padding: 0.18rem 0.7rem; border-radius: 20px;
+  display: inline-block; margin-bottom: 0.6rem;
+}
+.lorg-dir-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.05rem; font-weight: 700;
+  color: var(--forest); line-height: 1.3;
+  margin-bottom: 0.25rem;
+}
+.lorg-dir-title-en {
+  font-size: 0.7rem; color: var(--muted); font-style: italic;
+  margin-bottom: 0.9rem;
+}
+.lorg-dir-desc {
+  font-size: 0.88rem; color: var(--ink-soft);
+  line-height: 1.8; margin-bottom: 1rem;
+}
+.lorg-dir-list {
+  list-style: none; padding: 0; margin: 0 0 1rem;
+  display: flex; flex-direction: column; gap: 0;
+}
+.lorg-dir-list li {
+  font-size: 0.8rem; color: var(--ink-soft);
+  padding: 0.4rem 0;
+  border-bottom: 1px solid var(--border-soft);
+  display: flex; align-items: flex-start; gap: 0.6rem;
+  line-height: 1.5;
+}
+.lorg-dir-list li:last-child { border-bottom: none; }
+.lorg-dir-list li::before {
+  content: '▸'; color: var(--forest-light);
+  font-size: 0.68rem; margin-top: 0.14rem; flex-shrink: 0;
 }
 
-/* DIRECTOR CARDS */
+/* Pillars sub-grid inside Knowledge director */
+.lorg-pillars-wrap {
+  margin-top: 1rem; padding-top: 1rem;
+  border-top: 1px dashed var(--border);
+}
+.lorg-pillars-label {
+  font-size: 0.62rem; font-weight: 700; letter-spacing: 0.1em;
+  text-transform: uppercase; color: var(--earth);
+  margin-bottom: 0.7rem;
+}
+.lorg-pillars-grid {
+  display: grid; grid-template-columns: repeat(2, 1fr); gap: 0.55rem;
+}
+.lorg-pillar-item {
+  background: var(--ivory); border: 1px solid var(--border);
+  border-radius: 8px; padding: 0.55rem 0.7rem;
+  display: flex; align-items: flex-start; gap: 0.5rem;
+  cursor: pointer; transition: all 0.18s;
+}
+.lorg-pillar-item:hover {
+  background: var(--cream); border-color: var(--forest-light);
+  transform: translateY(-1px);
+}
+.lorg-pillar-emoji { font-size: 1rem; flex-shrink: 0; }
+.lorg-pillar-om   { font-size: 0.72rem; font-weight: 700; color: var(--forest); line-height: 1.3; display: block; }
+.lorg-pillar-en   { font-size: 0.62rem; color: var(--muted); font-style: italic; }
 
-.directors-grid{
-display:grid;
-grid-template-columns:repeat(2,1fr);
-gap:1.6rem;
-margin-top:2.5rem
+/* Leadership closing */
+.lorg-closing {
+  background: linear-gradient(135deg, var(--forest) 0%, var(--sky) 100%);
+  border-radius: 12px; padding: 2rem 2.4rem;
+  text-align: center; position: relative; overflow: hidden;
+}
+.lorg-closing::before {
+  content: '🌿'; position: absolute; top: -1rem; right: 1rem;
+  font-size: 7rem; opacity: 0.07; pointer-events: none;
+}
+.lorg-closing p {
+  font-size: 0.92rem; color: rgba(255,255,255,0.82);
+  line-height: 1.9; max-width: 680px; margin: 0 auto;
+  font-weight: 300; position: relative; z-index: 1;
+}
+.lorg-closing strong { color: var(--earth-light); font-weight: 700; }
+
+/* ─── ORGANIZATIONAL STRUCTURE STYLES ─── */
+.lorg-org-section-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.25rem; font-weight: 700;
+  color: var(--forest); margin: 2.5rem 0 1.2rem;
+  padding-bottom: 0.65rem;
+  border-bottom: 2px solid var(--earth);
+  display: flex; align-items: center; gap: 0.6rem;
+}
+.lorg-org-section-title::before {
+  content: ''; display: inline-block;
+  width: 5px; height: 20px; border-radius: 3px;
+  background: var(--earth); flex-shrink: 0;
 }
 
-@media(max-width:820px){
-.directors-grid{
-grid-template-columns:1fr
+/* Top Executive node */
+.lorg-top-node {
+  background: linear-gradient(135deg, var(--forest) 0%, var(--sky) 100%);
+  border-radius: 14px; padding: 1.8rem 2.2rem;
+  display: flex; align-items: flex-start; gap: 1.3rem;
+  margin-bottom: 0.4rem;
+  box-shadow: 0 8px 28px rgba(13,40,24,0.22);
+  position: relative; overflow: hidden;
 }
+.lorg-top-node::after {
+  content: ''; position: absolute;
+  top: -40px; right: -40px;
+  width: 160px; height: 160px; border-radius: 50%;
+  background: rgba(200,150,62,0.08);
+  border: 1px solid rgba(200,150,62,0.15);
 }
-
-.director-card{
-background:#ffffff;
-border-radius:16px;
-padding:1.8rem 1.9rem;
-border:1px solid var(--border);
-box-shadow:0 14px 36px rgba(0,0,0,.06);
-text-align:left;
-position:relative
+.lorg-top-icon {
+  width: 58px; height: 58px; border-radius: 50%;
+  background: rgba(255,255,255,0.12);
+  border: 2px solid rgba(200,150,62,0.4);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 1.6rem; flex-shrink: 0;
 }
-
-.director-card::before{
-content:'';
-position:absolute;
-top:0;
-left:0;
-right:0;
-height:4px;
-background:var(--forest)
+.lorg-top-body { flex: 1; position: relative; z-index: 1; }
+.lorg-top-badge {
+  font-size: 0.58rem; font-weight: 700; letter-spacing: 0.15em;
+  text-transform: uppercase; color: var(--earth-light);
+  background: rgba(200,150,62,0.18); border: 1px solid rgba(200,150,62,0.3);
+  padding: 0.15rem 0.65rem; border-radius: 20px;
+  display: inline-block; margin-bottom: 0.5rem;
 }
-
-.director-card h3{
-font-size:1.05rem;
-font-weight:800;
-color:var(--forest);
-margin-bottom:.8rem
+.lorg-top-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.2rem; font-weight: 700; color: var(--white);
+  line-height: 1.25; margin-bottom: 0.45rem;
 }
-
-.director-card p{
-font-size:.9rem;
-line-height:1.85;
-color:var(--ink-soft);
-margin-bottom:1rem
-}
-
-/* TECHNICAL PILLARS */
-
-.pillars-wrap{
-margin-top:1.3rem
-}
-
-.pillars-title{
-font-size:.75rem;
-font-weight:800;
-letter-spacing:.12em;
-text-transform:uppercase;
-color:var(--earth);
-margin-bottom:.8rem
+.lorg-top-desc { font-size: 0.85rem; color: rgba(255,255,255,0.72); line-height: 1.75; }
+.lorg-top-funcs { display: flex; flex-wrap: wrap; gap: 0.4rem; margin-top: 0.85rem; }
+.lorg-top-func {
+  font-size: 0.65rem; font-weight: 600;
+  color: rgba(255,255,255,0.78);
+  background: rgba(255,255,255,0.1);
+  border: 1px solid rgba(255,255,255,0.17);
+  padding: 0.2rem 0.65rem; border-radius: 20px;
 }
 
-.pillars-grid{
-display:grid;
-grid-template-columns:repeat(2,1fr);
-gap:.8rem
+/* Connector */
+.lorg-connector {
+  width: 3px; height: 28px;
+  background: linear-gradient(to bottom, var(--forest-light), transparent);
+  margin: 0 auto;
 }
 
-.pillar{
-display:flex;
-gap:.65rem;
-background:#f7f7f4;
-border-radius:12px;
-padding:.7rem .8rem;
-border:1px solid rgba(0,0,0,.05)
+/* Directorate cards grid */
+.lorg-dir-cards-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.2rem;
+  margin-bottom: 1.8rem;
 }
+@media(max-width: 760px) { .lorg-dir-cards-grid { grid-template-columns: 1fr; } }
 
-.pillar-icon{
-font-size:1.2rem;
-flex-shrink:0
+.lorg-dir-block {
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-top: 4px solid var(--forest);
+  border-radius: 10px;
+  padding: 1.4rem 1.5rem;
+  box-shadow: 0 3px 14px rgba(0,0,0,0.05);
+  transition: transform 0.2s, box-shadow 0.2s;
 }
-
-.pillar-text{
-font-size:.78rem;
-line-height:1.5
+.lorg-dir-block:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 30px rgba(13,40,24,0.11);
 }
+.lorg-dir-block.sky-t   { border-top-color: var(--sky); }
+.lorg-dir-block.earth-t { border-top-color: var(--earth); }
+.lorg-dir-block.green-t { border-top-color: var(--forest-light); }
+.lorg-dir-block.red-t   { border-top-color: #b83232; }
 
-.pillar-text strong{
-display:block;
-color:var(--forest);
-font-weight:800
+.lorg-dblock-icon  { font-size: 1.7rem; margin-bottom: 0.6rem; }
+.lorg-dblock-name  {
+  font-family: 'Playfair Display', serif;
+  font-size: 0.98rem; font-weight: 700; color: var(--forest);
+  line-height: 1.3; margin-bottom: 0.2rem;
 }
-
-/* CLOSING */
-
-.leadership-closing{
-margin-top:3rem;
-background:linear-gradient(135deg,#f7f6f3,#eceae6);
-border-radius:18px;
-padding:2.3rem;
-text-align:center
+.lorg-dblock-en    { font-size: 0.68rem; color: var(--muted); font-style: italic; margin-bottom: 0.7rem; }
+.lorg-dblock-desc  { font-size: 0.82rem; color: var(--ink-soft); line-height: 1.75; margin-bottom: 0.9rem; }
+.lorg-dblock-list  { list-style: none; padding: 0; margin: 0 0 0.9rem; }
+.lorg-dblock-list li {
+  font-size: 0.78rem; color: var(--ink-soft);
+  padding: 0.38rem 0; border-bottom: 1px solid var(--border-soft);
+  display: flex; align-items: flex-start; gap: 0.5rem; line-height: 1.5;
 }
-
-.leadership-closing p{
-font-size:.92rem;
-line-height:1.9;
-color:var(--ink-soft)
+.lorg-dblock-list li:last-child { border-bottom: none; }
+.lorg-dblock-list li::before {
+  content: '▸'; color: var(--forest-light); font-size: 0.65rem;
+  margin-top: 0.12rem; flex-shrink: 0;
 }
-
-.leadership-closing strong{
-color:var(--forest)
+.lorg-dblock-pills-label {
+  font-size: 0.6rem; font-weight: 700; letter-spacing: 0.1em;
+  text-transform: uppercase; color: var(--earth);
+  margin: 0.85rem 0 0.5rem;
+  padding-top: 0.85rem;
+  border-top: 1px dashed var(--border);
 }
-``
-/* ══ MISSION & VISION VIEW ══ */
-
-.mv-hero-row{
-display:grid;
-grid-template-columns:1fr 1fr;
-gap:1.5rem;
-margin-bottom:2rem
+.lorg-dblock-pills { display: flex; flex-wrap: wrap; gap: 0.3rem; }
+.lorg-dblock-pill {
+  font-size: 0.63rem; font-weight: 600;
+  color: var(--forest-mid); background: var(--cream);
+  border: 1px solid var(--border);
+  padding: 0.18rem 0.55rem; border-radius: 20px;
+  cursor: pointer; transition: all 0.16s;
 }
+.lorg-dblock-pill:hover { background: var(--forest-mid); color: var(--white); }
 
-@media(max-width:700px){
-.mv-hero-row{
-grid-template-columns:1fr
+/* Programs sub-table */
+.lorg-prog-table {
+  width: 100%; border-collapse: collapse; font-size: 0.78rem;
+  margin-top: 1rem; border: 1px solid var(--border); border-radius: 8px; overflow: hidden;
 }
+.lorg-prog-table thead tr { background: var(--forest); }
+.lorg-prog-table thead th {
+  padding: 0.65rem 0.9rem; text-align: left;
+  font-weight: 700; font-size: 0.72rem; color: var(--white); letter-spacing: 0.03em;
 }
-
-.mv-hero-card{
-border-radius:14px;
-padding:2rem 1.8rem;
-display:flex;
-flex-direction:column;
-gap:.6rem;
-position:relative;
-overflow:hidden;
-background:#ffffff;
-color:#1f2a2e;
-border:1px solid var(--border);
+.lorg-prog-table tbody tr:nth-child(even) { background: var(--ivory); }
+.lorg-prog-table tbody tr:hover { background: var(--earth-pale); }
+.lorg-prog-table tbody td {
+  padding: 0.6rem 0.9rem; border-bottom: 1px solid var(--border-soft);
+  color: var(--ink-soft); vertical-align: top; line-height: 1.55;
 }
-
-/* UPDATED: WHITE BACKGROUND + DARK TEXT */
-
-.mv-mission-card{
-background:#ffffff;
-color:#1f2a2e;
-border:1px solid var(--border);
+.lorg-prog-table tbody tr:last-child td { border-bottom: none; }
+.lorg-ptag {
+  font-size: 0.58rem; font-weight: 700; letter-spacing: 0.07em;
+  text-transform: uppercase; padding: 0.13rem 0.45rem;
+  border-radius: 3px; display: inline-block;
 }
+.lorg-ptag-g { background: rgba(42,122,72,0.12); color: var(--forest-mid); }
+.lorg-ptag-s { background: rgba(26,58,92,0.1);  color: var(--sky); }
+.lorg-ptag-e { background: var(--earth-pale);   color: #8a5a00; }
+.lorg-ptag-r { background: rgba(200,50,50,0.08); color: #b83232; }
 
-.mv-vision-card{
-background:#ffffff;
-color:#1f2a2e;
-border:1px solid var(--border);
+/* 8-pillar mini grid inside org */
+.lorg-8pillars-grid {
+  display: grid; grid-template-columns: repeat(4, 1fr); gap: 0.55rem;
+  margin-top: 0.8rem;
 }
-
-/* decorative background circle */
-
-.mv-hero-card::after{
-content:'';
-position:absolute;
-top:-40px;
-right:-40px;
-width:180px;
-height:180px;
-border-radius:50%;
-background:rgba(0,0,0,0.02);
-border:1px solid rgba(0,0,0,.05)
+@media(max-width:680px) { .lorg-8pillars-grid { grid-template-columns: repeat(2,1fr); } }
+.lorg-8p-item {
+  background: var(--ivory); border: 1px solid var(--border);
+  border-radius: 7px; padding: 0.6rem 0.65rem;
+  display: flex; align-items: flex-start; gap: 0.4rem;
+  cursor: pointer; transition: all 0.16s;
 }
+.lorg-8p-item:hover { border-color: var(--forest-light); transform: translateY(-2px); background: var(--cream); }
+.lorg-8p-emoji { font-size: 1rem; flex-shrink: 0; }
+.lorg-8p-name  { font-size: 0.68rem; font-weight: 700; color: var(--forest); line-height: 1.3; display: block; }
+.lorg-8p-sub   { font-size: 0.58rem; color: var(--muted); }
 
-.mv-card-icon{
-font-size:2.2rem;
-margin-bottom:.2rem;
-color:var(--forest);
+/* Support units */
+.lorg-support-grid {
+  display: grid; grid-template-columns: repeat(3, 1fr);
+  gap: 1rem; margin-bottom: 1.8rem;
 }
-
-/* badge styling optimized for white background */
-
-.mv-card-badge{
-font-size:.62rem;
-font-weight:700;
-letter-spacing:.12em;
-text-transform:uppercase;
-color:var(--forest);
-background:rgba(0,0,0,0.04);
-border:1px solid rgba(0,0,0,0.10);
-padding:.2rem .75rem;
-border-radius:20px;
-display:inline-block;
-margin-bottom:.5rem
+@media(max-width: 700px) { .lorg-support-grid { grid-template-columns: 1fr; } }
+.lorg-support-card {
+  background: var(--ivory); border: 1px solid var(--border);
+  border-left: 4px solid var(--sky);
+  border-radius: 8px; padding: 1.1rem 1.2rem;
 }
+.lorg-support-card.el { border-left-color: var(--earth); }
+.lorg-support-card.gl { border-left-color: var(--forest-light); }
+.lorg-support-icon { font-size: 1.4rem; margin-bottom: 0.45rem; }
+.lorg-support-name { font-size: 0.83rem; font-weight: 700; color: var(--forest); margin-bottom: 0.2rem; }
+.lorg-support-en   { font-size: 0.65rem; color: var(--muted); font-style: italic; margin-bottom: 0.55rem; }
+.lorg-support-desc { font-size: 0.76rem; color: var(--ink-soft); line-height: 1.65; }
 
-.mv-vision-card .mv-card-badge{
-color:var(--forest);
-background:rgba(0,0,0,0.04);
-border-color:rgba(0,0,0,0.10)
+/* Matrix */
+.lorg-matrix-wrap { overflow-x: auto; margin: 1.2rem 0 1.8rem; }
+.lorg-matrix {
+  width: 100%; border-collapse: collapse; font-size: 0.76rem; min-width: 580px;
 }
-
-/* Info Section */
-
-.mv-info-section{
-background:var(--white);
-border:1px solid var(--border);
-border-radius:12px;
-padding:1.8rem 2rem;
-margin-bottom:2rem;
-border-left:4px solid var(--sky)
+.lorg-matrix th {
+  background: var(--sky-mid); color: var(--white);
+  padding: 0.6rem 0.85rem; text-align: left;
+  font-weight: 700; border-right: 1px solid rgba(255,255,255,0.14);
 }
-
-.mv-info-lang-row{
-margin-bottom:.8rem
+.lorg-matrix th:first-child { background: var(--forest); }
+.lorg-matrix td {
+  padding: 0.52rem 0.85rem;
+  border: 1px solid var(--border-soft);
+  vertical-align: middle; color: var(--ink-soft);
 }
+.lorg-matrix tr:nth-child(even) td { background: var(--ivory); }
+.lorg-matrix .chk { color: var(--forest-light); font-weight: 900; text-align: center; font-size: 0.85rem; }
+.lorg-matrix .rh  { font-weight: 700; color: var(--forest); background: var(--cream) !important; }
 
-.mv-lang-pill{
-display:inline-flex;
-align-items:center;
-gap:.3rem;
-font-size:.62rem;
-font-weight:700;
-letter-spacing:.08em;
-text-transform:uppercase;
-padding:.22rem .7rem;
-border-radius:20px
+/* Regions grid */
+.lorg-regions-grid {
+  display: grid; grid-template-columns: repeat(3, 1fr);
+  gap: 0.8rem; margin-bottom: 2rem;
 }
-
-.mv-lang-om{
-background:var(--forest);
-color:var(--earth-light)
+@media(max-width: 680px) { .lorg-regions-grid { grid-template-columns: 1fr 1fr; } }
+.lorg-region-card {
+  background: var(--white); border: 1px solid var(--border);
+  border-radius: 8px; padding: 0.85rem 1rem;
+  display: flex; align-items: center; gap: 0.65rem;
 }
+.lorg-region-flag { font-size: 1.3rem; flex-shrink: 0; }
+.lorg-region-name  { font-size: 0.78rem; font-weight: 700; color: var(--forest); line-height: 1.3; }
+.lorg-region-focus { font-size: 0.65rem; color: var(--muted); line-height: 1.4; }
 
-.mv-lang-en{
-background:var(--sky);
-color:var(--white)
+/* Org closing */
+.lorg-org-closing {
+  background: linear-gradient(135deg, var(--forest) 0%, var(--sky) 100%);
+  border-radius: 12px; padding: 2rem 2.4rem;
+  text-align: center; position: relative; overflow: hidden; margin-top: 1.5rem;
 }
-
-.mv-info-title{
-font-family:'Playfair Display',serif;
-font-size:1.05rem;
-font-weight:700;
-color:var(--forest);
-margin-bottom:.7rem;
-line-height:1.3
+.lorg-org-closing::before {
+  content: '⚙'; position: absolute; top: -1rem; right: 1rem;
+  font-size: 7rem; opacity: 0.04; color: var(--white); pointer-events: none;
 }
-
-.mv-info-body{
-font-size:.9rem;
-color:var(--ink-soft);
-line-height:1.9;
-margin-bottom:.8rem;
-font-weight:300
+.lorg-org-closing p {
+  font-size: 0.9rem; color: rgba(255,255,255,0.8);
+  line-height: 1.9; max-width: 680px; margin: 0 auto;
+  font-weight: 300; position: relative; z-index: 1;
 }
-
-.mv-info-body strong{
-color:var(--sky);
-font-weight:700
-}
-
-.mv-info-body-om{
-font-size:.9rem;
-color:var(--ink);
-line-height:1.9;
-margin-bottom:.8rem;
-font-weight:400
-}
-
-.mv-info-body-om strong{
-color:var(--forest);
-font-weight:700
-}
-
-/* Strategic Objectives */
-
-.mv-objectives-wrap{
-margin-bottom:2rem
-}
-
-.mv-objectives-header{
-margin-bottom:1.2rem
-}
-
-.mv-objectives-eyebrow{
-font-size:.7rem;
-font-weight:700;
-letter-spacing:.12em;
-text-transform:uppercase;
-color:var(--earth);
-display:flex;
-align-items:center;
-gap:.6rem
-}
-
-.mv-objectives-eyebrow::before{
-content:'';
-width:28px;
-height:2px;
-background:var(--earth);
-flex-shrink:0
-}
-
-.mv-objectives-grid{
-display:grid;
-grid-template-columns:1fr 1fr;
-gap:1rem
-}
-
-@media(max-width:680px){
-.mv-objectives-grid{
-grid-template-columns:1fr
-}
-}
-
-.mv-objective-card{
-background:var(--white);
-border:1px solid var(--border);
-border-radius:10px;
-padding:1.2rem 1.3rem;
-display:flex;
-align-items:flex-start;
-gap:1rem;
-transition:all .2s;
-position:relative;
-overflow:hidden
-}
-
-.mv-objective-card::before{
-content:'';
-position:absolute;
-left:0;
-top:0;
-bottom:0;
-width:3px;
-background:linear-gradient(to bottom,var(--forest),var(--sky))
-}
-
-.mv-objective-card:hover{
-transform:translateY(-3px);
-box-shadow:0 8px 24px rgba(0,0,0,.08)
-}
-
-.mv-obj-num{
-font-family:'Playfair Display',serif;
-font-size:1.6rem;
-font-weight:900;
-color:var(--earth-light);
-line-height:1;
-flex-shrink:0;
-min-width:2rem
-}
-
-.mv-obj-icon{
-font-size:1.4rem;
-flex-shrink:0;
-margin-top:.15rem
-}
-
-.mv-obj-om{
-font-size:.85rem;
-font-weight:700;
-color:var(--forest);
-line-height:1.45;
-margin-bottom:.3rem
-}
-
-.mv-obj-en{
-font-size:.75rem;
-color:var(--muted);
-line-height:1.6;
-font-style:italic
-}
-
-/* Closing section */
-
-.mv-closing{
-background:linear-gradient(135deg,#f7f6f3 0%,#eceae6 100%);
-border-radius:12px;
-padding:2rem 2.2rem;
-text-align:center;
-position:relative;
-overflow:hidden;
-margin-top:1rem
-}
-
-.mv-closing::before{
-content:'';
-position:absolute;
-inset:0;
-background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='60' height='60'%3E%3Ccircle cx='30' cy='30' r='25' fill='none' stroke='rgba(0,0,0,0.05)' stroke-width='1'/%3E%3C/svg%3E")
-}
+.lorg-org-closing strong { color: var(--earth-light); font-weight: 700; }
 /* ══ ABOUT VIEW ══ */
 .about-stats-row{display:grid;grid-template-columns:repeat(4,1fr);gap:1rem;margin-bottom:2rem}
 @media(max-width:700px){.about-stats-row{grid-template-columns:repeat(2,1fr)}}
@@ -4012,17 +3994,22 @@ background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/sv
     </div>
   </div></div>
 </div>
-
-<!-- LEADERSHIP -->
+<!-- ================================================================
+     BLOCK 1 — LEADERSHIP VIEW
+     id="view-Leadership"
+     ================================================================ -->
 <div id="view-Leadership" class="content-view">
+
   <div class="view-header">
     <div class="view-header-inner">
       <div class="view-crumb">
         <a data-view="home">Home</a>
         <span class="view-crumb-sep"> › </span>
-        <span class="view-crumb-cur">Hoggansa AFOLU</span>
+        <a data-view="About">Waa'ee Keenya</a>
+        <span class="view-crumb-sep"> › </span>
+        <span class="view-crumb-cur">Gahee Hooggansaa</span>
       </div>
-      <div class="view-badge">🌳 Leadership</div>
+      <div class="view-badge">👥 Leadership</div>
       <h1 class="view-h1">Hoggansa <em>AFOLU Itoophiyaa</em></h1>
     </div>
   </div>
@@ -4032,166 +4019,629 @@ background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/sv
       <div class="view-body">
 
         <!-- INTRO -->
-        <div class="leadership-intro">
+        <div class="lorg-lead-intro">
           <p>
-            <strong>AFOLU Itoophiyaa</strong> pilaatfoormii beekumsaa biyyaalessaa bara
-            <strong>2019</strong> hundeeffame yoo ta’u, ragaa qorannoo saayinsaawaa,
-            muuxannoo hojii qabatamaa fi beekumsa dhalootaa walitti fiduun,
-            qonnaa, bosonaa fi itti fayyadama lafaa Itoophiyaa keessatti
-            jijjiirama waaraa fiduudhaaf hojjecha.
+            <strong>AFOLU Itoophiyaa</strong> pilaatfoormii beekumsaa biyyaalessaa bara <strong>2019</strong>
+            hundeeffame yoo ta'u, ragaa qorannoo saayinsaawaa, muuxannoo hojii qabatamaa fi beekumsa dhalootaa
+            walitti fiduun, qonnaa, bosonaa fi itti fayyadama lafaa Itoophiyaa keessatti jijjiirama waaraa
+            fiduudhaaf hojjecha.
           </p>
           <p>
-            Hoggansi AFOLU Itoophiyaa riqqicha beekumsaa fi hojiirra oolmaa
-            gidduutti ijaaramee, murtii ragaa irratti hundaa’e gara tarkaanfii
-            misoomaatti jijjiiruudhaan, dachee jijjiirama qilleensaa
-            dandamattu dhaloota dhufuuf mirkaneessuuf hojjechaa jira.
+            Hoggansi AFOLU Itoophiyaa riqqicha beekumsaa fi hojiirra oolmaa gidduutti ijaaramee, murtii ragaa
+            irratti hundaa'e gara tarkaanfii misoomaatti jijjiiruudhaan, dachee jijjiirama qilleensaa
+            dandamattu dhaloota dhufuuf mirkaneessuuf hojjechaa jira. Hoggansi jechuun karoora qofa osoo
+            hin taane — dandeettii dhalootaa ijaaruu, muuxannoo wal-jijjiiruu fi biyya tana egereef
+            tiksuudha.
           </p>
         </div>
 
-        <!-- DIRECTORS -->
-        <div class="directors-grid">
+        <!-- DIRECTORS GRID -->
+        <div class="lorg-directors-grid">
 
-          <!-- EXECUTIVE DIRECTOR -->
-          <div class="director-card">
-            <h3>Daayreektara Olaanaa</h3>
-            <p>
-              Hoggansa waliigalaa AFOLU Itoophiyaa kenna. Karoora tarsiimoo
-              dheeraa fi waggaa qopheessuu, hojiilee kutaa hundaa
-              qindeessuu fi dhaabbata bakka bu’ee mootummaa,
-              michoota misoomaa fi qaamolee idil‑addunyaa waliin
-              hojjetuu irratti itti gaafatamummaa qaba.
-            </p>
-            <p>
-              Hojii daayreektara olaanaa hundi kaayyoo AFOLU —
-              beekumsa gara jijjiirama lafa irratti mul’atuutti jijjiiru —
-              irratti xiyyeeffata.
-            </p>
+          <!-- 1. Executive Director -->
+          <div class="lorg-director-card">
+            <div class="lorg-dir-icon-wrap">🌿</div>
+            <span class="lorg-dir-badge">Ol-aantummaa — Executive Level</span>
+            <div class="lorg-dir-title">Daayirektara Ol-aanaa</div>
+            <div class="lorg-dir-title-en">Executive Director</div>
+            <div class="lorg-dir-desc">
+              Mul'ata, tarsiimoo fi xiyyeeffannoo AFOLU ol-aantummaan dubbachuu fi murteessuu. Hojiilee
+              wal-ta'iinsa alaa — dhaabbilee mootummaa, NGO fi deeggartoota idil-addunyaa — hogganuu fi
+              kutaalee biro hunda qindeessuu. Karoora tarsiimoo dheeraa fi waggaa qopheessuu irratti
+              itti gaafatamummaa guutuu qaba.
+            </div>
+            <ul class="lorg-dir-list">
+              <li>Karoora tarsiimoo dheeraa fi waggaa qopheessuu fi hojiirra oolchuu</li>
+              <li>Dhaabbata bakka bu'ee mootummaa fi qaamolee idil-addunyaa waliin mari'achuu</li>
+              <li>Kutaalee fi daayirektoreettiileen hunda qindeessuu</li>
+              <li>Maallaqaa fi qabeenya dhaabbatichaa mirkaneessuu</li>
+              <li>Gabaasa waliigalaa fi itti gaafatamummaa dhaabbatichaa eeguu</li>
+              <li>Hirmaannaa hawaasaa fi naannoolee biyyatti hunda keessatti bal'isuu</li>
+            </ul>
           </div>
 
-          <!-- KNOWLEDGE & TECH -->
-          <div class="director-card">
-            <h3>Daayreektara Hoggansa Beekumsaa fi Teeknikaa</h3>
-            <p>
-              Hoggansa hojii ogummaa AFOLU Itoophiyaa ni kenna.
-              Qorannoo saayinsaawaa, muuxannoo hojii qabatamaa
-              fi beekumsa dhalootaa walitti fiduun,
-              <strong>utuboota ogummaa AFOLU saddeet</strong>
-              qindoominaan akka hojjetan hoggana.
-            </p>
-            <p>
-              Hojii isa hunda saayinsii gara hojiitti,
-              hojii gara jijjiirama lafa irratti mul’atuutti
-              jijjiiru irratti ijaaree,
-              hojii Ashaaraa Magariisaa saayinsiin deeggaruu
-              fi dandeettii ogeessotaa fi dargaggootaa ijaaru
-              irratti xiyyeeffata.
-            </p>
-
-            <div class="pillars-wrap">
-              <div class="pillars-title">Utuboota Ogummaa AFOLU (8)</div>
-              <div class="pillars-grid">
-                <div class="pillar"><div class="pillar-icon">🌾</div><div class="pillar-text"><strong>Saayinsii Bilqitoolaa</strong>Oomishtummaa qonnaa cimsuu</div></div>
-                <div class="pillar"><div class="pillar-icon">🌍</div><div class="pillar-text"><strong>Bulchiinsa Qabeenya Uumamaa</strong>Ekoosistemaa tikfachuu</div></div>
-                <div class="pillar"><div class="pillar-icon">🌳</div><div class="pillar-text"><strong>Agroforestirii</strong>Qonna & bosona walitti hidhuu</div></div>
-                <div class="pillar"><div class="pillar-icon">📊</div><div class="pillar-text"><strong>Biostatistics</strong>Ragaa xiinxaluu</div></div>
-                <div class="pillar"><div class="pillar-icon">🏘️</div><div class="pillar-text"><strong>Misooma Baadiyyaa</strong>Jireenya baadiyyaa cimsuu</div></div>
-                <div class="pillar"><div class="pillar-icon">💰</div><div class="pillar-text"><strong>Dinagdee Qonnaa</strong>Gabaa & galii guddisuu</div></div>
-                <div class="pillar"><div class="pillar-icon">🌲</div><div class="pillar-text"><strong>Saayinsii Bosonaa</strong>Bosona deebisuu</div></div>
-                <div class="pillar"><div class="pillar-icon">🐘</div><div class="pillar-text"><strong>Bineensota & Turiizimii</strong>Biodiversitii eeguu</div></div>
+          <!-- 2. Director of Knowledge & Technical Services -->
+          <div class="lorg-director-card sky-bar">
+            <div class="lorg-dir-icon-wrap" style="background:linear-gradient(135deg,var(--sky),var(--sky-mid))">🔬</div>
+            <span class="lorg-dir-badge" style="color:var(--sky);background:rgba(26,58,92,0.08);border-color:rgba(26,58,92,0.2)">Teknikaa — Technical Level</span>
+            <div class="lorg-dir-title">Daayirektara Hoggansa Beekumsaa fi Teeknikaa</div>
+            <div class="lorg-dir-title-en">Director of Knowledge &amp; Technical Services</div>
+            <div class="lorg-dir-desc">
+              Hoggansa hojii ogummaa AFOLU Itoophiyaa ni kenna. Qorannoo saayinsaawaa, muuxannoo hojii
+              qabatamaa fi beekumsa dhalootaa walitti fiduun, <strong>utuboota ogummaa AFOLU saddeet</strong>
+              qindoominaan akka hojjetan hoggana. Saayinsii gara hojiitti, hojii gara jijjiirama lafa
+              irratti mul'atuutti jijjiiru.
+            </div>
+            <ul class="lorg-dir-list">
+              <li>Qorannoowwan Saayinsii Biqiltootaa, Beelladaa fi Bosonaa qindeessuu</li>
+              <li>Ragaalee saayinsaawaa sassaabuu, qulqullina isaanii mirkaneessuu</li>
+              <li>Beekumsa madda beekumsaa dhalootaaf darbuutti qopheessuu</li>
+              <li>Hojii Ashaaraa Magariisaa saayinsiin deeggaruu fi madaaluuu</li>
+              <li>Dandeettii ogeessotaa fi dargaggootaa ijaaruu — Fellowship, leenjii</li>
+              <li>Walitti dhiyaannaa qorattoota fi dhaabbilee barnootaa cimsu</li>
+              <li>Gabaasaalee teknikaa fi maxxansaalee ogummaa qopheessuu</li>
+            </ul>
+            <!-- 8 Technical Pillars -->
+            <div class="lorg-pillars-wrap">
+              <div class="lorg-pillars-label">Utuboota Ogummaa 8 jalatti argamu — Eight Technical Pillars</div>
+              <div class="lorg-pillars-grid">
+                <div class="lorg-pillar-item" data-view="plant-science">
+                  <span class="lorg-pillar-emoji">🌾</span>
+                  <div>
+                    <span class="lorg-pillar-om">Saayinsii Biqiltootaa</span>
+                    <span class="lorg-pillar-en">Plant Science</span>
+                  </div>
+                </div>
+                <div class="lorg-pillar-item" data-view="Natural-Resource-Mgmt">
+                  <span class="lorg-pillar-emoji">🌍</span>
+                  <div>
+                    <span class="lorg-pillar-om">Bulchiinsa Qabeenya Uumamaa</span>
+                    <span class="lorg-pillar-en">NRM</span>
+                  </div>
+                </div>
+                <div class="lorg-pillar-item" data-view="agroforestry">
+                  <span class="lorg-pillar-emoji">🌿</span>
+                  <div>
+                    <span class="lorg-pillar-om">Agroforestirii</span>
+                    <span class="lorg-pillar-en">Agroforestry</span>
+                  </div>
+                </div>
+                <div class="lorg-pillar-item" data-view="animal-science">
+                  <span class="lorg-pillar-emoji">🐄</span>
+                  <div>
+                    <span class="lorg-pillar-om">Saayinsii Beelladootaa</span>
+                    <span class="lorg-pillar-en">Animal Science</span>
+                  </div>
+                </div>
+                <div class="lorg-pillar-item" data-view="Extension">
+                  <span class="lorg-pillar-emoji">🏘</span>
+                  <div>
+                    <span class="lorg-pillar-om">Misoomaa Baadiyyaa</span>
+                    <span class="lorg-pillar-en">Rural Development</span>
+                  </div>
+                </div>
+                <div class="lorg-pillar-item" data-view="Agro-Economics">
+                  <span class="lorg-pillar-emoji">📊</span>
+                  <div>
+                    <span class="lorg-pillar-om">Diinagdee Qonnaa</span>
+                    <span class="lorg-pillar-en">Agro-Economics</span>
+                  </div>
+                </div>
+                <div class="lorg-pillar-item" data-view="forestry">
+                  <span class="lorg-pillar-emoji">🌳</span>
+                  <div>
+                    <span class="lorg-pillar-om">Saayinsii Bosonaa</span>
+                    <span class="lorg-pillar-en">Forestry Science</span>
+                  </div>
+                </div>
+                <div class="lorg-pillar-item" data-view="Wildlife">
+                  <span class="lorg-pillar-emoji">🦁</span>
+                  <div>
+                    <span class="lorg-pillar-om">Bineensota fi Tuuriizimii</span>
+                    <span class="lorg-pillar-en">Wildlife &amp; Ecotourism</span>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
 
-          <!-- GEOSPATIAL -->
-          <div class="director-card">
-            <h3>Daayreektara Odeeffannoo Lafaa fi Teeknooloojii</h3>
-            <p>
-              Bulchiinsa odeeffannoo lafaa fi teeknooloojii
-              dijitaalaa AFOLU Itoophiyaa hoggana.
-              GIS, Remote Sensing fi kuusaa daataa fayyadamuun,
-              hojii qonnaa, bosonaa fi qabeenya uumamaa
-              irratti murtii ragaa irratti hundaa’e
-              akka fudhatamu taasisuu irratti hojjecha.
-            </p>
-            <p>
-              Hojiin isaa hundi AFOLU akka dhaabbata
-              ragaa irratti ijaarameetti tajaajilu
-              fi jijjiirama itti fufiinsa qabu
-              mirkaneessu irratti kan xiyyeeffatu dha.
-            </p>
+          <!-- 3. Director of Geospatial & ICT -->
+          <div class="lorg-director-card earth-bar">
+            <div class="lorg-dir-icon-wrap" style="background:linear-gradient(135deg,var(--earth),#a07020)">🛰</div>
+            <span class="lorg-dir-badge">Teeknooloojii — ICT Level</span>
+            <div class="lorg-dir-title">Daayirektara Odeeffannoo Lafaa fi Teeknooloojii</div>
+            <div class="lorg-dir-title-en">Director of Geospatial &amp; ICT</div>
+            <div class="lorg-dir-desc">
+              Pilaatfoormii dijitaalaa, kuusaa beekumsaa fi ragaalee GIS (kaartaa) bulchuu. GIS, Remote
+              Sensing fi kuusaa daataa fayyadamuun, hojii qonnaa, bosonaa fi qabeenya uumamaa irratti
+              murtii ragaa irratti hundaa'e akka fudhatamu taasisuu irratti hojjecha. Nageenya odeeffannoo
+              eeguu fi teeknooloojii ammayyaa hojiirra oolchuu.
+            </div>
+            <ul class="lorg-dir-list">
+              <li>Pilaatfoormii dijitaalaa fi weebsaayitii biyyaalessaa bulchuu fi haaromsuu</li>
+              <li>GIS fi Remote Sensing fayyadamuun lafa, bosona fi sulula hordofuu</li>
+              <li>Kuusaa beekumsaa fi daataa dhaabbataa bulchuu fi tiksuu</li>
+              <li>Nageenya odeeffannoo eeguu fi backup sirreessuu</li>
+              <li>Ragaa lafaa qabatamaa — kaartaa fi odeeffannoo GIS — dhiyeessuu</li>
+              <li>REDD+ fi Green Legacy daataa MRV (Monitoring, Reporting, Verification)</li>
+              <li>Meeshaalee dijitaalaa leenjii fi odeeffannoo dirree keessatti hojiirra oolchuu</li>
+            </ul>
           </div>
 
-          <!-- POLICY -->
-          <div class="director-card">
-            <h3>Daayreektara Qunnamtii fi Imaammataa</h3>
-            <p>
-              Qunnamtii, imaammata fi beekumsa
-              wal‑qooddachuu AFOLU Itoophiyaa hoggana.
-              Bu’aa qorannoo saayinsaawaa fi muuxannoo
-              hojii gara afaan hawaasaa, imaammata
-              mootummaa fi murtii biyyaalessaatti
-              hiikuun, AFOLU akka sagalee saayinsaawaa
-              amansiisaa ta’u taasisa.
-            </p>
-            <p>
-              Hojiin isaa hundi beekumsa
-              akka hojiitti hiikamu taasisuu
-              fi jijjiirama waaraa deeggaruu
-              irratti xiyyeeffata.
-            </p>
+          <!-- 4. Director of Communication & Policy -->
+          <div class="lorg-director-card green-bar">
+            <div class="lorg-dir-icon-wrap" style="background:linear-gradient(135deg,var(--forest-light),#1a6a30)">📣</div>
+            <span class="lorg-dir-badge" style="color:var(--forest-mid);background:rgba(42,122,72,0.1);border-color:rgba(42,122,72,0.25)">Qunnamtii — Communication Level</span>
+            <div class="lorg-dir-title">Daayirektara Qunnamtii fi Imaammataa</div>
+            <div class="lorg-dir-title-en">Director of Communication &amp; Policy</div>
+            <div class="lorg-dir-desc">
+              Qunnamtii, imaammata fi beekumsa wal-qooddachuu AFOLU Itoophiyaa hoggana. Bu'aa qorannoo
+              saayinsaawaa fi muuxannoo hojii gara afaan hawaasaa, imaammata mootummaa fi murtii
+              biyyaalessaatti hiikuun, AFOLU akka sagalee saayinsaawaa amansiisaa ta'u taasisa.
+            </div>
+            <ul class="lorg-dir-list">
+              <li>Argannoowwan qorannoo gara imaammata mootummaatti jijjiiruuf gorfachuu</li>
+              <li>Ergaawwan AFOLU miidiyaalee fi hawaasaan bifa hawwataan gahuu</li>
+              <li>Gabaasaalee fi maxxansaalee qopheessuu fi raabsuu</li>
+              <li>Waltajjii ogummaa, konfaransii fi seminaara qopheessuu</li>
+              <li>Wal-ta'iinsa mootummaa, NGO fi michoota misoomaa cimsu</li>
+              <li>Miidiyaa hawaasummaa fi weebsaayitii oduu haaromsuu</li>
+              <li>Sagantaa Fellowship fi leenjii dargaggootaaf beeksisuu</li>
+            </ul>
           </div>
 
-        </div>
+        </div><!-- end lorg-directors-grid -->
 
         <!-- CLOSING -->
-        <div class="leadership-closing">
+        <div class="lorg-closing">
           <p>
-            <strong>AFOLU Itoophiyaa</strong> —
-            beekumsa wal‑qooddannee,
-            qonna, bosonaa fi lafaa ammayyeessinee,
-            egeree jijjiirama qilleensaa hin dukkanoofne
-            dhaloota dhufuuf dhaalchisu.
+            <strong>AFOLU Itoophiyaa</strong> — hoggansi isaa beekumsa wal-qooddannee, qonna, bosonaa fi
+            lafaa ammayyeessinee, egeree jijjiirama qilleensaa hin dukkanoofne dhaloota dhufuuf dhaalchistudha.
+            Daayirektoreettiin tokkoon tokkoo riqqicha ta'ee hojjeta —
+            <em>saayinsii gara hojiitti, hojii gara jijjiirama biyyattiitti.</em>
           </p>
         </div>
 
-      </div>
+      </div><!-- view-body -->
 
       <div class="view-nav">
-        <button class="view-nav-btn" data-view="Mission">← Mission & Vision</button>
+        <button class="view-nav-btn" data-view="Mission">← Mission &amp; Vision</button>
+        <button class="view-nav-btn" data-view="Organizational">Caasaa Dhaabbataa →</button>
         <button class="view-nav-btn" data-view="home">↑ Home</button>
       </div>
 
-    </div>
-  </div>
-</div>
-<!-- ORGANIZATIONAL STRUCTURE -->
+    </div><!-- view-content -->
+  </div><!-- view-body-wrap -->
+</div><!-- end view-Leadership -->
+
+
+<!-- ================================================================
+     BLOCK 2 — ORGANIZATIONAL STRUCTURE VIEW
+     id="view-Organizational"
+     ================================================================ -->
 <div id="view-Organizational" class="content-view">
+
   <div class="view-header">
     <div class="view-header-inner">
-      <div class="view-crumb"><a data-view="home">Home</a><span class="view-crumb-sep"> › </span><a data-view="About">Waa'ee Keenya</a><span class="view-crumb-sep"> › </span><span class="view-crumb-cur">Caasaa Dhaabbata</span></div>
-      <div class="view-badge">🏛 About</div>
-      <h1 class="view-h1">Organizational <em>Structure</em></h1>
+      <div class="view-crumb">
+        <a data-view="home">Home</a>
+        <span class="view-crumb-sep"> › </span>
+        <a data-view="About">Waa'ee Keenya</a>
+        <span class="view-crumb-sep"> › </span>
+        <span class="view-crumb-cur">Caasaa Dhaabbataa</span>
+      </div>
+      <div class="view-badge">🏛 Caasaa Dhaabbataa</div>
+      <h1 class="view-h1">Caasaa <em>Dhaabbataa AFOLU Itoophiyaa</em></h1>
     </div>
   </div>
-  <div class="view-body-wrap"><div class="view-content">
-    <div class="view-body">
-      <p>AFOLU Ethiopia's organizational structure is designed to integrate technical expertise with program delivery and institutional accountability. The structure supports a matrix of technical and programmatic functions that enable responsive, evidence-based programming across Ethiopia's diverse regions.</p>
-      <div class="view-h3">Directorates</div>
-      <ul class="view-list">
-        <li>Office of the Hogganaa Waliigalaa</li>
-        <li>Daayirektooreettii Teknikaa (Plant Science, Forestry, Animal Science, NRM, Agroforestry, Extension, Agro-Economics, Wildlife)</li>
-        <li>Daayirektooreettii Sagantaalee (Green Legacy, REDD+, Dandamachuu Qilleensaa, Wabi Nyaataa fi Sirna Nyaataa)</li>
-        <li>Research and Biiroo Hirmaannaa</li>
-        <li>Geospatial and Information Management Unit</li>
-        <li>Finance, Administration and Human Resources</li>
-      </ul>
-    </div>
-    <div class="view-nav">
-      <button class="view-nav-btn" data-view="Leadership">← Leadership</button>
-      <button class="view-nav-btn" data-view="plant-science">Sectors →</button>
-    </div>
-  </div></div>
-</div>
+
+  <div class="view-body-wrap">
+    <div class="view-content">
+      <div class="view-body">
+
+        <p>
+          AFOLU Itoophiyaa caasaa dhaabbataa ishee qorannoo saayinsaawaa, sagantaalee gurguddoo, fi
+          itti gaafatamummaa dhaabbilee walitti makuun ijaaramte. Caasaan kun hojii teknikaa fi
+          sagantaalee garaagaraa walitti qindeessuun kutaalee biyyatti hunda keessatti deebii kennuu fi
+          sagantaalee ragaa irratti hundaa'an hojiirra oolchuuf dandeessisa.
+        </p>
+        <p>
+          AFOLU Ethiopia's organizational structure integrates technical expertise with program delivery
+          and institutional accountability — supporting a matrix of functions that enable responsive,
+          evidence-based programming across Ethiopia's diverse regions.
+        </p>
+
+        <!-- ══ EXECUTIVE OFFICE ══ -->
+        <h2 class="lorg-org-section-title">🏛 1. Biiroo Hogganaa Waliigalaa — Executive Office</h2>
+
+        <div class="lorg-top-node">
+          <div class="lorg-top-icon">🌿</div>
+          <div class="lorg-top-body">
+            <span class="lorg-top-badge">Ol-aantummaa — Executive Authority</span>
+            <div class="lorg-top-title">
+              Hogganaa Waliigalaa — Executive Director
+            </div>
+            <div class="lorg-top-desc">
+              Mul'ata, tarsiimoo fi xiyyeeffannoo AFOLU hundi ol-aantummaan hogganaa waliigalaaf itti
+              gaafatama. Karoora tarsiimoo dheeraa fi waggaa qopheessuu, hojiilee kutaa hundaa
+              qindeessuu fi dhaabbata bakka bu'ee mootummaa, michoota misoomaa fi qaamolee
+              idil-addunyaa waliin hojjetu.
+            </div>
+            <div class="lorg-top-funcs">
+              <span class="lorg-top-func">🎯 Mul'ata fi Tarsiimoo</span>
+              <span class="lorg-top-func">🤝 Hirmaannaa Alaa</span>
+              <span class="lorg-top-func">📋 Karoora Waggaa</span>
+              <span class="lorg-top-func">🌍 Wal-ta'iinsa Biyyaalessaa</span>
+              <span class="lorg-top-func">💼 Itti Gaafatamummaa Guutuu</span>
+            </div>
+          </div>
+        </div>
+        <div class="lorg-connector"></div>
+
+        <!-- ══ FOUR DIRECTORATES ══ -->
+        <h2 class="lorg-org-section-title">🔷 2. Daayirektoreettii Afur — Four Core Directorates</h2>
+
+        <div class="lorg-dir-cards-grid">
+
+          <!-- DIR A: Technical -->
+          <div class="lorg-dir-block">
+            <div class="lorg-dblock-icon">🔬</div>
+            <div class="lorg-dblock-name">Daayirektoreettii Teeknikaa</div>
+            <div class="lorg-dblock-en">Directorate of Knowledge &amp; Technical Services</div>
+            <div class="lorg-dblock-desc">
+              Qorannoo saayinsaawaa, muuxannoo hojii qabatamaa fi beekumsa dhalootaa walitti fiduun,
+              utuboota ogummaa AFOLU saddeet qindoominaan hoggana. Hojii Ashaaraa Magariisaa
+              saayinsiin deeggaruu fi dandeettii ogeessotaa ijaaruu keessatti gahee ol-aanaa qaba.
+            </div>
+            <ul class="lorg-dblock-list">
+              <li>Qorannoowwan seektaroota 8 hunda keessatti qindeessuu fi hogganuu</li>
+              <li>Ragaalee saayinsaawaa sassaabuu, qulqulleessuu fi raabsuu</li>
+              <li>Dandeettii ogeessotaa fi dargaggootaa Fellowship fi leenjiin ijaaruu</li>
+              <li>Maxxansaalee teknikaa fi gabaasaalee ogummaa qopheessuu</li>
+              <li>Walitti dhiyaannaa qorattoota fi dhaabbilee barnootaa cimsu</li>
+            </ul>
+            <div class="lorg-dblock-pills-label">Utuboota Teknikaa 8 (Eight Technical Sectors)</div>
+            <div class="lorg-8pillars-grid">
+              <div class="lorg-8p-item" data-view="plant-science">
+                <span class="lorg-8p-emoji">🌾</span>
+                <div><span class="lorg-8p-name">Plant Science</span><span class="lorg-8p-sub">Saayinsii Biqiltootaa</span></div>
+              </div>
+              <div class="lorg-8p-item" data-view="Natural-Resource-Mgmt">
+                <span class="lorg-8p-emoji">🌍</span>
+                <div><span class="lorg-8p-name">NRM</span><span class="lorg-8p-sub">Qabeenya Uumamaa</span></div>
+              </div>
+              <div class="lorg-8p-item" data-view="agroforestry">
+                <span class="lorg-8p-emoji">🌿</span>
+                <div><span class="lorg-8p-name">Agroforestry</span><span class="lorg-8p-sub">Agroforestirii</span></div>
+              </div>
+              <div class="lorg-8p-item" data-view="animal-science">
+                <span class="lorg-8p-emoji">🐄</span>
+                <div><span class="lorg-8p-name">Animal Science</span><span class="lorg-8p-sub">Saayinsii Beelladootaa</span></div>
+              </div>
+              <div class="lorg-8p-item" data-view="Extension">
+                <span class="lorg-8p-emoji">🏘</span>
+                <div><span class="lorg-8p-name">Rural Development</span><span class="lorg-8p-sub">Misoomaa Baadiyyaa</span></div>
+              </div>
+              <div class="lorg-8p-item" data-view="Agro-Economics">
+                <span class="lorg-8p-emoji">📊</span>
+                <div><span class="lorg-8p-name">Agro-Economics</span><span class="lorg-8p-sub">Diinagdee Qonnaa</span></div>
+              </div>
+              <div class="lorg-8p-item" data-view="forestry">
+                <span class="lorg-8p-emoji">🌳</span>
+                <div><span class="lorg-8p-name">Forestry</span><span class="lorg-8p-sub">Saayinsii Bosonaa</span></div>
+              </div>
+              <div class="lorg-8p-item" data-view="Wildlife">
+                <span class="lorg-8p-emoji">🦁</span>
+                <div><span class="lorg-8p-name">Wildlife &amp; Ecotourism</span><span class="lorg-8p-sub">Bineensota fi Tuuriizimii</span></div>
+              </div>
+            </div>
+          </div>
+
+          <!-- DIR B: Programs -->
+          <div class="lorg-dir-block sky-t">
+            <div class="lorg-dblock-icon">🚀</div>
+            <div class="lorg-dblock-name">Daayirektoreettii Sagantaalee</div>
+            <div class="lorg-dblock-en">Directorate of Programs &amp; Initiatives</div>
+            <div class="lorg-dblock-desc">
+              Sagantaalee guguddoo afur hojiirra oolchuu, hordofuu fi madaaluuf itti gaafatama.
+              Pirojektii haaraa karoorsuu fi kanneen xumurame irraa muuxannoo sassaabuu, inisheetiviiwwan
+              biyyaalessaa qindeessuu fi gabaasa sagantaalee qopheessuu.
+            </div>
+            <ul class="lorg-dblock-list">
+              <li>Sagantaa Green Legacy hojiirra oolchuu, madaaluuu fi gabaasuu</li>
+              <li>Sagantaa REDD+ biyyaalessaa fi naannootti deeggaruu</li>
+              <li>Dandamannaa Jijjiirama Qilleensaa — CRGE hojiirra oolchuu</li>
+              <li>Wabii Nyaataa fi inisheetiviiwwan: Faaya, Qamadii, Bulee qindeessuu</li>
+              <li>Pirojektii haaraa karoorsuu fi kanneen jiran hordofuu</li>
+            </ul>
+            <div class="lorg-dblock-pills-label">Sagantaalee 4 Guguddoo</div>
+            <div style="overflow-x:auto;margin-top:0.5rem">
+              <table class="lorg-prog-table">
+                <thead>
+                  <tr>
+                    <th>Sagantaa</th>
+                    <th>Bara</th>
+                    <th>Bu'aa Ijoo</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><span class="lorg-ptag lorg-ptag-g">🌱 Green Legacy</span></td>
+                    <td>2019–itti fufa</td>
+                    <td>Biqiltuu 48B+ dhaabame; bosona 23.6%</td>
+                  </tr>
+                  <tr>
+                    <td><span class="lorg-ptag lorg-ptag-s">🌳 REDD+</span></td>
+                    <td>Itti fufa</td>
+                    <td>Bosona hawaasaa naannoo 3+ keessatti</td>
+                  </tr>
+                  <tr>
+                    <td><span class="lorg-ptag lorg-ptag-e">🌡 Dandamachuu</span></td>
+                    <td>CRGE waliin</td>
+                    <td>CSA teknolojii kuntaalee 10,000+</td>
+                  </tr>
+                  <tr>
+                    <td><span class="lorg-ptag lorg-ptag-r">🌾 Wabii Nyaataa</span></td>
+                    <td>Itti fufa</td>
+                    <td>Qamadii kuntaala M 110+; of-danda'uu</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+          <!-- DIR C: GIS & ICT -->
+          <div class="lorg-dir-block earth-t">
+            <div class="lorg-dblock-icon">🛰</div>
+            <div class="lorg-dblock-name">Daayirektoreettii Odeeffannoo Lafaa fi ICT</div>
+            <div class="lorg-dblock-en">Directorate of Geospatial &amp; ICT</div>
+            <div class="lorg-dblock-desc">
+              Pilaatfoormii dijitaalaa, kuusaa beekumsaa fi ragaalee GIS bulchuu. GIS fi Remote Sensing
+              fayyadamuun, murtii ragaa irratti hundaa'e akka fudhatamu taasisuu — AFOLU akka
+              dhaabbata ragaa irratti ijaarameetti tajaajilu.
+            </div>
+            <ul class="lorg-dblock-list">
+              <li>Pilaatfoormii dijitaalaa fi weebsaayitii biyyaalessaa bulchuu</li>
+              <li>GIS fi Remote Sensing fayyadamuun lafa fi bosona hordofuu</li>
+              <li>Kuusaa beekumsaa fi daataa dhaabbataa bulchuu fi tiksuu</li>
+              <li>Nageenya odeeffannoo eeguu fi backup sirreessuu</li>
+              <li>REDD+ fi Green Legacy MRV daataa qindeessuu</li>
+            </ul>
+            <div class="lorg-dblock-pills-label">Dandeettii ICT (Key Capabilities)</div>
+            <div class="lorg-dblock-pills">
+              <span class="lorg-dblock-pill">🗺 GIS Analysis</span>
+              <span class="lorg-dblock-pill">🛰 Remote Sensing</span>
+              <span class="lorg-dblock-pill">📱 Mobile Data</span>
+              <span class="lorg-dblock-pill">🔒 Data Security</span>
+              <span class="lorg-dblock-pill">☁ Cloud DB</span>
+              <span class="lorg-dblock-pill">📊 Data Viz</span>
+            </div>
+          </div>
+
+          <!-- DIR D: Communication & Policy -->
+          <div class="lorg-dir-block green-t">
+            <div class="lorg-dblock-icon">📣</div>
+            <div class="lorg-dblock-name">Daayirektoreettii Qunnamtii fi Imaammataa</div>
+            <div class="lorg-dblock-en">Directorate of Communication &amp; Policy</div>
+            <div class="lorg-dblock-desc">
+              Bu'aa qorannoo saayinsaawaa fi muuxannoo hojii gara afaan hawaasaa, imaammata mootummaa
+              fi murtii biyyaalessaatti hiikuun, AFOLU akka sagalee saayinsaawaa amansiisaa ta'u
+              taasisa. Beekumsa akka hojiitti, hojii akka jijjiiramatti.
+            </div>
+            <ul class="lorg-dblock-list">
+              <li>Argannoowwan qorannoo gara imaammata jijjiiruuf gorfachuu</li>
+              <li>Ergaawwan AFOLU miidiyaalee fi hawaasaan gahuu</li>
+              <li>Gabaasaalee fi maxxansaalee qopheessuu fi raabsuu</li>
+              <li>Waltajjii ogummaa, konfaransii fi seminaara qopheessuu</li>
+              <li>Michoota misoomaa fi wal-ta'iinsa dhaabbilee cimsu</li>
+            </ul>
+            <div class="lorg-dblock-pills-label">Kallattii Hojii (Focus Areas)</div>
+            <div class="lorg-dblock-pills">
+              <span class="lorg-dblock-pill">📰 Media</span>
+              <span class="lorg-dblock-pill">📜 Policy</span>
+              <span class="lorg-dblock-pill">🤝 Partnerships</span>
+              <span class="lorg-dblock-pill">📢 Publications</span>
+              <span class="lorg-dblock-pill">🌐 Social Media</span>
+            </div>
+          </div>
+
+        </div><!-- end lorg-dir-cards-grid -->
+
+        <!-- ══ RESEARCH & ENGAGEMENT BUREAU ══ -->
+        <h2 class="lorg-org-section-title">🔎 3. Biiroo Qorannoo fi Hirmaannaa — Research &amp; Engagement Bureau</h2>
+        <div style="background:var(--white);border:1px solid var(--border);border-left:5px solid var(--forest-light);border-radius:0 10px 10px 0;padding:1.4rem 1.8rem;margin-bottom:1.8rem">
+          <p style="font-size:0.88rem;color:var(--ink-soft);line-height:1.8;margin-bottom:1rem">
+            Biiroon kun qorannoo saayinsaawaa fi hirmaannaa hawaasaa walitti fida. Qorattoota, dhaabbilee
+            barnootaa, dargaggootaa fi miseensota hawaasaa qabatamaa hojii AFOLU keessatti hirmaachisuu
+            irratti hojjeta. Foramii ogummaa, leenjii, maxxansa waliinii fi waltajjii hawaasni irratti
+            hirmaatu gurmeessuun, muuxannoon dirree walqoodamu taasisa.
+          </p>
+          <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:0.65rem">
+            <div style="background:var(--ivory);border:1px solid var(--border);border-radius:8px;padding:0.8rem 0.9rem">
+              <div style="font-size:0.78rem;font-weight:700;color:var(--forest);margin-bottom:0.3rem">🎓 Dandeettii Ijaaruu</div>
+              <div style="font-size:0.74rem;color:var(--ink-soft);line-height:1.6">Ogeessota haaraa fi dargaggootaaf leenjii fi waltajjii kennuu</div>
+            </div>
+            <div style="background:var(--ivory);border:1px solid var(--border);border-radius:8px;padding:0.8rem 0.9rem">
+              <div style="font-size:0.78rem;font-weight:700;color:var(--forest);margin-bottom:0.3rem">📚 Maxxansa Waliin</div>
+              <div style="font-size:0.74rem;color:var(--ink-soft);line-height:1.6">Qorattootaa waliin maxxansaalee beekumsa qooddachuu</div>
+            </div>
+            <div style="background:var(--ivory);border:1px solid var(--border);border-radius:8px;padding:0.8rem 0.9rem">
+              <div style="font-size:0.78rem;font-weight:700;color:var(--forest);margin-bottom:0.3rem">🌐 Walitti Hidhiinsa</div>
+              <div style="font-size:0.74rem;color:var(--ink-soft);line-height:1.6">NGO, barnootaa fi mootummaa gidduutti riqqicha ta'uu</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- ══ SUPPORT UNITS ══ -->
+        <h2 class="lorg-org-section-title">⚙ 4. Yunittiileen Deeggarsa — Support Units</h2>
+        <div class="lorg-support-grid">
+          <div class="lorg-support-card">
+            <div class="lorg-support-icon">🌍</div>
+            <div class="lorg-support-name">Yunittii GIS fi Bulchiinsa Odeeffannoo</div>
+            <div class="lorg-support-en">Geospatial &amp; Information Management Unit</div>
+            <div class="lorg-support-desc">
+              Ragaa lafaa, kaartaa fi Remote Sensing walitti qabuu fi qulqulleessuun sagantaalee fi
+              pirojektii hunda keessatti murtii ragaa irratti hundaa'e akka fudhatamu taasisuu.
+              MRV sagantaa REDD+ fi Green Legacy keessatti gahee olaanaa qaba.
+            </div>
+          </div>
+          <div class="lorg-support-card el">
+            <div class="lorg-support-icon">💰</div>
+            <div class="lorg-support-name">Biiroo Maallaqaa fi Bulchiinsaa</div>
+            <div class="lorg-support-en">Finance &amp; Administration Bureau</div>
+            <div class="lorg-support-desc">
+              Maallaqaa fi qabeenya dhaabbatichaa bulchuu, gabaasaalee maallaqaa qopheessuu,
+              bittaa fi raabsaa qindeessuu fi dambii qaama mootummaa fi deeggartoota
+              idil-addunyaa eeguun hojjeta.
+            </div>
+          </div>
+          <div class="lorg-support-card gl">
+            <div class="lorg-support-icon">👥</div>
+            <div class="lorg-support-name">Bulchiinsa Dhimma Namaa</div>
+            <div class="lorg-support-en">Human Resources Department</div>
+            <div class="lorg-support-desc">
+              Ogeessota ramaduu, leenjisuu fi eeguu. AFOLU akka dhaabbata waa baradhu fi guddatu
+              taasisu. Dandeettii ogeessotaa yeroo yeroon dabaluuf sagantaalee leenjii qopheessa.
+            </div>
+          </div>
+        </div>
+
+        <!-- ══ MATRIX ══ -->
+        <h2 class="lorg-org-section-title">📊 5. Matrix: Seektaroonni vs Sagantaalee</h2>
+        <p style="font-size:0.85rem;color:var(--muted);margin-bottom:0.9rem;line-height:1.7">
+          Caasaan matrix kun agarsiisa — seektara teknikaa tokkoon tokkoo sagantaalee guguddoo kamiif
+          deeggarsa kennu. This matrix shows which technical sector supports which core program.
+        </p>
+        <div class="lorg-matrix-wrap">
+          <table class="lorg-matrix">
+            <thead>
+              <tr>
+                <th>Seektara / Sector</th>
+                <th>🌱 Green Legacy</th>
+                <th>🌳 REDD+</th>
+                <th>🌡 Dandamachuu</th>
+                <th>🌾 Wabii Nyaataa</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="rh">🌾 Saayinsii Biqiltootaa</td>
+                <td class="chk">✔</td><td class="chk">—</td>
+                <td class="chk">✔</td><td class="chk">✔</td>
+              </tr>
+              <tr>
+                <td class="rh">🌍 Bulchiinsa Qabeenya Uumamaa</td>
+                <td class="chk">✔</td><td class="chk">✔</td>
+                <td class="chk">✔</td><td class="chk">✔</td>
+              </tr>
+              <tr>
+                <td class="rh">🌿 Agroforestirii</td>
+                <td class="chk">✔</td><td class="chk">✔</td>
+                <td class="chk">✔</td><td class="chk">✔</td>
+              </tr>
+              <tr>
+                <td class="rh">🐄 Saayinsii Beelladootaa</td>
+                <td class="chk">—</td><td class="chk">—</td>
+                <td class="chk">✔</td><td class="chk">✔</td>
+              </tr>
+              <tr>
+                <td class="rh">🏘 Misoomaa Baadiyyaa</td>
+                <td class="chk">✔</td><td class="chk">✔</td>
+                <td class="chk">✔</td><td class="chk">✔</td>
+              </tr>
+              <tr>
+                <td class="rh">📊 Diinagdee Qonnaa</td>
+                <td class="chk">—</td><td class="chk">✔</td>
+                <td class="chk">✔</td><td class="chk">✔</td>
+              </tr>
+              <tr>
+                <td class="rh">🌳 Saayinsii Bosonaa</td>
+                <td class="chk">✔</td><td class="chk">✔</td>
+                <td class="chk">✔</td><td class="chk">—</td>
+              </tr>
+              <tr>
+                <td class="rh">🦁 Bineensota fi Tuuriizimii</td>
+                <td class="chk">✔</td><td class="chk">✔</td>
+                <td class="chk">—</td><td class="chk">—</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <!-- ══ REGIONAL PRESENCE ══ -->
+        <h2 class="lorg-org-section-title">🗺 6. Argama Naannoo — Regional Presence</h2>
+        <p style="font-size:0.85rem;color:var(--muted);margin-bottom:0.9rem;line-height:1.7">
+          AFOLU Itoophiyaa naannoolee biyyatti hunda keessatti hojii isaa babal'isee, haala ekooloojii,
+          aadaa fi dhaabbilee naannootti madaqe hojjeta.
+        </p>
+        <div class="lorg-regions-grid">
+          <div class="lorg-region-card">
+            <div class="lorg-region-flag">🌿</div>
+            <div>
+              <div class="lorg-region-name">Oromiyaa</div>
+              <div class="lorg-region-focus">Sulula ol-aanaa fi Agroforestirii babal'achuu</div>
+            </div>
+          </div>
+          <div class="lorg-region-card">
+            <div class="lorg-region-flag">🌾</div>
+            <div>
+              <div class="lorg-region-name">Amaaraa</div>
+              <div class="lorg-region-focus">Kunuunsa biyyee fi bishaanii fi wabii nyaataa</div>
+            </div>
+          </div>
+          <div class="lorg-region-card">
+            <div class="lorg-region-flag">🌳</div>
+            <div>
+              <div class="lorg-region-name">SNNPR</div>
+              <div class="lorg-region-focus">Eegumsa bosonaa fi oomisha qabeenya bosonaa</div>
+            </div>
+          </div>
+          <div class="lorg-region-card">
+            <div class="lorg-region-flag">💧</div>
+            <div>
+              <div class="lorg-region-name">Tigraay</div>
+              <div class="lorg-region-focus">Haaromsa gammoojjii fi qonnaa madaqe</div>
+            </div>
+          </div>
+          <div class="lorg-region-card">
+            <div class="lorg-region-flag">🐄</div>
+            <div>
+              <div class="lorg-region-name">Somaalee &amp; Afaar</div>
+              <div class="lorg-region-focus">Hoggansa dirree fi bishaanii horsiisee bulee</div>
+            </div>
+          </div>
+          <div class="lorg-region-card">
+            <div class="lorg-region-flag">🦋</div>
+            <div>
+              <div class="lorg-region-name">Benishangul-Gumuz</div>
+              <div class="lorg-region-focus">Bulchiinsa bosona hawaasaa fi REDD+ pilaatii</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- CLOSING -->
+        <div class="lorg-org-closing">
+          <p>
+            <strong>AFOLU Itoophiyaa</strong> — caasaan isaa kaayyoo tokko qofa gara hojiitti jijjiiru
+            qopheessa: beekumsa saayinsaawaa, muuxannoo dirree fi imaammataa walitti hidhuun, dachee
+            Itoophiyaa jijjiirama qilleensaa dandamattu dhaloota dhufuuf mirkaneessuu.
+            <br><br>
+            <em>"Every directorate, every unit, every sector exists to answer one question:
+            how do we ensure Ethiopia's land nourishes every generation to come?"</em>
+          </p>
+        </div>
+
+      </div><!-- view-body -->
+
+      <div class="view-nav">
+        <button class="view-nav-btn" data-view="Leadership">← Gahee Hooggansaa</button>
+        <button class="view-nav-btn" data-view="plant-science">Sectors →</button>
+        <button class="view-nav-btn" data-view="home">↑ Home</button>
+      </div>
+
+    </div><!-- view-content -->
+  </div><!-- view-body-wrap -->
+</div><!-- end view-Organizational -->
 
 <!-- PLANT SCIENCE -->
 <div id="view-plant-science" class="content-view">
